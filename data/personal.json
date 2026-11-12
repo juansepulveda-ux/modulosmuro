@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "people": [
+    {
+      "id": "paloma-acevedo",
+      "name": "Paloma Acevedo",
+      "nick": "Palo",
+      "defaultStart": "13:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": false,
+          "launch": false,
+          "poles": false,
+          "brake": false
+        },
+        "preferred": ""
+      }
+    },
+    {
+      "id": "benjamin-delgado",
+      "name": "Benjamin Delgado",
+      "nick": "Benja",
+      "defaultStart": "13:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": false,
+          "launch": false,
+          "poles": false,
+          "brake": false
+        },
+        "preferred": ""
+      }
+    },
+    {
+      "id": "lucia-soto",
+      "name": "Lucia Soto",
+      "nick": "Lu",
+      "defaultStart": "13:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": false,
+          "launch": false,
+          "poles": false,
+          "brake": false
+        },
+        "preferred": ""
+      }
+    },
+    {
+      "id": "james-almuna",
+      "name": "James Almuna",
+      "nick": "James",
+      "defaultStart": "12:00",
+      "defaultEnd": "21:00",
+      "airtrail": {
+        "skills": {
+          "equip": true,
+          "launch": true,
+          "poles": true,
+          "brake": true
+        },
+        "preferred": ""
+      }
+    },
+    {
+      "id": "bryan-gutierrez",
+      "name": "Bryan Gutierrez",
+      "nick": "Bryan",
+      "defaultStart": "12:00",
+      "defaultEnd": "21:00",
+      "airtrail": {
+        "skills": {
+          "equip": true,
+          "launch": true,
+          "poles": true,
+          "brake": true
+        },
+        "preferred": ""
+      }
+    },
+    {
+      "id": "enoc-jimenez",
+      "name": "Enoc Jimenez",
+      "nick": "Enoc",
+      "defaultStart": "12:00",
+      "defaultEnd": "21:00",
+      "airtrail": {
+        "skills": {
+          "equip": true,
+          "launch": true,
+          "poles": true,
+          "brake": true
+        },
+        "preferred": ""
+      }
+    },
+    {
+      "id": "juan-ortega",
+      "name": "Juan Ortega",
+      "nick": "Juan",
+      "defaultStart": "12:00",
+      "defaultEnd": "21:00",
+      "airtrail": {
+        "skills": {
+          "equip": true,
+          "launch": true,
+          "poles": true,
+          "brake": true
+        },
+        "preferred": ""
+      }
+    },
+    {
+      "id": "daniela-gutierrez",
+      "name": "Daniela Gutierrez",
+      "nick": "Dani",
+      "defaultStart": "12:00",
+      "defaultEnd": "21:00",
+      "airtrail": {
+        "skills": {
+          "equip": true,
+          "launch": false,
+          "poles": true,
+          "brake": false
+        },
+        "preferred": "equip"
+      }
+    },
+    {
+      "id": "constanza-gaete",
+      "name": "Constanza Gaete",
+      "nick": "Coni",
+      "defaultStart": "12:00",
+      "defaultEnd": "21:00",
+      "airtrail": {
+        "skills": {
+          "equip": true,
+          "launch": false,
+          "poles": true,
+          "brake": false
+        },
+        "preferred": "equip"
+      }
+    },
+    {
+      "id": "susan-espinoza",
+      "name": "Susan Espinoza",
+      "nick": "Susan",
+      "defaultStart": "12:00",
+      "defaultEnd": "21:00",
+      "airtrail": {
+        "skills": {
+          "equip": true,
+          "launch": false,
+          "poles": true,
+          "brake": false
+        },
+        "preferred": "poles"
+      }
+    }
+  ]
+}

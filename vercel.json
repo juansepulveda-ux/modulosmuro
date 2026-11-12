@@ -4,20 +4,19 @@
     {
       "source": "/planificador",
       "destination": "/planificador.html"
+    },
+    {
+      "source": "/planificador-muro",
+      "destination": "/planificador_muro.html"
+    },
+    {
+      "source": "/planificador-airtrail",
+      "destination": "/planificador_airtrail.html"
     }
   ],
   "headers": [
     {
-      "source": "/planificador.html",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store"
-        }
-      ]
-    },
-    {
-      "source": "/planificador_(.*).html",
+      "source": "/planificador(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -27,6 +26,15 @@
     },
     {
       "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/",
       "headers": [
         {
           "key": "Cache-Control",
