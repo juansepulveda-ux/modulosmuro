@@ -22,3 +22,6 @@ La base compartida y las publicaciones se escriben en GitHub mediante las funcio
 
 ## Tramos de intervalos
 Ambos planificadores permiten definir varios tramos horarios de inicio de módulos, cada uno con su propio intervalo. El límite Hasta es exclusivo para los inicios.
+
+
+Actualización v7: Airtrail usa dos colores alternados por módulo, Break y Libre; la asignación de apoyos considera cambios de turno por fase.
