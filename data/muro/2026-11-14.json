@@ -1,16 +1,16 @@
 {
-  "version": 4,
+  "version": 5,
   "type": "muro",
-  "createdAt": "2026-11-12T22:21:54.545Z",
+  "createdAt": "2026-11-12T23:48:06.079Z",
   "date": "2026-11-14",
   "settings": {
-    "first": "10:00",
-    "interval": 45,
+    "first": "10:30",
+    "interval": 50,
     "intervals": [
       {
-        "start": "10:00",
+        "start": "10:30",
         "end": "13:00",
-        "interval": 45
+        "interval": 50
       },
       {
         "start": "14:00",
@@ -18,7 +18,11 @@
         "interval": 30
       }
     ],
-    "grid": 5
+    "grid": 5,
+    "shuffleRound": 18,
+    "forcedPrimaries": {
+      "870": "benjamin-delgado"
+    }
   },
   "staff": [
     {
@@ -52,115 +56,123 @@
   "modules": [
     {
       "id": 1,
-      "start": 600,
-      "end": 650,
-      "primary": "lucia-soto",
-      "support": "p_f48u8to"
+      "start": 630,
+      "end": 680,
+      "primary": "p_f48u8to",
+      "support": "lucia-soto",
+      "forced": false
     },
     {
       "id": 2,
-      "start": 645,
-      "end": 695,
-      "primary": "p_f48u8to",
-      "support": "lucia-soto"
+      "start": 680,
+      "end": 730,
+      "primary": "lucia-soto",
+      "support": "p_f48u8to",
+      "forced": false
     },
     {
       "id": 3,
-      "start": 690,
-      "end": 740,
-      "primary": "lucia-soto",
-      "support": "p_f48u8to"
+      "start": 730,
+      "end": 780,
+      "primary": "p_f48u8to",
+      "support": "lucia-soto",
+      "forced": false
     },
     {
       "id": 4,
-      "start": 735,
-      "end": 785,
-      "primary": "p_f48u8to",
-      "support": "lucia-soto"
-    },
-    {
-      "id": 5,
       "start": 840,
       "end": 890,
       "primary": "lucia-soto",
-      "support": "benjamin-delgado"
+      "support": "p_f48u8to",
+      "forced": false
+    },
+    {
+      "id": 5,
+      "start": 870,
+      "end": 920,
+      "primary": "benjamin-delgado",
+      "support": "lucia-soto",
+      "forced": true
     },
     {
       "id": 6,
-      "start": 870,
-      "end": 920,
+      "start": 900,
+      "end": 950,
       "primary": "p_f48u8to",
-      "support": "benjamin-delgado"
+      "support": "benjamin-delgado",
+      "forced": false
     },
     {
       "id": 7,
-      "start": 900,
-      "end": 950,
+      "start": 930,
+      "end": 980,
       "primary": "lucia-soto",
-      "support": "p_f48u8to"
+      "support": "benjamin-delgado",
+      "forced": false
     },
     {
       "id": 8,
-      "start": 930,
-      "end": 980,
-      "primary": "benjamin-delgado",
-      "support": "lucia-soto"
-    },
-    {
-      "id": 9,
       "start": 960,
       "end": 1010,
       "primary": "p_f48u8to",
-      "support": "benjamin-delgado"
+      "support": "benjamin-delgado",
+      "forced": false
     },
     {
-      "id": 10,
+      "id": 9,
       "start": 990,
       "end": 1040,
       "primary": "lucia-soto",
-      "support": "p_f48u8to"
+      "support": "p_f48u8to",
+      "forced": false
     },
     {
-      "id": 11,
+      "id": 10,
       "start": 1020,
       "end": 1070,
       "primary": "benjamin-delgado",
-      "support": "lucia-soto"
+      "support": "lucia-soto",
+      "forced": false
     },
     {
-      "id": 12,
+      "id": 11,
       "start": 1050,
       "end": 1100,
       "primary": "p_f48u8to",
-      "support": "benjamin-delgado"
+      "support": "benjamin-delgado",
+      "forced": false
     },
     {
-      "id": 13,
+      "id": 12,
       "start": 1080,
       "end": 1130,
       "primary": "lucia-soto",
-      "support": "p_f48u8to"
+      "support": "p_f48u8to",
+      "forced": false
     },
     {
-      "id": 14,
+      "id": 13,
       "start": 1110,
       "end": 1160,
       "primary": "benjamin-delgado",
-      "support": "lucia-soto"
+      "support": "lucia-soto",
+      "forced": false
     },
     {
-      "id": 15,
+      "id": 14,
       "start": 1140,
       "end": 1190,
       "primary": "p_f48u8to",
-      "support": "benjamin-delgado"
+      "support": "benjamin-delgado",
+      "forced": false
     },
     {
-      "id": 16,
+      "id": 15,
       "start": 1170,
       "end": 1220,
       "primary": "lucia-soto",
-      "support": "benjamin-delgado"
+      "support": "benjamin-delgado",
+      "forced": false
     }
   ],
   "rows": [
@@ -170,10 +182,7 @@
       "end": "10:05",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": {
-          "code": "REC",
-          "module": 1
-        },
+        "lucia-soto": null,
         "p_f48u8to": null
       }
     },
@@ -183,10 +192,7 @@
       "end": "10:10",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": {
-          "code": "B",
-          "module": 1
-        },
+        "lucia-soto": null,
         "p_f48u8to": null
       }
     },
@@ -196,10 +202,7 @@
       "end": "10:15",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": {
-          "code": "B",
-          "module": 1
-        },
+        "lucia-soto": null,
         "p_f48u8to": null
       }
     },
@@ -209,10 +212,7 @@
       "end": "10:20",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": {
-          "code": "B",
-          "module": 1
-        },
+        "lucia-soto": null,
         "p_f48u8to": null
       }
     },
@@ -222,10 +222,7 @@
       "end": "10:25",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": {
-          "code": "B",
-          "module": 1
-        },
+        "lucia-soto": null,
         "p_f48u8to": null
       }
     },
@@ -235,14 +232,8 @@
       "end": "10:30",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": {
-          "code": "R",
-          "module": 1
-        },
-        "p_f48u8to": {
-          "code": "AP",
-          "module": 1
-        }
+        "lucia-soto": null,
+        "p_f48u8to": null
       }
     },
     {
@@ -251,12 +242,9 @@
       "end": "10:35",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": {
-          "code": "R",
-          "module": 1
-        },
+        "lucia-soto": null,
         "p_f48u8to": {
-          "code": "AP",
+          "code": "REC",
           "module": 1
         }
       }
@@ -267,12 +255,9 @@
       "end": "10:40",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": {
-          "code": "R",
-          "module": 1
-        },
+        "lucia-soto": null,
         "p_f48u8to": {
-          "code": "AP",
+          "code": "B",
           "module": 1
         }
       }
@@ -283,12 +268,9 @@
       "end": "10:45",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": {
-          "code": "R",
-          "module": 1
-        },
+        "lucia-soto": null,
         "p_f48u8to": {
-          "code": "AP",
+          "code": "B",
           "module": 1
         }
       }
@@ -299,13 +281,10 @@
       "end": "10:50",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": {
-          "code": "D",
-          "module": 1
-        },
+        "lucia-soto": null,
         "p_f48u8to": {
-          "code": "REC",
-          "module": 2
+          "code": "B",
+          "module": 1
         }
       }
     },
@@ -318,7 +297,7 @@
         "lucia-soto": null,
         "p_f48u8to": {
           "code": "B",
-          "module": 2
+          "module": 1
         }
       }
     },
@@ -328,10 +307,13 @@
       "end": "11:00",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": null,
+        "lucia-soto": {
+          "code": "AP",
+          "module": 1
+        },
         "p_f48u8to": {
-          "code": "B",
-          "module": 2
+          "code": "R",
+          "module": 1
         }
       }
     },
@@ -341,10 +323,13 @@
       "end": "11:05",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": null,
+        "lucia-soto": {
+          "code": "AP",
+          "module": 1
+        },
         "p_f48u8to": {
-          "code": "B",
-          "module": 2
+          "code": "R",
+          "module": 1
         }
       }
     },
@@ -354,10 +339,13 @@
       "end": "11:10",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": null,
+        "lucia-soto": {
+          "code": "AP",
+          "module": 1
+        },
         "p_f48u8to": {
-          "code": "B",
-          "module": 2
+          "code": "R",
+          "module": 1
         }
       }
     },
@@ -369,11 +357,11 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "AP",
-          "module": 2
+          "module": 1
         },
         "p_f48u8to": {
           "code": "R",
-          "module": 2
+          "module": 1
         }
       }
     },
@@ -385,11 +373,11 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "AP",
-          "module": 2
+          "module": 1
         },
         "p_f48u8to": {
-          "code": "R",
-          "module": 2
+          "code": "D",
+          "module": 1
         }
       }
     },
@@ -400,13 +388,10 @@
       "assignments": {
         "benjamin-delgado": null,
         "lucia-soto": {
-          "code": "AP",
+          "code": "REC",
           "module": 2
         },
-        "p_f48u8to": {
-          "code": "R",
-          "module": 2
-        }
+        "p_f48u8to": null
       }
     },
     {
@@ -416,13 +401,10 @@
       "assignments": {
         "benjamin-delgado": null,
         "lucia-soto": {
-          "code": "AP",
+          "code": "B",
           "module": 2
         },
-        "p_f48u8to": {
-          "code": "R",
-          "module": 2
-        }
+        "p_f48u8to": null
       }
     },
     {
@@ -432,13 +414,10 @@
       "assignments": {
         "benjamin-delgado": null,
         "lucia-soto": {
-          "code": "REC",
-          "module": 3
-        },
-        "p_f48u8to": {
-          "code": "D",
+          "code": "B",
           "module": 2
-        }
+        },
+        "p_f48u8to": null
       }
     },
     {
@@ -449,7 +428,7 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "B",
-          "module": 3
+          "module": 2
         },
         "p_f48u8to": null
       }
@@ -462,7 +441,7 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "B",
-          "module": 3
+          "module": 2
         },
         "p_f48u8to": null
       }
@@ -474,10 +453,13 @@
       "assignments": {
         "benjamin-delgado": null,
         "lucia-soto": {
-          "code": "B",
-          "module": 3
+          "code": "R",
+          "module": 2
         },
-        "p_f48u8to": null
+        "p_f48u8to": {
+          "code": "AP",
+          "module": 2
+        }
       }
     },
     {
@@ -487,10 +469,13 @@
       "assignments": {
         "benjamin-delgado": null,
         "lucia-soto": {
-          "code": "B",
-          "module": 3
+          "code": "R",
+          "module": 2
         },
-        "p_f48u8to": null
+        "p_f48u8to": {
+          "code": "AP",
+          "module": 2
+        }
       }
     },
     {
@@ -501,11 +486,11 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "R",
-          "module": 3
+          "module": 2
         },
         "p_f48u8to": {
           "code": "AP",
-          "module": 3
+          "module": 2
         }
       }
     },
@@ -517,11 +502,11 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "R",
-          "module": 3
+          "module": 2
         },
         "p_f48u8to": {
           "code": "AP",
-          "module": 3
+          "module": 2
         }
       }
     },
@@ -532,12 +517,12 @@
       "assignments": {
         "benjamin-delgado": null,
         "lucia-soto": {
-          "code": "R",
-          "module": 3
+          "code": "D",
+          "module": 2
         },
         "p_f48u8to": {
           "code": "AP",
-          "module": 3
+          "module": 2
         }
       }
     },
@@ -547,12 +532,9 @@
       "end": "12:15",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": {
-          "code": "R",
-          "module": 3
-        },
+        "lucia-soto": null,
         "p_f48u8to": {
-          "code": "AP",
+          "code": "REC",
           "module": 3
         }
       }
@@ -563,13 +545,10 @@
       "end": "12:20",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": {
-          "code": "D",
-          "module": 3
-        },
+        "lucia-soto": null,
         "p_f48u8to": {
-          "code": "REC",
-          "module": 4
+          "code": "B",
+          "module": 3
         }
       }
     },
@@ -582,7 +561,7 @@
         "lucia-soto": null,
         "p_f48u8to": {
           "code": "B",
-          "module": 4
+          "module": 3
         }
       }
     },
@@ -595,7 +574,7 @@
         "lucia-soto": null,
         "p_f48u8to": {
           "code": "B",
-          "module": 4
+          "module": 3
         }
       }
     },
@@ -608,7 +587,7 @@
         "lucia-soto": null,
         "p_f48u8to": {
           "code": "B",
-          "module": 4
+          "module": 3
         }
       }
     },
@@ -618,10 +597,13 @@
       "end": "12:40",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": null,
+        "lucia-soto": {
+          "code": "AP",
+          "module": 3
+        },
         "p_f48u8to": {
-          "code": "B",
-          "module": 4
+          "code": "R",
+          "module": 3
         }
       }
     },
@@ -633,11 +615,11 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "AP",
-          "module": 4
+          "module": 3
         },
         "p_f48u8to": {
           "code": "R",
-          "module": 4
+          "module": 3
         }
       }
     },
@@ -649,11 +631,11 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "AP",
-          "module": 4
+          "module": 3
         },
         "p_f48u8to": {
           "code": "R",
-          "module": 4
+          "module": 3
         }
       }
     },
@@ -665,11 +647,11 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "AP",
-          "module": 4
+          "module": 3
         },
         "p_f48u8to": {
           "code": "R",
-          "module": 4
+          "module": 3
         }
       }
     },
@@ -681,11 +663,11 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "AP",
-          "module": 4
+          "module": 3
         },
         "p_f48u8to": {
-          "code": "R",
-          "module": 4
+          "code": "D",
+          "module": 3
         }
       }
     },
@@ -696,10 +678,7 @@
       "assignments": {
         "benjamin-delgado": null,
         "lucia-soto": null,
-        "p_f48u8to": {
-          "code": "D",
-          "module": 4
-        }
+        "p_f48u8to": null
       }
     },
     {
@@ -820,7 +799,7 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "REC",
-          "module": 5
+          "module": 4
         },
         "p_f48u8to": null
       }
@@ -833,7 +812,7 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "B",
-          "module": 5
+          "module": 4
         },
         "p_f48u8to": null
       }
@@ -846,7 +825,7 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "B",
-          "module": 5
+          "module": 4
         },
         "p_f48u8to": null
       }
@@ -859,7 +838,7 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "B",
-          "module": 5
+          "module": 4
         },
         "p_f48u8to": null
       }
@@ -872,7 +851,7 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "B",
-          "module": 5
+          "module": 4
         },
         "p_f48u8to": null
       }
@@ -882,15 +861,15 @@
       "start": "14:25",
       "end": "14:30",
       "assignments": {
-        "benjamin-delgado": {
-          "code": "AP",
-          "module": 5
-        },
+        "benjamin-delgado": null,
         "lucia-soto": {
           "code": "R",
-          "module": 5
+          "module": 4
         },
-        "p_f48u8to": null
+        "p_f48u8to": {
+          "code": "AP",
+          "module": 4
+        }
       }
     },
     {
@@ -899,16 +878,16 @@
       "end": "14:35",
       "assignments": {
         "benjamin-delgado": {
-          "code": "AP",
+          "code": "REC",
           "module": 5
         },
         "lucia-soto": {
           "code": "R",
-          "module": 5
+          "module": 4
         },
         "p_f48u8to": {
-          "code": "REC",
-          "module": 6
+          "code": "AP",
+          "module": 4
         }
       }
     },
@@ -918,16 +897,16 @@
       "end": "14:40",
       "assignments": {
         "benjamin-delgado": {
-          "code": "AP",
+          "code": "B",
           "module": 5
         },
         "lucia-soto": {
           "code": "R",
-          "module": 5
+          "module": 4
         },
         "p_f48u8to": {
-          "code": "B",
-          "module": 6
+          "code": "AP",
+          "module": 4
         }
       }
     },
@@ -937,16 +916,16 @@
       "end": "14:45",
       "assignments": {
         "benjamin-delgado": {
-          "code": "AP",
+          "code": "B",
           "module": 5
         },
         "lucia-soto": {
           "code": "R",
-          "module": 5
+          "module": 4
         },
         "p_f48u8to": {
-          "code": "B",
-          "module": 6
+          "code": "AP",
+          "module": 4
         }
       }
     },
@@ -955,14 +934,17 @@
       "start": "14:45",
       "end": "14:50",
       "assignments": {
-        "benjamin-delgado": null,
-        "lucia-soto": {
-          "code": "D",
+        "benjamin-delgado": {
+          "code": "B",
           "module": 5
         },
+        "lucia-soto": {
+          "code": "D",
+          "module": 4
+        },
         "p_f48u8to": {
-          "code": "B",
-          "module": 6
+          "code": "AP",
+          "module": 4
         }
       }
     },
@@ -971,12 +953,12 @@
       "start": "14:50",
       "end": "14:55",
       "assignments": {
-        "benjamin-delgado": null,
-        "lucia-soto": null,
-        "p_f48u8to": {
+        "benjamin-delgado": {
           "code": "B",
-          "module": 6
-        }
+          "module": 5
+        },
+        "lucia-soto": null,
+        "p_f48u8to": null
       }
     },
     {
@@ -985,14 +967,14 @@
       "end": "15:00",
       "assignments": {
         "benjamin-delgado": {
-          "code": "AP",
-          "module": 6
-        },
-        "lucia-soto": null,
-        "p_f48u8to": {
           "code": "R",
-          "module": 6
-        }
+          "module": 5
+        },
+        "lucia-soto": {
+          "code": "AP",
+          "module": 5
+        },
+        "p_f48u8to": null
       }
     },
     {
@@ -1001,15 +983,15 @@
       "end": "15:05",
       "assignments": {
         "benjamin-delgado": {
-          "code": "AP",
-          "module": 6
+          "code": "R",
+          "module": 5
         },
         "lucia-soto": {
-          "code": "REC",
-          "module": 7
+          "code": "AP",
+          "module": 5
         },
         "p_f48u8to": {
-          "code": "R",
+          "code": "REC",
           "module": 6
         }
       }
@@ -1020,15 +1002,15 @@
       "end": "15:10",
       "assignments": {
         "benjamin-delgado": {
-          "code": "AP",
-          "module": 6
+          "code": "R",
+          "module": 5
         },
         "lucia-soto": {
-          "code": "B",
-          "module": 7
+          "code": "AP",
+          "module": 5
         },
         "p_f48u8to": {
-          "code": "R",
+          "code": "B",
           "module": 6
         }
       }
@@ -1039,15 +1021,15 @@
       "end": "15:15",
       "assignments": {
         "benjamin-delgado": {
-          "code": "AP",
-          "module": 6
+          "code": "R",
+          "module": 5
         },
         "lucia-soto": {
-          "code": "B",
-          "module": 7
+          "code": "AP",
+          "module": 5
         },
         "p_f48u8to": {
-          "code": "R",
+          "code": "B",
           "module": 6
         }
       }
@@ -1057,13 +1039,16 @@
       "start": "15:15",
       "end": "15:20",
       "assignments": {
-        "benjamin-delgado": null,
+        "benjamin-delgado": {
+          "code": "D",
+          "module": 5
+        },
         "lucia-soto": {
-          "code": "B",
-          "module": 7
+          "code": "AP",
+          "module": 5
         },
         "p_f48u8to": {
-          "code": "D",
+          "code": "B",
           "module": 6
         }
       }
@@ -1074,11 +1059,11 @@
       "end": "15:25",
       "assignments": {
         "benjamin-delgado": null,
-        "lucia-soto": {
+        "lucia-soto": null,
+        "p_f48u8to": {
           "code": "B",
-          "module": 7
-        },
-        "p_f48u8to": null
+          "module": 6
+        }
       }
     },
     {
@@ -1086,14 +1071,14 @@
       "start": "15:25",
       "end": "15:30",
       "assignments": {
-        "benjamin-delgado": null,
-        "lucia-soto": {
-          "code": "R",
-          "module": 7
-        },
-        "p_f48u8to": {
+        "benjamin-delgado": {
           "code": "AP",
-          "module": 7
+          "module": 6
+        },
+        "lucia-soto": null,
+        "p_f48u8to": {
+          "code": "R",
+          "module": 6
         }
       }
     },
@@ -1103,16 +1088,16 @@
       "end": "15:35",
       "assignments": {
         "benjamin-delgado": {
-          "code": "REC",
-          "module": 8
+          "code": "AP",
+          "module": 6
         },
         "lucia-soto": {
-          "code": "R",
+          "code": "REC",
           "module": 7
         },
         "p_f48u8to": {
-          "code": "AP",
-          "module": 7
+          "code": "R",
+          "module": 6
         }
       }
     },
@@ -1122,16 +1107,16 @@
       "end": "15:40",
       "assignments": {
         "benjamin-delgado": {
-          "code": "B",
-          "module": 8
+          "code": "AP",
+          "module": 6
         },
         "lucia-soto": {
-          "code": "R",
+          "code": "B",
           "module": 7
         },
         "p_f48u8to": {
-          "code": "AP",
-          "module": 7
+          "code": "R",
+          "module": 6
         }
       }
     },
@@ -1141,16 +1126,16 @@
       "end": "15:45",
       "assignments": {
         "benjamin-delgado": {
-          "code": "B",
-          "module": 8
+          "code": "AP",
+          "module": 6
         },
         "lucia-soto": {
-          "code": "R",
+          "code": "B",
           "module": 7
         },
         "p_f48u8to": {
-          "code": "AP",
-          "module": 7
+          "code": "R",
+          "module": 6
         }
       }
     },
@@ -1160,14 +1145,17 @@
       "end": "15:50",
       "assignments": {
         "benjamin-delgado": {
-          "code": "B",
-          "module": 8
+          "code": "AP",
+          "module": 6
         },
         "lucia-soto": {
-          "code": "D",
+          "code": "B",
           "module": 7
         },
-        "p_f48u8to": null
+        "p_f48u8to": {
+          "code": "D",
+          "module": 6
+        }
       }
     },
     {
@@ -1175,11 +1163,11 @@
       "start": "15:50",
       "end": "15:55",
       "assignments": {
-        "benjamin-delgado": {
+        "benjamin-delgado": null,
+        "lucia-soto": {
           "code": "B",
-          "module": 8
+          "module": 7
         },
-        "lucia-soto": null,
         "p_f48u8to": null
       }
     },
@@ -1189,12 +1177,12 @@
       "end": "16:00",
       "assignments": {
         "benjamin-delgado": {
-          "code": "R",
-          "module": 8
+          "code": "AP",
+          "module": 7
         },
         "lucia-soto": {
-          "code": "AP",
-          "module": 8
+          "code": "R",
+          "module": 7
         },
         "p_f48u8to": null
       }
@@ -1205,16 +1193,16 @@
       "end": "16:05",
       "assignments": {
         "benjamin-delgado": {
-          "code": "R",
-          "module": 8
+          "code": "AP",
+          "module": 7
         },
         "lucia-soto": {
-          "code": "AP",
-          "module": 8
+          "code": "R",
+          "module": 7
         },
         "p_f48u8to": {
           "code": "REC",
-          "module": 9
+          "module": 8
         }
       }
     },
@@ -1224,16 +1212,16 @@
       "end": "16:10",
       "assignments": {
         "benjamin-delgado": {
-          "code": "R",
-          "module": 8
+          "code": "AP",
+          "module": 7
         },
         "lucia-soto": {
-          "code": "AP",
-          "module": 8
+          "code": "R",
+          "module": 7
         },
         "p_f48u8to": {
           "code": "B",
-          "module": 9
+          "module": 8
         }
       }
     },
@@ -1243,16 +1231,16 @@
       "end": "16:15",
       "assignments": {
         "benjamin-delgado": {
-          "code": "R",
-          "module": 8
+          "code": "AP",
+          "module": 7
         },
         "lucia-soto": {
-          "code": "AP",
-          "module": 8
+          "code": "R",
+          "module": 7
         },
         "p_f48u8to": {
           "code": "B",
-          "module": 9
+          "module": 8
         }
       }
     },
@@ -1262,13 +1250,16 @@
       "end": "16:20",
       "assignments": {
         "benjamin-delgado": {
-          "code": "D",
-          "module": 8
+          "code": "AP",
+          "module": 7
         },
-        "lucia-soto": null,
+        "lucia-soto": {
+          "code": "D",
+          "module": 7
+        },
         "p_f48u8to": {
           "code": "B",
-          "module": 9
+          "module": 8
         }
       }
     },
@@ -1281,7 +1272,7 @@
         "lucia-soto": null,
         "p_f48u8to": {
           "code": "B",
-          "module": 9
+          "module": 8
         }
       }
     },
@@ -1292,12 +1283,12 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "AP",
-          "module": 9
+          "module": 8
         },
         "lucia-soto": null,
         "p_f48u8to": {
           "code": "R",
-          "module": 9
+          "module": 8
         }
       }
     },
@@ -1308,15 +1299,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "AP",
-          "module": 9
+          "module": 8
         },
         "lucia-soto": {
           "code": "REC",
-          "module": 10
+          "module": 9
         },
         "p_f48u8to": {
           "code": "R",
-          "module": 9
+          "module": 8
         }
       }
     },
@@ -1327,15 +1318,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "AP",
-          "module": 9
+          "module": 8
         },
         "lucia-soto": {
           "code": "B",
-          "module": 10
+          "module": 9
         },
         "p_f48u8to": {
           "code": "R",
-          "module": 9
+          "module": 8
         }
       }
     },
@@ -1346,15 +1337,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "AP",
-          "module": 9
+          "module": 8
         },
         "lucia-soto": {
           "code": "B",
-          "module": 10
+          "module": 9
         },
         "p_f48u8to": {
           "code": "R",
-          "module": 9
+          "module": 8
         }
       }
     },
@@ -1363,14 +1354,17 @@
       "start": "16:45",
       "end": "16:50",
       "assignments": {
-        "benjamin-delgado": null,
+        "benjamin-delgado": {
+          "code": "AP",
+          "module": 8
+        },
         "lucia-soto": {
           "code": "B",
-          "module": 10
+          "module": 9
         },
         "p_f48u8to": {
           "code": "D",
-          "module": 9
+          "module": 8
         }
       }
     },
@@ -1382,7 +1376,7 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "B",
-          "module": 10
+          "module": 9
         },
         "p_f48u8to": null
       }
@@ -1395,11 +1389,11 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "R",
-          "module": 10
+          "module": 9
         },
         "p_f48u8to": {
           "code": "AP",
-          "module": 10
+          "module": 9
         }
       }
     },
@@ -1410,15 +1404,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "REC",
-          "module": 11
+          "module": 10
         },
         "lucia-soto": {
           "code": "R",
-          "module": 10
+          "module": 9
         },
         "p_f48u8to": {
           "code": "AP",
-          "module": 10
+          "module": 9
         }
       }
     },
@@ -1429,15 +1423,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "B",
-          "module": 11
+          "module": 10
         },
         "lucia-soto": {
           "code": "R",
-          "module": 10
+          "module": 9
         },
         "p_f48u8to": {
           "code": "AP",
-          "module": 10
+          "module": 9
         }
       }
     },
@@ -1448,15 +1442,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "B",
-          "module": 11
+          "module": 10
         },
         "lucia-soto": {
           "code": "R",
-          "module": 10
+          "module": 9
         },
         "p_f48u8to": {
           "code": "AP",
-          "module": 10
+          "module": 9
         }
       }
     },
@@ -1467,13 +1461,16 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "B",
-          "module": 11
+          "module": 10
         },
         "lucia-soto": {
           "code": "D",
-          "module": 10
+          "module": 9
         },
-        "p_f48u8to": null
+        "p_f48u8to": {
+          "code": "AP",
+          "module": 9
+        }
       }
     },
     {
@@ -1483,7 +1480,7 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "B",
-          "module": 11
+          "module": 10
         },
         "lucia-soto": null,
         "p_f48u8to": null
@@ -1496,11 +1493,11 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "R",
-          "module": 11
+          "module": 10
         },
         "lucia-soto": {
           "code": "AP",
-          "module": 11
+          "module": 10
         },
         "p_f48u8to": null
       }
@@ -1512,15 +1509,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "R",
-          "module": 11
+          "module": 10
         },
         "lucia-soto": {
           "code": "AP",
-          "module": 11
+          "module": 10
         },
         "p_f48u8to": {
           "code": "REC",
-          "module": 12
+          "module": 11
         }
       }
     },
@@ -1531,15 +1528,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "R",
-          "module": 11
+          "module": 10
         },
         "lucia-soto": {
           "code": "AP",
-          "module": 11
+          "module": 10
         },
         "p_f48u8to": {
           "code": "B",
-          "module": 12
+          "module": 11
         }
       }
     },
@@ -1550,15 +1547,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "R",
-          "module": 11
+          "module": 10
         },
         "lucia-soto": {
           "code": "AP",
-          "module": 11
+          "module": 10
         },
         "p_f48u8to": {
           "code": "B",
-          "module": 12
+          "module": 11
         }
       }
     },
@@ -1569,12 +1566,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "D",
-          "module": 11
+          "module": 10
         },
-        "lucia-soto": null,
+        "lucia-soto": {
+          "code": "AP",
+          "module": 10
+        },
         "p_f48u8to": {
           "code": "B",
-          "module": 12
+          "module": 11
         }
       }
     },
@@ -1587,7 +1587,7 @@
         "lucia-soto": null,
         "p_f48u8to": {
           "code": "B",
-          "module": 12
+          "module": 11
         }
       }
     },
@@ -1598,12 +1598,12 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "AP",
-          "module": 12
+          "module": 11
         },
         "lucia-soto": null,
         "p_f48u8to": {
           "code": "R",
-          "module": 12
+          "module": 11
         }
       }
     },
@@ -1614,15 +1614,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "AP",
-          "module": 12
+          "module": 11
         },
         "lucia-soto": {
           "code": "REC",
-          "module": 13
+          "module": 12
         },
         "p_f48u8to": {
           "code": "R",
-          "module": 12
+          "module": 11
         }
       }
     },
@@ -1633,15 +1633,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "AP",
-          "module": 12
+          "module": 11
         },
         "lucia-soto": {
           "code": "B",
-          "module": 13
+          "module": 12
         },
         "p_f48u8to": {
           "code": "R",
-          "module": 12
+          "module": 11
         }
       }
     },
@@ -1652,15 +1652,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "AP",
-          "module": 12
+          "module": 11
         },
         "lucia-soto": {
           "code": "B",
-          "module": 13
+          "module": 12
         },
         "p_f48u8to": {
           "code": "R",
-          "module": 12
+          "module": 11
         }
       }
     },
@@ -1669,14 +1669,17 @@
       "start": "18:15",
       "end": "18:20",
       "assignments": {
-        "benjamin-delgado": null,
+        "benjamin-delgado": {
+          "code": "AP",
+          "module": 11
+        },
         "lucia-soto": {
           "code": "B",
-          "module": 13
+          "module": 12
         },
         "p_f48u8to": {
           "code": "D",
-          "module": 12
+          "module": 11
         }
       }
     },
@@ -1688,7 +1691,7 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "B",
-          "module": 13
+          "module": 12
         },
         "p_f48u8to": null
       }
@@ -1701,11 +1704,11 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "R",
-          "module": 13
+          "module": 12
         },
         "p_f48u8to": {
           "code": "AP",
-          "module": 13
+          "module": 12
         }
       }
     },
@@ -1716,15 +1719,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "REC",
-          "module": 14
+          "module": 13
         },
         "lucia-soto": {
           "code": "R",
-          "module": 13
+          "module": 12
         },
         "p_f48u8to": {
           "code": "AP",
-          "module": 13
+          "module": 12
         }
       }
     },
@@ -1735,15 +1738,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "B",
-          "module": 14
+          "module": 13
         },
         "lucia-soto": {
           "code": "R",
-          "module": 13
+          "module": 12
         },
         "p_f48u8to": {
           "code": "AP",
-          "module": 13
+          "module": 12
         }
       }
     },
@@ -1754,15 +1757,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "B",
-          "module": 14
+          "module": 13
         },
         "lucia-soto": {
           "code": "R",
-          "module": 13
+          "module": 12
         },
         "p_f48u8to": {
           "code": "AP",
-          "module": 13
+          "module": 12
         }
       }
     },
@@ -1773,13 +1776,16 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "B",
-          "module": 14
+          "module": 13
         },
         "lucia-soto": {
           "code": "D",
-          "module": 13
+          "module": 12
         },
-        "p_f48u8to": null
+        "p_f48u8to": {
+          "code": "AP",
+          "module": 12
+        }
       }
     },
     {
@@ -1789,7 +1795,7 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "B",
-          "module": 14
+          "module": 13
         },
         "lucia-soto": null,
         "p_f48u8to": null
@@ -1802,11 +1808,11 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "R",
-          "module": 14
+          "module": 13
         },
         "lucia-soto": {
           "code": "AP",
-          "module": 14
+          "module": 13
         },
         "p_f48u8to": null
       }
@@ -1818,15 +1824,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "R",
-          "module": 14
+          "module": 13
         },
         "lucia-soto": {
           "code": "AP",
-          "module": 14
+          "module": 13
         },
         "p_f48u8to": {
           "code": "REC",
-          "module": 15
+          "module": 14
         }
       }
     },
@@ -1837,15 +1843,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "R",
-          "module": 14
+          "module": 13
         },
         "lucia-soto": {
           "code": "AP",
-          "module": 14
+          "module": 13
         },
         "p_f48u8to": {
           "code": "B",
-          "module": 15
+          "module": 14
         }
       }
     },
@@ -1856,15 +1862,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "R",
-          "module": 14
+          "module": 13
         },
         "lucia-soto": {
           "code": "AP",
-          "module": 14
+          "module": 13
         },
         "p_f48u8to": {
           "code": "B",
-          "module": 15
+          "module": 14
         }
       }
     },
@@ -1875,12 +1881,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "D",
-          "module": 14
+          "module": 13
         },
-        "lucia-soto": null,
+        "lucia-soto": {
+          "code": "AP",
+          "module": 13
+        },
         "p_f48u8to": {
           "code": "B",
-          "module": 15
+          "module": 14
         }
       }
     },
@@ -1893,7 +1902,7 @@
         "lucia-soto": null,
         "p_f48u8to": {
           "code": "B",
-          "module": 15
+          "module": 14
         }
       }
     },
@@ -1904,12 +1913,12 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "AP",
-          "module": 15
+          "module": 14
         },
         "lucia-soto": null,
         "p_f48u8to": {
           "code": "R",
-          "module": 15
+          "module": 14
         }
       }
     },
@@ -1920,15 +1929,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "AP",
-          "module": 15
+          "module": 14
         },
         "lucia-soto": {
           "code": "REC",
-          "module": 16
+          "module": 15
         },
         "p_f48u8to": {
           "code": "R",
-          "module": 15
+          "module": 14
         }
       }
     },
@@ -1939,15 +1948,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "AP",
-          "module": 15
+          "module": 14
         },
         "lucia-soto": {
           "code": "B",
-          "module": 16
+          "module": 15
         },
         "p_f48u8to": {
           "code": "R",
-          "module": 15
+          "module": 14
         }
       }
     },
@@ -1958,15 +1967,15 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "AP",
-          "module": 15
+          "module": 14
         },
         "lucia-soto": {
           "code": "B",
-          "module": 16
+          "module": 15
         },
         "p_f48u8to": {
           "code": "R",
-          "module": 15
+          "module": 14
         }
       }
     },
@@ -1975,14 +1984,17 @@
       "start": "19:45",
       "end": "19:50",
       "assignments": {
-        "benjamin-delgado": null,
+        "benjamin-delgado": {
+          "code": "AP",
+          "module": 14
+        },
         "lucia-soto": {
           "code": "B",
-          "module": 16
+          "module": 15
         },
         "p_f48u8to": {
           "code": "D",
-          "module": 15
+          "module": 14
         }
       }
     },
@@ -1994,7 +2006,7 @@
         "benjamin-delgado": null,
         "lucia-soto": {
           "code": "B",
-          "module": 16
+          "module": 15
         },
         "p_f48u8to": null
       }
@@ -2006,11 +2018,11 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "AP",
-          "module": 16
+          "module": 15
         },
         "lucia-soto": {
           "code": "R",
-          "module": 16
+          "module": 15
         },
         "p_f48u8to": null
       }
@@ -2022,11 +2034,11 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "AP",
-          "module": 16
+          "module": 15
         },
         "lucia-soto": {
           "code": "R",
-          "module": 16
+          "module": 15
         },
         "p_f48u8to": null
       }
@@ -2038,11 +2050,11 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "AP",
-          "module": 16
+          "module": 15
         },
         "lucia-soto": {
           "code": "R",
-          "module": 16
+          "module": 15
         },
         "p_f48u8to": null
       }
@@ -2054,11 +2066,11 @@
       "assignments": {
         "benjamin-delgado": {
           "code": "AP",
-          "module": 16
+          "module": 15
         },
         "lucia-soto": {
           "code": "R",
-          "module": 16
+          "module": 15
         },
         "p_f48u8to": null
       }
@@ -2068,10 +2080,13 @@
       "start": "20:15",
       "end": "20:20",
       "assignments": {
-        "benjamin-delgado": null,
+        "benjamin-delgado": {
+          "code": "AP",
+          "module": 15
+        },
         "lucia-soto": {
           "code": "D",
-          "module": 16
+          "module": 15
         },
         "p_f48u8to": null
       }
@@ -2101,6 +2116,6 @@
   "publication": {
     "type": "muro",
     "date": "2026-11-14",
-    "publishedAt": "2026-11-12T22:22:19.356Z"
+    "publishedAt": "2026-11-12T23:50:00.793Z"
   }
 }
