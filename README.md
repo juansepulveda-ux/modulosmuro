@@ -25,3 +25,9 @@ Ambos planificadores permiten definir varios tramos horarios de inicio de módul
 
 
 Actualización v7: Airtrail usa dos colores alternados por módulo, Break y Libre; la asignación de apoyos considera cambios de turno por fase.
+
+
+## Ajuste Airtrail v8
+- Poleas puede asignarse con menos de 6 personas simultaneas si los apoyos de mayor prioridad no pueden cubrirse por competencia.
+- Se mantienen maximo 6 funciones simultaneas por modulo.
+- Visualizacion Airtrail: 2 colores alternados de modulo + Break + Libre.

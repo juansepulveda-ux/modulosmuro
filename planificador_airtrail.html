@@ -22,7 +22,7 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
 <body>
 <header>
   <div class="eyebrow">Mallsport · Operaciones</div>
-  <h1>Planificador Airtrail + Tirolesa</h1>
+  <h1>Planificador Airtrail + Tirolesa <span style="font-size:12px;opacity:.72;font-weight:600">v8</span></h1>
   <p>Jornadas individuales · competencias · breaks desfasados · publicación por fecha</p>
 </header>
 <main>
@@ -245,9 +245,9 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
       const polesBreak={start:polesRelease,end:polesRelease+b.duration,duration:b.duration};
       prevBreakEnd.equip=equipBreak.end;prevBreakEnd.tower=towerBreak.end;prevBreakEnd.poles=polesBreak.end;
       let restart=Math.max(b.end,equipBreak.end,towerBreak.end-equipDur);
-      if(peakTarget>=6&&polesIds.length)restart=Math.max(restart,polesBreak.end-equipDur-TRANSFER);
+      if(polesIds.length)restart=Math.max(restart,polesBreak.end-equipDur-TRANSFER);
       restart=Math.ceil(restart/10)*10;
-      appliedBreaks.push({source:{...b},equip:equipBreak,tower:towerBreak,poles:(peakTarget>=6&&polesIds.length)?polesBreak:null,restart});
+      appliedBreaks.push({source:{...b},equip:equipBreak,tower:towerBreak,poles:polesIds.length?polesBreak:null,restart});
       blockedUntil=Math.max(blockedUntil,restart);
       return Math.max(next,restart);
     }
@@ -272,7 +272,7 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
       const towerBreak={start:towerRelease,end:towerRelease+b.duration,duration:b.duration};
       const polesBreak={start:polesRelease,end:polesRelease+b.duration,duration:b.duration};
       prevBreakEnd={equip:equipBreak.end,tower:towerBreak.end,poles:polesBreak.end};
-      appliedBreaks.push({source:{...b},equip:equipBreak,tower:towerBreak,poles:(peakTarget>=6&&polesIds.length)?polesBreak:null,restart:null});bi++;
+      appliedBreaks.push({source:{...b},equip:equipBreak,tower:towerBreak,poles:polesIds.length?polesBreak:null,restart:null});bi++;
     }
 
     const personalBreaks={};staff.forEach(p=>personalBreaks[p.idx]=[]);
@@ -366,30 +366,61 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
       const equipSupportRole={role:'equipSupport',skill:'equip',group:'equip',order:4,start:m.equipStart,end:m.equipEnd};
       const launchSupportRole={role:'launchSupport',skill:'launch',group:'tower',order:5,start:m.launchStart,end:m.end};
 
-      // Resuelve el nucleo obligatorio y, al mismo tiempo, busca la mejor forma de
-      // aprovechar los apoyos disponibles en cada fase. Los apoyos son independientes:
-      // si el segundo Equipamiento no pudo trabajar al inicio del modulo, una persona
-      // que llega justo al comenzar Lanzamiento igualmente puede ocupar el segundo
-      // Lanzamiento. Esto es clave en los cambios de turno.
+      // Resuelve primero el nucleo obligatorio y despues aprovecha a las personas
+      // restantes en los apoyos opcionales. La prioridad operativa es:
+      // 1) segundo Equipamiento, 2) segundo Lanzamiento, 3) Poleas.
+      // Importante: Poleas NO exige que existan 6 personas simultaneas. Si una persona
+      // disponible no puede cubrir un apoyo de mayor prioridad por competencia, el sistema
+      // sigue intentando los roles siguientes en vez de dejarla Libre.
+      function poleCandidateForPerson(p,m,used){
+        if(used.has(p.idx)||!skillOK(p,'poles'))return null;
+        let st=Math.max(m.launchStart,lastPoleTransferEnd,p.arrivalMin);
+        st=Math.ceil(st/10)*10;
+        let changed=true,guard=0;
+        while(changed&&guard++<10){
+          changed=false;
+          const pb=(personalBreaks[p.idx]||[]).find(b=>b.start<m.end+TRANSFER&&b.end>st);
+          if(pb){st=Math.max(st,pb.end);st=Math.ceil(st/10)*10;changed=true}
+        }
+        if(st>=m.end)return null;
+        if(!available(p,st,m.end+TRANSFER))return null;
+        if(onBreak(personalBreaks,p.idx,st,m.end+TRANSFER))return null;
+        if(hasTaskConflict(tasks,p.idx,st,m.end+TRANSFER))return null;
+        const r={skill:'poles',group:'poles'};
+        return {pid:p.idx,start:st,cost:(st-m.launchStart)*10+candidateCost(p,r)};
+      }
       function solveCoreAndSupports(){
         let best=null;
-        function better(candidate){
+        function better(c){
           if(!best)return true;
-          if(candidate.equipFilled!==best.equipFilled)return candidate.equipFilled>best.equipFilled;
-          if(candidate.launchFilled!==best.launchFilled)return candidate.launchFilled>best.launchFilled;
-          return candidate.cost<best.cost;
+          // Primero usa la mayor cantidad posible de personas utiles.
+          if(c.optionalCount!==best.optionalCount)return c.optionalCount>best.optionalCount;
+          // A igualdad de cantidad, respeta la prioridad operacional.
+          if(c.equipFilled!==best.equipFilled)return c.equipFilled>best.equipFilled;
+          if(c.launchFilled!==best.launchFilled)return c.launchFilled>best.launchFilled;
+          if(c.polesFilled!==best.polesFilled)return c.polesFilled>best.polesFilled;
+          return c.cost<best.cost;
         }
         function finishCore(coreAssign,coreUsed,coreCost){
           const equipCandidates=[null,...staff.filter(p=>roleAvailable(p,equipSupportRole)&&!coreUsed.has(p.idx))];
           for(const ep of equipCandidates){
-            const usedAfterEquip=new Set(coreUsed);let cost=coreCost;const a={...coreAssign};
-            if(ep){usedAfterEquip.add(ep.idx);a.equipSupport=ep.idx;cost+=candidateCost(ep,equipSupportRole)}
-            const launchCandidates=[null,...staff.filter(p=>roleAvailable(p,launchSupportRole)&&!usedAfterEquip.has(p.idx))];
+            const used1=new Set(coreUsed);let cost1=coreCost;const a1={...coreAssign};
+            if(ep){used1.add(ep.idx);a1.equipSupport=ep.idx;cost1+=candidateCost(ep,equipSupportRole)}
+            const launchCandidates=[null,...staff.filter(p=>roleAvailable(p,launchSupportRole)&&!used1.has(p.idx))];
             for(const lp of launchCandidates){
-              const usedFinal=new Set(usedAfterEquip);let total=cost;const aa={...a};
-              if(lp){usedFinal.add(lp.idx);aa.launchSupport=lp.idx;total+=candidateCost(lp,launchSupportRole)}
-              const cand={assign:aa,used:usedFinal,cost:total,equipFilled:ep?1:0,launchFilled:lp?1:0};
-              if(better(cand))best=cand;
+              const used2=new Set(used1);let cost2=cost1;const a2={...a1};
+              if(lp){used2.add(lp.idx);a2.launchSupport=lp.idx;cost2+=candidateCost(lp,launchSupportRole)}
+              const poleCandidates=[null,...staff.map(p=>poleCandidateForPerson(p,m,used2)).filter(Boolean)];
+              for(const pole of poleCandidates){
+                const used3=new Set(used2);let cost3=cost2;
+                if(pole){used3.add(pole.pid);cost3+=pole.cost}
+                const cand={
+                  assign:a2,used:used3,pole,cost:cost3,
+                  equipFilled:ep?1:0,launchFilled:lp?1:0,polesFilled:pole?1:0,
+                  optionalCount:(ep?1:0)+(lp?1:0)+(pole?1:0)
+                };
+                if(better(cand))best=cand;
+              }
             }
           }
         }
@@ -426,18 +457,16 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
       if(m.activeStaff>=4&&assigned.equipSupport==null)missingOptional++;
       if(m.activeStaff>=5&&assigned.launchSupport==null)missingOptional++;
 
-      // Poleas se intenta despues de los otros apoyos, pero no depende de que ambos
-      // hayan podido cubrirse. Asi una persona habilitada para Poleas puede aportar
-      // aunque un apoyo anterior haya sido imposible por horario o competencia.
-      if(used.size<6){
-        const pole=pickPole(m,used,lastPoleTransferEnd);
-        if(pole&&m.activeStaff>=6){
-          used.add(pole.pid);
-          add(m,'polesSupport','Poleas','poles',pole.start,m.end,pole.pid,6);
-          add(m,'polesTransfer','Poleas','poles',m.end,m.end+TRANSFER,pole.pid,6);
-          lastPoleTransferEnd=m.end+TRANSFER;
-        }else if(m.activeStaff>=6){missingOptional++;warnings.push(`Modulo ${m.id}: apoyo de Poleas no disponible.`)}
+      // Poleas ya viene resuelto junto con los otros apoyos opcionales. No depende de
+      // alcanzar seis personas simultaneas: basta con que exista una persona habilitada,
+      // disponible y que no este ocupando otra funcion del modulo.
+      if(solution.pole){
+        const pole=solution.pole;
+        add(m,'polesSupport','Poleas','poles',pole.start,m.end,pole.pid,6);
+        add(m,'polesTransfer','Poleas','poles',m.end,m.end+TRANSFER,pole.pid,6);
+        lastPoleTransferEnd=m.end+TRANSFER;
       }
+      if(m.activeStaff>=6&& !solution.pole){missingOptional++;warnings.push(`Modulo ${m.id}: apoyo de Poleas no disponible.`)}
       completeModules.push(m);
     }
     if(!completeModules.length)throw new Error('No se pudo completar ningun modulo con la dotacion, horarios, breaks y competencias seleccionadas.');
@@ -455,10 +484,10 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
     }
     const breakAudit=staff.map(p=>({idx:p.idx,nick:p.nick||p.name,arrival:p.arrival,departure:p.departure,preferred:p.preferred,breaks:(personalBreaks[p.idx]||[]).map(b=>({start:hhmm(b.start),end:hhmm(b.end),duration:b.duration}))}));
     const groupInfo={equip:equipIds,tower:towerIds,poles:polesIds[0]??null,polesAll:polesIds,homeGroup};
-    return {version:11,type:'airtrail-tirolesa',createdAt:new Date().toISOString(),date:$('#date').value,config:{dayStart:hhmm(dayStart),dayEnd:hhmm(dayEnd),firstStart:hhmm(modules[0].start),interval:segments[0].interval,intervals:segments.map(x=>({start:hhmm(x.start),end:hhmm(x.end),interval:x.interval})),equipDuration:equipDur,launchDuration:launchDur,gridMinutes:10,poleTransferMinutes:TRANSFER,breaks:breaks.map(b=>({start:hhmm(b.start),duration:b.duration,end:hhmm(b.end)}))},staff,modules,tasks,timeline,warnings,missingRequired,missingOptional,skippedModules,breakAudit,groupInfo};
+    return {version:12,type:'airtrail-tirolesa',createdAt:new Date().toISOString(),date:$('#date').value,config:{dayStart:hhmm(dayStart),dayEnd:hhmm(dayEnd),firstStart:hhmm(modules[0].start),interval:segments[0].interval,intervals:segments.map(x=>({start:hhmm(x.start),end:hhmm(x.end),interval:x.interval})),equipDuration:equipDur,launchDuration:launchDur,gridMinutes:10,poleTransferMinutes:TRANSFER,breaks:breaks.map(b=>({start:hhmm(b.start),duration:b.duration,end:hhmm(b.end)}))},staff,modules,tasks,timeline,warnings,missingRequired,missingOptional,skippedModules,breakAudit,groupInfo};
   }
   function personName(plan,pid){const p=plan.staff.find(x=>x.idx===pid);return p?(p.nick||p.name):'—'}
-  function moduleBg(id){return Number(id)%2===1?'#e7f0ff':'#e8f6ea'}function moduleFg(id){return Number(id)%2===1?'#234a73':'#285c36'}function categoryForTask(t){if(!t)return '';if(t.role==='break')return 'Break';if(t.role==='equipMain'||t.role==='equipSupport')return 'Equipamiento';if(t.role==='launchMain'||t.role==='launchSupport')return 'Lanzamiento';if(t.role==='polesSupport'||t.role==='polesTransfer')return 'Poleas';if(t.role==='brakeMain')return 'Freno';return t.label||''}
+  function moduleBg(id){return Number(id)%2===1?'#dfeeff':'#e7f6e3'}function moduleFg(id){return Number(id)%2===1?'#234a73':'#315c35'}function categoryForTask(t){if(!t)return '';if(t.role==='break')return 'Break';if(t.role==='equipMain'||t.role==='equipSupport')return 'Equipamiento';if(t.role==='launchMain'||t.role==='launchSupport')return 'Lanzamiento';if(t.role==='polesSupport'||t.role==='polesTransfer')return 'Poleas';if(t.role==='brakeMain')return 'Freno';return t.label||''}
   function orderedStaff(plan){
     const order=[];
     if(plan.groupInfo){
