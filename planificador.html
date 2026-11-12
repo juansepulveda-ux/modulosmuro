@@ -1,115 +1,72 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Planificador · Muro Mallsport</title><style>
-:root{font-family:Inter,system-ui,Arial,sans-serif;color:#17212c;background:#f3f5f8}*{box-sizing:border-box}body{margin:0}header{background:#14263b;color:white;padding:23px 32px}header h1{margin:0;font-size:23px}header p{margin:6px 0 0;color:#bbcad8}main{max-width:1500px;margin:auto;padding:22px;display:grid;gap:16px}.panel{background:white;border:1px solid #dce3eb;border-radius:13px;padding:20px;box-shadow:0 2px 8px #14263b08}h2{font-size:17px;margin:0 0 14px}.layout{display:grid;grid-template-columns:1fr 1.35fr;gap:16px}.fields{display:flex;flex-wrap:wrap;gap:12px;align-items:end}label{display:grid;gap:5px;font-size:12px;font-weight:700;color:#536275}input,select,textarea{font:inherit;border:1px solid #cbd5e1;border-radius:7px;padding:9px;background:#fff;color:#17212c}input[type=time]{width:125px}input[type=number]{width:90px}textarea{width:100%;min-height:86px;font-size:13px}button{border:0;border-radius:8px;background:#1e4566;color:white;padding:10px 14px;font-weight:650;cursor:pointer}button.secondary{background:#e8eef4;color:#23415b}button:disabled{opacity:.45;cursor:not-allowed}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.hint{color:#64748b;font-size:12px;line-height:1.55}.people{display:flex;flex-wrap:wrap;gap:7px;max-height:180px;overflow:auto}.person{display:flex;align-items:center;gap:6px;padding:8px 10px;background:#f3f6f9;border-radius:8px;font-size:13px}.person input{margin:0}.stats{display:flex;flex-wrap:wrap;gap:10px}.stat{padding:11px 16px;background:#f0f4f8;border-radius:9px;min-width:130px}.stat b{display:block;font-size:23px}.stat span{font-size:12px;color:#64748b}.warning{background:#fff5e8;color:#8a4b08;padding:11px;border-radius:8px;margin-top:12px;font-size:13px}.ok{background:#e8f7f0;color:#126440;padding:11px;border-radius:8px;margin-top:12px;font-size:13px}.tablewrap{overflow:auto;max-height:72vh;border:1px solid #dce3eb;border-radius:10px}table{border-collapse:separate;border-spacing:0;width:100%;font-size:12px}th,td{border-bottom:1px solid #e5eaf0;border-right:1px solid #edf0f4;padding:7px 8px;text-align:center;white-space:nowrap;min-width:90px}th{position:sticky;top:0;background:#20384f;color:white;z-index:3}th:first-child,td:first-child{position:sticky;left:0;z-index:2;min-width:130px;background:#f7f9fc;text-align:left;font-weight:650}th:first-child{z-index:4;background:#20384f}td.activity-module{background:#e8f0fd;color:#1d467c}td.activity-support{background:#e4f5eb;color:#226143}td.activity-free{background:#f2f4f7;color:#697789}.activity-name{display:block;font-size:12px;font-weight:750;line-height:1.35}.activity-detail{display:block;font-size:10px;opacity:.7;line-height:1.4;margin-top:2px}.legend-chip{display:inline-flex;align-items:center;gap:7px}.legend-dot{height:13px;width:13px;border-radius:4px;border:1px solid #00000010}.legend-dot.module{background:#e8f0fd}.legend-dot.support{background:#e4f5eb}.legend-dot.free{background:#f2f4f7}.tablewrap td:not(:first-child){min-width:155px;padding:7px 10px}.tablewrap th:not(:first-child){min-width:155px}.module-table td:not(:first-child),.module-table th:not(:first-child){min-width:95px}.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;margin:12px 0;color:#506176}.legend b{color:#1c3147}.muted{color:#718096}.module-table td:first-child{position:static}.module-table th:first-child{position:sticky;left:0}.footer{font-size:12px;color:#69788a}@media(max-width:850px){.layout{grid-template-columns:1fr}main{padding:12px}header{padding:18px}}</style></head><body><header><h1>MURO MALLSPORT <span style="font-weight:400;color:#b4c6d8">/ Planificador de monitores</span></h1><p>Miniclases · Ruta + Boulder · Planificación local</p></header><main><div class="layout"><section class="panel"><h2>01 · Base de monitores</h2><p class="hint">Un monitor por línea: <b>Paloma Acevedo (Palo)</b>. La base queda guardada en este navegador.</p><textarea id="roster" placeholder="Paloma Acevedo (Palo)&#10;Benjamin Delgado (Benja)&#10;Lucia Soto (Lu)"></textarea><div class="actions"><button id="saveRoster">Guardar base</button><button class="secondary" id="importRoster">Importar TXT</button><button class="secondary" id="downloadRoster">Exportar TXT</button><input id="txtFile" type="file" accept=".txt,text/plain" hidden></div><h2 style="margin-top:24px">02 · Monitores en turno</h2><div id="people" class="people"></div><p class="hint">Marca los monitores disponibles para la jornada. Cada apoyo en ruta se asigna a una sola persona durante los 20 minutos completos.</p></section><section class="panel"><h2>03 · Configuración de jornada</h2><div class="fields"><label>Fecha<input type="date" id="date"></label><label>Primer módulo<input type="time" id="start" value="14:00" step="300"></label><label>Último inicio<input type="time" id="last" value="19:30" step="300"></label><label>Intervalo (min)<input type="number" id="interval" min="5" max="180" step="5" value="30"></label><label>Duración (min)<input type="number" id="duration" min="50" max="180" step="5" value="50"></label></div><p class="hint">Secuencia estándar: recepción 5 min, boulder 20 min, ruta 20 min, despedida 5 min. Cada monitor de apoyo cubre los 20 minutos de ruta del mismo módulo, sin relevos. El campo duración se mantiene en 50 min para esta versión.</p><div class="fields"><label>Apoyo en ruta<input type="number" id="supportCount" value="1" min="1" max="1" readonly title="Un único monitor acompaña los 20 minutos completos"></label><label>Prioridad de asignación<select id="priority"><option value="balanced">Equilibrar carga entre monitores</option><option value="order">Orden de selección</option></select></label><label style="display:flex;align-items:center;gap:8px;min-height:39px"><input type="checkbox" id="fixedSupportEnabled" style="width:auto"> Monitor fijo de apoyo</label><label>Monitor fijo<select id="fixedSupportMonitor" disabled><option value="">Seleccionar monitor</option></select></label></div><p class="hint">Si activas <b>Monitor fijo de apoyo</b>, esa persona queda reservada para apoyar la ruta y no recibe módulos principales. Si no lo activas, el apoyo se rota automáticamente entre los monitores disponibles, manteniendo siempre a la misma persona durante los 20 minutos completos de cada módulo.</p><div class="actions"><button id="generate">Generar planificación</button><button class="secondary" id="importJson">Abrir planificación JSON</button><input id="jsonFile" type="file" accept=".json,application/json" hidden></div><div id="message"></div></section></div><section class="panel"><h2>04 · Resumen de cobertura</h2><div id="stats" class="stats"><span class="muted">Genera una planificación para ver los resultados.</span></div><div class="actions"><button id="downloadJson" disabled>Descargar JSON</button><button id="downloadExcel" disabled>Descargar Excel (.xlsx)</button><button class="secondary" id="downloadCsv" disabled>Descargar CSV</button></div></section><section class="panel" id="publishPanel"><h2>05 · Publicar horario</h2><p class="hint">Cuando la planificación esté lista, publícala directamente en <b>horario.json</b>. El token de GitHub no está en esta página: permanece guardado de forma segura en Vercel.</p><div class="fields"><label>Usuario<input type="text" id="publishUser" autocomplete="username" placeholder="administracion"></label><label>Contraseña<input type="password" id="publishPassword" autocomplete="current-password" placeholder="••••••••••••"></label></div><div class="actions"><button id="publishPlan" disabled>Publicar horario</button><button class="secondary" id="openViewer" type="button">Abrir visor</button></div><div id="publishMessage"></div></section><section class="panel"><h2>06 · Horario de monitores</h2><div class="legend" aria-label="Leyenda de colores"><span class="legend-chip"><span class="legend-dot module"></span><b>En módulo</b> (recepción, boulder, ruta o despedida)</span><span class="legend-chip"><span class="legend-dot support"></span><b>Apoyando en ruta</b></span><span class="legend-chip"><span class="legend-dot free"></span><b>Libre</b></span></div><div id="schedule" class="tablewrap"><p class="hint" style="padding:15px">La tabla aparecerá aquí.</p></div></section><section class="panel"><h2>07 · Detalle de módulos y responsables</h2><div id="modules" class="tablewrap"><p class="hint" style="padding:15px">Aquí podrás revisar cada módulo y su monitor responsable.</p></div></section><p class="footer">Versión 2.1 · La planificación se procesa en el navegador. Solo al pulsar «Publicar horario» se envía el JSON a la función segura de Vercel para actualizar GitHub. La exportación Excel utiliza una librería pública cargada al abrir la página; el CSV funciona sin conexión.</p></main><script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script><script>
-const $=id=>document.getElementById(id), SLOT=5;let roster=[],selected=new Set(),plan=null;const activityNames={REC:'Recepción de niños',B:'Boulder',R:'Ruta',D:'Despedida de niños',AP:'Apoyo en ruta'};const activityText=a=>a?`${activityNames[a.code]||a.code} · Módulo ${a.module}`:'Libre';const pad=n=>String(n).padStart(2,'0'),fmt=m=>pad(Math.floor(m/60)%24)+':'+pad(m%60),parse=s=>{let a=s.split(':').map(Number);return a[0]*60+a[1]},escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function parseRoster(t){let out=[],seen=new Set();for(let line of t.split(/\r?\n/)){line=line.trim();if(!line)continue;let m=line.match(/^(.*?)\s*\(([^()]+)\)\s*$/);let full=m?m[1].trim():line, nick=m?m[2].trim():line.split(/\s+/)[0];if(!full||!nick)continue;let key=full.toLocaleLowerCase('es');if(seen.has(key))continue;seen.add(key);out.push({id:key,full,nick})}return out}
-function saveRoster(){roster=parseRoster($('roster').value);localStorage.setItem('muroRoster',JSON.stringify(roster));selected=new Set([...selected].filter(id=>roster.some(p=>p.id===id)));renderPeople()}
-function updateFixedSupportOptions(){
-  const select=$('fixedSupportMonitor');if(!select)return;
-  const current=select.value;
-  const staff=roster.filter(p=>selected.has(p.id));
-  select.innerHTML='<option value="">Seleccionar monitor</option>'+staff.map(p=>`<option value="${escapeHtml(p.id)}">${escapeHtml(p.nick)} · ${escapeHtml(p.full)}</option>`).join('');
-  if(staff.some(p=>p.id===current))select.value=current;
-  select.disabled=!$('fixedSupportEnabled')?.checked;
-}
-function renderPeople(){
-  $('people').innerHTML=roster.length?roster.map(p=>`<label class="person"><input type="checkbox" data-id="${escapeHtml(p.id)}" ${selected.has(p.id)?'checked':''}><span>${escapeHtml(p.nick)} <span class="muted">· ${escapeHtml(p.full)}</span></span></label>`).join(''):'<span class="hint">Primero guarda o importa tu base de monitores.</span>';
-  document.querySelectorAll('.person input').forEach(c=>c.addEventListener('change',()=>{c.checked?selected.add(c.dataset.id):selected.delete(c.dataset.id);updateFixedSupportOptions()}));
-  updateFixedSupportOptions();
-}
-function build(){
-  const staff=roster.filter(p=>selected.has(p.id));
-  let first=parse($('start').value),last=parse($('last').value),interval=Number($('interval').value),supportCount=Number($('supportCount').value);
-  if(!staff.length)throw Error('Selecciona al menos un monitor.');
-  if(last<first)throw Error('El último inicio debe ser igual o posterior al primero.');
-  if(interval<5||interval%5)throw Error('El intervalo debe ser múltiplo de 5 minutos.');
-  supportCount=1;
-  if(Number($('duration').value)!==50)throw Error('Esta versión utiliza módulos de 50 minutos.');
-  const fixedSupportEnabled=$('fixedSupportEnabled').checked;
-  const fixedSupportId=$('fixedSupportMonitor').value;
-  const fixedSupporter=fixedSupportEnabled?staff.find(p=>p.id===fixedSupportId):null;
-  if(fixedSupportEnabled&&!fixedSupporter)throw Error('Selecciona qué monitor quedará fijo como apoyo en ruta.');
-  if(fixedSupportEnabled&&staff.length<2)throw Error('Necesitas al menos dos monitores para usar un monitor fijo de apoyo.');
-  let starts=[];for(let t=first;t<=last;t+=interval)starts.push(t);
-  if(starts.length>300)throw Error('Demasiados módulos para una jornada.');
-  let cells={},load={},lastEnd={},primaryCounts={},supportCounts={};
-  for(let p of staff){cells[p.id]={};load[p.id]=0;lastEnd[p.id]=-1;primaryCounts[p.id]=0;supportCounts[p.id]=0}
-  let modules=[],issues=[],lastSupporterId=null;
-  function busy(p,t){return !!cells[p.id][t]}
-  function assign(p,t,code,mid){cells[p.id][t]={code,module:mid};load[p.id]++}
-  function pick(candidates,mode){return candidates.sort((a,b)=>$('priority').value==='order'?staff.indexOf(a)-staff.indexOf(b):(mode==='primary'?primaryCounts[a.id]-primaryCounts[b.id]||load[a.id]-load[b.id]:load[a.id]-load[b.id])||lastEnd[a.id]-lastEnd[b.id]||staff.indexOf(a)-staff.indexOf(b))[0]}
-  // Cada módulo reserva primero sus 50 minutos de monitor principal y luego
-  // los 20 minutos completos de apoyo. Un apoyo nunca cambia a mitad del módulo.
-  for(let i=0;i<starts.length;i++){
-    const t=starts[i],id=i+1;
-    const primarySlots=Array.from({length:10},(_,j)=>t+j*SLOT);
-    const routeSlots=Array.from({length:4},(_,j)=>t+(5+j)*SLOT);
-    const free=staff.filter(p=>(!fixedSupporter||p.id!==fixedSupporter.id)&&primarySlots.every(s=>!busy(p,s)));
-    const main=pick(free,'primary');
-    const mod={id,start:t,end:t+50,primary:main?.id||null,supports:{}};
-    modules.push(mod);
-    if(!main){
-      issues.push(`Módulo ${id} (${fmt(t)}): falta monitor principal.`);
-      for(const slot of routeSlots)mod.supports[slot]=[];
-      continue;
-    }
-    primaryCounts[main.id]++;
-    for(let j=0;j<10;j++)assign(main,primarySlots[j],j===0?'REC':j<=4?'B':j<=8?'R':'D',id);
-    lastEnd[main.id]=t+50;
-    let supporter=null;
-    if(fixedSupporter){
-      if(routeSlots.every(s=>!busy(fixedSupporter,s)))supporter=fixedSupporter;
-    }else{
-      const available=staff.filter(p=>routeSlots.every(s=>!busy(p,s)));
-      // Rotación: primero quien menos apoyos lleva; luego quien menos módulos principales lleva.
-      supporter=available.sort((a,b)=>supportCounts[a.id]-supportCounts[b.id]||Number(a.id===lastSupporterId)-Number(b.id===lastSupporterId)||primaryCounts[a.id]-primaryCounts[b.id]||load[a.id]-load[b.id]||lastEnd[a.id]-lastEnd[b.id]||staff.indexOf(a)-staff.indexOf(b))[0];
-    }
-    if(!supporter){
-      const fixedText=fixedSupporter?` El monitor fijo ${fixedSupporter.nick} no está disponible en todo ese tramo.`:'';
-      issues.push(`Módulo ${id} (${fmt(routeSlots[0])}–${fmt(routeSlots[3]+SLOT)}): falta un monitor para cubrir los 20 minutos completos de apoyo en ruta.${fixedText}`);
-    }else{
-      for(const slot of routeSlots)assign(supporter,slot,'AP',id);
-      supportCounts[supporter.id]++;
-      lastSupporterId=supporter.id;
-      lastEnd[supporter.id]=routeSlots[3]+SLOT;
-    }
-    for(const slot of routeSlots)mod.supports[slot]=supporter?[supporter.id]:[];
-  }
-  let end=last+50,rows=[];
-  for(let t=first;t<end;t+=5){let row={start:fmt(t),end:fmt(t+5),time:t,assignments:{}};for(let p of staff)row.assignments[p.id]=cells[p.id][t]||null;rows.push(row)}
-  return {version:1,createdAt:new Date().toISOString(),date:$('date').value,settings:{first:fmt(first),last:fmt(last),interval,duration:50,supportCount,priority:$('priority').value,fixedSupportEnabled,fixedSupportId:fixedSupporter?.id||null},staff,modules,rows,issues}
-}
-function render(){if(!plan)return;let {staff,rows,modules,issues}=plan;let count=modules.length,uncovered=issues.length;let utilization=staff.map(p=>({p,used:rows.filter(r=>r.assignments[p.id]).length*5}));$('stats').innerHTML=`<div class="stat"><b>${count}</b><span>Módulos</span></div><div class="stat"><b>${staff.length}</b><span>Monitores</span></div><div class="stat"><b>${uncovered}</b><span>Asignaciones sin cobertura</span></div>`+utilization.map(({p,used})=>`<div class="stat"><b>${used} min</b><span>${escapeHtml(p.nick)} · asignados</span></div>`).join('');$('message').innerHTML=issues.length?`<div class="warning"><b>Atención: ${issues.length} asignaciones sin cubrir.</b><details><summary>Ver detalles</summary>${issues.map(x=>`<div>${escapeHtml(x)}</div>`).join('')}</details></div>`:'<div class="ok">Cobertura completa: todos los módulos tienen monitor principal y apoyos de ruta.</div>';
-$('schedule').innerHTML=`<table><thead><tr><th>Horario</th>${staff.map(p=>`<th title="${escapeHtml(p.full)}">${escapeHtml(p.nick)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr><td>${r.start} – ${r.end}</td>${staff.map(p=>{let a=r.assignments[p.id],cl=!a?'activity-free':a.code==='AP'?'activity-support':'activity-module';return `<td class="${cl}" title="${escapeHtml(activityText(a))}"><span class="activity-name">${escapeHtml(a?activityNames[a.code]||a.code:'Libre')}</span>${a?`<span class="activity-detail">Módulo ${a.module}</span>`:''}</td>`}).join('')}</tr>`).join('')}</tbody></table>`;
-$('modules').innerHTML=`<table class="module-table"><thead><tr><th>Módulo</th><th>Inicio</th><th>Término</th><th>Responsable</th><th>Apoyos en ruta</th></tr></thead><tbody>${modules.map(m=>`<tr><td>${m.id}</td><td>${fmt(m.start)}</td><td>${fmt(m.end)}</td><td>${escapeHtml(staff.find(p=>p.id===m.primary)?.nick||'SIN ASIGNAR')}</td><td>${[...new Set(Object.values(m.supports).flat())].map(id=>escapeHtml(staff.find(p=>p.id===id)?.nick||id)).join(', ')||'—'}</td></tr>`).join('')}</tbody></table>`;['downloadJson','downloadExcel','downloadCsv','publishPlan'].forEach(id=>$(id).disabled=false)}
-function exportPlan(){return {...plan,rows:plan.rows.map(r=>({...r,assignments:Object.fromEntries(Object.entries(r.assignments).map(([id,a])=>[id,a?{...a,descripcion:activityText(a),estado:a.code==='AP'?'apoyo':'modulo'}:null]))}))}}function download(blob,name){let a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}function tabular(){return plan.rows.map(r=>({'Inicio':r.start,'Término':r.end,...Object.fromEntries(plan.staff.map(p=>[p.nick,activityText(r.assignments[p.id])]))}))}function csv(){let rows=tabular(),heads=Object.keys(rows[0]||{});return '\ufeff'+[heads,...rows.map(r=>heads.map(h=>r[h]))].map(a=>a.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\r\n')}
-$('saveRoster').onclick=saveRoster;$('importRoster').onclick=()=>$('txtFile').click();$('txtFile').onchange=async e=>{let f=e.target.files[0];if(f){$('roster').value=await f.text();saveRoster()}e.target.value=''};$('downloadRoster').onclick=()=>download(new Blob([$('roster').value],{type:'text/plain;charset=utf-8'}),'monitores_muro.txt');$('generate').onclick=()=>{try{plan=build();render()}catch(e){$('message').innerHTML=`<div class="warning">${escapeHtml(e.message)}</div>`}};$('downloadJson').onclick=()=>download(new Blob([JSON.stringify(exportPlan(),null,2)],{type:'application/json'}),`muro_${plan.date||'planificacion'}.json`);$('downloadCsv').onclick=()=>download(new Blob([csv()],{type:'text/csv;charset=utf-8'}),`muro_${plan.date||'planificacion'}.csv`);$('downloadExcel').onclick=()=>{if(!window.XLSX){alert('No se pudo cargar la librería Excel. Descarga CSV, que Excel también puede abrir.');return}let wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(tabular()),'Horario');XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(plan.modules.map(m=>({Modulo:m.id,Inicio:fmt(m.start),Termino:fmt(m.end),Responsable:plan.staff.find(p=>p.id===m.primary)?.nick||'',Apoyos:[...new Set(Object.values(m.supports).flat())].map(id=>plan.staff.find(p=>p.id===id)?.nick||id).join(', ')}))),'Modulos');XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(plan.issues.map(x=>({Incidencia:x}))),'Alertas');XLSX.writeFile(wb,`muro_${plan.date||'planificacion'}.xlsx`)};$('importJson').onclick=()=>$('jsonFile').click();$('jsonFile').onchange=async e=>{try{let p=JSON.parse(await e.target.files[0].text());if(p.version!==1||!Array.isArray(p.rows)||!Array.isArray(p.staff)||!Array.isArray(p.modules)||!Array.isArray(p.issues)||!p.settings)throw Error('Formato JSON incompatible');for(const m of p.modules){const slots=Array.from({length:4},(_,j)=>m.start+(5+j)*SLOT);const assigned=slots.map(t=>m.supports?.[t]||[]);if(assigned.some(ids=>ids.length>1||ids.join('|')!==assigned[0].join('|')))throw Error('Esta planificación contiene relevos de apoyo en un mismo módulo. Genera un horario nuevo con la versión actual.')}plan=p;$('date').value=p.date||'';$('start').value=p.settings.first;$('last').value=p.settings.last;$('interval').value=p.settings.interval;$('duration').value=50;$('supportCount').value=1;$('priority').value=p.settings.priority||'balanced';$('fixedSupportEnabled').checked=!!p.settings.fixedSupportEnabled;updateFixedSupportOptions();$('fixedSupportMonitor').value=p.settings.fixedSupportId||'';$('fixedSupportMonitor').disabled=!$('fixedSupportEnabled').checked;render()}catch(err){alert('No se pudo abrir: '+err.message)}e.target.value=''};
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Planificador Mallsport</title>
+<style>
+:root{--nav:#17304f;--ink:#172033;--muted:#667085;--line:#dce3eb;--bg:#f3f6fa;--card:#fff;--ok:#e8f7f0;--okText:#126440;--bad:#fff0ed;--badText:#a13a2b}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:var(--nav);color:#fff;padding:22px 28px}header h1{margin:0;font-size:24px}header p{margin:6px 0 0;color:#c3d1df;font-size:13px}
+main{max-width:1600px;margin:auto;padding:18px}.card{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 3px 12px #14263b0b;padding:16px;margin-bottom:14px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}.tab{border:1px solid #cbd5e1;background:#eef3f7;color:#29445f;border-radius:9px;padding:10px 15px;font-weight:750;cursor:pointer}.tab.active{background:var(--nav);color:#fff;border-color:var(--nav)}
+.controls{display:flex;gap:10px;align-items:end;flex-wrap:wrap;margin-top:12px}.field{display:grid;gap:5px;font-size:12px;font-weight:700;color:#536275}.field input,.field select{height:38px;border:1px solid #cbd5e1;border-radius:8px;padding:0 10px;font:inherit;background:#fff;min-width:160px}
+button{border:0;border-radius:8px;background:#1e4566;color:#fff;padding:10px 14px;font-weight:700;cursor:pointer}button.secondary{background:#e8eef4;color:#23415b}button.danger{background:#a33b32}button:disabled{opacity:.45;cursor:not-allowed}.muted{font-size:12px;color:var(--muted);line-height:1.45}
+.status{margin-top:10px;padding:10px 12px;border-radius:8px;font-size:12px}.status.ok{background:var(--ok);color:var(--okText)}.status.bad{background:var(--bad);color:var(--badText)}
+.frame{width:100%;height:1050px;border:1px solid var(--line);border-radius:12px;background:#fff}.hidden{display:none!important}
+.pubhead{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.pubgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-top:12px}.pubitem{border:1px solid var(--line);border-radius:11px;padding:12px;background:#fbfcfe}.pubitem b{font-size:15px}.pubitem .meta{font-size:11px;color:var(--muted);margin:4px 0 10px}.pubitem .actions{display:flex;gap:7px;flex-wrap:wrap}
+@media(max-width:800px){main{padding:10px}header{padding:18px 14px}.frame{height:900px}.field{width:100%}.field input,.field select{width:100%}}
+</style>
+</head>
+<body>
+<header><h1>Planificador Mallsport</h1><p>Muro de escalada + Airtrail/Tirolesa · publicación por fecha</p></header>
+<main>
+  <section class="card">
+    <div class="tabs">
+      <button class="tab active" data-type="muro">Muro de escalada</button>
+      <button class="tab" data-type="airtrail">Airtrail + Tirolesa</button>
+    </div>
+    <div class="controls">
+      <label class="field">Usuario<input id="username" autocomplete="username" placeholder="administracion"></label>
+      <label class="field">Contraseña<input id="password" type="password" autocomplete="current-password" placeholder="••••••••"></label>
+      <button id="publish">Publicar jornada actual</button>
+      <button class="secondary" id="openViewer">Abrir visor público</button>
+    </div>
+    <div class="muted">La fecha se toma de la planificación activa. Publicar una fecha ya existente la reemplaza; las otras jornadas permanecen intactas.</div>
+    <div id="status"></div>
+  </section>
 
-$('fixedSupportEnabled').addEventListener('change',()=>{updateFixedSupportOptions()});
-function publishStatus(message,kind='ok'){
-  const box=$('publishMessage');
-  if(!box)return;
-  const cls=kind==='error'?'warning':'ok';
-  box.innerHTML=`<div class="${cls}">${escapeHtml(message)}</div>`;
-}
-async function publishCurrentPlan(){
-  if(!plan){publishStatus('Primero genera o abre una planificación.','error');return}
-  const username=$('publishUser').value.trim(),password=$('publishPassword').value;
-  if(!username||!password){publishStatus('Ingresa el usuario y la contraseña de publicación.','error');return}
-  if(plan.issues?.length && !confirm(`La planificación tiene ${plan.issues.length} alerta(s) de cobertura. ¿Quieres publicarla de todas formas?`))return;
-  const button=$('publishPlan');button.disabled=true;const previous=button.textContent;button.textContent='Publicando…';
-  publishStatus('Enviando la planificación…');
-  try{
-    if(location.protocol==='file:')throw new Error('La publicación directa funciona desde la versión desplegada en Vercel. Localmente puedes seguir planificando y exportando JSON/Excel.');
-    const response=await fetch('/api/publicar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username,password,horario:exportPlan()})});
-    const data=await response.json().catch(()=>({}));
-    if(!response.ok)throw new Error(data.error||`Error ${response.status}`);
-    const commit=data.commitUrl?' El commit quedó creado en GitHub.':'';
-    publishStatus((data.message||'Horario publicado correctamente.')+commit);
-    $('publishPassword').value='';
-  }catch(err){publishStatus('No se pudo publicar: '+err.message,'error')}
-  finally{button.disabled=false;button.textContent=previous}
-}
-$('publishPlan').onclick=publishCurrentPlan;
-$('openViewer').onclick=()=>{const url=location.protocol==='file:'?'index.html':'/';window.open(url,'_blank','noopener')};
-try{roster=JSON.parse(localStorage.getItem('muroRoster')||'null')||parseRoster('Paloma Acevedo (Palo)\nBenjamin Delgado (Benja)\nLucia Soto (Lu)');}catch{roster=[]}selected=new Set(roster.map(p=>p.id));$('roster').value=roster.map(p=>`${p.full} (${p.nick})`).join('\n');$('date').value=new Date().toLocaleDateString('en-CA');renderPeople();
-</script></body></html>
+  <section class="card" style="padding:8px">
+    <iframe id="muroFrame" class="frame" src="/planificador_muro.html?embed=1" title="Planificador Muro"></iframe>
+    <iframe id="airtrailFrame" class="frame hidden" src="/planificador_airtrail.html?embed=1" title="Planificador Airtrail y Tirolesa"></iframe>
+  </section>
+
+  <section class="card">
+    <div class="pubhead">
+      <div><b>Jornadas publicadas</b><div class="muted">Revisa, abre o elimina jornadas ya publicadas.</div></div>
+      <div class="controls" style="margin-top:0">
+        <label class="field">Mes<input type="month" id="month"></label>
+        <button class="secondary" id="refresh">Actualizar lista</button>
+      </div>
+    </div>
+    <div id="published" class="pubgrid"></div>
+  </section>
+</main>
+<script>
+let activeType='muro', waiting=null;
+const $=id=>document.getElementById(id);
+const typeLabel=t=>t==='muro'?'Muro de escalada':'Airtrail + Tirolesa';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function msg(text,kind='ok'){$('status').innerHTML=`<div class="status ${kind}">${esc(text)}</div>`}
+function setType(t){activeType=t;document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.type===t));$('muroFrame').classList.toggle('hidden',t!=='muro');$('airtrailFrame').classList.toggle('hidden',t!=='airtrail');refreshList()}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>setType(b.dataset.type));
+$('month').value=new Date().toLocaleDateString('en-CA').slice(0,7);
+function requestPlan(){return new Promise((resolve,reject)=>{const id=crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random();const frame=activeType==='muro'?$('muroFrame'):$('airtrailFrame');const timer=setTimeout(()=>{waiting=null;reject(new Error('El planificador no respondió.'))},3000);waiting={id,resolve,reject,timer};frame.contentWindow.postMessage({type:'request-current-plan',requestId:id},'*')})}
+window.addEventListener('message',e=>{const d=e.data;if(!d||d.type!=='planner-current-plan'||!waiting||d.requestId!==waiting.id)return;clearTimeout(waiting.timer);const w=waiting;waiting=null;w.resolve(d)});
+$('publish').onclick=async()=>{try{const username=$('username').value.trim(),password=$('password').value;if(!username||!password)throw new Error('Ingresa usuario y contraseña.');const r=await requestPlan();if(!r.plan)throw new Error('Primero genera una planificación en la pestaña activa.');if(!/^\d{4}-\d{2}-\d{2}$/.test(r.date||''))throw new Error('Selecciona una fecha válida para la jornada.');if(r.planner!==activeType)throw new Error('La planificación activa no coincide con la pestaña seleccionada.');$('publish').disabled=true;$('publish').textContent='Publicando…';const res=await fetch('/api/jornadas',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username,password,type:activeType,date:r.date,plan:r.plan})});const data=await res.json().catch(()=>({}));if(!res.ok)throw new Error(data.error||`Error ${res.status}`);msg(`${typeLabel(activeType)} · ${r.date} publicado correctamente.`);$('password').value='';await refreshList()}catch(e){msg(e.message,'bad')}finally{$('publish').disabled=false;$('publish').textContent='Publicar jornada actual'}};
+async function refreshList(){const box=$('published');box.innerHTML='<div class="muted">Cargando…</div>';try{const res=await fetch(`/api/jornadas?type=${encodeURIComponent(activeType)}&action=list`,{cache:'no-store'});const data=await res.json();if(!res.ok)throw new Error(data.error||'No se pudo obtener la lista.');const month=$('month').value;const items=(data.items||[]).filter(x=>!month||x.date.startsWith(month)).sort((a,b)=>b.date.localeCompare(a.date));if(!items.length){box.innerHTML='<div class="muted">No hay jornadas publicadas para este mes.</div>';return}box.innerHTML=items.map(x=>`<div class="pubitem"><b>${esc(x.date)}</b><div class="meta">${esc(typeLabel(activeType))}${x.size?` · ${(x.size/1024).toFixed(1)} KB`:''}</div><div class="actions"><button class="secondary" data-view="${esc(x.date)}">Ver</button><button class="danger" data-del="${esc(x.date)}">Eliminar</button></div></div>`).join('')}catch(e){box.innerHTML=`<div class="status bad">${esc(e.message)}</div>`}}
+$('refresh').onclick=refreshList;$('month').onchange=refreshList;
+$('published').onclick=async e=>{const view=e.target.dataset.view,del=e.target.dataset.del;if(view){window.open(`/?type=${activeType}&date=${encodeURIComponent(view)}`,'_blank','noopener');return}if(del){const username=$('username').value.trim(),password=$('password').value;if(!username||!password){msg('Ingresa usuario y contraseña para eliminar una publicación.','bad');return}if(!confirm(`¿Eliminar ${typeLabel(activeType)} del ${del}?`))return;try{e.target.disabled=true;const res=await fetch('/api/jornadas',{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({username,password,type:activeType,date:del})});const data=await res.json().catch(()=>({}));if(!res.ok)throw new Error(data.error||`Error ${res.status}`);msg(`${del} eliminado.`);$('password').value='';await refreshList()}catch(err){msg(err.message,'bad')}finally{e.target.disabled=false}}};
+$('openViewer').onclick=()=>window.open(`/?type=${activeType}`,'_blank','noopener');
+refreshList();
+</script>
+</body></html>

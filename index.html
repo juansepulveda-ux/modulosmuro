@@ -1,167 +1,35 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#152c43">
-  <meta name="description" content="Consulta los turnos de monitores de las miniclases de Muro Mallsport.">
-  <title>Horarios de monitores · Muro Mallsport</title>
-  <style>
-    :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172638;background:#f4f6f9;font-synthesis:none}
-    *{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #8bb6e3;outline-offset:2px}
-    .top{background:#152c43;color:white;padding:24px max(18px,calc((100vw - 1180px)/2));border-bottom:3px solid #315978}.brand{display:flex;justify-content:space-between;align-items:center;gap:15px}.brand-name{font-weight:850;letter-spacing:.08em;font-size:13px;color:#c4d3e2}.top h1{font-size:clamp(23px,3.5vw,32px);letter-spacing:-.025em;margin:7px 0 4px}.top p{margin:0;color:#c5d3e1;font-size:13px}.top-right{border:1px solid #496077;border-radius:100px;padding:7px 12px;font-size:11px;color:#deebf6;white-space:nowrap}
-    main{max-width:1220px;margin:auto;padding:22px 20px 56px}.panel{background:white;border:1px solid #e0e6ee;border-radius:13px;padding:20px;box-shadow:0 3px 14px #14263b07;margin-bottom:15px}.toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}.toolbar-left{min-width:200px;flex:1}.overline{margin:0 0 5px;color:#5b6f86;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:850}.big-date{font-size:clamp(20px,2.8vw,26px);letter-spacing:-.025em;font-weight:800;line-height:1.25}.subtle{font-size:12px;color:#6c7b8d;margin-top:6px;line-height:1.5}.buttons{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.btn{background:#244967;border:1px solid #244967;color:white;padding:10px 14px;border-radius:8px;font-size:12px;font-weight:750;min-height:39px}.btn.secondary{background:white;color:#244967;border:1px solid #c9d5e2}.btn:hover{filter:brightness(.95)}input[type=file]{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0}
-    .status{padding:11px 14px;border-radius:9px;background:#f2f5f9;border:1px solid #e5eaf0;font-size:12px;line-height:1.5;color:#52677f;display:flex;align-items:flex-start;gap:8px}.status.good{background:#ebf7f0;border-color:#d2ebdc;color:#236046}.status.warn{background:#fff7e8;border-color:#f4dfb5;color:#805a24}.status.error{background:#fff3f0;border-color:#f5d6cf;color:#913e31}.status b{color:inherit}.status-marker{font-size:15px;line-height:1}
-    .summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:15px 0}.kpi{background:#fff;border:1px solid #e1e7ed;border-radius:11px;padding:17px 18px}.kpi strong{font-size:24px;letter-spacing:-.03em;display:block}.kpi span{font-size:12px;color:#6c7b8d}.kpi small{color:#7d8a98;font-size:11px;display:block;margin-top:5px}
-    .tabs{display:flex;gap:6px;border-bottom:1px solid #e3e8ef;margin-bottom:16px;padding-bottom:9px}.tab{padding:10px 16px;border-radius:8px;border:0;background:transparent;color:#566a80;font-weight:750;font-size:13px}.tab.active{background:#e9eff6;color:#1d4363}.heading{font-size:17px;font-weight:800;margin:0}.heading-caption{margin:6px 0 14px;color:#718295;font-size:12px}.legend{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0 12px;font-size:12px;color:#53667a}.legend-item{display:flex;align-items:center;gap:7px}.swatch{height:13px;width:13px;border-radius:4px;border:1px solid #0000000b}.swatch.module{background:#e8f0fd}.swatch.support{background:#e4f5eb}.swatch.free{background:#f2f4f7}
-    .table-outer{overflow:auto;border:1px solid #dee5ed;border-radius:9px;max-height:70vh}table{border-collapse:separate;border-spacing:0;width:100%;font-size:12px}td,th{border-bottom:1px solid #e4eaf0;border-right:1px solid #edf1f5;text-align:center;white-space:nowrap;padding:9px 12px}th{position:sticky;top:0;background:#243e56;color:white;z-index:2;font-size:12px}th:first-child,td:first-child{position:sticky;left:0;min-width:124px;z-index:1;text-align:left;font-weight:750;background:#f8fafc}th:first-child{z-index:3;background:#243e56}th:not(:first-child),td:not(:first-child){min-width:162px}tr:last-child td{border-bottom:0}.cell-label{display:block;font-weight:750;line-height:1.35}.cell-detail{display:block;font-size:10px;opacity:.77;margin-top:2px}.module{background:#e8f0fd;color:#1d467c}.support{background:#e4f5eb;color:#226143}.free{background:#f2f4f7;color:#697789}.table-outer .free .cell-label{font-weight:500}.table-outer tr:hover td:first-child{color:#1b4264}
-    .controls{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:17px}.field{display:grid;gap:6px;font-size:12px;font-weight:760;color:#566a80;min-width:230px}.field select{border:1px solid #c6d4e2;padding:11px 12px;border-radius:9px;color:#20364b;background:white;max-width:100%;font-weight:600}.who{display:flex;align-items:center;gap:12px;padding:15px 17px;border-radius:10px;background:#f1f5f9;margin-bottom:14px}.initials{width:45px;height:45px;display:grid;place-items:center;flex:none;border-radius:100%;background:#d7e5f2;color:#244867;font-size:15px;font-weight:850}.who h3{font-size:18px;margin:0 0 3px}.who p{font-size:12px;color:#667a8e;margin:0}
-    .day-list{display:grid;gap:10px}.shift{display:grid;grid-template-columns:125px 1fr;overflow:hidden;border:1px solid #e3e9ef;border-radius:10px;min-height:73px}.shift-time{padding:15px 12px;display:flex;flex-direction:column;justify-content:center;background:#f8fafc;font-weight:800;font-size:13px;color:#294055}.shift-time small{font-weight:500;font-size:10px;color:#8592a2;margin-top:4px}.shift-info{padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:8px}.shift-info strong{font-size:14px;display:block}.shift-info small{font-size:12px;display:block;margin-top:4px;opacity:.8}.shift.module .shift-info{background:#e8f0fd;color:#1d467c}.shift.support .shift-info{background:#e4f5eb;color:#226143}.shift.free .shift-info{background:#f2f4f7;color:#697789}.shift-flag{font-size:11px;font-weight:800;border:1px solid currentColor;opacity:.73;border-radius:25px;padding:4px 9px;white-space:nowrap}
-    .module-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(246px,1fr));gap:12px}.module-card{border:1px solid #e0e8f0;border-radius:11px;padding:16px;background:#fff}.module-card-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px}.module-id{font-weight:800}.module-time{font-size:12px;color:#667a8c}.module-person{font-size:12px;color:#667b8e;margin-top:9px}.module-person strong{display:block;font-size:14px;color:#23374a;margin-top:3px}.empty{padding:50px 20px;text-align:center;color:#687b8f;border:1px dashed #cfdae6;border-radius:10px;background:#fbfcfe}.empty h3{color:#2c445b;margin:0 0 6px;font-size:17px}.empty p{margin:0 auto;max-width:420px;font-size:13px;line-height:1.7}.hidden{display:none!important}.footnote{margin:16px 0;color:#708197;font-size:11px;text-align:center}
-    @media(max-width:750px){.top{padding:20px}.top-right{display:none}main{padding:14px 12px 40px}.panel{padding:16px}.summary{gap:7px}.kpi{padding:12px 11px}.kpi strong{font-size:20px}.kpi span{font-size:10px}.tab{padding:10px 9px;font-size:12px;flex:1;white-space:nowrap}.tabs{gap:1px}.buttons{width:100%}.btn{flex:1;text-align:center}.shift{grid-template-columns:99px 1fr}.shift-time{padding:12px 9px;font-size:12px}.shift-info{padding:11px}.shift-info strong{font-size:13px}.shift-flag{font-size:9px;padding:4px 5px}.field{width:100%}.field select{width:100%}.who h3{font-size:16px}.status{font-size:11px}}
-    @media print{.top{color:#152c43;background:white;border:0;padding:0 0 12px}.top p,.top-right,.buttons,.tabs,.controls,.footnote{display:none!important}main{padding:5px}.panel,.kpi{box-shadow:none}.table-outer{max-height:none;overflow:visible}.summary{margin:10px 0}.hidden{display:none!important}td,th{position:static!important}.shift{break-inside:avoid}table{font-size:9px}td,th{padding:5px}}
-  </style>
-</head>
-<body>
-<header class="top"><div class="brand"><span class="brand-name">MURO MALLSPORT</span><span class="top-right">Consulta de monitores</span></div><h1>Planificación de miniclases</h1><p>Horarios y asignaciones de monitores · Consulta en tiempo real al actualizar</p></header>
-<main>
-  <section class="panel">
-    <div class="toolbar">
-      <div class="toolbar-left"><p class="overline">Jornada publicada</p><div class="big-date" id="dateTitle">Sin planificación publicada</div><div class="subtle" id="dateSubtitle">El visor busca automáticamente el archivo horario.json.</div></div>
-      <div class="buttons"><button type="button" class="btn secondary" id="refreshButton">Actualizar horario</button><label class="btn" for="localFile" role="button" tabindex="0" id="fileLabel">Probar con un JSON</label><input type="file" id="localFile" accept=".json,application/json" aria-label="Cargar archivo JSON"></div>
-    </div>
-    <div id="dataStatus" class="status" role="status" aria-live="polite" style="margin-top:16px"><span class="status-marker">○</span><span>Buscando la planificación…</span></div>
-  </section>
-  <div id="results" class="hidden">
-    <div class="summary"><div class="kpi"><strong id="metricModules">—</strong><span>Módulos</span></div><div class="kpi"><strong id="metricStaff">—</strong><span>Monitores</span></div><div class="kpi"><strong id="metricIssues">—</strong><span>Sin cobertura</span></div></div>
-    <section class="panel">
-      <nav class="tabs" aria-label="Vistas del horario"><button class="tab active" type="button" data-tab="individual">Mi horario</button><button class="tab" type="button" data-tab="general">Vista general</button><button class="tab" type="button" data-tab="modules">Módulos</button></nav>
-      <div id="tab-individual">
-        <h2 class="heading">Mi horario</h2><p class="heading-caption">Selecciona tu nombre para ver todas tus actividades, apoyos y tiempos libres.</p>
-        <div class="controls"><label class="field" for="personSelect">Monitor<select id="personSelect"><option value="">Elige tu nombre</option></select></label><button type="button" class="btn secondary" id="printButton">Imprimir / PDF</button></div>
-        <div id="personalSchedule"><div class="empty"><h3>Selecciona tu nombre</h3><p>Verás únicamente los horarios que te corresponden.</p></div></div>
-      </div>
-      <div id="tab-general" class="hidden"><h2 class="heading">Horario general</h2><p class="heading-caption">Una columna por monitor, con todos los intervalos de cinco minutos.</p><div class="legend"><span class="legend-item"><span class="swatch module"></span>En módulo</span><span class="legend-item"><span class="swatch support"></span>Apoyo en ruta</span><span class="legend-item"><span class="swatch free"></span>Libre</span></div><div id="generalSchedule" class="table-outer"></div></div>
-      <div id="tab-modules" class="hidden"><h2 class="heading">Responsables por módulo</h2><p class="heading-caption">Consulta qué monitor dirige cada miniclase y quién realiza el apoyo en ruta.</p><div id="moduleCards" class="module-grid"></div></div>
-    </section>
-  </div>
-  <div id="startHelp" class="panel"><div class="empty"><h3>Horario aún no disponible</h3><p>Para probar el visor en tu computador, pulsa «Probar con un JSON» y elige una planificación exportada. Al publicarlo en GitHub Pages, leerá automáticamente <strong>horario.json</strong>.</p></div></div>
-  <p class="footnote">Muro Mallsport · Página de consulta. La planificación se realiza en un archivo HTML independiente. Si estás viendo un horario antiguo, pulsa «Actualizar horario».</p>
-</main>
-<script>
-(() => {
-  'use strict';
-  const $ = id => document.getElementById(id);
-  const esc = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
-  const names = {REC:'Recepción de niños',B:'Boulder',R:'Ruta',D:'Despedida de niños',AP:'Apoyo en ruta'};
-  const time = minutes => `${String(Math.floor(minutes / 60) % 24).padStart(2,'0')}:${String(minutes % 60).padStart(2,'0')}`;
-  const activityName = task => task ? (names[task.code] || String(task.descripcion || task.code || 'Actividad')) : 'Libre';
-  const statusClass = task => !task ? 'free' : task.code === 'AP' ? 'support' : 'module';
-  const prettyDate = iso => {
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(iso||'')) return iso || 'Jornada sin fecha';
-    const [year,month,day] = iso.split('-').map(Number);
-    return new Intl.DateTimeFormat('es-CL',{weekday:'long',day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(year,month-1,day)));
-  };
-  let currentPlan = null, source = '', activeTab = 'individual';
-  const nick = id => currentPlan.staff.find(person => person.id === id)?.nick || 'Sin asignar';
-  const full = id => currentPlan.staff.find(person => person.id === id)?.full || 'Sin asignar';
-  function status(message, kind='normal'){
-    $('dataStatus').className='status'+(kind==='normal'?'':' '+kind);
-    $('dataStatus').innerHTML=`<span class="status-marker">${kind==='good'?'✓':kind==='warn'?'!':kind==='error'?'×':'○'}</span><span>${esc(message)}</span>`;
-  }
-  function validatePlan(data){
-    if(!data || data.version!==1 || !Array.isArray(data.staff) || !Array.isArray(data.rows) || !Array.isArray(data.modules) || !Array.isArray(data.issues)) throw new Error('El archivo no tiene el formato de planificación de Muro Mallsport.');
-    if(data.staff.length>100 || data.rows.length>1500 || data.modules.length>500) throw new Error('El archivo supera el tamaño admitido por este visor.');
-    if(data.staff.some(p=>typeof p.id!=='string' || typeof p.nick!=='string')) throw new Error('Los datos de monitores están incompletos.');
-    if(data.rows.some(r=>!r.assignments || typeof r.start!=='string' || typeof r.end!=='string')) throw new Error('Faltan datos del horario.');
-    return data;
-  }
-  function showPlan(data, src){
-    currentPlan=validatePlan(data);source=src;
-    $('results').classList.remove('hidden');$('startHelp').classList.add('hidden');
-    $('dateTitle').textContent=prettyDate(data.date);$('dateSubtitle').textContent=`${data.settings?.first||data.rows[0]?.start||'—'} a ${data.rows.at(-1)?.end||'—'} · ${src==='online'?'Horario publicado':'Archivo cargado localmente para prueba'}`;
-    $('metricModules').textContent=data.modules.length;$('metricStaff').textContent=data.staff.length;$('metricIssues').textContent=data.issues.length;
-    if(data.demo===true)status('DATOS DE DEMOSTRACIÓN. No corresponde a una jornada real. Para publicar un horario, reemplaza horario.json con el archivo exportado desde el planificador.','warn');
-    else if(data.issues.length)status(`Horario cargado. Atención: hay ${data.issues.length} asignación(es) sin cobertura. Consulta al coordinador.`, 'warn');
-    else status(src==='online'?'Horario publicado cargado correctamente.':'Vista de prueba cargada desde tu computador. Este archivo no se ha publicado en GitHub.', 'good');
-    const previous=$('personSelect').value;
-    $('personSelect').innerHTML='<option value="">Elige tu nombre</option>'+data.staff.map(p=>`<option value="${esc(p.id)}">${esc(p.nick)} · ${esc(p.full)}</option>`).join('');
-    let saved='';try{saved=localStorage.getItem('muroViewerPerson')||''}catch(_){ /* mode privado */ }
-    const fromUrl=new URLSearchParams(location.search).get('monitor');
-    const selected=[fromUrl,previous,saved].find(id=>data.staff.some(p=>p.id===id || p.nick.toLowerCase()===String(id).toLowerCase()));
-    if(selected){const person=data.staff.find(p=>p.id===selected || p.nick.toLowerCase()===String(selected).toLowerCase());$('personSelect').value=person.id}
-    renderPersonal();renderGeneral();renderModules();activateTab(activeTab);
-  }
-  function renderGeneral(){
-    const {staff,rows}=currentPlan;
-    $('generalSchedule').innerHTML=`<table><thead><tr><th>Horario</th>${staff.map(p=>`<th title="${esc(p.full)}">${esc(p.nick)}</th>`).join('')}</tr></thead><tbody>${rows.map(row=>`<tr><td>${esc(row.start)} – ${esc(row.end)}</td>${staff.map(p=>{const task=row.assignments[p.id]||null;return `<td class="${statusClass(task)}"><span class="cell-label">${esc(activityName(task))}</span>${task?`<span class="cell-detail">Módulo ${esc(task.module)}</span>`:''}</td>`}).join('')}</tr>`).join('')}</tbody></table>`;
-  }
-  function renderPersonal(){
-    const id=$('personSelect').value;
-    if(!id){$('personalSchedule').innerHTML='<div class="empty"><h3>Selecciona tu nombre</h3><p>Verás tus actividades en orden cronológico, incluyendo las pausas disponibles.</p></div>';return}
-    const person=currentPlan.staff.find(p=>p.id===id);if(!person)return;
-    const rows=currentPlan.rows;
-    const blocks=[];
-    for(const row of rows){
-      const task=row.assignments[id]||null;
-      const code=task?.code||'FREE',module=task?.module||'';
-      const last=blocks.at(-1);
-      if(last && last.code===code && last.module===module && last.end===row.start){last.end=row.end}
-      else blocks.push({start:row.start,end:row.end,code,module});
-    }
-    const work=blocks.filter(block=>block.code!=='FREE');
-    const minutes=currentPlan.rows.reduce((sum,row)=>sum+(row.assignments[id]?5:0),0);
-    const initials=(person.nick||person.full||'?').slice(0,2).toLocaleUpperCase('es');
-    $('personalSchedule').innerHTML=`<div class="who"><div class="initials">${esc(initials)}</div><div><h3>${esc(person.nick)}</h3><p>${esc(person.full)} · ${work.length} tramos de trabajo · ${minutes} min asignados</p></div></div><div class="day-list">${blocks.map(block=>`<div class="shift ${block.code==='FREE'?'free':block.code==='AP'?'support':'module'}"><div class="shift-time">${esc(block.start)} – ${esc(block.end)}<small>${duration(block.start,block.end)} minutos</small></div><div class="shift-info"><div><strong>${esc(block.code==='FREE'?'Libre':names[block.code]||block.code)}</strong>${block.module?`<small>Módulo ${esc(block.module)}</small>`:''}</div>${block.code==='AP'?'<span class="shift-flag">Apoyo</span>':''}</div></div>`).join('')}</div>`;
-  }
-  function duration(a,b){const [ah,am]=a.split(':').map(Number),[bh,bm]=b.split(':').map(Number);return bh*60+bm-ah*60-am}
-  function renderModules(){
-    $('moduleCards').innerHTML=currentPlan.modules.map(m=>{
-      const supportIds=[...new Set(Object.values(m.supports||{}).flat())];
-      const support=supportIds.length?supportIds.map(id=>nick(id)).join(', '):'Sin cobertura';
-      return `<div class="module-card"><div class="module-card-top"><span class="module-id">Módulo ${esc(m.id)}</span><span class="module-time">${esc(time(m.start))} – ${esc(time(m.end))}</span></div><div class="module-person">Monitor responsable<strong>${esc(nick(m.primary))}</strong></div><div class="module-person">Apoyo en ruta<strong>${esc(support)}</strong></div></div>`;
-    }).join('');
-  }
-  function activateTab(tab){
-    activeTab=tab;
-    for(const id of ['individual','general','modules']){
-      $('tab-'+id).classList.toggle('hidden',id!==tab);
-      const button=document.querySelector(`[data-tab="${id}"]`);button.classList.toggle('active',id===tab);button.setAttribute('aria-selected',String(id===tab));
-    }
-  }
-  async function refresh(){
-    if(location.protocol==='file:'){
-      if(!currentPlan)status('Modo local: para probar selecciona un JSON exportado por el planificador. En GitHub Pages se cargará automáticamente.','normal');
-      else status('Vista local: para actualizar, vuelve a seleccionar el JSON exportado.','normal');
-      return;
-    }
-    try{
-      const isVercel=location.hostname.endsWith('.vercel.app');
-      const url=isVercel?new URL('/api/horario',location.origin):new URL('horario.json',location.href);url.searchParams.set('_',Date.now().toString());
-      const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw new Error(`No se encontró horario.json (${response.status}).`);
-      const data=await response.json();showPlan(data,'online');
-    }catch(err){
-      if(!currentPlan)status(`Aún no hay un horario publicado. ${err.message} Puedes probar con un JSON local.`, 'warn');
-      else status(`No se pudo actualizar desde GitHub: ${err.message}. Se mantiene visible el horario anterior.`, 'warn');
-    }
-  }
-  $('localFile').addEventListener('change',async event=>{
-    const file=event.target.files?.[0];if(!file)return;
-    try{
-      if(file.size>5*1024*1024)throw new Error('El archivo debe pesar menos de 5 MB.');
-      const data=JSON.parse(await file.text());showPlan(data,'local');
-    }catch(err){status('No se pudo abrir el JSON: '+err.message,'error')}
-    event.target.value='';
-  });
-  $('fileLabel').addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();$('localFile').click()}});
-  $('refreshButton').addEventListener('click',refresh);
-  $('printButton').addEventListener('click',()=>window.print());
-  $('personSelect').addEventListener('change',()=>{try{localStorage.setItem('muroViewerPerson',$('personSelect').value)}catch(_){ }renderPersonal()});
-  document.querySelectorAll('[data-tab]').forEach(button=>button.addEventListener('click',()=>activateTab(button.dataset.tab)));
-  refresh();
-  // Keep the published schedule current while the tab remains open; no server or database needed.
-  if(location.protocol!=='file:')setInterval(()=>{if(document.visibilityState==='visible' && source!=='local')refresh()},120000);
-})();
-</script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Planificación Mallsport</title>
+<style>
+:root{--nav:#17304f;--ink:#172033;--muted:#667085;--line:#dce3eb;--bg:#f3f6fa;--module:#e7f0ff;--support:#e5f6eb;--free:#f3f4f6;--poles:#fff2cf;--break:#fff4cf}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink)}header{background:var(--nav);color:#fff;padding:22px 28px}header h1{margin:0;font-size:24px}header p{margin:6px 0 0;color:#c6d3df;font-size:13px}main{max-width:1600px;margin:auto;padding:18px}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px;box-shadow:0 3px 12px #14263b0b}.tabs,.subtabs{display:flex;gap:8px;flex-wrap:wrap}.tab,.subtab{border:1px solid #cbd5e1;background:#edf2f6;color:#29445f;border-radius:9px;padding:9px 14px;font-weight:750;cursor:pointer}.tab.active,.subtab.active{background:var(--nav);color:#fff;border-color:var(--nav)}.controls{display:flex;gap:10px;align-items:end;flex-wrap:wrap;margin-top:12px}.field{display:grid;gap:5px;font-size:12px;font-weight:700;color:#536275}.field select{height:38px;border:1px solid #cbd5e1;border-radius:8px;padding:0 10px;font:inherit;background:#fff;min-width:190px}.muted{font-size:12px;color:var(--muted)}.status{padding:10px 12px;border-radius:8px;background:#fff4d8;color:#7a5a00;font-size:12px}.wrap{overflow:auto;max-height:75vh;border:1px solid var(--line);border-radius:10px;margin-top:12px}table{border-collapse:separate;border-spacing:0;width:100%;font-size:12px}th,td{border-bottom:1px solid #e5eaf0;border-right:1px solid #edf0f4;padding:8px 9px;text-align:center;white-space:nowrap;min-width:120px}th{position:sticky;top:0;background:#20384f;color:#fff;z-index:3}th:first-child,td:first-child{position:sticky;left:0;z-index:2;background:#f8fafc;min-width:130px}th:first-child{z-index:4;background:#20384f}.module{background:var(--module)}.support{background:var(--support)}.free{background:var(--free);color:#6b7280}.poles{background:var(--poles)}.break{background:var(--break);color:#7b5a00}.name{font-weight:800;font-size:11px}.detail{font-size:10px;color:#5a677a;margin-top:2px}.hidden{display:none!important}.summary{display:flex;gap:10px;flex-wrap:wrap}.pill{background:#edf2f7;border-radius:999px;padding:6px 10px;font-size:11px;color:#46566b}
+@media(max-width:700px){main{padding:10px}header{padding:18px 14px}.field{width:100%}.field select{width:100%}}
+</style></head><body>
+<header><h1>Planificación Mallsport</h1><p>Consulta de jornadas publicadas</p></header><main>
+<section class="card"><div class="tabs"><button class="tab active" data-type="muro">Muro de escalada</button><button class="tab" data-type="airtrail">Airtrail + Tirolesa</button></div><div class="controls"><label class="field">Fecha<select id="dateSelect"></select></label><button class="tab" id="reload">Actualizar</button></div><div id="headStatus" class="muted" style="margin-top:10px"></div></section>
+<section class="card"><div class="subtabs"><button class="subtab active" data-view="general">Vista general</button><button class="subtab" data-view="personal">Mi horario</button><button class="subtab" data-view="modules">Módulos</button></div><div id="personalControls" class="controls hidden"><label class="field">Monitor<select id="personSelect"></select></label></div><div id="summary" class="summary" style="margin-top:12px"></div><div id="content" class="wrap"><div class="muted" style="padding:18px">Selecciona una jornada.</div></div></section>
+</main><script>
+let activeType='muro',activeView='general',plan=null,dates=[];const $=id=>document.getElementById(id);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const pad=n=>String(n).padStart(2,'0');const hh=m=>pad(Math.floor(m/60)%24)+':'+pad(m%60);
+function labelType(t){return t==='muro'?'Muro de escalada':'Airtrail + Tirolesa'}
+function parseQuery(){const q=new URLSearchParams(location.search);if(['muro','airtrail'].includes(q.get('type')))activeType=q.get('type');return q.get('date')||''}
+const requestedDate=parseQuery();
+function setTabs(){document.querySelectorAll('.tab[data-type]').forEach(b=>b.classList.toggle('active',b.dataset.type===activeType));document.querySelectorAll('.subtab').forEach(b=>b.classList.toggle('active',b.dataset.view===activeView));$('personalControls').classList.toggle('hidden',activeView!=='personal')}
+document.querySelectorAll('.tab[data-type]').forEach(b=>b.onclick=()=>{activeType=b.dataset.type;history.replaceState(null,'',`/?type=${activeType}`);loadDates()});document.querySelectorAll('.subtab').forEach(b=>b.onclick=()=>{activeView=b.dataset.view;setTabs();render()});
+async function loadDates(prefer=''){setTabs();$('dateSelect').innerHTML='<option>Cargando…</option>';$('content').innerHTML='<div class="muted" style="padding:18px">Cargando jornadas…</div>';try{const r=await fetch(`/api/jornadas?type=${activeType}&action=list`,{cache:'no-store'}),d=await r.json();if(!r.ok)throw new Error(d.error||'No se pudieron cargar las fechas.');dates=(d.items||[]).sort((a,b)=>a.date.localeCompare(b.date));if(!dates.length){$('dateSelect').innerHTML='<option value="">Sin jornadas</option>';plan=null;render();return}const wanted=prefer||requestedDate;const chosen=dates.some(x=>x.date===wanted)?wanted:(dates.find(x=>x.date>=new Date().toLocaleDateString('en-CA'))?.date||dates[dates.length-1].date);$('dateSelect').innerHTML=dates.map(x=>`<option value="${esc(x.date)}" ${x.date===chosen?'selected':''}>${esc(x.date)}</option>`).join('');await loadPlan(chosen)}catch(e){$('headStatus').textContent=e.message;$('content').innerHTML=`<div class="status">${esc(e.message)}</div>`}}
+async function loadPlan(date){if(!date)return;try{$('headStatus').textContent='Cargando…';const r=await fetch(`/api/jornadas?type=${activeType}&date=${encodeURIComponent(date)}`,{cache:'no-store'}),d=await r.json();if(!r.ok)throw new Error(d.error||'No se pudo cargar la jornada.');plan=d.plan;history.replaceState(null,'',`/?type=${activeType}&date=${encodeURIComponent(date)}`);$('headStatus').textContent=`${labelType(activeType)} · ${date}`;populatePeople();render()}catch(e){plan=null;$('headStatus').textContent=e.message;render()}}
+$('dateSelect').onchange=()=>loadPlan($('dateSelect').value);$('reload').onclick=()=>loadDates($('dateSelect').value);
+function staffList(){if(!plan)return[];return plan.staff||[]}
+function personId(p){return activeType==='muro'?p.id:String(p.idx)}function personName(p){return p.nick||p.name||p.full||personId(p)}
+function populatePeople(){const people=staffList();const old=$('personSelect').value;$('personSelect').innerHTML=people.map(p=>`<option value="${esc(personId(p))}" ${personId(p)===old?'selected':''}>${esc(personName(p))}</option>`).join('')}
+$('personSelect').onchange=render;
+function muroActivity(a){if(!a)return ['Libre','free'];const names={REC:'Recepción de niños',B:'Boulder',R:'Ruta',D:'Despedida de niños',AP:'Apoyo en ruta'};return [names[a.code]||a.code,a.code==='AP'?'support':'module']}
+function airCategory(t){if(!t)return ['Libre','free'];if(t.role==='break')return ['Break','break'];if(t.role==='equipMain'||t.role==='equipSupport')return ['Equipamiento','module'];if(t.role==='launchMain'||t.role==='launchSupport')return ['Lanzamiento','module'];if(t.role==='polesSupport'||t.role==='polesTransfer')return ['Poleas','poles'];if(t.role==='brakeMain')return ['Freno','module'];return [t.label||t.role,'module']}
+function generalRows(){if(activeType==='muro'){const people=plan.staff;return {heads:['Horario',...people.map(personName)],rows:plan.rows.map(r=>[`${r.start} – ${r.end}`,...people.map(p=>{const a=r.assignments[p.id],x=muroActivity(a);return {text:x[0],cls:x[1],detail:a?`Módulo ${a.module}`:''}})])}}const people=orderedAirStaff();return {heads:['Horario',...people.map(personName)],rows:(plan.timeline||[]).map(r=>[`${hh(r.start)} – ${hh(r.end)}`,...people.map(p=>{const t=r.cells?.[p.idx],x=airCategory(t);return {text:x[0],cls:x[1],detail:t&&t.moduleId?`Módulo ${t.moduleId}`:(t&&t.role==='break'?`${hh(t.start)}–${hh(t.end)}`:'')}})])}}
+function orderedAirStaff(){const order=[];if(plan.groupInfo){(plan.groupInfo.equip||[]).forEach(x=>!order.includes(x)&&order.push(x));(plan.groupInfo.tower||[]).forEach(x=>!order.includes(x)&&order.push(x));if(plan.groupInfo.poles!=null&&!order.includes(plan.groupInfo.poles))order.push(plan.groupInfo.poles)}(plan.staff||[]).forEach(p=>!order.includes(p.idx)&&order.push(p.idx));return order.map(id=>(plan.staff||[]).find(p=>p.idx===id)).filter(Boolean)}
+function renderTable(data){$('content').innerHTML=`<table><thead><tr>${data.heads.map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${data.rows.map(row=>`<tr>${row.map((c,i)=>{if(typeof c==='string')return `<td>${esc(c)}</td>`;return `<td class="${esc(c.cls||'')}"><div class="name">${esc(c.text)}</div>${c.detail?`<div class="detail">${esc(c.detail)}</div>`:''}</td>`}).join('')}</tr>`).join('')}</tbody></table>`}
+function renderGeneral(){renderTable(generalRows())}
+function renderPersonal(){const id=$('personSelect').value;if(!id){$('content').innerHTML='<div class="muted" style="padding:18px">No hay monitores.</div>';return}const g=generalRows();const people=activeType==='muro'?plan.staff:orderedAirStaff();const idx=people.findIndex(p=>personId(p)===id);renderTable({heads:['Horario',people[idx]?personName(people[idx]):'Monitor'],rows:g.rows.map(r=>[r[0],r[idx+1]])})}
+function renderModules(){if(activeType==='muro'){const rows=(plan.modules||[]).map(m=>{const pri=(plan.staff||[]).find(p=>p.id===m.primary);const sup=[...new Set(Object.values(m.supports||{}).flat())].map(id=>(plan.staff||[]).find(p=>p.id===id)).filter(Boolean).map(personName).join(', ')||'—';return [String(m.id),hh(m.start),hh(m.end),personName(pri||{}),sup]});renderTable({heads:['Módulo','Inicio','Término','Responsable','Apoyo en ruta'],rows})}else{const name=id=>{const p=(plan.staff||[]).find(x=>x.idx===id);return p?personName(p):'—'};const namesFor=(m,roles)=>{const ids=[];roles.forEach(role=>(m.assign?.[role]||[]).forEach(t=>{if(t.assigned!=null&&!ids.includes(t.assigned))ids.push(t.assigned)}));return ids.length?ids.map(name).join(' + '):'—'};const rows=(plan.modules||[]).map(m=>[String(m.id),hh(m.start),namesFor(m,['equipMain','equipSupport']),namesFor(m,['launchMain','launchSupport']),namesFor(m,['polesSupport']),namesFor(m,['brakeMain'])]);renderTable({heads:['Módulo','Inicio','Equipamiento','Lanzamiento','Poleas','Freno'],rows})}}
+function render(){if(!plan){$('summary').innerHTML='';$('content').innerHTML='<div class="muted" style="padding:18px">No hay una jornada seleccionada.</div>';return}setTabs();$('summary').innerHTML=`<span class="pill">${esc(plan.date||$('dateSelect').value)}</span><span class="pill">${(plan.modules||[]).length} módulos</span><span class="pill">${(plan.staff||[]).length} monitores</span>`;if(activeView==='general')renderGeneral();else if(activeView==='personal')renderPersonal();else renderModules()}
+setTabs();loadDates(requestedDate);
+</script></body></html>

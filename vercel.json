@@ -17,6 +17,15 @@
       ]
     },
     {
+      "source": "/planificador_(.*).html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
       "source": "/api/(.*)",
       "headers": [
         {
