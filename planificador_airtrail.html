@@ -60,7 +60,7 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
   <div class="grid">
     <div class="card">
       <h2>2 · Personal del día</h2>
-      <div class="sub">Selecciona entre 3 y 6 personas. El sistema activa funciones opcionales según la dotación.</div>
+      <div class="sub">Selecciona 3 o más personas para el día. El sistema usa sus horarios individuales y asigna como máximo 6 personas simultáneas por módulo.</div>
       <div id="staffList" class="staff-list"></div>
       <div id="staffStatus"></div>
       <div class="priority-list">
@@ -180,7 +180,7 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
   }
   function renderStaff(){syncBaseFromDomSafe();const old=[...selected];selected=new Set(old.filter(i=>i<monitors.length));const box=$('#staffList');box.innerHTML='';monitors.forEach((m,i)=>{const lab=document.createElement('label');lab.className='staff-pill';lab.innerHTML=`<input type="checkbox" data-i="${i}" ${selected.has(i)?'checked':''}><b>${esc(m.nick||m.name)}</b><span style="color:#7a8494">${esc(m.name)}</span><span class="badge">${esc(m.arrival)}–${esc(m.departure)}</span>`;box.appendChild(lab)});updateStaffStatus()}
   function syncBaseFromDomSafe(){if($('#monitorTable tbody tr')){try{syncBaseFromDom()}catch{}}}
-  function updateStaffStatus(){const n=selected.size;let c='warn',msg=`${n} seleccionados.`;if(n>=3&&n<=6){c='ok';msg+=` La dotación efectiva de cada módulo dependerá de la llegada y salida individual de cada monitor.`}else if(n>6){c='err';msg+=' Selecciona máximo 6.'}else{msg+=' Se requieren al menos 3.'}$('#staffStatus').innerHTML=`<div class="status ${c}">${msg}</div>`}
+  function updateStaffStatus(){const n=selected.size;let c='warn',msg=`${n} seleccionados.`;if(n>=3){c='ok';msg+=` Puedes seleccionar todo el personal del día; cada módulo usará como máximo 6 personas según sus horarios individuales.`}else{msg+=' Se requieren al menos 3 personas seleccionadas.'}$('#staffStatus').innerHTML=`<div class="status ${c}">${msg}</div>`}
   function addBreakRow(a='16:00',duration=20){const d=document.createElement('div');d.className='break-row';d.innerHTML=`<span>Inicio</span><select class="bstart">${timeOptions(a)}</select><span>Duración</span><select class="bduration">${durationOptions(duration)}</select><button class="dangerBtn tiny delBreak">Eliminar</button>`;$('#breaks').appendChild(d)}
   function getBreaks(){return $$('#breaks .break-row').map(r=>{const start=mins(r.querySelector('.bstart').value);const duration=+r.querySelector('.bduration').value;return {start,duration,end:start+duration}}).filter(x=>x.duration>0).sort((a,b)=>a.start-b.start)}
   function overlap(a,b){return a.start<b.end&&b.start<a.end}
@@ -191,7 +191,7 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
   function hasTaskConflict(tasks,pid,start,end){return tasks.some(t=>t.assigned===pid&&t.start<end&&t.end>start)}
   function schedule(){
     syncBaseFromDom();saveBase();
-    if(selected.size<3||selected.size>6)throw new Error('Selecciona entre 3 y 6 monitores para el turno.');
+    if(selected.size<3)throw new Error('Selecciona al menos 3 monitores para el turno.');
     const staff=[...selected].map(i=>{const m=normalizeMonitor(monitors[i]);return {...m,idx:i,arrivalMin:mins(m.arrival),departureMin:mins(m.departure)}});
     staff.forEach(p=>{if(p.departureMin<=p.arrivalMin)throw new Error(`${p.nick||p.name}: la hora de salida debe ser posterior a la llegada.`)});
     const dayStart=Math.min(...staff.map(p=>p.arrivalMin)), dayEnd=Math.max(...staff.map(p=>p.departureMin));
@@ -201,44 +201,35 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
     for(const b of breaks){if(b.start<dayStart||b.start>=dayEnd)throw new Error(`El break de ${hhmm(b.start)} debe comenzar dentro del rango cubierto por el personal seleccionado.`)}
     const n=staff.length;
 
-    // 1) Grupo base estable del turno. La preferencia reduce el costo de su competencia elegida.
-    const slots=[];
-    slots.push({key:'equip1',group:'equip',skill:'equip'});
-    if(n>=4)slots.push({key:'equip2',group:'equip',skill:'equip'});
-    slots.push({key:'brakeSeed',group:'tower',skill:'brake'});
-    slots.push({key:'launchSeed1',group:'tower',skill:'launch'});
-    if(n>=5)slots.push({key:'launchSeed2',group:'tower',skill:'launch'});
-    if(n>=6)slots.push({key:'poles',group:'poles',skill:'poles'});
-
-    function slotCost(p,slot){
-      const flex=Object.values(p.skills).filter(Boolean).length;
-      let cost=0;
-      if(slot.group==='equip')cost+=(p.skills.launch||p.skills.brake?35:0)+(p.skills.poles?2:0)+flex;
-      else if(slot.group==='poles')cost+=(p.skills.launch||p.skills.brake?45:0)+(p.skills.equip?0:4)+flex;
-      else cost+=(p.skills.launch&&p.skills.brake?0:8)+flex;
-      if(p.preferred===slot.skill)cost-=30;
-      else if(slot.group==='tower'&&(p.preferred==='launch'||p.preferred==='brake'))cost-=18;
-      else if(p.preferred)cost+=4;
-      return cost;
+    // 1) Grupo funcional estable para todos los seleccionados. Puede haber mas de 6
+    // personas seleccionadas; la proporcion de grupos se basa en el maximo de personas
+    // que coinciden realmente en algun momento del dia.
+    let peakPresent=0;
+    for(let t=dayStart;t<dayEnd;t+=10)peakPresent=Math.max(peakPresent,staff.filter(p=>present(p,t)).length);
+    const peakTarget=Math.min(6,peakPresent);
+    const desired={equip:peakTarget>=4?2:1,tower:peakTarget>=5?3:2,poles:peakTarget>=6?1:0};
+    const homeGroup={},groupCounts={equip:0,tower:0,poles:0};
+    function prefGroup(p){if(p.preferred==='equip')return 'equip';if(p.preferred==='poles')return 'poles';if(p.preferred==='launch'||p.preferred==='brake')return 'tower';return ''}
+    function possibleGroups(p){const a=[];if(p.skills.equip)a.push('equip');if(p.skills.launch||p.skills.brake)a.push('tower');if(p.skills.poles)a.push('poles');return a}
+    const groupOrder=staff.slice().sort((a,b)=>possibleGroups(a).length-possibleGroups(b).length || Number(!!prefGroup(b))-Number(!!prefGroup(a)) || a.arrivalMin-b.arrivalMin);
+    for(const p of groupOrder){
+      const opts=possibleGroups(p);if(!opts.length)continue;
+      const pg=prefGroup(p);
+      let best=opts[0],bestScore=Infinity;
+      for(const g of opts){
+        let score;
+        if(desired[g]>0)score=(groupCounts[g]/desired[g])*10;
+        else score=50+groupCounts[g]*10;
+        if(pg===g)score-=4;
+        if(opts.length===1)score-=100;
+        if(g==='poles'&&peakTarget<6)score+=30;
+        if(score<bestScore){bestScore=score;best=g}
+      }
+      homeGroup[p.idx]=best;groupCounts[best]++;
     }
-    const orderedSlots=slots.slice().sort((a,b)=>staff.filter(p=>skillOK(p,a.skill)).length-staff.filter(p=>skillOK(p,b.skill)).length || (a.group==='poles'?-1:0));
-    let bestGroups=null;
-    function assignSlots(pos,used,cost,assign){
-      if(bestGroups&&cost>=bestGroups.cost)return;
-      if(pos===orderedSlots.length){bestGroups={cost,assign:{...assign}};return;}
-      const slot=orderedSlots[pos];
-      const cs=staff.filter(p=>skillOK(p,slot.skill)&&!used.has(p.idx)).sort((a,b)=>slotCost(a,slot)-slotCost(b,slot));
-      for(const p of cs){const u=new Set(used);u.add(p.idx);assignSlots(pos+1,u,cost+slotCost(p,slot),{...assign,[slot.key]:p.idx})}
-    }
-    assignSlots(0,new Set(),0,{});
-    if(!bestGroups){
-      const need=`${n>=4?'2':'1'} de Equipamiento, ${n>=5?'3':'2'} para Torres${n>=6?' y 1 para Poleas':''}`;
-      throw new Error(`No es posible formar la dotación con las competencias seleccionadas. Se necesita ${need}.`);
-    }
-    const equipIds=[bestGroups.assign.equip1,bestGroups.assign.equip2].filter(x=>x!=null);
-    const towerIds=[bestGroups.assign.brakeSeed,bestGroups.assign.launchSeed1,bestGroups.assign.launchSeed2].filter(x=>x!=null);
-    const polesId=n>=6?bestGroups.assign.poles:null;
-    const homeGroup={};equipIds.forEach(id=>homeGroup[id]='equip');towerIds.forEach(id=>homeGroup[id]='tower');if(polesId!=null)homeGroup[polesId]='poles';
+    const equipIds=staff.filter(p=>homeGroup[p.idx]==='equip').map(p=>p.idx);
+    const towerIds=staff.filter(p=>homeGroup[p.idx]==='tower').map(p=>p.idx);
+    const polesIds=staff.filter(p=>homeGroup[p.idx]==='poles').map(p=>p.idx);
 
     // 2) Inicios por tramos y breaks. Cada nuevo tramo reinicia su propia cadencia.
     const modules=[];const appliedBreaks=[];const TRANSFER=10;
@@ -254,9 +245,9 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
       const polesBreak={start:polesRelease,end:polesRelease+b.duration,duration:b.duration};
       prevBreakEnd.equip=equipBreak.end;prevBreakEnd.tower=towerBreak.end;prevBreakEnd.poles=polesBreak.end;
       let restart=Math.max(b.end,equipBreak.end,towerBreak.end-equipDur);
-      if(n>=6)restart=Math.max(restart,polesBreak.end-equipDur-TRANSFER);
+      if(peakTarget>=6&&polesIds.length)restart=Math.max(restart,polesBreak.end-equipDur-TRANSFER);
       restart=Math.ceil(restart/10)*10;
-      appliedBreaks.push({source:{...b},equip:equipBreak,tower:towerBreak,poles:n>=6?polesBreak:null,restart});
+      appliedBreaks.push({source:{...b},equip:equipBreak,tower:towerBreak,poles:(peakTarget>=6&&polesIds.length)?polesBreak:null,restart});
       blockedUntil=Math.max(blockedUntil,restart);
       return Math.max(next,restart);
     }
@@ -281,7 +272,7 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
       const towerBreak={start:towerRelease,end:towerRelease+b.duration,duration:b.duration};
       const polesBreak={start:polesRelease,end:polesRelease+b.duration,duration:b.duration};
       prevBreakEnd={equip:equipBreak.end,tower:towerBreak.end,poles:polesBreak.end};
-      appliedBreaks.push({source:{...b},equip:equipBreak,tower:towerBreak,poles:n>=6?polesBreak:null,restart:null});bi++;
+      appliedBreaks.push({source:{...b},equip:equipBreak,tower:towerBreak,poles:(peakTarget>=6&&polesIds.length)?polesBreak:null,restart:null});bi++;
     }
 
     const personalBreaks={};staff.forEach(p=>personalBreaks[p.idx]=[]);
@@ -299,15 +290,15 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
     appliedBreaks.forEach(b=>{
       equipIds.forEach(id=>addPersonalBreak(id,b.equip,b.source));
       towerIds.forEach(id=>addPersonalBreak(id,b.tower,b.source));
-      if(n>=6&&polesId!=null)addPersonalBreak(polesId,b.poles,b.source);
+      polesIds.forEach(id=>addPersonalBreak(id,b.poles,b.source));
     });
 
-    // 3) Asignación módulo a módulo. Antes de la llegada una persona no existe para el algoritmo.
-    // Se preserva su grupo base con una penalización fuerte a los cambios, pero se permiten reemplazos si son necesarios.
-    const tasks=[];const warnings=[];let missingRequired=0,missingOptional=0;
+    // 3) Asignacion modulo a modulo. Un modulo solo se confirma si las tres
+    // funciones obligatorias quedan cubiertas: Equipamiento + Freno + Lanzamiento.
+    // Nunca se publica un modulo parcial.
+    const tasks=[];const warnings=[];let missingRequired=0,missingOptional=0,skippedModules=0;
     const roleLoads=new Map(staff.map(p=>[p.idx,{equip:0,launch:0,brake:0,poles:0,last:''}]));
     const add=(m,role,label,skill,st,en,pid,order)=>{const t={moduleId:m.id,role,label,skill,baseStart:st,start:st,end:en,assigned:pid,order};tasks.push(t);if(!m.assign[role])m.assign[role]=[];m.assign[role].push(t);const ld=roleLoads.get(pid);if(ld){ld[skill]++;ld.last=skill}return t};
-    function groupForRole(r){return r.group}
     function candidateCost(p,r){
       const ld=roleLoads.get(p.idx)||{equip:0,launch:0,brake:0,poles:0,last:''};
       let c=(ld[r.skill]||0)*4;
@@ -317,71 +308,99 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
       if(ld.last===r.skill)c+=3;
       return c;
     }
-    function assignPhase(m,roles,st,en){
-      const active=staff.filter(p=>available(p,st,en)&&!onBreak(personalBreaks,p.idx,st,en)&&!hasTaskConflict(tasks,p.idx,st,en));
+    function roleAvailable(p,r){return skillOK(p,r.skill)&&available(p,r.start,r.end)&&!onBreak(personalBreaks,p.idx,r.start,r.end)&&!hasTaskConflict(tasks,p.idx,r.start,r.end)}
+    function assignRoleSet(roles,seedUsed=new Set()){
       let best=null;
       function bt(pos,used,cost,a){
         if(best&&cost>=best.cost)return;
         if(pos===roles.length){best={cost,a:{...a}};return;}
         const r=roles[pos];
-        const cs=active.filter(p=>skillOK(p,r.skill)&&!used.has(p.idx)).sort((a,b)=>candidateCost(a,r)-candidateCost(b,r));
+        const cs=staff.filter(p=>roleAvailable(p,r)&&!used.has(p.idx)).sort((a,b)=>candidateCost(a,r)-candidateCost(b,r));
         for(const p of cs){const u=new Set(used);u.add(p.idx);bt(pos+1,u,cost+candidateCost(p,r),{...a,[r.role]:p.idx})}
       }
-      bt(0,new Set(),0,{});return best?best.a:null;
+      bt(0,new Set(seedUsed),0,{});return best?best.a:null;
+    }
+    function peakAvailableForModule(m){
+      let peak=0;
+      for(let t=m.start;t<m.end;t+=10){
+        const c=staff.filter(p=>present(p,t)&&!onBreak(personalBreaks,p.idx,t,t+10)).length;
+        peak=Math.max(peak,c);
+      }
+      return Math.min(6,peak);
+    }
+    function pickOptional(role,used){
+      const a=assignRoleSet([role],used);return a?a[role.role]:null;
+    }
+    function pickPole(m,used,lastPoleTransferEnd){
+      let best=null;
+      for(const p of staff){
+        if(used.has(p.idx)||!skillOK(p,'poles'))continue;
+        let st=Math.max(m.launchStart,lastPoleTransferEnd,p.arrivalMin);
+        st=Math.ceil(st/10)*10;
+        let changed=true,guard=0;
+        while(changed&&guard++<10){
+          changed=false;
+          const pb=(personalBreaks[p.idx]||[]).find(b=>b.start<m.end+TRANSFER&&b.end>st);
+          if(pb){st=Math.max(st,pb.end);st=Math.ceil(st/10)*10;changed=true}
+        }
+        if(st>=m.end)continue;
+        if(!available(p,st,m.end+TRANSFER))continue;
+        if(onBreak(personalBreaks,p.idx,st,m.end+TRANSFER))continue;
+        if(hasTaskConflict(tasks,p.idx,st,m.end+TRANSFER))continue;
+        const r={skill:'poles',group:'poles'};
+        const score=(st-m.launchStart)*10+candidateCost(p,r);
+        if(!best||score<best.score)best={pid:p.idx,start:st,score};
+      }
+      return best;
     }
 
     let lastPoleTransferEnd=-Infinity;
-    for(const m of modules){
-      const atStart=staff.filter(p=>present(p,m.start)).length;
-      m.activeStaff=atStart;
-      if(atStart<3){warnings.push(`Módulo ${m.id} (${hhmm(m.start)}): solo hay ${atStart} monitores llegados; se requieren al menos 3.`);missingRequired+=3-atStart;continue;}
-      const target=Math.min(6,atStart);
-      const equipRoles=[{role:'equipMain',skill:'equip',group:'equip',order:3,required:true}];
-      if(target>=4)equipRoles.push({role:'equipSupport',skill:'equip',group:'equip',order:4,required:false});
-      const ea=assignPhase(m,equipRoles,m.equipStart,m.equipEnd);
-      if(!ea){
-        const main=assignPhase(m,[equipRoles[0]],m.equipStart,m.equipEnd);
-        if(!main){warnings.push(`Módulo ${m.id}: no hay Equipamiento disponible al inicio.`);missingRequired++;}
-        else {add(m,'equipMain','Equipamiento','equip',m.equipStart,m.equipEnd,main.equipMain,3);if(target>=4)missingOptional++;}
-      }else equipRoles.forEach(r=>add(m,r.role,'Equipamiento','equip',m.equipStart,m.equipEnd,ea[r.role],r.order));
-
-      const towerRoles=[{role:'brakeMain',skill:'brake',group:'tower',order:1,required:true},{role:'launchMain',skill:'launch',group:'tower',order:2,required:true}];
-      if(target>=5)towerRoles.push({role:'launchSupport',skill:'launch',group:'tower',order:5,required:false});
-      const ta=assignPhase(m,towerRoles,m.launchStart,m.end);
-      if(!ta){
-        const core=assignPhase(m,towerRoles.slice(0,2),m.launchStart,m.end);
-        if(!core){warnings.push(`Módulo ${m.id}: no se puede cubrir simultáneamente Freno y Lanzamiento.`);missingRequired+=2;}
-        else {add(m,'brakeMain','Freno','brake',m.launchStart,m.end,core.brakeMain,1);add(m,'launchMain','Lanzamiento','launch',m.launchStart,m.end,core.launchMain,2);if(target>=5)missingOptional++;}
-      }else towerRoles.forEach(r=>add(m,r.role,r.skill==='brake'?'Freno':'Lanzamiento',r.skill,m.launchStart,m.end,ta[r.role],r.order));
-
-      if(target>=6){
-        // Poleas puede incorporarse después del inicio de la fase si estaba terminando un break,
-        // llegando al turno o cerrando el traslado del módulo anterior. No se descarta todo el
-        // módulo por perder los primeros 10 minutos de la fase.
-        let poleStart=Math.max(m.launchStart,lastPoleTransferEnd);
-        const preferredPole=staff.find(p=>p.idx===polesId);
-        if(preferredPole){
-          poleStart=Math.max(poleStart,preferredPole.arrivalMin);
-          const pb=(personalBreaks[polesId]||[]).find(b=>b.start<m.end&&b.end>poleStart);
-          if(pb)poleStart=Math.max(poleStart,pb.end);
-        }
-        poleStart=Math.ceil(poleStart/10)*10;
-        let polePid=null;
-        if(poleStart<m.end&&preferredPole&&skillOK(preferredPole,'poles')&&available(preferredPole,poleStart,m.end+TRANSFER)&&!onBreak(personalBreaks,polesId,poleStart,m.end+TRANSFER)&&!hasTaskConflict(tasks,polesId,poleStart,m.end+TRANSFER)){
-          polePid=polesId;
-        }else if(poleStart<m.end){
-          const pa=assignPhase(m,[{role:'polesSupport',skill:'poles',group:'poles',order:6,required:false}],poleStart,m.end+TRANSFER);
-          if(pa)polePid=pa.polesSupport;
-        }
-        if(polePid!=null&&poleStart<m.end){
-          add(m,'polesSupport','Poleas','poles',poleStart,m.end,polePid,6);
-          add(m,'polesTransfer','Poleas','poles',m.end,m.end+TRANSFER,polePid,6);
-          lastPoleTransferEnd=m.end+TRANSFER;
-        }else{
-          missingOptional++;warnings.push(`Módulo ${m.id}: Poleas no alcanza a incorporarse antes del término de la fase.`)
-        }
+    const completeModules=[];
+    for(const planned of modules){
+      const m={...planned,id:completeModules.length+1,assign:{}};
+      const coreRoles=[
+        {role:'equipMain',skill:'equip',group:'equip',order:3,start:m.equipStart,end:m.equipEnd},
+        {role:'brakeMain',skill:'brake',group:'tower',order:1,start:m.launchStart,end:m.end},
+        {role:'launchMain',skill:'launch',group:'tower',order:2,start:m.launchStart,end:m.end}
+      ];
+      const core=assignRoleSet(coreRoles);
+      if(!core){
+        skippedModules++;
+        warnings.push(`Inicio ${hhmm(m.start)} omitido: no se puede completar Equipamiento + Freno + Lanzamiento respetando horarios, breaks y competencias.`);
+        continue;
       }
+      const used=new Set(Object.values(core));
+      m.activeStaff=peakAvailableForModule(m);
+
+      // El modulo se confirma solo ahora, una vez validado el nucleo completo.
+      add(m,'equipMain','Equipamiento','equip',m.equipStart,m.equipEnd,core.equipMain,3);
+      add(m,'brakeMain','Freno','brake',m.launchStart,m.end,core.brakeMain,1);
+      add(m,'launchMain','Lanzamiento','launch',m.launchStart,m.end,core.launchMain,2);
+
+      const target=m.activeStaff;
+      if(target>=4){
+        const r={role:'equipSupport',skill:'equip',group:'equip',order:4,start:m.equipStart,end:m.equipEnd};
+        const pid=pickOptional(r,used);
+        if(pid!=null){used.add(pid);add(m,r.role,'Equipamiento','equip',r.start,r.end,pid,r.order)}else missingOptional++;
+      }
+      if(target>=5){
+        const r={role:'launchSupport',skill:'launch',group:'tower',order:5,start:m.launchStart,end:m.end};
+        const pid=pickOptional(r,used);
+        if(pid!=null){used.add(pid);add(m,r.role,'Lanzamiento','launch',r.start,r.end,pid,r.order)}else missingOptional++;
+      }
+      if(target>=6){
+        const pole=pickPole(m,used,lastPoleTransferEnd);
+        if(pole){
+          used.add(pole.pid);
+          add(m,'polesSupport','Poleas','poles',pole.start,m.end,pole.pid,6);
+          add(m,'polesTransfer','Poleas','poles',m.end,m.end+TRANSFER,pole.pid,6);
+          lastPoleTransferEnd=m.end+TRANSFER;
+        }else{missingOptional++;warnings.push(`Modulo ${m.id}: apoyo de Poleas no disponible.`)}
+      }
+      completeModules.push(m);
     }
+    if(!completeModules.length)throw new Error('No se pudo completar ningun modulo con la dotacion, horarios, breaks y competencias seleccionadas.');
+    modules.splice(0,modules.length,...completeModules);
 
     // 4) Timeline de 10 minutos. Fuera de la jornada individual se muestra Libre, pero no se asignan tareas.
     const timeline=[];
@@ -394,8 +413,8 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
       });timeline.push(row);
     }
     const breakAudit=staff.map(p=>({idx:p.idx,nick:p.nick||p.name,arrival:p.arrival,departure:p.departure,preferred:p.preferred,breaks:(personalBreaks[p.idx]||[]).map(b=>({start:hhmm(b.start),end:hhmm(b.end),duration:b.duration}))}));
-    const groupInfo={equip:equipIds,tower:towerIds,poles:polesId,homeGroup};
-    return {version:9,type:'airtrail-tirolesa',createdAt:new Date().toISOString(),date:$('#date').value,config:{dayStart:hhmm(dayStart),dayEnd:hhmm(dayEnd),firstStart:hhmm(modules[0].start),interval:segments[0].interval,intervals:segments.map(x=>({start:hhmm(x.start),end:hhmm(x.end),interval:x.interval})),equipDuration:equipDur,launchDuration:launchDur,gridMinutes:10,poleTransferMinutes:TRANSFER,breaks:breaks.map(b=>({start:hhmm(b.start),duration:b.duration,end:hhmm(b.end)}))},staff,modules,tasks,timeline,warnings,missingRequired,missingOptional,breakAudit,groupInfo};
+    const groupInfo={equip:equipIds,tower:towerIds,poles:polesIds[0]??null,polesAll:polesIds,homeGroup};
+    return {version:10,type:'airtrail-tirolesa',createdAt:new Date().toISOString(),date:$('#date').value,config:{dayStart:hhmm(dayStart),dayEnd:hhmm(dayEnd),firstStart:hhmm(modules[0].start),interval:segments[0].interval,intervals:segments.map(x=>({start:hhmm(x.start),end:hhmm(x.end),interval:x.interval})),equipDuration:equipDur,launchDuration:launchDur,gridMinutes:10,poleTransferMinutes:TRANSFER,breaks:breaks.map(b=>({start:hhmm(b.start),duration:b.duration,end:hhmm(b.end)}))},staff,modules,tasks,timeline,warnings,missingRequired,missingOptional,skippedModules,breakAudit,groupInfo};
   }
   function personName(plan,pid){const p=plan.staff.find(x=>x.idx===pid);return p?(p.nick||p.name):'—'}
   function moduleBg(id){const h=(Number(id)*47+18)%360;return `hsl(${h} 68% 91%)`}function moduleFg(id){const h=(Number(id)*47+18)%360;return `hsl(${h} 42% 27%)`}function categoryForTask(t){if(!t)return '';if(t.role==='break')return 'Break';if(t.role==='equipMain'||t.role==='equipSupport')return 'Equipamiento';if(t.role==='launchMain'||t.role==='launchSupport')return 'Lanzamiento';if(t.role==='polesSupport'||t.role==='polesTransfer')return 'Poleas';if(t.role==='brakeMain')return 'Freno';return t.label||''}
@@ -404,14 +423,14 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
     if(plan.groupInfo){
       (plan.groupInfo.equip||[]).forEach(id=>{if(id!=null&&!order.includes(id))order.push(id)});
       (plan.groupInfo.tower||[]).forEach(id=>{if(id!=null&&!order.includes(id))order.push(id)});
-      if(plan.groupInfo.poles!=null&&!order.includes(plan.groupInfo.poles))order.push(plan.groupInfo.poles);
+      const poleOrder=plan.groupInfo.polesAll||((plan.groupInfo.poles!=null)?[plan.groupInfo.poles]:[]);poleOrder.forEach(id=>{if(id!=null&&!order.includes(id))order.push(id)});
     }
     plan.staff.forEach(p=>{if(!order.includes(p.idx))order.push(p.idx)});
     return order.map(id=>plan.staff.find(p=>p.idx===id)).filter(Boolean);
   }
   function renderPlan(plan){currentPlan=plan;$('#planCard').style.display='block';$('#modulesCard').style.display='block';$('#exportPlan').disabled=false;$('#exportCsv').disabled=false;
-    const status=plan.missingRequired?`<div class="status err"><b>Atención:</b> faltan ${plan.missingRequired} asignaciones obligatorias. Revisa competencias o dotación.<br>${plan.warnings.slice(0,6).map(esc).join('<br>')}</div>`:`<div class="status ok"><b>Cobertura obligatoria completa.</b>${plan.missingOptional?` Hay ${plan.missingOptional} apoyos opcionales no cubiertos.`:''}</div>`;$('#globalStatus').innerHTML=status;
-    const k=$('#kpis');k.classList.remove('hide');k.innerHTML=`<div class="kpi"><b>${plan.modules.length}</b><span>Módulos programados</span></div><div class="kpi"><b>${plan.staff.length}</b><span>Monitores en turno</span></div><div class="kpi"><b>${plan.missingRequired}</b><span>Faltas obligatorias</span></div><div class="kpi"><b>${plan.config.breaks.length}</b><span>Breaks</span></div>`;
+    const status=plan.missingRequired?`<div class="status err"><b>Atención:</b> faltan ${plan.missingRequired} asignaciones obligatorias.</div>`:`<div class="status ok"><b>Todos los módulos generados están completos.</b>${plan.missingOptional?` Hay ${plan.missingOptional} apoyos opcionales no cubiertos.`:''}</div>${plan.skippedModules?`<div class="status warn"><b>${plan.skippedModules} inicio(s) omitido(s)</b> porque no era posible completar el módulo entero.<br>${plan.warnings.slice(0,6).map(esc).join('<br>')}</div>`:''}`;$('#globalStatus').innerHTML=status;
+    const k=$('#kpis');k.classList.remove('hide');k.innerHTML=`<div class="kpi"><b>${plan.modules.length}</b><span>Módulos programados</span></div><div class="kpi"><b>${plan.staff.length}</b><span>Monitores en turno</span></div><div class="kpi"><b>${plan.skippedModules||0}</b><span>Inicios omitidos</span></div><div class="kpi"><b>${plan.config.breaks.length}</b><span>Breaks</span></div>`;
     const displayStaff=orderedStaff(plan);
     const pt=$('#planTable');pt.querySelector('thead').innerHTML=`<tr><th>Inicio</th><th>Término</th>${displayStaff.map(p=>`<th>${esc(p.nick||p.name)}</th>`).join('')}</tr>`;const body=pt.querySelector('tbody');body.innerHTML='';
     plan.timeline.forEach(r=>{const tr=document.createElement('tr');if(r.break)tr.classList.add('breakslot');tr.innerHTML=`<td>${hhmm(r.start)}</td><td>${hhmm(r.end)}</td>`+displayStaff.map(p=>{const t=r.cells[p.idx];if(!t)return `<td class="free">Libre</td>`;if(t.role==='break')return `<td class="personbreak"><div class="task-title">Break</div><div class="task-sub">${hhmm(t.start)}–${hhmm(t.end)}</div></td>`;return `<td class="module-cell" style="background:${moduleBg(t.moduleId)};color:${moduleFg(t.moduleId)}"><div class="task-title">${esc(categoryForTask(t))}</div><div class="task-sub">Módulo ${t.moduleId}</div></td>`}).join('');body.appendChild(tr)});
