@@ -11,7 +11,7 @@
 </style>
 </head>
 <body>
-<header><h1>MURO MALLSPORT <span style="font-weight:400;color:#b4c6d8">/ Planificador</span></h1><p>Jornadas individuales · publicación por fecha</p></header>
+<header><h1>MURO MALLSPORT <span style="font-weight:400;color:#b4c6d8">/ Planificador</span></h1><p>Jornadas individuales · apoyo opcional hasta el final de la despedida · publicación por fecha</p></header>
 <main>
 <section class="panel">
   <div class="pubhead">
@@ -42,7 +42,7 @@
 <p class="hint" style="margin:5px 0 0">Puedes usar distintos intervalos durante el día. El campo “Hasta” no genera un inicio en esa misma hora: 10:00–14:00 cada 60 min genera 10:00, 11:00, 12:00 y 13:00; el siguiente tramo puede comenzar a las 14:00.</p>
 <div id="intervalRows"></div>
 <div class="actions"><button class="secondary" id="addInterval">+ Agregar tramo</button></div>
-<p class="hint">La tabla comienza en la llegada más temprana y termina en la salida más tardía de los seleccionados. Un monitor solo puede recibir un módulo principal si está disponible durante los 50 minutos completos; para apoyo debe estar disponible durante los 20 minutos completos de Ruta.</p>
+<p class="hint">La tabla comienza en la llegada más temprana y termina en la salida más tardía de los seleccionados. Un monitor solo puede recibir un módulo principal si está disponible durante los 50 minutos completos; para apoyo debe estar disponible desde el inicio de Ruta hasta el final de la Despedida (25 minutos). El apoyo es opcional: si no hay nadie disponible, el módulo se mantiene igualmente.</p>
 <div class="fields" style="margin-top:14px"><label>Prioridad<select id="priority"><option value="balanced">Equilibrar carga</option><option value="order">Orden de selección</option></select></label><label style="display:flex;align-items:center;gap:8px;min-height:39px"><input type="checkbox" id="fixedEnabled" style="width:auto"> Monitor fijo de apoyo</label><label>Monitor fijo<select id="fixedMonitor" disabled><option value="">Seleccionar</option></select></label></div>
 <div class="actions"><button id="generate">Generar planificación</button><button class="secondary" id="reshuffle">Reshuffle</button><button class="secondary" id="exportPlan" disabled>Exportar JSON</button><button class="secondary" id="exportCsv" disabled>Exportar CSV</button></div>
 <div style="margin-top:16px;font-weight:800;font-size:13px">Forzar responsable de un módulo</div>
@@ -124,7 +124,7 @@ function build(){
   })[0]}
 
   for(let i=0;i<starts.length;i++){
-    const t=starts[i],id=i+1,primarySlots=Array.from({length:10},(_,j)=>t+j*5),routeSlots=Array.from({length:4},(_,j)=>t+(5+j)*5);
+    const t=starts[i],id=i+1,primarySlots=Array.from({length:10},(_,j)=>t+j*5),supportSlots=Array.from({length:5},(_,j)=>t+(5+j)*5);
     const forcedId=forcedPrimaries[String(t)]||null;
     let main=null;
     if(forcedId){
@@ -145,13 +145,13 @@ function build(){
     lastEnd[main.id]=t+50;
     let sup=null;
     if(fixed){
-      if(available(fixed,routeSlots[0],routeSlots.at(-1)+5)&&!protectedByForce(fixed,routeSlots[0],routeSlots.at(-1)+5,t)&&routeSlots.every(s=>!busy(fixed,s)))sup=fixed
+      if(available(fixed,supportSlots[0],supportSlots.at(-1)+5)&&!protectedByForce(fixed,supportSlots[0],supportSlots.at(-1)+5,t)&&supportSlots.every(s=>!busy(fixed,s)))sup=fixed
     }else{
-      const av=staff.filter(p=>available(p,routeSlots[0],routeSlots.at(-1)+5)&&!protectedByForce(p,routeSlots[0],routeSlots.at(-1)+5,t)&&routeSlots.every(s=>!busy(p,s)));
+      const av=staff.filter(p=>available(p,supportSlots[0],supportSlots.at(-1)+5)&&!protectedByForce(p,supportSlots[0],supportSlots.at(-1)+5,t)&&supportSlots.every(s=>!busy(p,s)));
       sup=av.sort((a,b)=>supportCounts[a.id]-supportCounts[b.id]||Number(a.id===lastSupport)-Number(b.id===lastSupport)||primaryCounts[a.id]-primaryCounts[b.id]||load[a.id]-load[b.id]||hashRank(`${a.id}|${shuffleRound}|${id}|support`)-hashRank(`${b.id}|${shuffleRound}|${id}|support`)|0||order(a)-order(b))[0]
     }
-    if(!sup){issues.push(`Módulo ${id} (${fmt(routeSlots[0])}–${fmt(routeSlots.at(-1)+5)}): falta apoyo disponible durante los 20 min completos.`)}else{
-      routeSlots.forEach(s=>assign(sup,s,'AP',id));supportCounts[sup.id]++;lastSupport=sup.id;lastEnd[sup.id]=routeSlots.at(-1)+5;mod.support=sup.id
+    if(sup){
+      supportSlots.forEach(s=>assign(sup,s,'AP',id));supportCounts[sup.id]++;lastSupport=sup.id;lastEnd[sup.id]=supportSlots.at(-1)+5;mod.support=sup.id
     }
   }
   const rows=[];for(let t=dayStart;t<dayEnd;t+=5){const r={time:t,start:fmt(t),end:fmt(Math.min(t+5,dayEnd)),assignments:{}};staff.forEach(p=>r.assignments[p.id]=cells[p.id][t]||null);rows.push(r)}
