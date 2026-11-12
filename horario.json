@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "createdAt": "2026-11-12T10:34:30.984Z",
-  "date": "2026-11-13",
+  "createdAt": "2026-11-12T11:40:41.902Z",
+  "date": "2026-11-12",
   "settings": {
     "first": "14:00",
-    "last": "16:00",
+    "last": "19:30",
     "interval": 30,
     "duration": 50,
     "supportCount": 1,
@@ -124,6 +124,146 @@
           "benjamin delgado"
         ],
         "1000": [
+          "benjamin delgado"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "start": 990,
+      "end": 1040,
+      "primary": "lucia soto",
+      "supports": {
+        "1015": [
+          "benjamin delgado"
+        ],
+        "1020": [
+          "benjamin delgado"
+        ],
+        "1025": [
+          "benjamin delgado"
+        ],
+        "1030": [
+          "benjamin delgado"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "start": 1020,
+      "end": 1070,
+      "primary": "paloma acevedo",
+      "supports": {
+        "1045": [
+          "benjamin delgado"
+        ],
+        "1050": [
+          "benjamin delgado"
+        ],
+        "1055": [
+          "benjamin delgado"
+        ],
+        "1060": [
+          "benjamin delgado"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "start": 1050,
+      "end": 1100,
+      "primary": "lucia soto",
+      "supports": {
+        "1075": [
+          "benjamin delgado"
+        ],
+        "1080": [
+          "benjamin delgado"
+        ],
+        "1085": [
+          "benjamin delgado"
+        ],
+        "1090": [
+          "benjamin delgado"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "start": 1080,
+      "end": 1130,
+      "primary": "paloma acevedo",
+      "supports": {
+        "1105": [
+          "benjamin delgado"
+        ],
+        "1110": [
+          "benjamin delgado"
+        ],
+        "1115": [
+          "benjamin delgado"
+        ],
+        "1120": [
+          "benjamin delgado"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "start": 1110,
+      "end": 1160,
+      "primary": "lucia soto",
+      "supports": {
+        "1135": [
+          "benjamin delgado"
+        ],
+        "1140": [
+          "benjamin delgado"
+        ],
+        "1145": [
+          "benjamin delgado"
+        ],
+        "1150": [
+          "benjamin delgado"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "start": 1140,
+      "end": 1190,
+      "primary": "paloma acevedo",
+      "supports": {
+        "1165": [
+          "benjamin delgado"
+        ],
+        "1170": [
+          "benjamin delgado"
+        ],
+        "1175": [
+          "benjamin delgado"
+        ],
+        "1180": [
+          "benjamin delgado"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "start": 1170,
+      "end": 1220,
+      "primary": "lucia soto",
+      "supports": {
+        "1195": [
+          "benjamin delgado"
+        ],
+        "1200": [
+          "benjamin delgado"
+        ],
+        "1205": [
+          "benjamin delgado"
+        ],
+        "1210": [
           "benjamin delgado"
         ]
       }
@@ -762,7 +902,12 @@
           "descripcion": "Apoyo en ruta · Módulo 5",
           "estado": "apoyo"
         },
-        "lucia soto": null
+        "lucia soto": {
+          "code": "REC",
+          "module": 6,
+          "descripcion": "Recepción de niños · Módulo 6",
+          "estado": "modulo"
+        }
       }
     },
     {
@@ -782,7 +927,12 @@
           "descripcion": "Apoyo en ruta · Módulo 5",
           "estado": "apoyo"
         },
-        "lucia soto": null
+        "lucia soto": {
+          "code": "B",
+          "module": 6,
+          "descripcion": "Boulder · Módulo 6",
+          "estado": "modulo"
+        }
       }
     },
     {
@@ -802,7 +952,12 @@
           "descripcion": "Apoyo en ruta · Módulo 5",
           "estado": "apoyo"
         },
-        "lucia soto": null
+        "lucia soto": {
+          "code": "B",
+          "module": 6,
+          "descripcion": "Boulder · Módulo 6",
+          "estado": "modulo"
+        }
       }
     },
     {
@@ -817,10 +972,904 @@
           "estado": "modulo"
         },
         "benjamin delgado": null,
+        "lucia soto": {
+          "code": "B",
+          "module": 6,
+          "descripcion": "Boulder · Módulo 6",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "16:50",
+      "end": "16:55",
+      "time": 1010,
+      "assignments": {
+        "paloma acevedo": null,
+        "benjamin delgado": null,
+        "lucia soto": {
+          "code": "B",
+          "module": 6,
+          "descripcion": "Boulder · Módulo 6",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "16:55",
+      "end": "17:00",
+      "time": 1015,
+      "assignments": {
+        "paloma acevedo": null,
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 6,
+          "descripcion": "Apoyo en ruta · Módulo 6",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "R",
+          "module": 6,
+          "descripcion": "Ruta · Módulo 6",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "17:00",
+      "end": "17:05",
+      "time": 1020,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "REC",
+          "module": 7,
+          "descripcion": "Recepción de niños · Módulo 7",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 6,
+          "descripcion": "Apoyo en ruta · Módulo 6",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "R",
+          "module": 6,
+          "descripcion": "Ruta · Módulo 6",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "17:05",
+      "end": "17:10",
+      "time": 1025,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "B",
+          "module": 7,
+          "descripcion": "Boulder · Módulo 7",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 6,
+          "descripcion": "Apoyo en ruta · Módulo 6",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "R",
+          "module": 6,
+          "descripcion": "Ruta · Módulo 6",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "17:10",
+      "end": "17:15",
+      "time": 1030,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "B",
+          "module": 7,
+          "descripcion": "Boulder · Módulo 7",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 6,
+          "descripcion": "Apoyo en ruta · Módulo 6",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "R",
+          "module": 6,
+          "descripcion": "Ruta · Módulo 6",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "17:15",
+      "end": "17:20",
+      "time": 1035,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "B",
+          "module": 7,
+          "descripcion": "Boulder · Módulo 7",
+          "estado": "modulo"
+        },
+        "benjamin delgado": null,
+        "lucia soto": {
+          "code": "D",
+          "module": 6,
+          "descripcion": "Despedida de niños · Módulo 6",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "17:20",
+      "end": "17:25",
+      "time": 1040,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "B",
+          "module": 7,
+          "descripcion": "Boulder · Módulo 7",
+          "estado": "modulo"
+        },
+        "benjamin delgado": null,
         "lucia soto": null
+      }
+    },
+    {
+      "start": "17:25",
+      "end": "17:30",
+      "time": 1045,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "R",
+          "module": 7,
+          "descripcion": "Ruta · Módulo 7",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 7,
+          "descripcion": "Apoyo en ruta · Módulo 7",
+          "estado": "apoyo"
+        },
+        "lucia soto": null
+      }
+    },
+    {
+      "start": "17:30",
+      "end": "17:35",
+      "time": 1050,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "R",
+          "module": 7,
+          "descripcion": "Ruta · Módulo 7",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 7,
+          "descripcion": "Apoyo en ruta · Módulo 7",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "REC",
+          "module": 8,
+          "descripcion": "Recepción de niños · Módulo 8",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "17:35",
+      "end": "17:40",
+      "time": 1055,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "R",
+          "module": 7,
+          "descripcion": "Ruta · Módulo 7",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 7,
+          "descripcion": "Apoyo en ruta · Módulo 7",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "B",
+          "module": 8,
+          "descripcion": "Boulder · Módulo 8",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "17:40",
+      "end": "17:45",
+      "time": 1060,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "R",
+          "module": 7,
+          "descripcion": "Ruta · Módulo 7",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 7,
+          "descripcion": "Apoyo en ruta · Módulo 7",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "B",
+          "module": 8,
+          "descripcion": "Boulder · Módulo 8",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "17:45",
+      "end": "17:50",
+      "time": 1065,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "D",
+          "module": 7,
+          "descripcion": "Despedida de niños · Módulo 7",
+          "estado": "modulo"
+        },
+        "benjamin delgado": null,
+        "lucia soto": {
+          "code": "B",
+          "module": 8,
+          "descripcion": "Boulder · Módulo 8",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "17:50",
+      "end": "17:55",
+      "time": 1070,
+      "assignments": {
+        "paloma acevedo": null,
+        "benjamin delgado": null,
+        "lucia soto": {
+          "code": "B",
+          "module": 8,
+          "descripcion": "Boulder · Módulo 8",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "17:55",
+      "end": "18:00",
+      "time": 1075,
+      "assignments": {
+        "paloma acevedo": null,
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 8,
+          "descripcion": "Apoyo en ruta · Módulo 8",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "R",
+          "module": 8,
+          "descripcion": "Ruta · Módulo 8",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "18:00",
+      "end": "18:05",
+      "time": 1080,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "REC",
+          "module": 9,
+          "descripcion": "Recepción de niños · Módulo 9",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 8,
+          "descripcion": "Apoyo en ruta · Módulo 8",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "R",
+          "module": 8,
+          "descripcion": "Ruta · Módulo 8",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "18:05",
+      "end": "18:10",
+      "time": 1085,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "B",
+          "module": 9,
+          "descripcion": "Boulder · Módulo 9",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 8,
+          "descripcion": "Apoyo en ruta · Módulo 8",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "R",
+          "module": 8,
+          "descripcion": "Ruta · Módulo 8",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "18:10",
+      "end": "18:15",
+      "time": 1090,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "B",
+          "module": 9,
+          "descripcion": "Boulder · Módulo 9",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 8,
+          "descripcion": "Apoyo en ruta · Módulo 8",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "R",
+          "module": 8,
+          "descripcion": "Ruta · Módulo 8",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "18:15",
+      "end": "18:20",
+      "time": 1095,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "B",
+          "module": 9,
+          "descripcion": "Boulder · Módulo 9",
+          "estado": "modulo"
+        },
+        "benjamin delgado": null,
+        "lucia soto": {
+          "code": "D",
+          "module": 8,
+          "descripcion": "Despedida de niños · Módulo 8",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "18:20",
+      "end": "18:25",
+      "time": 1100,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "B",
+          "module": 9,
+          "descripcion": "Boulder · Módulo 9",
+          "estado": "modulo"
+        },
+        "benjamin delgado": null,
+        "lucia soto": null
+      }
+    },
+    {
+      "start": "18:25",
+      "end": "18:30",
+      "time": 1105,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "R",
+          "module": 9,
+          "descripcion": "Ruta · Módulo 9",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 9,
+          "descripcion": "Apoyo en ruta · Módulo 9",
+          "estado": "apoyo"
+        },
+        "lucia soto": null
+      }
+    },
+    {
+      "start": "18:30",
+      "end": "18:35",
+      "time": 1110,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "R",
+          "module": 9,
+          "descripcion": "Ruta · Módulo 9",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 9,
+          "descripcion": "Apoyo en ruta · Módulo 9",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "REC",
+          "module": 10,
+          "descripcion": "Recepción de niños · Módulo 10",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "18:35",
+      "end": "18:40",
+      "time": 1115,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "R",
+          "module": 9,
+          "descripcion": "Ruta · Módulo 9",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 9,
+          "descripcion": "Apoyo en ruta · Módulo 9",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "B",
+          "module": 10,
+          "descripcion": "Boulder · Módulo 10",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "18:40",
+      "end": "18:45",
+      "time": 1120,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "R",
+          "module": 9,
+          "descripcion": "Ruta · Módulo 9",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 9,
+          "descripcion": "Apoyo en ruta · Módulo 9",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "B",
+          "module": 10,
+          "descripcion": "Boulder · Módulo 10",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "18:45",
+      "end": "18:50",
+      "time": 1125,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "D",
+          "module": 9,
+          "descripcion": "Despedida de niños · Módulo 9",
+          "estado": "modulo"
+        },
+        "benjamin delgado": null,
+        "lucia soto": {
+          "code": "B",
+          "module": 10,
+          "descripcion": "Boulder · Módulo 10",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "18:50",
+      "end": "18:55",
+      "time": 1130,
+      "assignments": {
+        "paloma acevedo": null,
+        "benjamin delgado": null,
+        "lucia soto": {
+          "code": "B",
+          "module": 10,
+          "descripcion": "Boulder · Módulo 10",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "18:55",
+      "end": "19:00",
+      "time": 1135,
+      "assignments": {
+        "paloma acevedo": null,
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 10,
+          "descripcion": "Apoyo en ruta · Módulo 10",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "R",
+          "module": 10,
+          "descripcion": "Ruta · Módulo 10",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "19:00",
+      "end": "19:05",
+      "time": 1140,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "REC",
+          "module": 11,
+          "descripcion": "Recepción de niños · Módulo 11",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 10,
+          "descripcion": "Apoyo en ruta · Módulo 10",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "R",
+          "module": 10,
+          "descripcion": "Ruta · Módulo 10",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "19:05",
+      "end": "19:10",
+      "time": 1145,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "B",
+          "module": 11,
+          "descripcion": "Boulder · Módulo 11",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 10,
+          "descripcion": "Apoyo en ruta · Módulo 10",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "R",
+          "module": 10,
+          "descripcion": "Ruta · Módulo 10",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "19:10",
+      "end": "19:15",
+      "time": 1150,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "B",
+          "module": 11,
+          "descripcion": "Boulder · Módulo 11",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 10,
+          "descripcion": "Apoyo en ruta · Módulo 10",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "R",
+          "module": 10,
+          "descripcion": "Ruta · Módulo 10",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "19:15",
+      "end": "19:20",
+      "time": 1155,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "B",
+          "module": 11,
+          "descripcion": "Boulder · Módulo 11",
+          "estado": "modulo"
+        },
+        "benjamin delgado": null,
+        "lucia soto": {
+          "code": "D",
+          "module": 10,
+          "descripcion": "Despedida de niños · Módulo 10",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "19:20",
+      "end": "19:25",
+      "time": 1160,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "B",
+          "module": 11,
+          "descripcion": "Boulder · Módulo 11",
+          "estado": "modulo"
+        },
+        "benjamin delgado": null,
+        "lucia soto": null
+      }
+    },
+    {
+      "start": "19:25",
+      "end": "19:30",
+      "time": 1165,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "R",
+          "module": 11,
+          "descripcion": "Ruta · Módulo 11",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 11,
+          "descripcion": "Apoyo en ruta · Módulo 11",
+          "estado": "apoyo"
+        },
+        "lucia soto": null
+      }
+    },
+    {
+      "start": "19:30",
+      "end": "19:35",
+      "time": 1170,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "R",
+          "module": 11,
+          "descripcion": "Ruta · Módulo 11",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 11,
+          "descripcion": "Apoyo en ruta · Módulo 11",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "REC",
+          "module": 12,
+          "descripcion": "Recepción de niños · Módulo 12",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "19:35",
+      "end": "19:40",
+      "time": 1175,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "R",
+          "module": 11,
+          "descripcion": "Ruta · Módulo 11",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 11,
+          "descripcion": "Apoyo en ruta · Módulo 11",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "B",
+          "module": 12,
+          "descripcion": "Boulder · Módulo 12",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "19:40",
+      "end": "19:45",
+      "time": 1180,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "R",
+          "module": 11,
+          "descripcion": "Ruta · Módulo 11",
+          "estado": "modulo"
+        },
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 11,
+          "descripcion": "Apoyo en ruta · Módulo 11",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "B",
+          "module": 12,
+          "descripcion": "Boulder · Módulo 12",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "19:45",
+      "end": "19:50",
+      "time": 1185,
+      "assignments": {
+        "paloma acevedo": {
+          "code": "D",
+          "module": 11,
+          "descripcion": "Despedida de niños · Módulo 11",
+          "estado": "modulo"
+        },
+        "benjamin delgado": null,
+        "lucia soto": {
+          "code": "B",
+          "module": 12,
+          "descripcion": "Boulder · Módulo 12",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "19:50",
+      "end": "19:55",
+      "time": 1190,
+      "assignments": {
+        "paloma acevedo": null,
+        "benjamin delgado": null,
+        "lucia soto": {
+          "code": "B",
+          "module": 12,
+          "descripcion": "Boulder · Módulo 12",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "19:55",
+      "end": "20:00",
+      "time": 1195,
+      "assignments": {
+        "paloma acevedo": null,
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 12,
+          "descripcion": "Apoyo en ruta · Módulo 12",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "R",
+          "module": 12,
+          "descripcion": "Ruta · Módulo 12",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "20:00",
+      "end": "20:05",
+      "time": 1200,
+      "assignments": {
+        "paloma acevedo": null,
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 12,
+          "descripcion": "Apoyo en ruta · Módulo 12",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "R",
+          "module": 12,
+          "descripcion": "Ruta · Módulo 12",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "20:05",
+      "end": "20:10",
+      "time": 1205,
+      "assignments": {
+        "paloma acevedo": null,
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 12,
+          "descripcion": "Apoyo en ruta · Módulo 12",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "R",
+          "module": 12,
+          "descripcion": "Ruta · Módulo 12",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "20:10",
+      "end": "20:15",
+      "time": 1210,
+      "assignments": {
+        "paloma acevedo": null,
+        "benjamin delgado": {
+          "code": "AP",
+          "module": 12,
+          "descripcion": "Apoyo en ruta · Módulo 12",
+          "estado": "apoyo"
+        },
+        "lucia soto": {
+          "code": "R",
+          "module": 12,
+          "descripcion": "Ruta · Módulo 12",
+          "estado": "modulo"
+        }
+      }
+    },
+    {
+      "start": "20:15",
+      "end": "20:20",
+      "time": 1215,
+      "assignments": {
+        "paloma acevedo": null,
+        "benjamin delgado": null,
+        "lucia soto": {
+          "code": "D",
+          "module": 12,
+          "descripcion": "Despedida de niños · Módulo 12",
+          "estado": "modulo"
+        }
       }
     }
   ],
-  "issues": [],
-  "demo": true
+  "issues": []
 }
