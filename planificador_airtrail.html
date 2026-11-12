@@ -78,13 +78,15 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
       <div class="sub">Cada monitor tiene su propia jornada individual. El primer módulo es global, pero cada función solo puede asignarse a una persona si cabe completamente entre su hora de llegada y su hora de salida. La tabla se extiende desde la llegada más temprana hasta la salida más tardía. Todos los tiempos trabajan en una grilla de 10 minutos.</div>
       <div class="row">
         <div class="field"><label>Fecha</label><input type="date" id="date"></div>
-        <div class="field"><label>Primer módulo</label><select id="startTime" class="time10"></select></div>
-        <div class="field"><label>Intervalo</label><select id="interval"><option value="20">20 minutos</option><option value="30" selected>30 minutos</option></select></div>
         <div class="field"><label>Duración equipamiento</label><select id="equipDuration"><option value="20" selected>20 min</option></select></div>
         <div class="field"><label>Duración circuito</label><select id="launchDuration"><option value="20" selected>20 min</option></select></div>
       </div>
+      <div style="margin-top:14px;font-weight:800;font-size:13px">Tramos de inicio de módulos</div>
+      <div class="smallnote">Define Desde / Hasta / Cada X minutos. “Hasta” es exclusivo: 10:00–14:00 cada 60 min genera 10:00, 11:00, 12:00 y 13:00; otro tramo puede comenzar exactamente a las 14:00.</div>
+      <div id="intervalRows"></div>
+      <button class="ghost tiny" id="addInterval">+ Agregar tramo</button>
       <div style="margin-top:14px;font-weight:800;font-size:13px">Breaks de inicio</div>
-      <div class="smallnote">Indica hora de inicio y duración en múltiplos de 10 minutos. Si un módulo debía comenzar durante el break, su inicio se mueve exactamente al término del break y desde ahí continúa nuevamente la cadencia de 20 o 30 minutos.</div>
+      <div class="smallnote">Si un break desplaza un inicio dentro de un tramo, la cadencia continúa desde el término del break. Al comenzar un nuevo tramo horario, la cadencia se vuelve a anclar a la hora “Desde” de ese tramo.</div>
       <div id="breaks"></div>
       <button class="ghost tiny" id="addBreak">+ Agregar break</button>
     </div>
@@ -150,9 +152,10 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
   function timeOptions(value='00:00'){let out='';for(let m=0;m<1440;m+=10){const v=hhmm(m);out+=`<option value="${v}" ${v===value?'selected':''}>${v}</option>`}return out}
   function durationOptions(value=60){let out='';for(let d=10;d<=180;d+=10)out+=`<option value="${d}" ${d===+value?'selected':''}>${d} min</option>`;return out}
   function download(name,content,type){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
-  function initTimeSelectors(){
-    $('#startTime').innerHTML=timeOptions('12:00');
-  }
+  function intervalOptions(value=30){let out='';for(let d=10;d<=180;d+=10)out+=`<option value="${d}" ${d===+value?'selected':''}>${d} min</option>`;return out}
+  function addIntervalRow(start='12:00',end='21:00',interval=30){const d=document.createElement('div');d.className='interval-row';d.innerHTML=`<div class="field"><label>Desde</label><select class="segStart">${timeOptions(start)}</select></div><div class="field"><label>Hasta</label><select class="segEnd">${timeOptions(end)}</select></div><div class="field"><label>Cada</label><select class="segInterval">${intervalOptions(interval)}</select></div><button class="dangerBtn tiny delInterval">Eliminar</button>`;$('#intervalRows').appendChild(d)}
+  function getIntervals(){const segs=$$('#intervalRows .interval-row').map((r,i)=>({start:mins(r.querySelector('.segStart').value),end:mins(r.querySelector('.segEnd').value),interval:+r.querySelector('.segInterval').value,index:i+1}));if(!segs.length)throw new Error('Agrega al menos un tramo de módulos.');segs.forEach(x=>{if(x.end<=x.start)throw new Error(`Tramo ${x.index}: “Hasta” debe ser posterior a “Desde”.`);if(x.interval<10||x.interval%10)throw new Error(`Tramo ${x.index}: el intervalo debe ser múltiplo de 10 minutos.`)});segs.sort((a,b)=>a.start-b.start);for(let i=1;i<segs.length;i++)if(segs[i].start<segs[i-1].end)throw new Error(`Los tramos ${segs[i-1].index} y ${segs[i].index} se superponen.`);return segs}
+  function initTimeSelectors(){}
   function prefOptions(m){
     let out='<option value="">Sin preferencia</option>';
     SKILLS.forEach(k=>out+=`<option value="${k}" ${m.preferred===k?'selected':''} ${m.skills[k]?'':'disabled'}>${SKILL_LABELS[k]}</option>`);
@@ -192,10 +195,9 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
     const staff=[...selected].map(i=>{const m=normalizeMonitor(monitors[i]);return {...m,idx:i,arrivalMin:mins(m.arrival),departureMin:mins(m.departure)}});
     staff.forEach(p=>{if(p.departureMin<=p.arrivalMin)throw new Error(`${p.nick||p.name}: la hora de salida debe ser posterior a la llegada.`)});
     const dayStart=Math.min(...staff.map(p=>p.arrivalMin)), dayEnd=Math.max(...staff.map(p=>p.departureMin));
-    const first=mins($('#startTime').value), intv=+$('#interval').value, equipDur=+$('#equipDuration').value, launchDur=+$('#launchDuration').value, breaks=getBreaks();
-    if(first%10)throw new Error('El primer módulo debe usar intervalos de 10 minutos.');
-    if(first<dayStart)throw new Error('El primer módulo no puede comenzar antes de la llegada más temprana del personal seleccionado.');
-    if(first+equipDur+launchDur>dayEnd)throw new Error('El primer módulo no cabe dentro del rango total de jornadas seleccionadas.');
+    const segments=getIntervals(), equipDur=+$('#equipDuration').value, launchDur=+$('#launchDuration').value, breaks=getBreaks();
+    if(segments[0].start<dayStart)throw new Error('El primer tramo no puede comenzar antes de la llegada más temprana del personal seleccionado.');
+    if(segments[0].start+equipDur+launchDur>dayEnd)throw new Error('El primer módulo no cabe dentro del rango total de jornadas seleccionadas.');
     for(const b of breaks){if(b.start<dayStart||b.start>=dayEnd)throw new Error(`El break de ${hhmm(b.start)} debe comenzar dentro del rango cubierto por el personal seleccionado.`)}
     const n=staff.length;
 
@@ -238,34 +240,38 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
     const polesId=n>=6?bestGroups.assign.poles:null;
     const homeGroup={};equipIds.forEach(id=>homeGroup[id]='equip');towerIds.forEach(id=>homeGroup[id]='tower');if(polesId!=null)homeGroup[polesId]='poles';
 
-    // 2) Inicios y breaks. Transferencia de poleas = 10 min para mantener toda la grilla alineada.
+    // 2) Inicios por tramos y breaks. Cada nuevo tramo reinicia su propia cadencia.
     const modules=[];const appliedBreaks=[];const TRANSFER=10;
-    let next=first,bi=0,safety=0;
+    let bi=0,safety=0,blockedUntil=-Infinity;
     let prevBreakEnd={equip:-Infinity,tower:-Infinity,poles:-Infinity};
-    const moduleTail=0;
-    while(next+equipDur+launchDur<=dayEnd&&safety++<1000){
-      while(bi<breaks.length&&breaks[bi].start<=next){
-        const b=breaks[bi];
-        const prev=[...modules].reverse().find(m=>m.start<b.start)||null;
-        const equipRelease=Math.max(b.start,prev?prev.equipEnd:b.start,prevBreakEnd.equip);
-        const towerRelease=Math.max(b.start,prev?prev.end:b.start,prevBreakEnd.tower);
-        const polesRelease=Math.max(b.start,prev?prev.end+TRANSFER:b.start,prevBreakEnd.poles);
-        const equipBreak={start:equipRelease,end:equipRelease+b.duration,duration:b.duration};
-        const towerBreak={start:towerRelease,end:towerRelease+b.duration,duration:b.duration};
-        const polesBreak={start:polesRelease,end:polesRelease+b.duration,duration:b.duration};
-        prevBreakEnd.equip=equipBreak.end;prevBreakEnd.tower=towerBreak.end;prevBreakEnd.poles=polesBreak.end;
-        let restart=Math.max(b.end,equipBreak.end,towerBreak.end-equipDur);
-        if(n>=6)restart=Math.max(restart,polesBreak.end-equipDur-TRANSFER);
-        restart=Math.ceil(restart/10)*10;
-        if(next<restart)next=restart;
-        appliedBreaks.push({source:{...b},equip:equipBreak,tower:towerBreak,poles:n>=6?polesBreak:null,restart});
-        bi++;
-      }
-      if(next+equipDur+launchDur>dayEnd)break;
-      modules.push({id:modules.length+1,start:next,equipStart:next,equipEnd:next+equipDur,launchStart:next+equipDur,end:next+equipDur+launchDur,assign:{}});
-      next+=intv;
+    function applyBreak(b,next){
+      const prev=[...modules].reverse().find(m=>m.start<b.start)||null;
+      const equipRelease=Math.max(b.start,prev?prev.equipEnd:b.start,prevBreakEnd.equip);
+      const towerRelease=Math.max(b.start,prev?prev.end:b.start,prevBreakEnd.tower);
+      const polesRelease=Math.max(b.start,prev?prev.end+TRANSFER:b.start,prevBreakEnd.poles);
+      const equipBreak={start:equipRelease,end:equipRelease+b.duration,duration:b.duration};
+      const towerBreak={start:towerRelease,end:towerRelease+b.duration,duration:b.duration};
+      const polesBreak={start:polesRelease,end:polesRelease+b.duration,duration:b.duration};
+      prevBreakEnd.equip=equipBreak.end;prevBreakEnd.tower=towerBreak.end;prevBreakEnd.poles=polesBreak.end;
+      let restart=Math.max(b.end,equipBreak.end,towerBreak.end-equipDur);
+      if(n>=6)restart=Math.max(restart,polesBreak.end-equipDur-TRANSFER);
+      restart=Math.ceil(restart/10)*10;
+      appliedBreaks.push({source:{...b},equip:equipBreak,tower:towerBreak,poles:n>=6?polesBreak:null,restart});
+      blockedUntil=Math.max(blockedUntil,restart);
+      return Math.max(next,restart);
     }
-    if(!modules.length)throw new Error('No quedó ningún módulo después de aplicar los breaks.');
+    for(const seg of segments){
+      let next=Math.max(seg.start,blockedUntil);
+      // Breaks previos o exactamente al inicio del tramo se aplican antes del primer módulo.
+      while(bi<breaks.length&&breaks[bi].start<=next){next=applyBreak(breaks[bi],next);bi++}
+      while(next<seg.end&&next+equipDur+launchDur<=dayEnd&&safety++<2000){
+        while(bi<breaks.length&&breaks[bi].start<=next){next=applyBreak(breaks[bi],next);bi++;if(next>=seg.end)break}
+        if(next>=seg.end||next+equipDur+launchDur>dayEnd)break;
+        modules.push({id:modules.length+1,start:next,equipStart:next,equipEnd:next+equipDur,launchStart:next+equipDur,end:next+equipDur+launchDur,assign:{},intervalSegment:{start:seg.start,end:seg.end,interval:seg.interval}});
+        next+=seg.interval;
+      }
+    }
+    if(!modules.length)throw new Error('No quedó ningún módulo después de aplicar los tramos y breaks.');
     while(bi<breaks.length){
       const b=breaks[bi],prev=[...modules].reverse().find(m=>m.start<b.start)||modules[modules.length-1]||null;
       const equipRelease=Math.max(b.start,prev?prev.equipEnd:b.start,prevBreakEnd.equip);
@@ -389,7 +395,7 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
     }
     const breakAudit=staff.map(p=>({idx:p.idx,nick:p.nick||p.name,arrival:p.arrival,departure:p.departure,preferred:p.preferred,breaks:(personalBreaks[p.idx]||[]).map(b=>({start:hhmm(b.start),end:hhmm(b.end),duration:b.duration}))}));
     const groupInfo={equip:equipIds,tower:towerIds,poles:polesId,homeGroup};
-    return {version:8,type:'airtrail-tirolesa',createdAt:new Date().toISOString(),date:$('#date').value,config:{dayStart:hhmm(dayStart),dayEnd:hhmm(dayEnd),firstStart:hhmm(first),interval:intv,equipDuration:equipDur,launchDuration:launchDur,gridMinutes:10,poleTransferMinutes:TRANSFER,breaks:breaks.map(b=>({start:hhmm(b.start),duration:b.duration,end:hhmm(b.end)}))},staff,modules,tasks,timeline,warnings,missingRequired,missingOptional,breakAudit,groupInfo};
+    return {version:9,type:'airtrail-tirolesa',createdAt:new Date().toISOString(),date:$('#date').value,config:{dayStart:hhmm(dayStart),dayEnd:hhmm(dayEnd),firstStart:hhmm(modules[0].start),interval:segments[0].interval,intervals:segments.map(x=>({start:hhmm(x.start),end:hhmm(x.end),interval:x.interval})),equipDuration:equipDur,launchDuration:launchDur,gridMinutes:10,poleTransferMinutes:TRANSFER,breaks:breaks.map(b=>({start:hhmm(b.start),duration:b.duration,end:hhmm(b.end)}))},staff,modules,tasks,timeline,warnings,missingRequired,missingOptional,breakAudit,groupInfo};
   }
   function personName(plan,pid){const p=plan.staff.find(x=>x.idx===pid);return p?(p.nick||p.name):'—'}
   function moduleBg(id){const h=(Number(id)*47+18)%360;return `hsl(${h} 68% 91%)`}function moduleFg(id){const h=(Number(id)*47+18)%360;return `hsl(${h} 42% 27%)`}function categoryForTask(t){if(!t)return '';if(t.role==='break')return 'Break';if(t.role==='equipMain'||t.role==='equipSupport')return 'Equipamiento';if(t.role==='launchMain'||t.role==='launchSupport')return 'Lanzamiento';if(t.role==='polesSupport'||t.role==='polesTransfer')return 'Poleas';if(t.role==='brakeMain')return 'Freno';return t.label||''}
@@ -441,10 +447,10 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
   $('#importBase').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!Array.isArray(data))throw Error();monitors=data;selected=new Set();saveBase();renderBase()}catch{alert('El archivo no parece ser una base válida.')}e.target.value=''};
   $('#resetBase').onclick=()=>{if(confirm('¿Restaurar la base de ejemplo?')){monitors=structuredClone(defaults);selected=new Set();saveBase();renderBase()}};
   $('#staffList').addEventListener('change',e=>{const i=+e.target.dataset.i;e.target.checked?selected.add(i):selected.delete(i);updateStaffStatus()});
-  $('#addBreak').onclick=()=>addBreakRow();$('#breaks').addEventListener('click',e=>{if(e.target.classList.contains('delBreak'))e.target.closest('.break-row').remove()});
+  $('#addInterval').onclick=()=>addIntervalRow('14:00','20:00',30);$('#intervalRows').addEventListener('click',e=>{if(e.target.classList.contains('delInterval')){const rows=$$('#intervalRows .interval-row');if(rows.length<=1){alert('Debe existir al menos un tramo.');return}e.target.closest('.interval-row').remove()}});$('#addBreak').onclick=()=>addBreakRow();$('#breaks').addEventListener('click',e=>{if(e.target.classList.contains('delBreak'))e.target.closest('.break-row').remove()});
   $('#generate').onclick=()=>{try{renderPlan(schedule())}catch(err){$('#globalStatus').innerHTML=`<div class="status err">${esc(err.message)}</div>`}};
   $('#exportPlan').onclick=exportPlan;$('#exportCsv').onclick=exportCsv;
-  initTimeSelectors();$('#date').value=new Date().toLocaleDateString('en-CA');$('#publishedMonth').value=$('#date').value.slice(0,7);renderBase();addBreakRow('16:00',20);$('#publishCurrent').onclick=async()=>{try{await publishCurrent()}catch(e){adminMsg(e.message,true)}};$('#openViewer').onclick=()=>window.open('/?type=airtrail','_blank','noopener');$('#refreshPublished').onclick=refreshPublished;$('#publishedMonth').onchange=refreshPublished;$('#publishedList').onclick=async e=>{if(e.target.dataset.view)window.open(`/?type=airtrail&date=${encodeURIComponent(e.target.dataset.view)}`,'_blank','noopener');if(e.target.dataset.del){try{await deletePublished(e.target.dataset.del,e.target)}catch(err){adminMsg(err.message,true)}}};loadSharedBase();refreshPublished();
+  initTimeSelectors();$('#date').value=new Date().toLocaleDateString('en-CA');$('#publishedMonth').value=$('#date').value.slice(0,7);renderBase();addIntervalRow('10:00','14:00',60);addIntervalRow('14:00','20:00',30);addBreakRow('16:00',20);$('#publishCurrent').onclick=async()=>{try{await publishCurrent()}catch(e){adminMsg(e.message,true)}};$('#openViewer').onclick=()=>window.open('/?type=airtrail','_blank','noopener');$('#refreshPublished').onclick=refreshPublished;$('#publishedMonth').onchange=refreshPublished;$('#publishedList').onclick=async e=>{if(e.target.dataset.view)window.open(`/?type=airtrail&date=${encodeURIComponent(e.target.dataset.view)}`,'_blank','noopener');if(e.target.dataset.del){try{await deletePublished(e.target.dataset.del,e.target)}catch(err){adminMsg(err.message,true)}}};loadSharedBase();refreshPublished();
 })();
 </script>
 </body>

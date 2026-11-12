@@ -18,3 +18,7 @@ Sistema integrado con dos planificadores independientes.
 Reutiliza: `ADMIN_USER`, `ADMIN_PASSWORD`, `GITHUB_TOKEN`, `GITHUB_OWNER`, `GITHUB_REPO`, `GITHUB_BRANCH`. No hace falta cambiar `GITHUB_PATH`; simplemente deja de utilizarse.
 
 La base compartida y las publicaciones se escriben en GitHub mediante las funciones de `/api`.
+
+
+## Tramos de intervalos
+Ambos planificadores permiten definir varios tramos horarios de inicio de módulos, cada uno con su propio intervalo. El límite Hasta es exclusivo para los inicios.
