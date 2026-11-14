@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Demo jueces · Registro de puntajes</title>
+  <style>
+    :root{
+      --bg:#f4f6f7;
+      --card:#ffffff;
+      --ink:#182125;
+      --muted:#657177;
+      --line:#d9e0e3;
+      --accent:#13a6a6;
+      --accent-dark:#0c7f80;
+      --danger:#c43b3b;
+      --ok:#178a55;
+      --shadow:0 12px 30px rgba(21,39,45,.08);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    body{min-height:100vh}
+    button,input,select{font:inherit}
+    button{cursor:pointer}
+    .shell{width:min(980px,100%);margin:0 auto;padding:18px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,var(--accent),#78d7d3);display:grid;place-items:center;color:#fff;font-weight:900;font-size:20px;box-shadow:var(--shadow)}
+    h1{font-size:clamp(20px,4vw,30px);margin:0;line-height:1.05}
+    .sub{color:var(--muted);font-size:13px;margin-top:4px}
+    .badge{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:7px 10px;background:#fff;color:var(--muted);font-size:12px;font-weight:700}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-bottom:16px}
+    .login-card{max-width:460px;margin:12vh auto 0}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .choice-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:7px}
+    .choice{min-height:48px;border:1px solid var(--line);background:white;border-radius:11px;font-weight:850;font-size:17px;color:var(--ink);touch-action:manipulation}
+    .choice.active{background:var(--accent);color:white;border-color:var(--accent)}
+    .select-block{margin-bottom:15px}
+    .comp-panel{background:#f5f8f9;border:1px solid var(--line);padding:14px;border-radius:16px}
+    .comp-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+    .comp-number{font-size:37px;line-height:1;font-weight:950;font-variant-numeric:tabular-nums}
+    .comp-edit{font-size:13px;color:var(--muted)}
+    .quick-list{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+    .quick{border:1px solid var(--line);background:#fff;border-radius:10px;min-height:40px;padding:6px 12px;font-weight:850}
+    .keypad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:480px;margin:0 auto}
+    .key{border:1px solid var(--line);border-radius:13px;min-height:57px;background:#fff;font-size:25px;font-weight:850;touch-action:manipulation}
+    .key:active{background:#dceced}
+    .key.action{font-size:16px;background:#e4eaec}
+    .key.confirm{background:var(--accent);border-color:var(--accent);color:white;font-size:17px}
+    .comp-control{display:flex;gap:8px;align-items:center}
+    .comp-control .btn{min-width:49px}
+    .keyhint{font-size:12px;color:var(--muted);margin:8px 0;text-align:center}
+    .unsaved{color:var(--danger);font-weight:800}
+    label{display:block;font-size:12px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+    input,select{width:100%;min-height:48px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 12px;color:var(--ink);outline:none}
+    input:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(19,166,166,.12)}
+    .btn{border:0;border-radius:12px;min-height:46px;padding:10px 15px;font-weight:800;background:#edf1f2;color:var(--ink)}
+    .btn.primary{background:var(--accent);color:#fff}
+    .btn.primary:hover{background:var(--accent-dark)}
+    .btn.ghost{background:#fff;border:1px solid var(--line)}
+    .btn.danger{background:#fff1f1;color:var(--danger);border:1px solid #f0caca}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px}
+    .section-title h2{margin:0;font-size:18px}
+    .section-title p{margin:2px 0 0;color:var(--muted);font-size:13px}
+    .attempts{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:12px}
+    .attempt{aspect-ratio:1/1;border:2px solid var(--line);border-radius:14px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;transition:.15s transform,.15s border-color,.15s background;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+    .attempt:active{transform:scale(.97)}
+    .attempt .num{font-size:12px;color:var(--muted);font-weight:800}
+    .attempt .mark{font-size:28px;line-height:1.05;margin-top:2px}
+    .attempt.fail{background:#fff4f4;border-color:#e7b5b5;color:var(--danger)}
+    .attempt.top{background:#effbf5;border-color:#a8ddc2;color:var(--ok)}
+    .helper{margin-top:10px;padding:10px 12px;border-radius:12px;background:#f6f9fa;color:var(--muted);font-size:13px;line-height:1.45}
+    .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+    .metric{border:1px solid var(--line);border-radius:14px;padding:12px;background:#fbfcfc}
+    .metric .k{font-size:11px;text-transform:uppercase;color:var(--muted);font-weight:800}
+    .metric .v{font-size:20px;font-weight:900;margin-top:4px}
+    .status{min-height:20px;margin-top:10px;font-size:13px;font-weight:700}
+    .status.ok{color:var(--ok)}
+    .status.err{color:var(--danger)}
+    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}
+    table{width:100%;border-collapse:collapse;min-width:730px;background:#fff}
+    th,td{padding:10px 11px;border-bottom:1px solid var(--line);text-align:left;font-size:13px;white-space:nowrap}
+    th{font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);background:#f7f9fa;position:sticky;top:0}
+    tr:last-child td{border-bottom:0}
+    .pill{display:inline-flex;align-items:center;justify-content:center;min-width:30px;padding:4px 8px;border-radius:999px;font-weight:900;font-size:12px}
+    .pill.ok{background:#e8f7ef;color:var(--ok)}
+    .pill.no{background:#fff0f0;color:var(--danger)}
+    .hidden{display:none!important}
+    .logout{white-space:nowrap}
+    .footer-note{color:var(--muted);font-size:12px;text-align:center;padding:8px 0 20px}
+    .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;background:#172126;color:#fff;padding:12px 16px;border-radius:999px;font-size:13px;font-weight:800;transition:.2s;z-index:99;box-shadow:var(--shadow)}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    @media (max-width:720px){
+      .shell{padding:12px}
+      .grid{grid-template-columns:1fr 1fr}
+      .choice-grid{grid-template-columns:repeat(8,minmax(0,1fr));gap:5px}
+      .choice{min-height:43px;font-size:15px}
+      .grid .wide{grid-column:1/-1}
+      .attempts{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+      .summary{grid-template-columns:1fr 1fr}
+      .topbar{align-items:flex-start}
+      .badge{display:none}
+      .card{padding:14px}
+    }
+    @media (max-width:420px){
+      .attempts{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .comp-number{font-size:34px}
+      .choice{min-height:40px;font-size:14px}
+      .actions .btn{flex:1}
+      .logout{padding:9px 10px;min-height:40px}
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section id="loginView" class="card login-card">
+      <div class="brand" style="margin-bottom:18px">
+        <div class="logo">J</div>
+        <div>
+          <h1>Ingreso de jueces</h1>
+          <div class="sub">Demo local · datos guardados solo en este navegador</div>
+        </div>
+      </div>
+      <form id="loginForm">
+        <div style="margin-bottom:12px">
+          <label for="user">Usuario</label>
+          <input id="user" autocomplete="username" placeholder="Usuario" required />
+        </div>
+        <div style="margin-bottom:14px">
+          <label for="pass">Contraseña</label>
+          <input id="pass" type="password" autocomplete="current-password" placeholder="Contraseña" required />
+        </div>
+        <button class="btn primary" style="width:100%" type="submit">Entrar</button>
+        <div id="loginMsg" class="status"></div>
+      </form>
+    </section>
+
+    <main id="appView" class="hidden">
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo">J</div>
+          <div>
+            <h1>Registro de puntajes</h1>
+            <div class="sub">Juez: <strong id="judgeName">administracion</strong></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="badge">● Demo local</span>
+          <button id="logoutBtn" class="btn ghost logout">Salir</button>
+        </div>
+      </div>
+
+      <section class="card">
+        <div class="section-title">
+          <div><h2>1. Zona y nivel</h2><p>Toca el número correspondiente.</p></div>
+        </div>
+        <div class="select-block"><label>Zona</label><div id="zoneButtons" class="choice-grid"></div></div>
+        <div class="select-block"><label>Nivel del boulder</label><div id="levelButtons" class="choice-grid"></div></div>
+        <select id="zone" class="hidden" aria-label="Zona"></select>
+        <select id="level" class="hidden" aria-label="Nivel"></select>
+        <select id="competitor" class="hidden" aria-label="Competidor"></select>
+        <div class="comp-panel">
+          <label>2. Competidor</label>
+          <div class="comp-top">
+            <div><div class="comp-edit">Seleccionado</div><div class="comp-number">#<span id="chosenComp">1</span></div></div>
+            <div class="comp-control"><button class="btn ghost" type="button" id="prevComp" aria-label="Competidor anterior">−</button><button class="btn ghost" type="button" id="nextComp" aria-label="Competidor siguiente">+</button></div>
+          </div>
+          <div class="keyhint">Escribe el número (1–200) y toca <strong>Elegir</strong>.</div>
+          <div class="keypad" id="keypad">
+            <button class="key" data-digit="1">1</button><button class="key" data-digit="2">2</button><button class="key" data-digit="3">3</button>
+            <button class="key" data-digit="4">4</button><button class="key" data-digit="5">5</button><button class="key" data-digit="6">6</button>
+            <button class="key" data-digit="7">7</button><button class="key" data-digit="8">8</button><button class="key" data-digit="9">9</button>
+            <button class="key action" id="eraseDigit" type="button">⌫</button><button class="key" data-digit="0">0</button><button class="key confirm" id="pickComp" type="button">Elegir</button>
+          </div>
+          <div class="keyhint" id="keypadMsg">Número a elegir: <strong id="typedComp">—</strong></div>
+          <label style="margin-top:12px">Competidores recientes</label><div id="recentComp" class="quick-list"></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">
+          <div>
+            <h2>3. Marca los intentos</h2>
+            <p>Un toque = ✕ · doble toque = ✓</p>
+          </div>
+          <button id="addAttemptBtn" class="btn ghost">+ intento</button>
+        </div>
+
+        <div id="attempts" class="attempts"></div>
+
+        <div class="helper">
+          <strong>Uso:</strong> toca una vez un intento fallido para marcar ✕. Toca dos veces rápidamente para marcar ✓ cuando encadena. Si te equivocas, usa <strong>Borrar último</strong> o <strong>Limpiar</strong>.
+        </div>
+
+        <div class="summary">
+          <div class="metric"><div class="k">Competidor</div><div class="v" id="sumCompetitor">1</div></div>
+          <div class="metric"><div class="k">Intentos</div><div class="v" id="sumAttempts">0</div></div>
+          <div class="metric"><div class="k">Encadenó</div><div class="v" id="sumTop">No</div></div>
+          <div class="metric"><div class="k">Top en intento</div><div class="v" id="sumTopAttempt">—</div></div>
+        </div>
+
+        <div class="actions" style="margin-top:14px">
+          <button id="undoBtn" class="btn ghost">Borrar último</button>
+          <button id="clearBtn" class="btn danger">Limpiar</button>
+          <button id="saveBtn" class="btn primary" style="margin-left:auto">Subir</button>
+        </div>
+        <div id="saveMsg" class="status"></div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">
+          <div>
+            <h2>Últimos registros</h2>
+            <p>Sirve para revisar que el guardado local esté funcionando.</p>
+          </div>
+          <div class="actions">
+            <button id="exportBtn" class="btn ghost">Exportar JSON</button>
+            <button id="wipeBtn" class="btn danger">Borrar demo</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Hora</th><th>Comp.</th><th>Zona</th><th>Nivel</th><th>Intentos</th><th>Top</th><th>Top intento</th><th>Juez</th>
+              </tr>
+            </thead>
+            <tbody id="recordsBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="footer-note">
+        Demo sin servidor. Para publicarlo online de forma segura hay que reemplazar este login y localStorage por una base de datos y autenticación real.
+      </div>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+<script>
+(() => {
+  const DEMO_USER = 'administracion';
+  const DEMO_PASS = 'planifica.1234';
+  const STORAGE_KEY = 'liga_jueces_demo_v1';
+  const SESSION_KEY = 'liga_jueces_demo_session';
+
+  const $ = (id) => document.getElementById(id);
+  const loginView = $('loginView');
+  const appView = $('appView');
+  const attemptsEl = $('attempts');
+  const saveMsg = $('saveMsg');
+  let attemptCount = 12;
+  let attemptStates = Array(attemptCount).fill(''); // '', 'fail', 'top'
+  let clickTimers = new Map();
+  let typedNumber = '';
+  let recentCompetitors = [];
+  function markRecent(n){
+    recentCompetitors = [Number(n),...recentCompetitors.filter(x=>x!==Number(n))].slice(0,6);
+    renderRecents();
+  }
+  function renderRecents(){
+    $('recentComp').innerHTML = recentCompetitors.length ? recentCompetitors.map(n=>`<button class="quick" type="button" data-comp="${n}">#${n}</button>`).join('') : '<span style="font-size:12px;color:#657177">Aparecerán aquí al seleccionar competidores.</span>';
+  }
+  function renderChoiceButtons(kind){
+    const value = $(kind).value;
+    $(kind+'Buttons').innerHTML = Array.from({length:8}, (_,i)=>`<button type="button" class="choice ${String(i+1)===value?'active':''}" data-value="${i+1}">${i+1}</button>`).join('');
+  }
+  function setCompetitor(n){
+    n=Number(n);
+    if(!Number.isInteger(n)||n<1||n>200){toast('Número válido: 1 a 200');return;}
+    $('competitor').value=String(n);
+    $('chosenComp').textContent=n;
+    typedNumber=''; updateTyped();
+    markRecent(n);
+    loadCurrentRecord();
+  }
+  function updateTyped(){
+    $('typedComp').textContent=typedNumber||'—';
+    $('keypadMsg').classList.toggle('unsaved', !!typedNumber);
+  }
+
+  function getRecords(){
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+    catch { return []; }
+  }
+  function setRecords(records){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+  }
+  function recordId(){
+    return `${$('competitor').value}|${$('zone').value}|${$('level').value}`;
+  }
+  function toast(msg){
+    const el = $('toast');
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(() => el.classList.remove('show'), 1700);
+  }
+
+  function fillSelectors(){
+    $('zone').innerHTML = Array.from({length:8}, (_,i)=>`<option value="${i+1}">Zona ${i+1}</option>`).join('');
+    $('level').innerHTML = Array.from({length:8}, (_,i)=>`<option value="${i+1}">Nivel ${i+1}</option>`).join('');
+    $('competitor').innerHTML = Array.from({length:200}, (_,i)=>`<option value="${i+1}">Competidor ${i+1}</option>`).join('');
+    renderChoiceButtons('zone'); renderChoiceButtons('level');
+    $('chosenComp').textContent = $('competitor').value;
+    renderRecents();
+  }
+
+  function renderAttempts(){
+    attemptsEl.innerHTML = '';
+    attemptStates.forEach((state, idx) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = `attempt ${state}`;
+      b.dataset.index = idx;
+      const symbol = state === 'fail' ? '✕' : state === 'top' ? '✓' : '';
+      b.innerHTML = `<span class="num">Intento ${idx+1}</span><span class="mark">${symbol || '·'}</span>`;
+
+      b.addEventListener('click', () => handleAttemptClick(idx));
+      b.addEventListener('dblclick', (ev) => { ev.preventDefault(); });
+      attemptsEl.appendChild(b);
+    });
+    updateSummary();
+  }
+
+  function handleAttemptClick(idx){
+    // Si el casillero ya está marcado, un toque lo deja vacío para corregir rápido.
+    if (attemptStates[idx]) {
+      attemptStates[idx] = '';
+      renderAttempts();
+      return;
+    }
+
+    if (clickTimers.has(idx)) {
+      clearTimeout(clickTimers.get(idx));
+      clickTimers.delete(idx);
+      // doble toque = TOP
+      attemptStates[idx] = 'top';
+      // Solo puede existir un TOP: elimina otros tops posteriores/anteriores.
+      attemptStates = attemptStates.map((s, i) => i === idx ? 'top' : (s === 'top' ? '' : s));
+      renderAttempts();
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      clickTimers.delete(idx);
+      attemptStates[idx] = 'fail';
+      renderAttempts();
+    }, 260);
+    clickTimers.set(idx, timer);
+  }
+
+  function updateSummary(){
+    const marked = attemptStates.map((s,i)=>({s,i})).filter(x=>x.s);
+    const top = attemptStates.findIndex(s=>s==='top');
+    $('sumCompetitor').textContent = $('competitor').value || '1';
+    $('sumAttempts').textContent = marked.length;
+    $('sumTop').textContent = top >= 0 ? 'Sí' : 'No';
+    $('sumTopAttempt').textContent = top >= 0 ? top+1 : '—';
+  }
+
+  function loadCurrentRecord(){
+    const rec = getRecords().find(r => r.id === recordId());
+    if (rec && Array.isArray(rec.attemptStates)) {
+      attemptCount = Math.max(12, rec.attemptStates.length);
+      attemptStates = [...rec.attemptStates, ...Array(Math.max(0, attemptCount - rec.attemptStates.length)).fill('')];
+      saveMsg.textContent = 'Registro existente cargado. Puedes corregirlo y volver a subirlo.';
+      saveMsg.className = 'status';
+    } else {
+      attemptCount = 12;
+      attemptStates = Array(attemptCount).fill('');
+      saveMsg.textContent = '';
+    }
+    renderAttempts();
+  }
+
+  function saveCurrent(){
+    const marked = attemptStates.map((s,i)=>({s,i})).filter(x=>x.s);
+    if (!marked.length) {
+      saveMsg.textContent = 'Marca al menos un intento antes de subir.';
+      saveMsg.className = 'status err';
+      return;
+    }
+    const topIdx = attemptStates.findIndex(s=>s==='top');
+    const id = recordId();
+    const records = getRecords();
+    const now = new Date();
+    const rec = {
+      id,
+      competitor: Number($('competitor').value),
+      zone: Number($('zone').value),
+      level: Number($('level').value),
+      attemptStates: [...attemptStates],
+      attempts: marked.length,
+      topped: topIdx >= 0,
+      topAttempt: topIdx >= 0 ? topIdx + 1 : null,
+      judge: DEMO_USER,
+      updatedAt: now.toISOString()
+    };
+    const pos = records.findIndex(r => r.id === id);
+    if (pos >= 0) records[pos] = rec; else records.push(rec);
+    setRecords(records);
+    saveMsg.textContent = '✓ Registro guardado correctamente en este navegador.';
+    saveMsg.className = 'status ok';
+    renderRecords();
+    markRecent($('competitor').value);
+    toast('Puntaje guardado');
+  }
+
+  function renderRecords(){
+    const records = getRecords().sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt));
+    const body = $('recordsBody');
+    if (!records.length) {
+      body.innerHTML = '<tr><td colspan="8" style="color:#657177;text-align:center;padding:18px">Todavía no hay registros.</td></tr>';
+      return;
+    }
+    body.innerHTML = records.slice(0,60).map(r => {
+      const d = new Date(r.updatedAt);
+      const time = d.toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'});
+      return `<tr>
+        <td>${time}</td>
+        <td><strong>#${r.competitor}</strong></td>
+        <td>${r.zone}</td>
+        <td>${r.level}</td>
+        <td>${r.attempts}</td>
+        <td><span class="pill ${r.topped?'ok':'no'}">${r.topped?'✓':'✕'}</span></td>
+        <td>${r.topAttempt ?? '—'}</td>
+        <td>${escapeHtml(r.judge)}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  function escapeHtml(str){
+    return String(str).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  }
+
+  function showApp(){
+    loginView.classList.add('hidden');
+    appView.classList.remove('hidden');
+    fillSelectors();
+    loadCurrentRecord();
+    renderRecords();
+  }
+
+  $('loginForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const user = $('user').value.trim();
+    const pass = $('pass').value;
+    if (user === DEMO_USER && pass === DEMO_PASS) {
+      sessionStorage.setItem(SESSION_KEY,'1');
+      $('loginMsg').textContent = '';
+      showApp();
+    } else {
+      $('loginMsg').textContent = 'Usuario o contraseña incorrectos.';
+      $('loginMsg').className = 'status err';
+    }
+  });
+
+  $('logoutBtn').addEventListener('click', () => {
+    sessionStorage.removeItem(SESSION_KEY);
+    appView.classList.add('hidden');
+    loginView.classList.remove('hidden');
+    $('pass').value = '';
+  });
+
+  ['zone','level'].forEach(kind=>{
+    $(kind+'Buttons').addEventListener('click', e=>{
+      const b=e.target.closest('[data-value]');if(!b)return;
+      $(kind).value=b.dataset.value;
+      renderChoiceButtons(kind);loadCurrentRecord();
+    });
+  });
+  $('keypad').addEventListener('click',e=>{
+    const b=e.target.closest('[data-digit]');
+    if(!b)return;
+    const next=(typedNumber+b.dataset.digit).replace(/^0+(?=\d)/,'');
+    if(next.length>3||Number(next)>200)return toast('Máximo 200');
+    typedNumber=next;updateTyped();
+  });
+  $('eraseDigit').addEventListener('click',()=>{typedNumber=typedNumber.slice(0,-1);updateTyped();});
+  $('pickComp').addEventListener('click',()=>{if(typedNumber)setCompetitor(typedNumber);else toast('Escribe un número');});
+  $('recentComp').addEventListener('click',e=>{const b=e.target.closest('[data-comp]');if(b)setCompetitor(b.dataset.comp);});
+  $('prevComp').addEventListener('click',()=>setCompetitor(Math.max(1,Number($('competitor').value)-1)));
+  $('nextComp').addEventListener('click',()=>setCompetitor(Math.min(200,Number($('competitor').value)+1)));
+  document.addEventListener('keydown',e=>{
+    if(appView.classList.contains('hidden')||['INPUT','TEXTAREA'].includes(document.activeElement.tagName))return;
+    if(/^\d$/.test(e.key)){typedNumber=(typedNumber+e.key).slice(-3);if(Number(typedNumber)>200)typedNumber=e.key;updateTyped();}
+    else if(e.key==='Backspace'){typedNumber=typedNumber.slice(0,-1);updateTyped();}
+    else if(e.key==='Enter'&&typedNumber){setCompetitor(typedNumber);}
+  });
+
+  $('addAttemptBtn').addEventListener('click', () => {
+    attemptCount += 1;
+    attemptStates.push('');
+    renderAttempts();
+  });
+
+  $('undoBtn').addEventListener('click', () => {
+    for (let i = attemptStates.length - 1; i >= 0; i--) {
+      if (attemptStates[i]) {
+        attemptStates[i] = '';
+        renderAttempts();
+        return;
+      }
+    }
+    toast('No hay marcas que borrar');
+  });
+
+  $('clearBtn').addEventListener('click', () => {
+    attemptStates = Array(attemptCount).fill('');
+    renderAttempts();
+    saveMsg.textContent = '';
+  });
+
+  $('saveBtn').addEventListener('click', saveCurrent);
+
+  $('wipeBtn').addEventListener('click', () => {
+    if (confirm('¿Borrar todos los datos guardados de esta demo local?')) {
+      localStorage.removeItem(STORAGE_KEY);
+      renderRecords();
+      loadCurrentRecord();
+      toast('Datos demo borrados');
+    }
+  });
+
+  $('exportBtn').addEventListener('click', () => {
+    const records = getRecords();
+    const blob = new Blob([JSON.stringify(records,null,2)], {type:'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `puntajes_demo_${new Date().toISOString().slice(0,10)}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 500);
+  });
+
+  if (sessionStorage.getItem(SESSION_KEY) === '1') showApp();
+})();
+</script>
+</body>
+</html>
