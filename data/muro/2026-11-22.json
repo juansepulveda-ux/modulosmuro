@@ -1,0 +1,1602 @@
+{
+  "version": 5,
+  "type": "muro",
+  "createdAt": "2026-11-22T15:58:12.379Z",
+  "date": "2026-11-22",
+  "settings": {
+    "first": "14:00",
+    "interval": 30,
+    "intervals": [
+      {
+        "start": "14:00",
+        "end": "20:30",
+        "interval": 30
+      }
+    ],
+    "grid": 5,
+    "shuffleRound": 0,
+    "forcedPrimaries": {}
+  },
+  "staff": [
+    {
+      "id": "paloma-acevedo",
+      "full": "Paloma Acevedo",
+      "nick": "Palo",
+      "start": "13:00",
+      "end": "20:00",
+      "startMin": 780,
+      "endMin": 1200
+    },
+    {
+      "id": "lucia-soto",
+      "full": "Lucia Soto",
+      "nick": "Lu",
+      "start": "13:00",
+      "end": "20:00",
+      "startMin": 780,
+      "endMin": 1200
+    },
+    {
+      "id": "p_g78ctzo",
+      "full": "Sebastian",
+      "nick": "Sebastian",
+      "start": "12:00",
+      "end": "19:30",
+      "startMin": 720,
+      "endMin": 1170
+    }
+  ],
+  "modules": [
+    {
+      "id": 1,
+      "start": 840,
+      "end": 890,
+      "primary": "paloma-acevedo",
+      "support": "p_g78ctzo",
+      "forced": false
+    },
+    {
+      "id": 2,
+      "start": 870,
+      "end": 920,
+      "primary": "lucia-soto",
+      "support": "paloma-acevedo",
+      "forced": false
+    },
+    {
+      "id": 3,
+      "start": 900,
+      "end": 950,
+      "primary": "p_g78ctzo",
+      "support": "lucia-soto",
+      "forced": false
+    },
+    {
+      "id": 4,
+      "start": 930,
+      "end": 980,
+      "primary": "paloma-acevedo",
+      "support": "p_g78ctzo",
+      "forced": false
+    },
+    {
+      "id": 5,
+      "start": 960,
+      "end": 1010,
+      "primary": "lucia-soto",
+      "support": "paloma-acevedo",
+      "forced": false
+    },
+    {
+      "id": 6,
+      "start": 990,
+      "end": 1040,
+      "primary": "p_g78ctzo",
+      "support": "lucia-soto",
+      "forced": false
+    },
+    {
+      "id": 7,
+      "start": 1020,
+      "end": 1070,
+      "primary": "paloma-acevedo",
+      "support": "p_g78ctzo",
+      "forced": false
+    },
+    {
+      "id": 8,
+      "start": 1050,
+      "end": 1100,
+      "primary": "lucia-soto",
+      "support": "paloma-acevedo",
+      "forced": false
+    },
+    {
+      "id": 9,
+      "start": 1080,
+      "end": 1130,
+      "primary": "p_g78ctzo",
+      "support": "lucia-soto",
+      "forced": false
+    },
+    {
+      "id": 10,
+      "start": 1110,
+      "end": 1160,
+      "primary": "paloma-acevedo",
+      "support": "p_g78ctzo",
+      "forced": false
+    },
+    {
+      "id": 11,
+      "start": 1140,
+      "end": 1190,
+      "primary": "lucia-soto",
+      "support": "paloma-acevedo",
+      "forced": false
+    }
+  ],
+  "rows": [
+    {
+      "time": 720,
+      "start": "12:00",
+      "end": "12:05",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 725,
+      "start": "12:05",
+      "end": "12:10",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 730,
+      "start": "12:10",
+      "end": "12:15",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 735,
+      "start": "12:15",
+      "end": "12:20",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 740,
+      "start": "12:20",
+      "end": "12:25",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 745,
+      "start": "12:25",
+      "end": "12:30",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 750,
+      "start": "12:30",
+      "end": "12:35",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 755,
+      "start": "12:35",
+      "end": "12:40",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 760,
+      "start": "12:40",
+      "end": "12:45",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 765,
+      "start": "12:45",
+      "end": "12:50",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 770,
+      "start": "12:50",
+      "end": "12:55",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 775,
+      "start": "12:55",
+      "end": "13:00",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 780,
+      "start": "13:00",
+      "end": "13:05",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 785,
+      "start": "13:05",
+      "end": "13:10",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 790,
+      "start": "13:10",
+      "end": "13:15",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 795,
+      "start": "13:15",
+      "end": "13:20",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 800,
+      "start": "13:20",
+      "end": "13:25",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 805,
+      "start": "13:25",
+      "end": "13:30",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 810,
+      "start": "13:30",
+      "end": "13:35",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 815,
+      "start": "13:35",
+      "end": "13:40",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 820,
+      "start": "13:40",
+      "end": "13:45",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 825,
+      "start": "13:45",
+      "end": "13:50",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 830,
+      "start": "13:50",
+      "end": "13:55",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 835,
+      "start": "13:55",
+      "end": "14:00",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 840,
+      "start": "14:00",
+      "end": "14:05",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "REC",
+          "module": 1
+        },
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 845,
+      "start": "14:05",
+      "end": "14:10",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "B",
+          "module": 1
+        },
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 850,
+      "start": "14:10",
+      "end": "14:15",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "B",
+          "module": 1
+        },
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 855,
+      "start": "14:15",
+      "end": "14:20",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "B",
+          "module": 1
+        },
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 860,
+      "start": "14:20",
+      "end": "14:25",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "B",
+          "module": 1
+        },
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 865,
+      "start": "14:25",
+      "end": "14:30",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "R",
+          "module": 1
+        },
+        "lucia-soto": null,
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 1
+        }
+      }
+    },
+    {
+      "time": 870,
+      "start": "14:30",
+      "end": "14:35",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "R",
+          "module": 1
+        },
+        "lucia-soto": {
+          "code": "REC",
+          "module": 2
+        },
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 1
+        }
+      }
+    },
+    {
+      "time": 875,
+      "start": "14:35",
+      "end": "14:40",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "R",
+          "module": 1
+        },
+        "lucia-soto": {
+          "code": "B",
+          "module": 2
+        },
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 1
+        }
+      }
+    },
+    {
+      "time": 880,
+      "start": "14:40",
+      "end": "14:45",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "R",
+          "module": 1
+        },
+        "lucia-soto": {
+          "code": "B",
+          "module": 2
+        },
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 1
+        }
+      }
+    },
+    {
+      "time": 885,
+      "start": "14:45",
+      "end": "14:50",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "D",
+          "module": 1
+        },
+        "lucia-soto": {
+          "code": "B",
+          "module": 2
+        },
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 1
+        }
+      }
+    },
+    {
+      "time": 890,
+      "start": "14:50",
+      "end": "14:55",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": {
+          "code": "B",
+          "module": 2
+        },
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 895,
+      "start": "14:55",
+      "end": "15:00",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 2
+        },
+        "lucia-soto": {
+          "code": "R",
+          "module": 2
+        },
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 900,
+      "start": "15:00",
+      "end": "15:05",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 2
+        },
+        "lucia-soto": {
+          "code": "R",
+          "module": 2
+        },
+        "p_g78ctzo": {
+          "code": "REC",
+          "module": 3
+        }
+      }
+    },
+    {
+      "time": 905,
+      "start": "15:05",
+      "end": "15:10",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 2
+        },
+        "lucia-soto": {
+          "code": "R",
+          "module": 2
+        },
+        "p_g78ctzo": {
+          "code": "B",
+          "module": 3
+        }
+      }
+    },
+    {
+      "time": 910,
+      "start": "15:10",
+      "end": "15:15",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 2
+        },
+        "lucia-soto": {
+          "code": "R",
+          "module": 2
+        },
+        "p_g78ctzo": {
+          "code": "B",
+          "module": 3
+        }
+      }
+    },
+    {
+      "time": 915,
+      "start": "15:15",
+      "end": "15:20",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 2
+        },
+        "lucia-soto": {
+          "code": "D",
+          "module": 2
+        },
+        "p_g78ctzo": {
+          "code": "B",
+          "module": 3
+        }
+      }
+    },
+    {
+      "time": 920,
+      "start": "15:20",
+      "end": "15:25",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": {
+          "code": "B",
+          "module": 3
+        }
+      }
+    },
+    {
+      "time": 925,
+      "start": "15:25",
+      "end": "15:30",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": {
+          "code": "AP",
+          "module": 3
+        },
+        "p_g78ctzo": {
+          "code": "R",
+          "module": 3
+        }
+      }
+    },
+    {
+      "time": 930,
+      "start": "15:30",
+      "end": "15:35",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "REC",
+          "module": 4
+        },
+        "lucia-soto": {
+          "code": "AP",
+          "module": 3
+        },
+        "p_g78ctzo": {
+          "code": "R",
+          "module": 3
+        }
+      }
+    },
+    {
+      "time": 935,
+      "start": "15:35",
+      "end": "15:40",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "B",
+          "module": 4
+        },
+        "lucia-soto": {
+          "code": "AP",
+          "module": 3
+        },
+        "p_g78ctzo": {
+          "code": "R",
+          "module": 3
+        }
+      }
+    },
+    {
+      "time": 940,
+      "start": "15:40",
+      "end": "15:45",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "B",
+          "module": 4
+        },
+        "lucia-soto": {
+          "code": "AP",
+          "module": 3
+        },
+        "p_g78ctzo": {
+          "code": "R",
+          "module": 3
+        }
+      }
+    },
+    {
+      "time": 945,
+      "start": "15:45",
+      "end": "15:50",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "B",
+          "module": 4
+        },
+        "lucia-soto": {
+          "code": "AP",
+          "module": 3
+        },
+        "p_g78ctzo": {
+          "code": "D",
+          "module": 3
+        }
+      }
+    },
+    {
+      "time": 950,
+      "start": "15:50",
+      "end": "15:55",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "B",
+          "module": 4
+        },
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 955,
+      "start": "15:55",
+      "end": "16:00",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "R",
+          "module": 4
+        },
+        "lucia-soto": null,
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 4
+        }
+      }
+    },
+    {
+      "time": 960,
+      "start": "16:00",
+      "end": "16:05",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "R",
+          "module": 4
+        },
+        "lucia-soto": {
+          "code": "REC",
+          "module": 5
+        },
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 4
+        }
+      }
+    },
+    {
+      "time": 965,
+      "start": "16:05",
+      "end": "16:10",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "R",
+          "module": 4
+        },
+        "lucia-soto": {
+          "code": "B",
+          "module": 5
+        },
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 4
+        }
+      }
+    },
+    {
+      "time": 970,
+      "start": "16:10",
+      "end": "16:15",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "R",
+          "module": 4
+        },
+        "lucia-soto": {
+          "code": "B",
+          "module": 5
+        },
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 4
+        }
+      }
+    },
+    {
+      "time": 975,
+      "start": "16:15",
+      "end": "16:20",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "D",
+          "module": 4
+        },
+        "lucia-soto": {
+          "code": "B",
+          "module": 5
+        },
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 4
+        }
+      }
+    },
+    {
+      "time": 980,
+      "start": "16:20",
+      "end": "16:25",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": {
+          "code": "B",
+          "module": 5
+        },
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 985,
+      "start": "16:25",
+      "end": "16:30",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 5
+        },
+        "lucia-soto": {
+          "code": "R",
+          "module": 5
+        },
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 990,
+      "start": "16:30",
+      "end": "16:35",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 5
+        },
+        "lucia-soto": {
+          "code": "R",
+          "module": 5
+        },
+        "p_g78ctzo": {
+          "code": "REC",
+          "module": 6
+        }
+      }
+    },
+    {
+      "time": 995,
+      "start": "16:35",
+      "end": "16:40",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 5
+        },
+        "lucia-soto": {
+          "code": "R",
+          "module": 5
+        },
+        "p_g78ctzo": {
+          "code": "B",
+          "module": 6
+        }
+      }
+    },
+    {
+      "time": 1000,
+      "start": "16:40",
+      "end": "16:45",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 5
+        },
+        "lucia-soto": {
+          "code": "R",
+          "module": 5
+        },
+        "p_g78ctzo": {
+          "code": "B",
+          "module": 6
+        }
+      }
+    },
+    {
+      "time": 1005,
+      "start": "16:45",
+      "end": "16:50",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 5
+        },
+        "lucia-soto": {
+          "code": "D",
+          "module": 5
+        },
+        "p_g78ctzo": {
+          "code": "B",
+          "module": 6
+        }
+      }
+    },
+    {
+      "time": 1010,
+      "start": "16:50",
+      "end": "16:55",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": {
+          "code": "B",
+          "module": 6
+        }
+      }
+    },
+    {
+      "time": 1015,
+      "start": "16:55",
+      "end": "17:00",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": {
+          "code": "AP",
+          "module": 6
+        },
+        "p_g78ctzo": {
+          "code": "R",
+          "module": 6
+        }
+      }
+    },
+    {
+      "time": 1020,
+      "start": "17:00",
+      "end": "17:05",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "REC",
+          "module": 7
+        },
+        "lucia-soto": {
+          "code": "AP",
+          "module": 6
+        },
+        "p_g78ctzo": {
+          "code": "R",
+          "module": 6
+        }
+      }
+    },
+    {
+      "time": 1025,
+      "start": "17:05",
+      "end": "17:10",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "B",
+          "module": 7
+        },
+        "lucia-soto": {
+          "code": "AP",
+          "module": 6
+        },
+        "p_g78ctzo": {
+          "code": "R",
+          "module": 6
+        }
+      }
+    },
+    {
+      "time": 1030,
+      "start": "17:10",
+      "end": "17:15",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "B",
+          "module": 7
+        },
+        "lucia-soto": {
+          "code": "AP",
+          "module": 6
+        },
+        "p_g78ctzo": {
+          "code": "R",
+          "module": 6
+        }
+      }
+    },
+    {
+      "time": 1035,
+      "start": "17:15",
+      "end": "17:20",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "B",
+          "module": 7
+        },
+        "lucia-soto": {
+          "code": "AP",
+          "module": 6
+        },
+        "p_g78ctzo": {
+          "code": "D",
+          "module": 6
+        }
+      }
+    },
+    {
+      "time": 1040,
+      "start": "17:20",
+      "end": "17:25",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "B",
+          "module": 7
+        },
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 1045,
+      "start": "17:25",
+      "end": "17:30",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "R",
+          "module": 7
+        },
+        "lucia-soto": null,
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 7
+        }
+      }
+    },
+    {
+      "time": 1050,
+      "start": "17:30",
+      "end": "17:35",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "R",
+          "module": 7
+        },
+        "lucia-soto": {
+          "code": "REC",
+          "module": 8
+        },
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 7
+        }
+      }
+    },
+    {
+      "time": 1055,
+      "start": "17:35",
+      "end": "17:40",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "R",
+          "module": 7
+        },
+        "lucia-soto": {
+          "code": "B",
+          "module": 8
+        },
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 7
+        }
+      }
+    },
+    {
+      "time": 1060,
+      "start": "17:40",
+      "end": "17:45",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "R",
+          "module": 7
+        },
+        "lucia-soto": {
+          "code": "B",
+          "module": 8
+        },
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 7
+        }
+      }
+    },
+    {
+      "time": 1065,
+      "start": "17:45",
+      "end": "17:50",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "D",
+          "module": 7
+        },
+        "lucia-soto": {
+          "code": "B",
+          "module": 8
+        },
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 7
+        }
+      }
+    },
+    {
+      "time": 1070,
+      "start": "17:50",
+      "end": "17:55",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": {
+          "code": "B",
+          "module": 8
+        },
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 1075,
+      "start": "17:55",
+      "end": "18:00",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 8
+        },
+        "lucia-soto": {
+          "code": "R",
+          "module": 8
+        },
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 1080,
+      "start": "18:00",
+      "end": "18:05",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 8
+        },
+        "lucia-soto": {
+          "code": "R",
+          "module": 8
+        },
+        "p_g78ctzo": {
+          "code": "REC",
+          "module": 9
+        }
+      }
+    },
+    {
+      "time": 1085,
+      "start": "18:05",
+      "end": "18:10",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 8
+        },
+        "lucia-soto": {
+          "code": "R",
+          "module": 8
+        },
+        "p_g78ctzo": {
+          "code": "B",
+          "module": 9
+        }
+      }
+    },
+    {
+      "time": 1090,
+      "start": "18:10",
+      "end": "18:15",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 8
+        },
+        "lucia-soto": {
+          "code": "R",
+          "module": 8
+        },
+        "p_g78ctzo": {
+          "code": "B",
+          "module": 9
+        }
+      }
+    },
+    {
+      "time": 1095,
+      "start": "18:15",
+      "end": "18:20",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 8
+        },
+        "lucia-soto": {
+          "code": "D",
+          "module": 8
+        },
+        "p_g78ctzo": {
+          "code": "B",
+          "module": 9
+        }
+      }
+    },
+    {
+      "time": 1100,
+      "start": "18:20",
+      "end": "18:25",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": {
+          "code": "B",
+          "module": 9
+        }
+      }
+    },
+    {
+      "time": 1105,
+      "start": "18:25",
+      "end": "18:30",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": {
+          "code": "AP",
+          "module": 9
+        },
+        "p_g78ctzo": {
+          "code": "R",
+          "module": 9
+        }
+      }
+    },
+    {
+      "time": 1110,
+      "start": "18:30",
+      "end": "18:35",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "REC",
+          "module": 10
+        },
+        "lucia-soto": {
+          "code": "AP",
+          "module": 9
+        },
+        "p_g78ctzo": {
+          "code": "R",
+          "module": 9
+        }
+      }
+    },
+    {
+      "time": 1115,
+      "start": "18:35",
+      "end": "18:40",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "B",
+          "module": 10
+        },
+        "lucia-soto": {
+          "code": "AP",
+          "module": 9
+        },
+        "p_g78ctzo": {
+          "code": "R",
+          "module": 9
+        }
+      }
+    },
+    {
+      "time": 1120,
+      "start": "18:40",
+      "end": "18:45",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "B",
+          "module": 10
+        },
+        "lucia-soto": {
+          "code": "AP",
+          "module": 9
+        },
+        "p_g78ctzo": {
+          "code": "R",
+          "module": 9
+        }
+      }
+    },
+    {
+      "time": 1125,
+      "start": "18:45",
+      "end": "18:50",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "B",
+          "module": 10
+        },
+        "lucia-soto": {
+          "code": "AP",
+          "module": 9
+        },
+        "p_g78ctzo": {
+          "code": "D",
+          "module": 9
+        }
+      }
+    },
+    {
+      "time": 1130,
+      "start": "18:50",
+      "end": "18:55",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "B",
+          "module": 10
+        },
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 1135,
+      "start": "18:55",
+      "end": "19:00",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "R",
+          "module": 10
+        },
+        "lucia-soto": null,
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 10
+        }
+      }
+    },
+    {
+      "time": 1140,
+      "start": "19:00",
+      "end": "19:05",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "R",
+          "module": 10
+        },
+        "lucia-soto": {
+          "code": "REC",
+          "module": 11
+        },
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 10
+        }
+      }
+    },
+    {
+      "time": 1145,
+      "start": "19:05",
+      "end": "19:10",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "R",
+          "module": 10
+        },
+        "lucia-soto": {
+          "code": "B",
+          "module": 11
+        },
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 10
+        }
+      }
+    },
+    {
+      "time": 1150,
+      "start": "19:10",
+      "end": "19:15",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "R",
+          "module": 10
+        },
+        "lucia-soto": {
+          "code": "B",
+          "module": 11
+        },
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 10
+        }
+      }
+    },
+    {
+      "time": 1155,
+      "start": "19:15",
+      "end": "19:20",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "D",
+          "module": 10
+        },
+        "lucia-soto": {
+          "code": "B",
+          "module": 11
+        },
+        "p_g78ctzo": {
+          "code": "AP",
+          "module": 10
+        }
+      }
+    },
+    {
+      "time": 1160,
+      "start": "19:20",
+      "end": "19:25",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": {
+          "code": "B",
+          "module": 11
+        },
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 1165,
+      "start": "19:25",
+      "end": "19:30",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 11
+        },
+        "lucia-soto": {
+          "code": "R",
+          "module": 11
+        },
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 1170,
+      "start": "19:30",
+      "end": "19:35",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 11
+        },
+        "lucia-soto": {
+          "code": "R",
+          "module": 11
+        },
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 1175,
+      "start": "19:35",
+      "end": "19:40",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 11
+        },
+        "lucia-soto": {
+          "code": "R",
+          "module": 11
+        },
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 1180,
+      "start": "19:40",
+      "end": "19:45",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 11
+        },
+        "lucia-soto": {
+          "code": "R",
+          "module": 11
+        },
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 1185,
+      "start": "19:45",
+      "end": "19:50",
+      "assignments": {
+        "paloma-acevedo": {
+          "code": "AP",
+          "module": 11
+        },
+        "lucia-soto": {
+          "code": "D",
+          "module": 11
+        },
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 1190,
+      "start": "19:50",
+      "end": "19:55",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    },
+    {
+      "time": 1195,
+      "start": "19:55",
+      "end": "20:00",
+      "assignments": {
+        "paloma-acevedo": null,
+        "lucia-soto": null,
+        "p_g78ctzo": null
+      }
+    }
+  ],
+  "issues": [],
+  "publication": {
+    "type": "muro",
+    "date": "2026-11-22",
+    "publishedAt": "2026-11-22T15:58:28.736Z"
+  }
+}
