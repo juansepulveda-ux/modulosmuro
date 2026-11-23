@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T21:08:14.052Z",
+  "updatedAt": "2026-11-23T21:09:29.481Z",
   "people": [
     {
       "id": "paloma-acevedo",
@@ -36,8 +36,8 @@
     },
     {
       "id": "p_77hbcnk",
-      "name": "Teresa",
-      "nick": "Fernández",
+      "name": "Teresa Fernández",
+      "nick": "Teresita",
       "defaultStart": "10:00",
       "defaultEnd": "20:30",
       "airtrail": {
