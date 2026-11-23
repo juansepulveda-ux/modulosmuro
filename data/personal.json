@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T21:20:11.142Z",
+  "updatedAt": "2026-11-23T21:22:57.199Z",
   "people": [
     {
       "id": "paloma-acevedo",
@@ -26,22 +26,6 @@
       "defaultEnd": "20:30",
       "airtrail": {
         "skills": {
-          "equip": true,
-          "launch": true,
-          "poles": true,
-          "brake": true
-        },
-        "preferred": ""
-      }
-    },
-    {
-      "id": "p_77hbcnk",
-      "name": "Enoc Jiménez",
-      "nick": "Enoc",
-      "defaultStart": "13:00",
-      "defaultEnd": "20:00",
-      "airtrail": {
-        "skills": {
           "equip": false,
           "launch": false,
           "poles": false,
@@ -61,6 +45,38 @@
           "equip": true,
           "launch": false,
           "poles": true,
+          "brake": false
+        },
+        "preferred": ""
+      }
+    },
+    {
+      "id": "p_d4zzpms0",
+      "name": "James Almuna",
+      "nick": "James",
+      "defaultStart": "12:00",
+      "defaultEnd": "21:00",
+      "airtrail": {
+        "skills": {
+          "equip": false,
+          "launch": true,
+          "poles": false,
+          "brake": false
+        },
+        "preferred": ""
+      }
+    },
+    {
+      "id": "p_1wl26tn3",
+      "name": "Teresa Fernández",
+      "nick": "Teresita",
+      "defaultStart": "12:00",
+      "defaultEnd": "21:00",
+      "airtrail": {
+        "skills": {
+          "equip": false,
+          "launch": true,
+          "poles": false,
           "brake": false
         },
         "preferred": ""
