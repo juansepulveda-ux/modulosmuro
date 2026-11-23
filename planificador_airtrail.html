@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="protected-pending">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,7 +18,7 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
 
 .adminbar{display:flex;gap:10px;flex-wrap:wrap;align-items:end}.adminbar input{min-width:150px}.adminstatus{margin-top:10px}.pubhead{display:flex;justify-content:space-between;gap:12px;align-items:end;flex-wrap:wrap}.pubgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin-top:12px}.pubitem{border:1px solid #dce3eb;border-radius:10px;padding:11px;background:#fbfcfe}.pubitem b{font-size:14px}.pubmeta{font-size:11px;color:#718096;margin:4px 0 9px}.pubactions{display:flex;gap:7px;flex-wrap:wrap}.navbtn{display:inline-flex;align-items:center;text-decoration:none;border-radius:8px;background:#e8eef4;color:#23415b;padding:10px 14px;font-weight:650;font-size:13px}.status-bad{background:#fff0ed;color:#a13a2b;padding:10px 12px;border-radius:8px;font-size:12px}.status-good{background:#e8f7f0;color:#126440;padding:10px 12px;border-radius:8px;font-size:12px}
 </style>
-</head>
+<link rel="stylesheet" href="/assets/app.css"><script src="/assets/session.js" data-role="admin"></script></head>
 <body>
 <header>
   <div class="eyebrow">Mallsport · Operaciones</div>
@@ -28,12 +28,12 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
 <main>
   <div class="card">
     <div class="pubhead">
-      <div><h2>Administración</h2><div class="sub" style="margin:0">Usa las mismas credenciales para guardar la base compartida, publicar y eliminar jornadas.</div></div>
+      <div><h2>Administración</h2><div class="sub" style="margin:0">Tu sesión permite guardar la base compartida, publicar y eliminar jornadas.</div></div>
       <div><a class="navbtn" href="/planificador-muro">← Ir a Muro</a></div>
     </div>
     <div class="row" style="margin-top:12px">
-      <div class="field"><label>Usuario</label><input id="adminUser" autocomplete="username" placeholder="administracion"></div>
-      <div class="field"><label>Contraseña</label><input id="adminPass" type="password" autocomplete="current-password" placeholder="••••••••"></div>
+      
+      
       <button class="primary" id="publishCurrent">Publicar jornada actual</button>
       <button class="secondary" id="openViewer">Abrir visor público</button>
     </div>
@@ -121,6 +121,9 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
     <div id="publishedList" class="pubgrid"></div>
   </div>
 </main>
+<script>
+(()=>{window.planDirty=false;document.addEventListener('input',e=>{if(e.target.closest('main'))window.planDirty=true});document.addEventListener('change',e=>{if(e.target.closest('main'))window.planDirty=true});document.addEventListener('click',e=>{const id=e.target.closest('button')?.id;if(id==='publishCurrent'&&window.planDirty){e.preventDefault();e.stopImmediatePropagation();alert('Hay cambios desde la última planificación. Genera de nuevo antes de publicar.')}},true)})();
+</script>
 <script>
 (() => {
   const STORAGE_KEY='airtrail_tirolesa_monitores_v2';
@@ -498,7 +501,7 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
     plan.staff.forEach(p=>{if(!order.includes(p.idx))order.push(p.idx)});
     return order.map(id=>plan.staff.find(p=>p.idx===id)).filter(Boolean);
   }
-  function renderPlan(plan){currentPlan=plan;$('#planCard').style.display='block';$('#modulesCard').style.display='block';$('#exportPlan').disabled=false;$('#exportCsv').disabled=false;
+  function renderPlan(plan){window.planDirty=false;currentPlan=plan;$('#planCard').style.display='block';$('#modulesCard').style.display='block';$('#exportPlan').disabled=false;$('#exportCsv').disabled=false;
     const status=plan.missingRequired?`<div class="status err"><b>Atención:</b> faltan ${plan.missingRequired} asignaciones obligatorias.</div>`:`<div class="status ok"><b>Todos los módulos generados están completos.</b>${plan.missingOptional?` Hay ${plan.missingOptional} apoyos opcionales no cubiertos.`:''}</div>${plan.skippedModules?`<div class="status warn"><b>${plan.skippedModules} inicio(s) omitido(s)</b> porque no era posible completar el módulo entero.<br>${plan.warnings.slice(0,6).map(esc).join('<br>')}</div>`:''}`;$('#globalStatus').innerHTML=status;
     const k=$('#kpis');k.classList.remove('hide');k.innerHTML=`<div class="kpi"><b>${plan.modules.length}</b><span>Módulos programados</span></div><div class="kpi"><b>${plan.staff.length}</b><span>Monitores en turno</span></div><div class="kpi"><b>${plan.skippedModules||0}</b><span>Inicios omitidos</span></div><div class="kpi"><b>${plan.config.breaks.length}</b><span>Breaks</span></div>`;
     const displayStaff=orderedStaff(plan);
@@ -517,14 +520,14 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
   function exportPlan(){if(!currentPlan)return;const clean={...currentPlan};download(`airtrail_tirolesa_${currentPlan.config.firstStart.replace(':','')}.json`,JSON.stringify(clean,null,2),'application/json')}
   function exportCsv(){if(!currentPlan)return;const staff=orderedStaff(currentPlan);const head=['Inicio','Termino',...staff.map(p=>p.nick||p.name)];const rows=[head];currentPlan.timeline.forEach(r=>rows.push([hhmm(r.start),hhmm(r.end),...staff.map(p=>{const t=r.cells[p.idx];if(!t)return 'Libre';if(t.role==='break')return `Break ${hhmm(t.start)}-${hhmm(t.end)}`;return `${categoryForTask(t)} - Modulo ${t.moduleId}`})]));const csv=rows.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\n');download('planificacion_airtrail_tirolesa.csv','\ufeff'+csv,'text/csv;charset=utf-8')}
 
-  function adminCreds(){return {username:$('#adminUser').value.trim(),password:$('#adminPass').value}}
+  function adminCreds(){return {}}
   function adminMsg(text,bad=false){$('#adminStatus').innerHTML=`<div class="${bad?'status-bad':'status-good'}">${esc(text)}</div>`}
   function sharedToAir(p){return normalizeMonitor({id:p.id,name:p.name,nick:p.nick,arrival:p.defaultStart||'12:00',departure:p.defaultEnd||'21:00',preferred:p.airtrail&&p.airtrail.preferred||'',skills:p.airtrail&&p.airtrail.skills||{}})}
   async function loadSharedBase(){try{const r=await fetch('/api/personal',{cache:'no-store'});const d=await r.json();if(!r.ok)throw Error(d.error||'No se pudo cargar la base compartida.');if(Array.isArray(d.people)&&d.people.length){sharedRaw=d.people;monitors=d.people.map(sharedToAir);selected=new Set();saveBase();renderBase();adminMsg(`Base compartida cargada: ${monitors.length} personas.`)}}catch(e){adminMsg('No se pudo cargar la base compartida; se mantiene la copia local. '+e.message,true)}}
-  async function saveSharedBase(){syncBaseFromDom();saveBase();const c=adminCreds();if(!c.username||!c.password)throw Error('Ingresa usuario y contraseña.');const payload=monitors.map(m=>({id:m.id,name:m.name,nick:m.nick,defaultStart:m.arrival,defaultEnd:m.departure,airtrail:{skills:m.skills,preferred:m.preferred}}));const r=await fetch('/api/personal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...c,source:'airtrail',people:payload})});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||`Error ${r.status}`);sharedRaw=d.people||[];adminMsg('Base compartida guardada correctamente.');$('#adminPass').value=''}
-  async function publishCurrent(){if(!currentPlan)throw Error('Primero genera una planificación.');if(!/^\d{4}-\d{2}-\d{2}$/.test(currentPlan.date||''))throw Error('Selecciona una fecha válida.');if($('#date').value!==currentPlan.date)throw Error('Cambiaste la fecha después de generar. Vuelve a generar la planificación antes de publicar.');const c=adminCreds();if(!c.username||!c.password)throw Error('Ingresa usuario y contraseña.');const btn=$('#publishCurrent');btn.disabled=true;btn.textContent='Publicando…';try{const r=await fetch('/api/jornadas',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...c,type:'airtrail',date:currentPlan.date,plan:currentPlan})});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||`Error ${r.status}`);adminMsg(`Airtrail + Tirolesa · ${currentPlan.date} publicado correctamente.`);$('#adminPass').value='';await refreshPublished()}finally{btn.disabled=false;btn.textContent='Publicar jornada actual'}}
+  async function saveSharedBase(){syncBaseFromDom();saveBase();const c=adminCreds();const payload=monitors.map(m=>({id:m.id,name:m.name,nick:m.nick,defaultStart:m.arrival,defaultEnd:m.departure,airtrail:{skills:m.skills,preferred:m.preferred}}));const r=await fetch('/api/personal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...c,source:'airtrail',people:payload})});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||`Error ${r.status}`);sharedRaw=d.people||[];adminMsg('Base compartida guardada correctamente.');}
+  async function publishCurrent(){if(!currentPlan)throw Error('Primero genera una planificación.');if(!/^\d{4}-\d{2}-\d{2}$/.test(currentPlan.date||''))throw Error('Selecciona una fecha válida.');if($('#date').value!==currentPlan.date)throw Error('Cambiaste la fecha después de generar. Vuelve a generar la planificación antes de publicar.');const c=adminCreds();const btn=$('#publishCurrent');btn.disabled=true;btn.textContent='Publicando…';try{const r=await fetch('/api/jornadas',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...c,type:'airtrail',date:currentPlan.date,plan:currentPlan})});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||`Error ${r.status}`);adminMsg(`Airtrail + Tirolesa · ${currentPlan.date} publicado correctamente.`);await refreshPublished()}finally{btn.disabled=false;btn.textContent='Publicar jornada actual'}}
   async function refreshPublished(){const box=$('#publishedList');box.innerHTML='<span class="sub">Cargando…</span>';try{const r=await fetch('/api/jornadas?type=airtrail&action=list',{cache:'no-store'});const d=await r.json();if(!r.ok)throw Error(d.error||'No se pudo cargar la lista.');const month=$('#publishedMonth').value;const items=(d.items||[]).filter(x=>!month||x.date.startsWith(month)).sort((a,b)=>b.date.localeCompare(a.date));box.innerHTML=items.length?items.map(x=>`<div class="pubitem"><b>${esc(x.date)}</b><div class="pubmeta">Airtrail + Tirolesa</div><div class="pubactions"><button class="secondary tiny" data-view="${esc(x.date)}">Ver</button><button class="dangerBtn tiny" data-del="${esc(x.date)}">Eliminar</button></div></div>`).join(''):'<span class="sub">No hay jornadas publicadas para este mes.</span>'}catch(e){box.innerHTML=`<div class="status-bad">${esc(e.message)}</div>`}}
-  async function deletePublished(date,button){const c=adminCreds();if(!c.username||!c.password)throw Error('Ingresa usuario y contraseña.');if(!confirm(`¿Eliminar Airtrail + Tirolesa del ${date}?`))return;button.disabled=true;try{const r=await fetch('/api/jornadas',{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({...c,type:'airtrail',date})});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||`Error ${r.status}`);adminMsg(`${date} eliminado.`);$('#adminPass').value='';await refreshPublished()}finally{button.disabled=false}}
+  async function deletePublished(date,button){const c=adminCreds();if(!confirm(`¿Eliminar Airtrail + Tirolesa del ${date}?`))return;button.disabled=true;try{const r=await fetch('/api/jornadas',{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({...c,type:'airtrail',date})});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||`Error ${r.status}`);adminMsg(`${date} eliminado.`);await refreshPublished()}finally{button.disabled=false}}
 
   // Events
   $('#monitorTable').addEventListener('change',e=>{const i=+e.target.dataset.i;if(e.target.classList.contains('skill-all')){$$('#monitorTable tbody tr')[i].querySelectorAll('.skill').forEach(x=>x.checked=e.target.checked)}syncBaseFromDom();if(e.target.classList.contains('skill')||e.target.classList.contains('skill-all'))renderBase();else renderStaff()});

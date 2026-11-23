@@ -12,6 +12,26 @@
     {
       "source": "/planificador-airtrail",
       "destination": "/planificador_airtrail.html"
+    },
+    {
+      "source": "/login",
+      "destination": "/login.html"
+    },
+    {
+      "source": "/inscripciones",
+      "destination": "/inscripciones.html"
+    },
+    {
+      "source": "/checkin",
+      "destination": "/checkin.html"
+    },
+    {
+      "source": "/pantalla",
+      "destination": "/pantalla.html"
+    },
+    {
+      "source": "/hoy",
+      "destination": "/hoy.html"
     }
   ],
   "headers": [
@@ -35,6 +55,68 @@
     },
     {
       "source": "/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
+      ]
+    },
+    {
+      "source": "/login(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/inscripciones(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/checkin(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/pantalla(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/hoy(.*)",
       "headers": [
         {
           "key": "Cache-Control",

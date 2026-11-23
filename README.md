@@ -1,33 +1,11 @@
-# Planificación Mallsport v4
+# Módulos educativos Mallsport v11
 
-Sistema integrado con dos planificadores independientes.
+Planificadores existentes + sesiones por rol + inscripciones y cupos + check-in + pantallas y consulta pública de hoy.
 
-- `/planificador-muro`: Muro de escalada.
-- `/planificador-airtrail`: Airtrail + Tirolesa.
-- `/planificador`: menú simple de acceso.
-- `/`: visor público por actividad y fecha.
+**Antes de subir:** lee `INSTALACION.md`. Requiere configurar Redis REST y las cuentas en Vercel. No incluye datos de producción; conserva tu carpeta `data` actual.
 
-## Datos
+- `npm test`: pruebas automáticas.
+- `npm run dev`: demostración local con datos ficticios.
+- Producción: HTML y funciones Node de `/api`, usando `vercel.json`.
 
-- `data/personal.json`: base compartida de personal, apodos, horarios predeterminados y competencias Airtrail.
-- `data/muro/YYYY-MM-DD.json`: jornadas publicadas de Muro.
-- `data/airtrail/YYYY-MM-DD.json`: jornadas publicadas de Airtrail + Tirolesa.
-
-## Variables de Vercel
-
-Reutiliza: `ADMIN_USER`, `ADMIN_PASSWORD`, `GITHUB_TOKEN`, `GITHUB_OWNER`, `GITHUB_REPO`, `GITHUB_BRANCH`. No hace falta cambiar `GITHUB_PATH`; simplemente deja de utilizarse.
-
-La base compartida y las publicaciones se escriben en GitHub mediante las funciones de `/api`.
-
-
-## Tramos de intervalos
-Ambos planificadores permiten definir varios tramos horarios de inicio de módulos, cada uno con su propio intervalo. El límite Hasta es exclusivo para los inicios.
-
-
-Actualización v7: Airtrail usa dos colores alternados por módulo, Break y Libre; la asignación de apoyos considera cambios de turno por fase.
-
-
-## Ajuste Airtrail v8
-- Poleas puede asignarse con menos de 6 personas simultaneas si los apoyos de mayor prioridad no pueden cubrirse por competencia.
-- Se mantienen maximo 6 funciones simultaneas por modulo.
-- Visualizacion Airtrail: 2 colores alternados de modulo + Break + Libre.
+Las inscripciones reales se guardan en Redis. Las jornadas y monitores siguen en GitHub.
