@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T22:55:09.234Z",
+  "updatedAt": "2026-11-23T22:55:59.802Z",
   "people": [
     {
       "id": "p_xljnmugf",
@@ -56,6 +56,22 @@
       "nick": "Seba",
       "defaultStart": "14:00",
       "defaultEnd": "19:00",
+      "airtrail": {
+        "skills": {
+          "equip": false,
+          "launch": false,
+          "poles": false,
+          "brake": false
+        },
+        "preferred": ""
+      }
+    },
+    {
+      "id": "p_vlipsph",
+      "name": "Teresa Fernández",
+      "nick": "Teresita",
+      "defaultStart": "12:00",
+      "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
           "equip": false,
