@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T20:48:30.433Z",
+  "updatedAt": "2026-11-23T20:49:21.716Z",
   "people": [
     {
       "id": "paloma-acevedo",
@@ -22,6 +22,22 @@
       "id": "benjamin-delgado",
       "name": "Benjamin Delgado",
       "nick": "Benja",
+      "defaultStart": "14:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": false,
+          "launch": false,
+          "poles": false,
+          "brake": false
+        },
+        "preferred": ""
+      }
+    },
+    {
+      "id": "p_77hbcnk",
+      "name": "TEST",
+      "nick": "TEST",
       "defaultStart": "14:00",
       "defaultEnd": "20:00",
       "airtrail": {
