@@ -1,7 +1,7 @@
 {
   "version": 5,
   "type": "muro",
-  "createdAt": "2026-11-23T22:56:38.299Z",
+  "createdAt": "2026-11-23T22:57:05.480Z",
   "date": "2026-11-28",
   "settings": {
     "first": "10:20",
@@ -63,9 +63,9 @@
       "id": "p_vlipsph",
       "full": "Teresa Fernández",
       "nick": "Teresita",
-      "start": "12:00",
+      "start": "10:00",
       "end": "20:00",
-      "startMin": 720,
+      "startMin": 600,
       "endMin": 1200
     }
   ],
@@ -74,8 +74,8 @@
       "id": 1,
       "start": 620,
       "end": 670,
-      "primary": "p_xiagwrd",
-      "support": null,
+      "primary": "p_vlipsph",
+      "support": "p_xiagwrd",
       "forced": false
     },
     {
@@ -83,7 +83,7 @@
       "start": 680,
       "end": 730,
       "primary": "p_xiagwrd",
-      "support": null,
+      "support": "p_vlipsph",
       "forced": false
     },
     {
@@ -130,7 +130,7 @@
       "id": 8,
       "start": 930,
       "end": 980,
-      "primary": "p_vlipsph",
+      "primary": "p_gm82kgv",
       "support": "p_pa0ohfx",
       "forced": false
     },
@@ -138,7 +138,7 @@
       "id": 9,
       "start": 960,
       "end": 1010,
-      "primary": "p_gm82kgv",
+      "primary": "p_xiagwrd",
       "support": "p_xljnmugf",
       "forced": false
     },
@@ -147,7 +147,7 @@
       "start": 990,
       "end": 1040,
       "primary": "p_pa0ohfx",
-      "support": "p_xiagwrd",
+      "support": "p_gm82kgv",
       "forced": false
     },
     {
@@ -155,39 +155,39 @@
       "start": 1020,
       "end": 1070,
       "primary": "p_vlipsph",
-      "support": "p_gm82kgv",
+      "support": "p_pa0ohfx",
       "forced": false
     },
     {
       "id": 12,
       "start": 1050,
       "end": 1100,
-      "primary": "p_xljnmugf",
-      "support": "p_vlipsph",
+      "primary": "p_xiagwrd",
+      "support": "p_xljnmugf",
       "forced": false
     },
     {
       "id": 13,
       "start": 1080,
       "end": 1130,
-      "primary": "p_xiagwrd",
-      "support": "p_pa0ohfx",
+      "primary": "p_gm82kgv",
+      "support": "p_xiagwrd",
       "forced": false
     },
     {
       "id": 14,
       "start": 1110,
       "end": 1160,
-      "primary": "p_gm82kgv",
-      "support": "p_vlipsph",
+      "primary": "p_xljnmugf",
+      "support": "p_gm82kgv",
       "forced": false
     },
     {
       "id": 15,
       "start": 1140,
       "end": 1190,
-      "primary": "p_xljnmugf",
-      "support": "p_gm82kgv",
+      "primary": "p_vlipsph",
+      "support": "p_xljnmugf",
       "forced": false
     },
     {
@@ -254,13 +254,13 @@
       "end": "10:25",
       "assignments": {
         "p_xljnmugf": null,
-        "p_xiagwrd": {
-          "code": "REC",
-          "module": 1
-        },
+        "p_xiagwrd": null,
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "REC",
+          "module": 1
+        }
       }
     },
     {
@@ -269,13 +269,13 @@
       "end": "10:30",
       "assignments": {
         "p_xljnmugf": null,
-        "p_xiagwrd": {
-          "code": "B",
-          "module": 1
-        },
+        "p_xiagwrd": null,
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "B",
+          "module": 1
+        }
       }
     },
     {
@@ -284,13 +284,13 @@
       "end": "10:35",
       "assignments": {
         "p_xljnmugf": null,
-        "p_xiagwrd": {
-          "code": "B",
-          "module": 1
-        },
+        "p_xiagwrd": null,
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "B",
+          "module": 1
+        }
       }
     },
     {
@@ -299,13 +299,13 @@
       "end": "10:40",
       "assignments": {
         "p_xljnmugf": null,
-        "p_xiagwrd": {
-          "code": "B",
-          "module": 1
-        },
+        "p_xiagwrd": null,
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "B",
+          "module": 1
+        }
       }
     },
     {
@@ -314,13 +314,13 @@
       "end": "10:45",
       "assignments": {
         "p_xljnmugf": null,
-        "p_xiagwrd": {
-          "code": "B",
-          "module": 1
-        },
+        "p_xiagwrd": null,
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "B",
+          "module": 1
+        }
       }
     },
     {
@@ -330,12 +330,15 @@
       "assignments": {
         "p_xljnmugf": null,
         "p_xiagwrd": {
-          "code": "R",
+          "code": "AP",
           "module": 1
         },
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "R",
+          "module": 1
+        }
       }
     },
     {
@@ -345,12 +348,15 @@
       "assignments": {
         "p_xljnmugf": null,
         "p_xiagwrd": {
-          "code": "R",
+          "code": "AP",
           "module": 1
         },
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "R",
+          "module": 1
+        }
       }
     },
     {
@@ -360,12 +366,15 @@
       "assignments": {
         "p_xljnmugf": null,
         "p_xiagwrd": {
-          "code": "R",
+          "code": "AP",
           "module": 1
         },
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "R",
+          "module": 1
+        }
       }
     },
     {
@@ -375,12 +384,15 @@
       "assignments": {
         "p_xljnmugf": null,
         "p_xiagwrd": {
-          "code": "R",
+          "code": "AP",
           "module": 1
         },
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "R",
+          "module": 1
+        }
       }
     },
     {
@@ -390,12 +402,15 @@
       "assignments": {
         "p_xljnmugf": null,
         "p_xiagwrd": {
-          "code": "D",
+          "code": "AP",
           "module": 1
         },
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "D",
+          "module": 1
+        }
       }
     },
     {
@@ -509,7 +524,10 @@
         },
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "AP",
+          "module": 2
+        }
       }
     },
     {
@@ -524,7 +542,10 @@
         },
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "AP",
+          "module": 2
+        }
       }
     },
     {
@@ -539,7 +560,10 @@
         },
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "AP",
+          "module": 2
+        }
       }
     },
     {
@@ -554,7 +578,10 @@
         },
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "AP",
+          "module": 2
+        }
       }
     },
     {
@@ -569,7 +596,10 @@
         },
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "AP",
+          "module": 2
+        }
       }
     },
     {
@@ -1263,15 +1293,15 @@
           "module": 7
         },
         "p_xiagwrd": null,
-        "p_gm82kgv": null,
+        "p_gm82kgv": {
+          "code": "REC",
+          "module": 8
+        },
         "p_pa0ohfx": {
           "code": "R",
           "module": 7
         },
-        "p_vlipsph": {
-          "code": "REC",
-          "module": 8
-        }
+        "p_vlipsph": null
       }
     },
     {
@@ -1284,15 +1314,15 @@
           "module": 7
         },
         "p_xiagwrd": null,
-        "p_gm82kgv": null,
+        "p_gm82kgv": {
+          "code": "B",
+          "module": 8
+        },
         "p_pa0ohfx": {
           "code": "R",
           "module": 7
         },
-        "p_vlipsph": {
-          "code": "B",
-          "module": 8
-        }
+        "p_vlipsph": null
       }
     },
     {
@@ -1305,15 +1335,15 @@
           "module": 7
         },
         "p_xiagwrd": null,
-        "p_gm82kgv": null,
+        "p_gm82kgv": {
+          "code": "B",
+          "module": 8
+        },
         "p_pa0ohfx": {
           "code": "R",
           "module": 7
         },
-        "p_vlipsph": {
-          "code": "B",
-          "module": 8
-        }
+        "p_vlipsph": null
       }
     },
     {
@@ -1326,15 +1356,15 @@
           "module": 7
         },
         "p_xiagwrd": null,
-        "p_gm82kgv": null,
+        "p_gm82kgv": {
+          "code": "B",
+          "module": 8
+        },
         "p_pa0ohfx": {
           "code": "D",
           "module": 7
         },
-        "p_vlipsph": {
-          "code": "B",
-          "module": 8
-        }
+        "p_vlipsph": null
       }
     },
     {
@@ -1344,12 +1374,12 @@
       "assignments": {
         "p_xljnmugf": null,
         "p_xiagwrd": null,
-        "p_gm82kgv": null,
-        "p_pa0ohfx": null,
-        "p_vlipsph": {
+        "p_gm82kgv": {
           "code": "B",
           "module": 8
-        }
+        },
+        "p_pa0ohfx": null,
+        "p_vlipsph": null
       }
     },
     {
@@ -1359,15 +1389,15 @@
       "assignments": {
         "p_xljnmugf": null,
         "p_xiagwrd": null,
-        "p_gm82kgv": null,
+        "p_gm82kgv": {
+          "code": "R",
+          "module": 8
+        },
         "p_pa0ohfx": {
           "code": "AP",
           "module": 8
         },
-        "p_vlipsph": {
-          "code": "R",
-          "module": 8
-        }
+        "p_vlipsph": null
       }
     },
     {
@@ -1376,19 +1406,19 @@
       "end": "16:05",
       "assignments": {
         "p_xljnmugf": null,
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_xiagwrd": {
           "code": "REC",
           "module": 9
+        },
+        "p_gm82kgv": {
+          "code": "R",
+          "module": 8
         },
         "p_pa0ohfx": {
           "code": "AP",
           "module": 8
         },
-        "p_vlipsph": {
-          "code": "R",
-          "module": 8
-        }
+        "p_vlipsph": null
       }
     },
     {
@@ -1397,19 +1427,19 @@
       "end": "16:10",
       "assignments": {
         "p_xljnmugf": null,
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_xiagwrd": {
           "code": "B",
           "module": 9
+        },
+        "p_gm82kgv": {
+          "code": "R",
+          "module": 8
         },
         "p_pa0ohfx": {
           "code": "AP",
           "module": 8
         },
-        "p_vlipsph": {
-          "code": "R",
-          "module": 8
-        }
+        "p_vlipsph": null
       }
     },
     {
@@ -1418,19 +1448,19 @@
       "end": "16:15",
       "assignments": {
         "p_xljnmugf": null,
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_xiagwrd": {
           "code": "B",
           "module": 9
+        },
+        "p_gm82kgv": {
+          "code": "R",
+          "module": 8
         },
         "p_pa0ohfx": {
           "code": "AP",
           "module": 8
         },
-        "p_vlipsph": {
-          "code": "R",
-          "module": 8
-        }
+        "p_vlipsph": null
       }
     },
     {
@@ -1439,19 +1469,19 @@
       "end": "16:20",
       "assignments": {
         "p_xljnmugf": null,
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_xiagwrd": {
           "code": "B",
           "module": 9
+        },
+        "p_gm82kgv": {
+          "code": "D",
+          "module": 8
         },
         "p_pa0ohfx": {
           "code": "AP",
           "module": 8
         },
-        "p_vlipsph": {
-          "code": "D",
-          "module": 8
-        }
+        "p_vlipsph": null
       }
     },
     {
@@ -1460,11 +1490,11 @@
       "end": "16:25",
       "assignments": {
         "p_xljnmugf": null,
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_xiagwrd": {
           "code": "B",
           "module": 9
         },
+        "p_gm82kgv": null,
         "p_pa0ohfx": null,
         "p_vlipsph": null
       }
@@ -1478,11 +1508,11 @@
           "code": "AP",
           "module": 9
         },
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_xiagwrd": {
           "code": "R",
           "module": 9
         },
+        "p_gm82kgv": null,
         "p_pa0ohfx": null,
         "p_vlipsph": null
       }
@@ -1496,11 +1526,11 @@
           "code": "AP",
           "module": 9
         },
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_xiagwrd": {
           "code": "R",
           "module": 9
         },
+        "p_gm82kgv": null,
         "p_pa0ohfx": {
           "code": "REC",
           "module": 10
@@ -1517,11 +1547,11 @@
           "code": "AP",
           "module": 9
         },
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_xiagwrd": {
           "code": "R",
           "module": 9
         },
+        "p_gm82kgv": null,
         "p_pa0ohfx": {
           "code": "B",
           "module": 10
@@ -1538,11 +1568,11 @@
           "code": "AP",
           "module": 9
         },
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_xiagwrd": {
           "code": "R",
           "module": 9
         },
+        "p_gm82kgv": null,
         "p_pa0ohfx": {
           "code": "B",
           "module": 10
@@ -1559,11 +1589,11 @@
           "code": "AP",
           "module": 9
         },
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_xiagwrd": {
           "code": "D",
           "module": 9
         },
+        "p_gm82kgv": null,
         "p_pa0ohfx": {
           "code": "B",
           "module": 10
@@ -1592,11 +1622,11 @@
       "end": "17:00",
       "assignments": {
         "p_xljnmugf": null,
-        "p_xiagwrd": {
+        "p_xiagwrd": null,
+        "p_gm82kgv": {
           "code": "AP",
           "module": 10
         },
-        "p_gm82kgv": null,
         "p_pa0ohfx": {
           "code": "R",
           "module": 10
@@ -1610,11 +1640,11 @@
       "end": "17:05",
       "assignments": {
         "p_xljnmugf": null,
-        "p_xiagwrd": {
+        "p_xiagwrd": null,
+        "p_gm82kgv": {
           "code": "AP",
           "module": 10
         },
-        "p_gm82kgv": null,
         "p_pa0ohfx": {
           "code": "R",
           "module": 10
@@ -1631,11 +1661,11 @@
       "end": "17:10",
       "assignments": {
         "p_xljnmugf": null,
-        "p_xiagwrd": {
+        "p_xiagwrd": null,
+        "p_gm82kgv": {
           "code": "AP",
           "module": 10
         },
-        "p_gm82kgv": null,
         "p_pa0ohfx": {
           "code": "R",
           "module": 10
@@ -1652,11 +1682,11 @@
       "end": "17:15",
       "assignments": {
         "p_xljnmugf": null,
-        "p_xiagwrd": {
+        "p_xiagwrd": null,
+        "p_gm82kgv": {
           "code": "AP",
           "module": 10
         },
-        "p_gm82kgv": null,
         "p_pa0ohfx": {
           "code": "R",
           "module": 10
@@ -1673,11 +1703,11 @@
       "end": "17:20",
       "assignments": {
         "p_xljnmugf": null,
-        "p_xiagwrd": {
+        "p_xiagwrd": null,
+        "p_gm82kgv": {
           "code": "AP",
           "module": 10
         },
-        "p_gm82kgv": null,
         "p_pa0ohfx": {
           "code": "D",
           "module": 10
@@ -1710,11 +1740,11 @@
       "assignments": {
         "p_xljnmugf": null,
         "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_pa0ohfx": {
           "code": "AP",
           "module": 11
         },
-        "p_pa0ohfx": null,
         "p_vlipsph": {
           "code": "R",
           "module": 11
@@ -1726,16 +1756,16 @@
       "start": "17:30",
       "end": "17:35",
       "assignments": {
-        "p_xljnmugf": {
+        "p_xljnmugf": null,
+        "p_xiagwrd": {
           "code": "REC",
           "module": 12
         },
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_pa0ohfx": {
           "code": "AP",
           "module": 11
         },
-        "p_pa0ohfx": null,
         "p_vlipsph": {
           "code": "R",
           "module": 11
@@ -1747,16 +1777,16 @@
       "start": "17:35",
       "end": "17:40",
       "assignments": {
-        "p_xljnmugf": {
+        "p_xljnmugf": null,
+        "p_xiagwrd": {
           "code": "B",
           "module": 12
         },
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_pa0ohfx": {
           "code": "AP",
           "module": 11
         },
-        "p_pa0ohfx": null,
         "p_vlipsph": {
           "code": "R",
           "module": 11
@@ -1768,16 +1798,16 @@
       "start": "17:40",
       "end": "17:45",
       "assignments": {
-        "p_xljnmugf": {
+        "p_xljnmugf": null,
+        "p_xiagwrd": {
           "code": "B",
           "module": 12
         },
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_pa0ohfx": {
           "code": "AP",
           "module": 11
         },
-        "p_pa0ohfx": null,
         "p_vlipsph": {
           "code": "R",
           "module": 11
@@ -1789,16 +1819,16 @@
       "start": "17:45",
       "end": "17:50",
       "assignments": {
-        "p_xljnmugf": {
+        "p_xljnmugf": null,
+        "p_xiagwrd": {
           "code": "B",
           "module": 12
         },
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_pa0ohfx": {
           "code": "AP",
           "module": 11
         },
-        "p_pa0ohfx": null,
         "p_vlipsph": {
           "code": "D",
           "module": 11
@@ -1810,11 +1840,11 @@
       "start": "17:50",
       "end": "17:55",
       "assignments": {
-        "p_xljnmugf": {
+        "p_xljnmugf": null,
+        "p_xiagwrd": {
           "code": "B",
           "module": 12
         },
-        "p_xiagwrd": null,
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
         "p_vlipsph": null
@@ -1826,16 +1856,16 @@
       "end": "18:00",
       "assignments": {
         "p_xljnmugf": {
+          "code": "AP",
+          "module": 12
+        },
+        "p_xiagwrd": {
           "code": "R",
           "module": 12
         },
-        "p_xiagwrd": null,
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": {
-          "code": "AP",
-          "module": 12
-        }
+        "p_vlipsph": null
       }
     },
     {
@@ -1844,19 +1874,19 @@
       "end": "18:05",
       "assignments": {
         "p_xljnmugf": {
-          "code": "R",
+          "code": "AP",
           "module": 12
         },
         "p_xiagwrd": {
+          "code": "R",
+          "module": 12
+        },
+        "p_gm82kgv": {
           "code": "REC",
           "module": 13
         },
-        "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": {
-          "code": "AP",
-          "module": 12
-        }
+        "p_vlipsph": null
       }
     },
     {
@@ -1865,19 +1895,19 @@
       "end": "18:10",
       "assignments": {
         "p_xljnmugf": {
-          "code": "R",
+          "code": "AP",
           "module": 12
         },
         "p_xiagwrd": {
+          "code": "R",
+          "module": 12
+        },
+        "p_gm82kgv": {
           "code": "B",
           "module": 13
         },
-        "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": {
-          "code": "AP",
-          "module": 12
-        }
+        "p_vlipsph": null
       }
     },
     {
@@ -1886,19 +1916,19 @@
       "end": "18:15",
       "assignments": {
         "p_xljnmugf": {
-          "code": "R",
+          "code": "AP",
           "module": 12
         },
         "p_xiagwrd": {
+          "code": "R",
+          "module": 12
+        },
+        "p_gm82kgv": {
           "code": "B",
           "module": 13
         },
-        "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": {
-          "code": "AP",
-          "module": 12
-        }
+        "p_vlipsph": null
       }
     },
     {
@@ -1907,19 +1937,19 @@
       "end": "18:20",
       "assignments": {
         "p_xljnmugf": {
-          "code": "D",
+          "code": "AP",
           "module": 12
         },
         "p_xiagwrd": {
+          "code": "D",
+          "module": 12
+        },
+        "p_gm82kgv": {
           "code": "B",
           "module": 13
         },
-        "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": {
-          "code": "AP",
-          "module": 12
-        }
+        "p_vlipsph": null
       }
     },
     {
@@ -1928,11 +1958,11 @@
       "end": "18:25",
       "assignments": {
         "p_xljnmugf": null,
-        "p_xiagwrd": {
+        "p_xiagwrd": null,
+        "p_gm82kgv": {
           "code": "B",
           "module": 13
         },
-        "p_gm82kgv": null,
         "p_pa0ohfx": null,
         "p_vlipsph": null
       }
@@ -1944,14 +1974,14 @@
       "assignments": {
         "p_xljnmugf": null,
         "p_xiagwrd": {
-          "code": "R",
-          "module": 13
-        },
-        "p_gm82kgv": null,
-        "p_pa0ohfx": {
           "code": "AP",
           "module": 13
         },
+        "p_gm82kgv": {
+          "code": "R",
+          "module": 13
+        },
+        "p_pa0ohfx": null,
         "p_vlipsph": null
       }
     },
@@ -1960,19 +1990,19 @@
       "start": "18:30",
       "end": "18:35",
       "assignments": {
-        "p_xljnmugf": null,
-        "p_xiagwrd": {
-          "code": "R",
-          "module": 13
-        },
-        "p_gm82kgv": {
+        "p_xljnmugf": {
           "code": "REC",
           "module": 14
         },
-        "p_pa0ohfx": {
+        "p_xiagwrd": {
           "code": "AP",
           "module": 13
         },
+        "p_gm82kgv": {
+          "code": "R",
+          "module": 13
+        },
+        "p_pa0ohfx": null,
         "p_vlipsph": null
       }
     },
@@ -1981,19 +2011,19 @@
       "start": "18:35",
       "end": "18:40",
       "assignments": {
-        "p_xljnmugf": null,
-        "p_xiagwrd": {
-          "code": "R",
-          "module": 13
-        },
-        "p_gm82kgv": {
+        "p_xljnmugf": {
           "code": "B",
           "module": 14
         },
-        "p_pa0ohfx": {
+        "p_xiagwrd": {
           "code": "AP",
           "module": 13
         },
+        "p_gm82kgv": {
+          "code": "R",
+          "module": 13
+        },
+        "p_pa0ohfx": null,
         "p_vlipsph": null
       }
     },
@@ -2002,19 +2032,19 @@
       "start": "18:40",
       "end": "18:45",
       "assignments": {
-        "p_xljnmugf": null,
-        "p_xiagwrd": {
-          "code": "R",
-          "module": 13
-        },
-        "p_gm82kgv": {
+        "p_xljnmugf": {
           "code": "B",
           "module": 14
         },
-        "p_pa0ohfx": {
+        "p_xiagwrd": {
           "code": "AP",
           "module": 13
         },
+        "p_gm82kgv": {
+          "code": "R",
+          "module": 13
+        },
+        "p_pa0ohfx": null,
         "p_vlipsph": null
       }
     },
@@ -2023,19 +2053,19 @@
       "start": "18:45",
       "end": "18:50",
       "assignments": {
-        "p_xljnmugf": null,
-        "p_xiagwrd": {
-          "code": "D",
-          "module": 13
-        },
-        "p_gm82kgv": {
+        "p_xljnmugf": {
           "code": "B",
           "module": 14
         },
-        "p_pa0ohfx": {
+        "p_xiagwrd": {
           "code": "AP",
           "module": 13
         },
+        "p_gm82kgv": {
+          "code": "D",
+          "module": 13
+        },
+        "p_pa0ohfx": null,
         "p_vlipsph": null
       }
     },
@@ -2044,12 +2074,12 @@
       "start": "18:50",
       "end": "18:55",
       "assignments": {
-        "p_xljnmugf": null,
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_xljnmugf": {
           "code": "B",
           "module": 14
         },
+        "p_xiagwrd": null,
+        "p_gm82kgv": null,
         "p_pa0ohfx": null,
         "p_vlipsph": null
       }
@@ -2059,17 +2089,17 @@
       "start": "18:55",
       "end": "19:00",
       "assignments": {
-        "p_xljnmugf": null,
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
+        "p_xljnmugf": {
           "code": "R",
           "module": 14
         },
-        "p_pa0ohfx": null,
-        "p_vlipsph": {
+        "p_xiagwrd": null,
+        "p_gm82kgv": {
           "code": "AP",
           "module": 14
-        }
+        },
+        "p_pa0ohfx": null,
+        "p_vlipsph": null
       }
     },
     {
@@ -2078,18 +2108,18 @@
       "end": "19:05",
       "assignments": {
         "p_xljnmugf": {
-          "code": "REC",
-          "module": 15
+          "code": "R",
+          "module": 14
         },
         "p_xiagwrd": null,
         "p_gm82kgv": {
-          "code": "R",
+          "code": "AP",
           "module": 14
         },
         "p_pa0ohfx": null,
         "p_vlipsph": {
-          "code": "AP",
-          "module": 14
+          "code": "REC",
+          "module": 15
         }
       }
     },
@@ -2099,18 +2129,18 @@
       "end": "19:10",
       "assignments": {
         "p_xljnmugf": {
-          "code": "B",
-          "module": 15
+          "code": "R",
+          "module": 14
         },
         "p_xiagwrd": null,
         "p_gm82kgv": {
-          "code": "R",
+          "code": "AP",
           "module": 14
         },
         "p_pa0ohfx": null,
         "p_vlipsph": {
-          "code": "AP",
-          "module": 14
+          "code": "B",
+          "module": 15
         }
       }
     },
@@ -2120,18 +2150,18 @@
       "end": "19:15",
       "assignments": {
         "p_xljnmugf": {
-          "code": "B",
-          "module": 15
+          "code": "R",
+          "module": 14
         },
         "p_xiagwrd": null,
         "p_gm82kgv": {
-          "code": "R",
+          "code": "AP",
           "module": 14
         },
         "p_pa0ohfx": null,
         "p_vlipsph": {
-          "code": "AP",
-          "module": 14
+          "code": "B",
+          "module": 15
         }
       }
     },
@@ -2141,18 +2171,18 @@
       "end": "19:20",
       "assignments": {
         "p_xljnmugf": {
-          "code": "B",
-          "module": 15
+          "code": "D",
+          "module": 14
         },
         "p_xiagwrd": null,
         "p_gm82kgv": {
-          "code": "D",
+          "code": "AP",
           "module": 14
         },
         "p_pa0ohfx": null,
         "p_vlipsph": {
-          "code": "AP",
-          "module": 14
+          "code": "B",
+          "module": 15
         }
       }
     },
@@ -2161,14 +2191,14 @@
       "start": "19:20",
       "end": "19:25",
       "assignments": {
-        "p_xljnmugf": {
-          "code": "B",
-          "module": 15
-        },
+        "p_xljnmugf": null,
         "p_xiagwrd": null,
         "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "B",
+          "module": 15
+        }
       }
     },
     {
@@ -2177,16 +2207,16 @@
       "end": "19:30",
       "assignments": {
         "p_xljnmugf": {
-          "code": "R",
-          "module": 15
-        },
-        "p_xiagwrd": null,
-        "p_gm82kgv": {
           "code": "AP",
           "module": 15
         },
+        "p_xiagwrd": null,
+        "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "R",
+          "module": 15
+        }
       }
     },
     {
@@ -2195,19 +2225,19 @@
       "end": "19:35",
       "assignments": {
         "p_xljnmugf": {
-          "code": "R",
+          "code": "AP",
           "module": 15
         },
         "p_xiagwrd": {
           "code": "REC",
           "module": 16
         },
-        "p_gm82kgv": {
-          "code": "AP",
-          "module": 15
-        },
+        "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "R",
+          "module": 15
+        }
       }
     },
     {
@@ -2216,19 +2246,19 @@
       "end": "19:40",
       "assignments": {
         "p_xljnmugf": {
-          "code": "R",
+          "code": "AP",
           "module": 15
         },
         "p_xiagwrd": {
           "code": "B",
           "module": 16
         },
-        "p_gm82kgv": {
-          "code": "AP",
-          "module": 15
-        },
+        "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "R",
+          "module": 15
+        }
       }
     },
     {
@@ -2237,19 +2267,19 @@
       "end": "19:45",
       "assignments": {
         "p_xljnmugf": {
-          "code": "R",
+          "code": "AP",
           "module": 15
         },
         "p_xiagwrd": {
           "code": "B",
           "module": 16
         },
-        "p_gm82kgv": {
-          "code": "AP",
-          "module": 15
-        },
+        "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "R",
+          "module": 15
+        }
       }
     },
     {
@@ -2258,19 +2288,19 @@
       "end": "19:50",
       "assignments": {
         "p_xljnmugf": {
-          "code": "D",
+          "code": "AP",
           "module": 15
         },
         "p_xiagwrd": {
           "code": "B",
           "module": 16
         },
-        "p_gm82kgv": {
-          "code": "AP",
-          "module": 15
-        },
+        "p_gm82kgv": null,
         "p_pa0ohfx": null,
-        "p_vlipsph": null
+        "p_vlipsph": {
+          "code": "D",
+          "module": 15
+        }
       }
     },
     {
@@ -2407,6 +2437,6 @@
   "publication": {
     "type": "muro",
     "date": "2026-11-28",
-    "publishedAt": "2026-11-23T22:56:41.344Z"
+    "publishedAt": "2026-11-23T22:57:08.689Z"
   }
 }
