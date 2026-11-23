@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T22:10:15.975Z",
+  "updatedAt": "2026-11-23T22:10:57.434Z",
   "people": [
     {
       "id": "paloma-acevedo",
@@ -12,7 +12,7 @@
         "skills": {
           "equip": true,
           "launch": false,
-          "poles": true,
+          "poles": false,
           "brake": false
         },
         "preferred": "equip"
@@ -79,7 +79,7 @@
           "poles": true,
           "brake": false
         },
-        "preferred": "poles"
+        "preferred": ""
       }
     },
     {
