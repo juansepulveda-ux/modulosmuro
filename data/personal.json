@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T21:19:46.712Z",
+  "updatedAt": "2026-11-23T21:20:11.142Z",
   "people": [
     {
       "id": "paloma-acevedo",
@@ -10,9 +10,9 @@
       "defaultEnd": "20:30",
       "airtrail": {
         "skills": {
-          "equip": false,
+          "equip": true,
           "launch": false,
-          "poles": false,
+          "poles": true,
           "brake": false
         },
         "preferred": ""
@@ -26,10 +26,10 @@
       "defaultEnd": "20:30",
       "airtrail": {
         "skills": {
-          "equip": false,
-          "launch": false,
-          "poles": false,
-          "brake": false
+          "equip": true,
+          "launch": true,
+          "poles": true,
+          "brake": true
         },
         "preferred": ""
       }
@@ -45,7 +45,7 @@
           "equip": false,
           "launch": false,
           "poles": false,
-          "brake": false
+          "brake": true
         },
         "preferred": ""
       }
@@ -58,9 +58,9 @@
       "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
-          "equip": false,
+          "equip": true,
           "launch": false,
-          "poles": false,
+          "poles": true,
           "brake": false
         },
         "preferred": ""
