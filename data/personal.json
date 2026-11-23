@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T20:34:52.617Z",
+  "updatedAt": "2026-11-23T20:45:18.206Z",
   "people": [
     {
       "id": "paloma-acevedo",
@@ -51,86 +51,6 @@
       }
     },
     {
-      "id": "james-almuna",
-      "name": "James Almuna",
-      "nick": "James",
-      "defaultStart": "12:00",
-      "defaultEnd": "21:00",
-      "airtrail": {
-        "skills": {
-          "equip": true,
-          "launch": true,
-          "poles": true,
-          "brake": true
-        },
-        "preferred": ""
-      }
-    },
-    {
-      "id": "bryan-gutierrez",
-      "name": "Bryan Gutierrez",
-      "nick": "Bryan",
-      "defaultStart": "12:00",
-      "defaultEnd": "21:00",
-      "airtrail": {
-        "skills": {
-          "equip": true,
-          "launch": true,
-          "poles": true,
-          "brake": true
-        },
-        "preferred": ""
-      }
-    },
-    {
-      "id": "enoc-jimenez",
-      "name": "Enoc Jimenez",
-      "nick": "Enoc",
-      "defaultStart": "12:00",
-      "defaultEnd": "21:00",
-      "airtrail": {
-        "skills": {
-          "equip": true,
-          "launch": true,
-          "poles": true,
-          "brake": true
-        },
-        "preferred": ""
-      }
-    },
-    {
-      "id": "juan-ortega",
-      "name": "Juan Ortega",
-      "nick": "Juan",
-      "defaultStart": "12:00",
-      "defaultEnd": "21:00",
-      "airtrail": {
-        "skills": {
-          "equip": true,
-          "launch": true,
-          "poles": true,
-          "brake": true
-        },
-        "preferred": ""
-      }
-    },
-    {
-      "id": "daniela-gutierrez",
-      "name": "Daniela Gutierrez",
-      "nick": "Dani",
-      "defaultStart": "12:00",
-      "defaultEnd": "21:00",
-      "airtrail": {
-        "skills": {
-          "equip": true,
-          "launch": false,
-          "poles": true,
-          "brake": false
-        },
-        "preferred": "equip"
-      }
-    },
-    {
       "id": "constanza-gaete",
       "name": "Constanza Gaete",
       "nick": "Coni",
@@ -144,22 +64,6 @@
           "brake": false
         },
         "preferred": "equip"
-      }
-    },
-    {
-      "id": "susan-espinoza",
-      "name": "Susan Espinoza",
-      "nick": "Susan",
-      "defaultStart": "12:00",
-      "defaultEnd": "21:00",
-      "airtrail": {
-        "skills": {
-          "equip": true,
-          "launch": false,
-          "poles": true,
-          "brake": false
-        },
-        "preferred": "poles"
       }
     },
     {
