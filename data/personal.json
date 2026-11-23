@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T20:45:18.206Z",
+  "updatedAt": "2026-11-23T20:45:38.359Z",
   "people": [
     {
       "id": "paloma-acevedo",
@@ -24,86 +24,6 @@
       "nick": "Benja",
       "defaultStart": "13:00",
       "defaultEnd": "20:00",
-      "airtrail": {
-        "skills": {
-          "equip": false,
-          "launch": false,
-          "poles": false,
-          "brake": false
-        },
-        "preferred": ""
-      }
-    },
-    {
-      "id": "lucia-soto",
-      "name": "Lucia Soto",
-      "nick": "Lu",
-      "defaultStart": "13:00",
-      "defaultEnd": "20:00",
-      "airtrail": {
-        "skills": {
-          "equip": false,
-          "launch": false,
-          "poles": false,
-          "brake": false
-        },
-        "preferred": ""
-      }
-    },
-    {
-      "id": "constanza-gaete",
-      "name": "Constanza Gaete",
-      "nick": "Coni",
-      "defaultStart": "12:00",
-      "defaultEnd": "21:00",
-      "airtrail": {
-        "skills": {
-          "equip": true,
-          "launch": false,
-          "poles": true,
-          "brake": false
-        },
-        "preferred": "equip"
-      }
-    },
-    {
-      "id": "p_pfhoqyo5",
-      "name": "TEST",
-      "nick": "Nuevo monitor",
-      "defaultStart": "12:00",
-      "defaultEnd": "21:00",
-      "airtrail": {
-        "skills": {
-          "equip": true,
-          "launch": true,
-          "poles": true,
-          "brake": true
-        },
-        "preferred": ""
-      }
-    },
-    {
-      "id": "p_e4lv6ub6",
-      "name": "Nuevo monitor",
-      "nick": "Nuevo monitor",
-      "defaultStart": "12:00",
-      "defaultEnd": "21:00",
-      "airtrail": {
-        "skills": {
-          "equip": false,
-          "launch": false,
-          "poles": false,
-          "brake": false
-        },
-        "preferred": ""
-      }
-    },
-    {
-      "id": "p_fymfpn6p",
-      "name": "Nuevo monitor",
-      "nick": "Nuevo monitor",
-      "defaultStart": "12:00",
-      "defaultEnd": "21:00",
       "airtrail": {
         "skills": {
           "equip": false,
