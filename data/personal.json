@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T21:22:57.199Z",
+  "updatedAt": "2026-11-23T21:26:49.171Z",
   "people": [
     {
       "id": "paloma-acevedo",
       "name": "Daniela Gutiérrez",
       "nick": "Dani",
-      "defaultStart": "10:00",
+      "defaultStart": "11:00",
       "defaultEnd": "20:30",
       "airtrail": {
         "skills": {
@@ -54,7 +54,7 @@
       "id": "p_d4zzpms0",
       "name": "James Almuna",
       "nick": "James",
-      "defaultStart": "12:00",
+      "defaultStart": "11:00",
       "defaultEnd": "21:00",
       "airtrail": {
         "skills": {
