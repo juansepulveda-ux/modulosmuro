@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T20:48:05.839Z",
+  "updatedAt": "2026-11-23T20:48:30.433Z",
   "people": [
     {
       "id": "paloma-acevedo",
       "name": "Paloma Acevedo",
       "nick": "Palo",
-      "defaultStart": "13:00",
+      "defaultStart": "14:00",
       "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
@@ -22,7 +22,7 @@
       "id": "benjamin-delgado",
       "name": "Benjamin Delgado",
       "nick": "Benja",
-      "defaultStart": "13:00",
+      "defaultStart": "14:00",
       "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
