@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T21:10:16.752Z",
+  "updatedAt": "2026-11-23T21:11:46.643Z",
   "people": [
     {
       "id": "paloma-acevedo",
@@ -39,7 +39,7 @@
       "name": "Teresa Fernández",
       "nick": "Teresita",
       "defaultStart": "10:00",
-      "defaultEnd": "20:30",
+      "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
           "equip": false,
