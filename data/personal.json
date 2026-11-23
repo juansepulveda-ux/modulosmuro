@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T21:58:00.599Z",
+  "updatedAt": "2026-11-23T22:10:15.975Z",
   "people": [
     {
       "id": "paloma-acevedo",
@@ -15,7 +15,7 @@
           "poles": true,
           "brake": false
         },
-        "preferred": ""
+        "preferred": "equip"
       }
     },
     {
@@ -31,7 +31,7 @@
           "poles": false,
           "brake": false
         },
-        "preferred": ""
+        "preferred": "launch"
       }
     },
     {
@@ -47,7 +47,7 @@
           "poles": false,
           "brake": false
         },
-        "preferred": ""
+        "preferred": "launch"
       }
     },
     {
@@ -63,7 +63,7 @@
           "poles": false,
           "brake": true
         },
-        "preferred": ""
+        "preferred": "brake"
       }
     },
     {
@@ -79,7 +79,7 @@
           "poles": true,
           "brake": false
         },
-        "preferred": ""
+        "preferred": "poles"
       }
     },
     {
@@ -95,7 +95,7 @@
           "poles": false,
           "brake": true
         },
-        "preferred": ""
+        "preferred": "brake"
       }
     }
   ]
