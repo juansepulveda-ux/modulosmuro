@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T21:33:52.105Z",
+  "updatedAt": "2026-11-23T21:40:51.572Z",
   "people": [
     {
       "id": "paloma-acevedo",
       "name": "Daniela Gutiérrez",
       "nick": "Dani",
       "defaultStart": "11:00",
-      "defaultEnd": "20:30",
+      "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
           "equip": true,
@@ -23,7 +23,7 @@
       "name": "Emanuel Illanes",
       "nick": "Ema",
       "defaultStart": "13:00",
-      "defaultEnd": "20:30",
+      "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
           "equip": false,
