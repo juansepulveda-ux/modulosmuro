@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T22:55:59.802Z",
+  "updatedAt": "2026-11-23T22:57:04.388Z",
   "people": [
     {
       "id": "p_xljnmugf",
@@ -70,7 +70,7 @@
       "id": "p_vlipsph",
       "name": "Teresa Fernández",
       "nick": "Teresita",
-      "defaultStart": "12:00",
+      "defaultStart": "10:00",
       "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
