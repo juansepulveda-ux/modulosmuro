@@ -1,44 +1,12 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T21:40:51.572Z",
+  "updatedAt": "2026-11-23T21:58:00.599Z",
   "people": [
     {
       "id": "paloma-acevedo",
       "name": "Daniela Gutiérrez",
       "nick": "Dani",
       "defaultStart": "11:00",
-      "defaultEnd": "20:00",
-      "airtrail": {
-        "skills": {
-          "equip": true,
-          "launch": false,
-          "poles": true,
-          "brake": false
-        },
-        "preferred": ""
-      }
-    },
-    {
-      "id": "benjamin-delgado",
-      "name": "Emanuel Illanes",
-      "nick": "Ema",
-      "defaultStart": "13:00",
-      "defaultEnd": "20:00",
-      "airtrail": {
-        "skills": {
-          "equip": false,
-          "launch": false,
-          "poles": false,
-          "brake": true
-        },
-        "preferred": ""
-      }
-    },
-    {
-      "id": "p_n4mp7o0k",
-      "name": "Susan Espinoza",
-      "nick": "Susan",
-      "defaultStart": "10:00",
       "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
@@ -88,6 +56,38 @@
       "nick": "Benjita",
       "defaultStart": "10:00",
       "defaultEnd": "13:00",
+      "airtrail": {
+        "skills": {
+          "equip": false,
+          "launch": false,
+          "poles": false,
+          "brake": true
+        },
+        "preferred": ""
+      }
+    },
+    {
+      "id": "p_8rwfi39o",
+      "name": "Susan Espinoza",
+      "nick": "Susan",
+      "defaultStart": "10:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": true,
+          "launch": false,
+          "poles": true,
+          "brake": false
+        },
+        "preferred": ""
+      }
+    },
+    {
+      "id": "p_xljnmugf",
+      "name": "Enoc Jiménez",
+      "nick": "Enoc",
+      "defaultStart": "13:00",
+      "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
           "equip": false,
