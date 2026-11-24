@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T22:57:04.388Z",
+  "updatedAt": "2026-11-24T00:00:15.336Z",
   "people": [
     {
       "id": "p_xljnmugf",
       "name": "Enoc Jiménez",
       "nick": "Enoc",
-      "defaultStart": "13:00",
+      "defaultStart": "14:00",
       "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
