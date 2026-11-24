@@ -6,6 +6,9 @@ Ampliación del proyecto existente para GitHub y Vercel. Mantiene los dos planif
 
 | Dirección | Uso |
 |---|---|
+| `/declaracion` | Formulario móvil, datos familiares y firma |
+| `/elegir-modulos` | Selección de actividades y módulos de hoy |
+| `/declaracion-registro?id=...` | Lectura autorizada e impresión de una declaración |
 | `/login` | Inicio de sesión del personal |
 | `/planificador` | Menú de administración |
 | `/planificador-muro` | Planificador Muro existente con sesión |
@@ -21,7 +24,7 @@ El código está preparado y probado localmente. No se ha desplegado en tu Verce
 
 ## 1. Preparar la base compartida
 
-Las jornadas y la base de monitores siguen guardándose en GitHub. Las inscripciones, check-ins y sesiones usan una base Redis de Upstash independiente, accesible por HTTPS. No se escriben datos de participantes ni claves en GitHub.
+Las jornadas y la base de monitores siguen guardándose en GitHub. Los perfiles familiares, declaraciones firmadas, inscripciones, pagos, check-ins y sesiones usan una base Redis de Upstash independiente, accesible por HTTPS. No se escriben datos de participantes ni claves en GitHub.
 
 Crea una base de Upstash Redis y copia su **REST URL** y su **REST Token de lectura/escritura**. No uses el token de solo lectura. Documentación oficial: https://upstash.com/docs/redis/features/restapi
 
@@ -51,12 +54,12 @@ Puedes generar AUTH_SECRET en tu equipo, sin compartirlo en el chat:
 node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"
 ```
 
-Para cuentas individuales adicionales, configura `USERS_JSON` como un arreglo de objetos con `username`, `password` y `role`. Los roles admitidos son `admin`, `vendedor` y `recepcionista`. No repitas usuarios ya definidos mediante variables individuales. Las cuentas individuales permiten identificar a cada persona en el check-in. No hay pantalla de creación de usuarios en esta versión.
+Para cuentas individuales adicionales, configura `USERS_JSON` como un arreglo de objetos con `username`, `password` y `role`. Los roles admitidos son `admin`, `vendedor` y `recepcionista`. No repitas usuarios ya definidos mediante variables individuales. No se requieren variables de correo para v12. Las cuentas individuales permiten identificar a cada persona en el check-in. No hay pantalla de creación de usuarios en esta versión.
 
 ## 3. Subir el código
 
 1. Conserva un respaldo del repositorio actual.
-2. Descomprime el ZIP y abre la carpeta `modulosmuro_v11`.
+2. Descomprime el ZIP y abre la carpeta `modulosmuro_v12`.
 3. Sube su contenido a la raíz del mismo repositorio. Reemplaza los archivos coincidentes e incorpora `assets`, `lib`, las API nuevas y las páginas nuevas.
 4. **No borres las carpetas existentes `data/muro` y `data/airtrail`. No reemplaces tu `data/personal.json` actual.** El paquete excluye datos de producción para conservarlos.
 5. Usa el mismo proyecto Vercel, con Node.js 20 o superior y Framework Preset “Other”. No requiere compilación; conserva el despliegue de HTML y funciones de `/api`.
@@ -70,31 +73,36 @@ El cambio de autenticación requiere desplegar juntas las páginas y las API del
 2. Ventas entra a `/inscripciones`, selecciona la fecha y configura los cupos del día.
 3. Los cupos iniciales son **0**: se deben configurar antes de la primera inscripción. El 0 cierra las ventas de esa actividad.
 4. “Cupos” en una tarjeta permite fijar una excepción para ese módulo. “Usar cupos del día” retira la excepción.
-5. Inscribe nombre, edad, declaración jurada sí/no y observaciones. En Airtrail/Tirolesa puedes marcar una actividad o ambas. Ambas ocupa un cupo en cada una.
-6. Recepción entra a `/checkin`, busca al participante y toca “Registrar llegada”. Solo permite check-in para el día actual de Chile. “Deshacer” guarda la corrección en el historial.
+5. Inscribe nombre, edad, declaración jurada mediante casilla, pago mediante casilla y observaciones. También puedes dirigir a los clientes a `/declaracion` para que completen los datos y reserven por sí mismos. En Airtrail/Tirolesa puedes marcar una actividad o ambas. Ambas ocupa un cupo en cada una.
+6. Ventas confirma el cobro marcando «Pagado». Recepción entra a `/checkin`, busca al participante y toca “Registrar llegada”. Solo permite check-in para el día actual de Chile. “Deshacer” guarda la corrección en el historial.
 7. Abre la URL de cada pantalla en su televisor y activa “Pantalla completa”. Comparte `/hoy` con las familias.
 
 ## Funcionamiento y límites
 
 - Sesión compartida entre las páginas del mismo dominio, válida hasta 12 horas o hasta cerrar sesión. La cookie es de sesión: normalmente se borra al cerrar el navegador, pero la restauración de sesiones de algunos navegadores puede conservarla. Cerrar una pestaña no equivale a cerrar sesión. Usa “Cerrar sesión” al terminar en un equipo compartido.
-- Contraseñas solo en configuración del servidor; cookie HttpOnly, SameSite Strict y Secure en producción. Cambiar una contraseña o AUTH_SECRET invalida las sesiones correspondientes.
+- Credenciales del personal en configuración del servidor; las claves de clientes se guardan con salt y hash scrypt en Redis, nunca en texto plano; cookie HttpOnly, SameSite Strict y Secure en producción. Cambiar una contraseña o AUTH_SECRET invalida las sesiones correspondientes.
 - El servidor controla roles, cupos y revisiones. Las modificaciones de una jornada se serializan con un bloqueo Redis con vencimiento y validación de propietario al guardar. Si dos vendedores compiten por el último cupo, solo uno puede confirmarlo. Los reintentos con el mismo identificador no duplican una inscripción.
 - Un módulo se identifica por actividad y minuto de inicio, no por su número ni monitor. Cambiar monitores o numeración conserva participantes. No se puede borrar, cambiar el inicio o dejar sin cobertura un módulo con inscritos activos: primero reubícalos o cancela sus inscripciones. Una modificación directa de JSON en GitHub evita este control; publica desde el planificador.
 - No se admiten inscripciones en módulos sin responsable principal del Muro o sin las tres funciones obligatorias cubiertas de Airtrail. El apoyo del Muro sigue siendo opcional.
 - Para mover o cancelar a alguien que ya hizo check-in, recepción debe deshacerlo primero. No se puede reducir un cupo por debajo de la cantidad inscrita.
-- La declaración es una marca sí/no, no una firma digital ni un archivo. El check-in confirma llegada; no bloquea automáticamente a quien tenga declaración pendiente.
+- La declaración manual es una casilla. Las declaraciones de `/declaracion` tienen firma manuscrita capturada, fecha, texto y aceptaciones guardados como registro separado e inmutable. No se afirma que la firma sea avanzada ni certificada. El check-in confirma llegada y exige pago en inscripciones nuevas; no bloquea automáticamente a quien tenga declaración pendiente.
 - Las pantallas conservan los módulos recién iniciados durante 10 minutos y muestran los dos siguientes. Listas largas rotan automáticamente. Si por intervalos muy cortos hay más de tres módulos vigentes, también rotan las tarjetas.
 - La página familiar muestra todos los módulos de hoy, incluidos los finalizados. No admite consulta pública de participantes de otras fechas. La API aplica este límite, no solo la interfaz.
 - Hora y fecha: `America/Santiago`, con reloj del servidor para check-in y sincronización de pantallas. Actualización pública cada 20 segundos. Si no se logra actualizar durante 90 segundos, la pantalla retira la lista para no presentarla como vigente.
+- Las nuevas inscripciones pendientes de pago retienen cupo indefinidamente hasta cancelación del personal; no aparecen en pantallas ni consulta familiar hasta marcarse pagadas. Recepción puede cancelar pendientes, pero solo vendedor/administrador confirman pagos.
+- El formulario ofrece recuperación solo con RUT desde cualquier dispositivo únicamente por consentimiento explícito y desmarcado por defecto. Es una modalidad sin verificación de identidad: cualquier conocedor del RUT puede consultar y reutilizar el perfil consentido. No entrega firmas históricas; cada sesión de este tipo solo puede leer las declaraciones que firma. La alternativa exige clave de al menos 8 caracteres. No se envían correos.
+- Las sesiones de clientes duran hasta 4 horas y usan una cookie distinta de la del personal. Los datos del cliente no se guardan en localStorage; sessionStorage contiene solamente referencias de declaración/reserva.
 - Público: primer nombre e inicial del último apellido; actividad y horario. No expone edad, declaración, observaciones, identidad del vendedor ni datos de check-in.
 - La página `/` original continúa mostrando planificación de monitores por fecha; la restricción de “solo hoy” aplica a `/hoy`, `/pantalla` y `/api/publico`, que contienen la información de participantes.
 - La reserva usa Redis por jornada. Es adecuada como ampliación de este sistema; no se presenta como arquitectura validada para millones de inscripciones ni como sistema de pago. El crecimiento y los respaldos deben controlarse en el proveedor.
 
 ## Verificación realizada
 
-15 pruebas automatizadas con Node: cupos combinados, excepciones, movimientos, cancelación, check-in, historial, roles, privacidad, medianoche en Chile, protección al republicar, cookies, cierre de sesión, cambios de contraseña y simulación concurrente del último cupo.
+24 pruebas automatizadas con Node: cupos combinados, excepciones, movimientos, cancelación, check-in, historial, roles, privacidad, medianoche en Chile, protección al republicar, cookies, cierre de sesión, cambios de contraseña y simulación concurrente del último cupo.
 
 Los servicios externos se simularon en las pruebas: no equivalen a una prueba de la base real o del despliegue Vercel. En navegador se comprobó el alta de un participante ficticio en ambas actividades, la actualización de ambos contadores, su búsqueda y check-in con hora y usuario, y el acceso al planificador con sesión. La lógica de ventanas de pantalla se probó automáticamente.
+
+Consulta `ACTUALIZAR_V12.md` para los detalles de compatibilidad y los límites de la declaración.
 
 Antes del uso real, completa una inscripción de prueba en tu dominio, comprueba recepción y ambas vistas públicas, y cancélala al terminar.
 

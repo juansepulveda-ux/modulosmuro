@@ -32,6 +32,18 @@
     {
       "source": "/hoy",
       "destination": "/hoy.html"
+    },
+    {
+      "source": "/declaracion",
+      "destination": "/declaracion.html"
+    },
+    {
+      "source": "/elegir-modulos",
+      "destination": "/elegir-modulos.html"
+    },
+    {
+      "source": "/declaracion-registro",
+      "destination": "/declaracion-registro.html"
     }
   ],
   "headers": [
@@ -117,6 +129,33 @@
     },
     {
       "source": "/hoy(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/declaracion(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/elegir-modulos(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/declaracion-registro(.*)",
       "headers": [
         {
           "key": "Cache-Control",

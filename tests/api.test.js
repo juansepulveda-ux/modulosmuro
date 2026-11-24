@@ -11,7 +11,7 @@ test('integración: sesiones, permisos, cupo simultáneo, publicación y privaci
  assert.equal((await call(auth,{cookie:admin})).body.user.role,'admin');assert.equal((await call(bookings,{query:{date}})).status,401);assert.equal((await call(personal,{cookie:seller})).status,403);
  assert.equal((await call(bookings,{method:'POST',cookie:seller,origin:'https://evil.example',body:{date,action:'capacity'}})).status,403);
  assert.equal((await call(bookings,{method:'POST',cookie:seller,body:{date,action:'capacity',version:0,values:{muro:1,airtrail:1,tirolesa:1}}})).status,200);
- const request=()=>({method:'POST',cookie:seller,body:{date,action:'register',id:randomUUID(),moduleKey:'airtrail:600',name:'Ana Privada',age:8,activities:['airtrail','tirolesa'],declaration:false,notes:'Privado'}});
+ const request=()=>({method:'POST',cookie:seller,body:{date,action:'register',id:randomUUID(),moduleKey:'airtrail:600',name:'Ana Privada',age:8,activities:['airtrail','tirolesa'],declaration:false,paid:true,notes:'Privado'}});
  const requests=[request(),request()];const result=await Promise.all(requests.map(r=>call(bookings,r)));assert.deepEqual(result.map(r=>r.status).sort(),[200,409]);
  const winner=requests[result.findIndex(r=>r.status===200)];assert.equal((await call(bookings,winner)).status,200);
  const list=await call(bookings,{cookie:reception,query:{date}});assert.equal(list.body.registrations.length,1);const record=list.body.registrations[0];

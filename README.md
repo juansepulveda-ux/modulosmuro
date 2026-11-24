@@ -1,11 +1,25 @@
-# Módulos educativos Mallsport v11
+# Módulos educativos Mallsport v12
 
-Planificadores existentes + sesiones por rol + inscripciones y cupos + check-in + pantallas y consulta pública de hoy.
+Actualización sobre v11: declaración pública, familias, firma y pago presencial.
 
-**Antes de subir:** lee `INSTALACION.md`. Requiere configurar Redis REST y las cuentas en Vercel. No incluye datos de producción; conserva tu carpeta `data` actual.
+**Para actualizar una instalación existente:** lee `ACTUALIZAR_V12.md`.
+Para una instalación nueva: `INSTALACION.md`.
 
-- `npm test`: pruebas automáticas.
-- `npm run dev`: demostración local con datos ficticios.
-- Producción: HTML y funciones Node de `/api`, usando `vercel.json`.
+No se requieren dependencias nuevas, servicio de correo ni variables adicionales sobre v11.
 
-Las inscripciones reales se guardan en Redis. Las jornadas y monitores siguen en GitHub.
+- `/declaracion`: adultos y menores, recuperación consentida por RUT o protegida por clave, firma y aceptaciones.
+- `/elegir-modulos`: actividades y horarios de hoy; cupos pendientes hasta cancelación del personal.
+- `/inscripciones`: declaración y pago con casillas; pagos con hora y usuario.
+- `/checkin`: llegada después del pago; cancelación de pendientes por recepción.
+- `/declaracion-registro?id=...`: documento firmado, solo para personal o cliente autorizado; imprimible.
+
+Los planificadores existentes y sus datos se conservan. El ZIP no incluye `data/`.
+
+## Pruebas locales
+
+```sh
+npm test
+npm run dev
+```
+
+La demostración utiliza datos ficticios en memoria y conexiones simuladas. El envío real de datos se hace únicamente al desplegar las funciones en Vercel y configurar la base como indica la guía.

@@ -13,6 +13,7 @@ export function fixtures(){
    if(script.includes("'INCR'")){const count=Number(get(keys[0])||0)+1;put(keys[0],String(count),store.get(keys[0])?.expiry||Date.now()+900000);return count}
    if(get(keys[0])!==argv[0])return 0;
    if(script.includes("'PTTL'"))return Number(store.get(keys[0]).expiry-Date.now()>10000);
+   if(script.includes("'SET',KEYS[3]")){if(get(keys[2]))return 2;put(keys[1],argv[1]);put(keys[2],argv[2]);return 1}
    if(script.includes("'SET',KEYS[2]")){put(keys[1],argv[1]);return 1}
    if(script.includes("'DEL'")){store.delete(keys[0]);return 1}
   }
