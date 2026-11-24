@@ -1,0 +1,2980 @@
+{
+  "version": 12,
+  "type": "airtrail-tirolesa",
+  "createdAt": "2026-11-24T12:58:21.129Z",
+  "date": "2026-11-24",
+  "config": {
+    "dayStart": "10:00",
+    "dayEnd": "20:30",
+    "firstStart": "14:00",
+    "interval": 60,
+    "intervals": [
+      {
+        "start": "10:00",
+        "end": "14:00",
+        "interval": 60
+      },
+      {
+        "start": "14:00",
+        "end": "20:00",
+        "interval": 30
+      }
+    ],
+    "equipDuration": 20,
+    "launchDuration": 20,
+    "gridMinutes": 10,
+    "poleTransferMinutes": 10,
+    "breaks": [
+      {
+        "start": "16:00",
+        "duration": 20,
+        "end": "16:20"
+      }
+    ]
+  },
+  "staff": [
+    {
+      "id": "p_xljnmugf",
+      "name": "Enoc Jiménez",
+      "nick": "Enoc",
+      "arrival": "14:00",
+      "departure": "20:00",
+      "preferred": "brake",
+      "skills": {
+        "brake": true,
+        "launch": false,
+        "equip": true,
+        "poles": false
+      },
+      "idx": 0,
+      "arrivalMin": 840,
+      "departureMin": 1200
+    },
+    {
+      "id": "p_gm82kgv",
+      "name": "Benjamín Delgado",
+      "nick": "Benjita",
+      "arrival": "14:00",
+      "departure": "20:30",
+      "preferred": "",
+      "skills": {
+        "brake": false,
+        "launch": false,
+        "equip": false,
+        "poles": true
+      },
+      "idx": 2,
+      "arrivalMin": 840,
+      "departureMin": 1230
+    },
+    {
+      "id": "p_pa0ohfx",
+      "name": "Sebastián Castro",
+      "nick": "Seba",
+      "arrival": "14:00",
+      "departure": "19:00",
+      "preferred": "",
+      "skills": {
+        "brake": false,
+        "launch": true,
+        "equip": false,
+        "poles": false
+      },
+      "idx": 3,
+      "arrivalMin": 840,
+      "departureMin": 1140
+    },
+    {
+      "id": "p_vlipsph",
+      "name": "Teresa Fernández",
+      "nick": "Teresita",
+      "arrival": "10:00",
+      "departure": "20:00",
+      "preferred": "",
+      "skills": {
+        "brake": false,
+        "launch": false,
+        "equip": true,
+        "poles": false
+      },
+      "idx": 4,
+      "arrivalMin": 600,
+      "departureMin": 1200
+    }
+  ],
+  "modules": [
+    {
+      "id": 1,
+      "start": 840,
+      "equipStart": 840,
+      "equipEnd": 860,
+      "launchStart": 860,
+      "end": 880,
+      "assign": {
+        "equipMain": [
+          {
+            "moduleId": 1,
+            "role": "equipMain",
+            "label": "Equipamiento",
+            "skill": "equip",
+            "baseStart": 840,
+            "start": 840,
+            "end": 860,
+            "assigned": 4,
+            "order": 3
+          }
+        ],
+        "brakeMain": [
+          {
+            "moduleId": 1,
+            "role": "brakeMain",
+            "label": "Freno",
+            "skill": "brake",
+            "baseStart": 860,
+            "start": 860,
+            "end": 880,
+            "assigned": 0,
+            "order": 1
+          }
+        ],
+        "launchMain": [
+          {
+            "moduleId": 1,
+            "role": "launchMain",
+            "label": "Lanzamiento",
+            "skill": "launch",
+            "baseStart": 860,
+            "start": 860,
+            "end": 880,
+            "assigned": 3,
+            "order": 2
+          }
+        ],
+        "polesSupport": [
+          {
+            "moduleId": 1,
+            "role": "polesSupport",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 860,
+            "start": 860,
+            "end": 880,
+            "assigned": 2,
+            "order": 6
+          }
+        ],
+        "polesTransfer": [
+          {
+            "moduleId": 1,
+            "role": "polesTransfer",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 880,
+            "start": 880,
+            "end": 890,
+            "assigned": 2,
+            "order": 6
+          }
+        ]
+      },
+      "intervalSegment": {
+        "start": 840,
+        "end": 1200,
+        "interval": 30
+      },
+      "activeStaff": 4
+    },
+    {
+      "id": 2,
+      "start": 870,
+      "equipStart": 870,
+      "equipEnd": 890,
+      "launchStart": 890,
+      "end": 910,
+      "assign": {
+        "equipMain": [
+          {
+            "moduleId": 2,
+            "role": "equipMain",
+            "label": "Equipamiento",
+            "skill": "equip",
+            "baseStart": 870,
+            "start": 870,
+            "end": 890,
+            "assigned": 4,
+            "order": 3
+          }
+        ],
+        "brakeMain": [
+          {
+            "moduleId": 2,
+            "role": "brakeMain",
+            "label": "Freno",
+            "skill": "brake",
+            "baseStart": 890,
+            "start": 890,
+            "end": 910,
+            "assigned": 0,
+            "order": 1
+          }
+        ],
+        "launchMain": [
+          {
+            "moduleId": 2,
+            "role": "launchMain",
+            "label": "Lanzamiento",
+            "skill": "launch",
+            "baseStart": 890,
+            "start": 890,
+            "end": 910,
+            "assigned": 3,
+            "order": 2
+          }
+        ],
+        "polesSupport": [
+          {
+            "moduleId": 2,
+            "role": "polesSupport",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 890,
+            "start": 890,
+            "end": 910,
+            "assigned": 2,
+            "order": 6
+          }
+        ],
+        "polesTransfer": [
+          {
+            "moduleId": 2,
+            "role": "polesTransfer",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 910,
+            "start": 910,
+            "end": 920,
+            "assigned": 2,
+            "order": 6
+          }
+        ]
+      },
+      "intervalSegment": {
+        "start": 840,
+        "end": 1200,
+        "interval": 30
+      },
+      "activeStaff": 4
+    },
+    {
+      "id": 3,
+      "start": 900,
+      "equipStart": 900,
+      "equipEnd": 920,
+      "launchStart": 920,
+      "end": 940,
+      "assign": {
+        "equipMain": [
+          {
+            "moduleId": 3,
+            "role": "equipMain",
+            "label": "Equipamiento",
+            "skill": "equip",
+            "baseStart": 900,
+            "start": 900,
+            "end": 920,
+            "assigned": 4,
+            "order": 3
+          }
+        ],
+        "brakeMain": [
+          {
+            "moduleId": 3,
+            "role": "brakeMain",
+            "label": "Freno",
+            "skill": "brake",
+            "baseStart": 920,
+            "start": 920,
+            "end": 940,
+            "assigned": 0,
+            "order": 1
+          }
+        ],
+        "launchMain": [
+          {
+            "moduleId": 3,
+            "role": "launchMain",
+            "label": "Lanzamiento",
+            "skill": "launch",
+            "baseStart": 920,
+            "start": 920,
+            "end": 940,
+            "assigned": 3,
+            "order": 2
+          }
+        ],
+        "polesSupport": [
+          {
+            "moduleId": 3,
+            "role": "polesSupport",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 920,
+            "start": 920,
+            "end": 940,
+            "assigned": 2,
+            "order": 6
+          }
+        ],
+        "polesTransfer": [
+          {
+            "moduleId": 3,
+            "role": "polesTransfer",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 940,
+            "start": 940,
+            "end": 950,
+            "assigned": 2,
+            "order": 6
+          }
+        ]
+      },
+      "intervalSegment": {
+        "start": 840,
+        "end": 1200,
+        "interval": 30
+      },
+      "activeStaff": 4
+    },
+    {
+      "id": 4,
+      "start": 930,
+      "equipStart": 930,
+      "equipEnd": 950,
+      "launchStart": 950,
+      "end": 970,
+      "assign": {
+        "equipMain": [
+          {
+            "moduleId": 4,
+            "role": "equipMain",
+            "label": "Equipamiento",
+            "skill": "equip",
+            "baseStart": 930,
+            "start": 930,
+            "end": 950,
+            "assigned": 4,
+            "order": 3
+          }
+        ],
+        "brakeMain": [
+          {
+            "moduleId": 4,
+            "role": "brakeMain",
+            "label": "Freno",
+            "skill": "brake",
+            "baseStart": 950,
+            "start": 950,
+            "end": 970,
+            "assigned": 0,
+            "order": 1
+          }
+        ],
+        "launchMain": [
+          {
+            "moduleId": 4,
+            "role": "launchMain",
+            "label": "Lanzamiento",
+            "skill": "launch",
+            "baseStart": 950,
+            "start": 950,
+            "end": 970,
+            "assigned": 3,
+            "order": 2
+          }
+        ],
+        "polesSupport": [
+          {
+            "moduleId": 4,
+            "role": "polesSupport",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 950,
+            "start": 950,
+            "end": 970,
+            "assigned": 2,
+            "order": 6
+          }
+        ],
+        "polesTransfer": [
+          {
+            "moduleId": 4,
+            "role": "polesTransfer",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 970,
+            "start": 970,
+            "end": 980,
+            "assigned": 2,
+            "order": 6
+          }
+        ]
+      },
+      "intervalSegment": {
+        "start": 840,
+        "end": 1200,
+        "interval": 30
+      },
+      "activeStaff": 4
+    },
+    {
+      "id": 5,
+      "start": 980,
+      "equipStart": 980,
+      "equipEnd": 1000,
+      "launchStart": 1000,
+      "end": 1020,
+      "assign": {
+        "equipMain": [
+          {
+            "moduleId": 5,
+            "role": "equipMain",
+            "label": "Equipamiento",
+            "skill": "equip",
+            "baseStart": 980,
+            "start": 980,
+            "end": 1000,
+            "assigned": 4,
+            "order": 3
+          }
+        ],
+        "brakeMain": [
+          {
+            "moduleId": 5,
+            "role": "brakeMain",
+            "label": "Freno",
+            "skill": "brake",
+            "baseStart": 1000,
+            "start": 1000,
+            "end": 1020,
+            "assigned": 0,
+            "order": 1
+          }
+        ],
+        "launchMain": [
+          {
+            "moduleId": 5,
+            "role": "launchMain",
+            "label": "Lanzamiento",
+            "skill": "launch",
+            "baseStart": 1000,
+            "start": 1000,
+            "end": 1020,
+            "assigned": 3,
+            "order": 2
+          }
+        ],
+        "polesSupport": [
+          {
+            "moduleId": 5,
+            "role": "polesSupport",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 1000,
+            "start": 1000,
+            "end": 1020,
+            "assigned": 2,
+            "order": 6
+          }
+        ],
+        "polesTransfer": [
+          {
+            "moduleId": 5,
+            "role": "polesTransfer",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 1020,
+            "start": 1020,
+            "end": 1030,
+            "assigned": 2,
+            "order": 6
+          }
+        ]
+      },
+      "intervalSegment": {
+        "start": 840,
+        "end": 1200,
+        "interval": 30
+      },
+      "activeStaff": 4
+    },
+    {
+      "id": 6,
+      "start": 1010,
+      "equipStart": 1010,
+      "equipEnd": 1030,
+      "launchStart": 1030,
+      "end": 1050,
+      "assign": {
+        "equipMain": [
+          {
+            "moduleId": 6,
+            "role": "equipMain",
+            "label": "Equipamiento",
+            "skill": "equip",
+            "baseStart": 1010,
+            "start": 1010,
+            "end": 1030,
+            "assigned": 4,
+            "order": 3
+          }
+        ],
+        "brakeMain": [
+          {
+            "moduleId": 6,
+            "role": "brakeMain",
+            "label": "Freno",
+            "skill": "brake",
+            "baseStart": 1030,
+            "start": 1030,
+            "end": 1050,
+            "assigned": 0,
+            "order": 1
+          }
+        ],
+        "launchMain": [
+          {
+            "moduleId": 6,
+            "role": "launchMain",
+            "label": "Lanzamiento",
+            "skill": "launch",
+            "baseStart": 1030,
+            "start": 1030,
+            "end": 1050,
+            "assigned": 3,
+            "order": 2
+          }
+        ],
+        "polesSupport": [
+          {
+            "moduleId": 6,
+            "role": "polesSupport",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 1030,
+            "start": 1030,
+            "end": 1050,
+            "assigned": 2,
+            "order": 6
+          }
+        ],
+        "polesTransfer": [
+          {
+            "moduleId": 6,
+            "role": "polesTransfer",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 1050,
+            "start": 1050,
+            "end": 1060,
+            "assigned": 2,
+            "order": 6
+          }
+        ]
+      },
+      "intervalSegment": {
+        "start": 840,
+        "end": 1200,
+        "interval": 30
+      },
+      "activeStaff": 4
+    },
+    {
+      "id": 7,
+      "start": 1040,
+      "equipStart": 1040,
+      "equipEnd": 1060,
+      "launchStart": 1060,
+      "end": 1080,
+      "assign": {
+        "equipMain": [
+          {
+            "moduleId": 7,
+            "role": "equipMain",
+            "label": "Equipamiento",
+            "skill": "equip",
+            "baseStart": 1040,
+            "start": 1040,
+            "end": 1060,
+            "assigned": 4,
+            "order": 3
+          }
+        ],
+        "brakeMain": [
+          {
+            "moduleId": 7,
+            "role": "brakeMain",
+            "label": "Freno",
+            "skill": "brake",
+            "baseStart": 1060,
+            "start": 1060,
+            "end": 1080,
+            "assigned": 0,
+            "order": 1
+          }
+        ],
+        "launchMain": [
+          {
+            "moduleId": 7,
+            "role": "launchMain",
+            "label": "Lanzamiento",
+            "skill": "launch",
+            "baseStart": 1060,
+            "start": 1060,
+            "end": 1080,
+            "assigned": 3,
+            "order": 2
+          }
+        ],
+        "polesSupport": [
+          {
+            "moduleId": 7,
+            "role": "polesSupport",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 1060,
+            "start": 1060,
+            "end": 1080,
+            "assigned": 2,
+            "order": 6
+          }
+        ],
+        "polesTransfer": [
+          {
+            "moduleId": 7,
+            "role": "polesTransfer",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 1080,
+            "start": 1080,
+            "end": 1090,
+            "assigned": 2,
+            "order": 6
+          }
+        ]
+      },
+      "intervalSegment": {
+        "start": 840,
+        "end": 1200,
+        "interval": 30
+      },
+      "activeStaff": 4
+    },
+    {
+      "id": 8,
+      "start": 1070,
+      "equipStart": 1070,
+      "equipEnd": 1090,
+      "launchStart": 1090,
+      "end": 1110,
+      "assign": {
+        "equipMain": [
+          {
+            "moduleId": 8,
+            "role": "equipMain",
+            "label": "Equipamiento",
+            "skill": "equip",
+            "baseStart": 1070,
+            "start": 1070,
+            "end": 1090,
+            "assigned": 4,
+            "order": 3
+          }
+        ],
+        "brakeMain": [
+          {
+            "moduleId": 8,
+            "role": "brakeMain",
+            "label": "Freno",
+            "skill": "brake",
+            "baseStart": 1090,
+            "start": 1090,
+            "end": 1110,
+            "assigned": 0,
+            "order": 1
+          }
+        ],
+        "launchMain": [
+          {
+            "moduleId": 8,
+            "role": "launchMain",
+            "label": "Lanzamiento",
+            "skill": "launch",
+            "baseStart": 1090,
+            "start": 1090,
+            "end": 1110,
+            "assigned": 3,
+            "order": 2
+          }
+        ],
+        "polesSupport": [
+          {
+            "moduleId": 8,
+            "role": "polesSupport",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 1090,
+            "start": 1090,
+            "end": 1110,
+            "assigned": 2,
+            "order": 6
+          }
+        ],
+        "polesTransfer": [
+          {
+            "moduleId": 8,
+            "role": "polesTransfer",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 1110,
+            "start": 1110,
+            "end": 1120,
+            "assigned": 2,
+            "order": 6
+          }
+        ]
+      },
+      "intervalSegment": {
+        "start": 840,
+        "end": 1200,
+        "interval": 30
+      },
+      "activeStaff": 4
+    },
+    {
+      "id": 9,
+      "start": 1100,
+      "equipStart": 1100,
+      "equipEnd": 1120,
+      "launchStart": 1120,
+      "end": 1140,
+      "assign": {
+        "equipMain": [
+          {
+            "moduleId": 9,
+            "role": "equipMain",
+            "label": "Equipamiento",
+            "skill": "equip",
+            "baseStart": 1100,
+            "start": 1100,
+            "end": 1120,
+            "assigned": 4,
+            "order": 3
+          }
+        ],
+        "brakeMain": [
+          {
+            "moduleId": 9,
+            "role": "brakeMain",
+            "label": "Freno",
+            "skill": "brake",
+            "baseStart": 1120,
+            "start": 1120,
+            "end": 1140,
+            "assigned": 0,
+            "order": 1
+          }
+        ],
+        "launchMain": [
+          {
+            "moduleId": 9,
+            "role": "launchMain",
+            "label": "Lanzamiento",
+            "skill": "launch",
+            "baseStart": 1120,
+            "start": 1120,
+            "end": 1140,
+            "assigned": 3,
+            "order": 2
+          }
+        ],
+        "polesSupport": [
+          {
+            "moduleId": 9,
+            "role": "polesSupport",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 1120,
+            "start": 1120,
+            "end": 1140,
+            "assigned": 2,
+            "order": 6
+          }
+        ],
+        "polesTransfer": [
+          {
+            "moduleId": 9,
+            "role": "polesTransfer",
+            "label": "Poleas",
+            "skill": "poles",
+            "baseStart": 1140,
+            "start": 1140,
+            "end": 1150,
+            "assigned": 2,
+            "order": 6
+          }
+        ]
+      },
+      "intervalSegment": {
+        "start": 840,
+        "end": 1200,
+        "interval": 30
+      },
+      "activeStaff": 4
+    }
+  ],
+  "tasks": [
+    {
+      "moduleId": 1,
+      "role": "equipMain",
+      "label": "Equipamiento",
+      "skill": "equip",
+      "baseStart": 840,
+      "start": 840,
+      "end": 860,
+      "assigned": 4,
+      "order": 3
+    },
+    {
+      "moduleId": 1,
+      "role": "brakeMain",
+      "label": "Freno",
+      "skill": "brake",
+      "baseStart": 860,
+      "start": 860,
+      "end": 880,
+      "assigned": 0,
+      "order": 1
+    },
+    {
+      "moduleId": 1,
+      "role": "launchMain",
+      "label": "Lanzamiento",
+      "skill": "launch",
+      "baseStart": 860,
+      "start": 860,
+      "end": 880,
+      "assigned": 3,
+      "order": 2
+    },
+    {
+      "moduleId": 1,
+      "role": "polesSupport",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 860,
+      "start": 860,
+      "end": 880,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 1,
+      "role": "polesTransfer",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 880,
+      "start": 880,
+      "end": 890,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 2,
+      "role": "equipMain",
+      "label": "Equipamiento",
+      "skill": "equip",
+      "baseStart": 870,
+      "start": 870,
+      "end": 890,
+      "assigned": 4,
+      "order": 3
+    },
+    {
+      "moduleId": 2,
+      "role": "brakeMain",
+      "label": "Freno",
+      "skill": "brake",
+      "baseStart": 890,
+      "start": 890,
+      "end": 910,
+      "assigned": 0,
+      "order": 1
+    },
+    {
+      "moduleId": 2,
+      "role": "launchMain",
+      "label": "Lanzamiento",
+      "skill": "launch",
+      "baseStart": 890,
+      "start": 890,
+      "end": 910,
+      "assigned": 3,
+      "order": 2
+    },
+    {
+      "moduleId": 2,
+      "role": "polesSupport",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 890,
+      "start": 890,
+      "end": 910,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 2,
+      "role": "polesTransfer",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 910,
+      "start": 910,
+      "end": 920,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 3,
+      "role": "equipMain",
+      "label": "Equipamiento",
+      "skill": "equip",
+      "baseStart": 900,
+      "start": 900,
+      "end": 920,
+      "assigned": 4,
+      "order": 3
+    },
+    {
+      "moduleId": 3,
+      "role": "brakeMain",
+      "label": "Freno",
+      "skill": "brake",
+      "baseStart": 920,
+      "start": 920,
+      "end": 940,
+      "assigned": 0,
+      "order": 1
+    },
+    {
+      "moduleId": 3,
+      "role": "launchMain",
+      "label": "Lanzamiento",
+      "skill": "launch",
+      "baseStart": 920,
+      "start": 920,
+      "end": 940,
+      "assigned": 3,
+      "order": 2
+    },
+    {
+      "moduleId": 3,
+      "role": "polesSupport",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 920,
+      "start": 920,
+      "end": 940,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 3,
+      "role": "polesTransfer",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 940,
+      "start": 940,
+      "end": 950,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 4,
+      "role": "equipMain",
+      "label": "Equipamiento",
+      "skill": "equip",
+      "baseStart": 930,
+      "start": 930,
+      "end": 950,
+      "assigned": 4,
+      "order": 3
+    },
+    {
+      "moduleId": 4,
+      "role": "brakeMain",
+      "label": "Freno",
+      "skill": "brake",
+      "baseStart": 950,
+      "start": 950,
+      "end": 970,
+      "assigned": 0,
+      "order": 1
+    },
+    {
+      "moduleId": 4,
+      "role": "launchMain",
+      "label": "Lanzamiento",
+      "skill": "launch",
+      "baseStart": 950,
+      "start": 950,
+      "end": 970,
+      "assigned": 3,
+      "order": 2
+    },
+    {
+      "moduleId": 4,
+      "role": "polesSupport",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 950,
+      "start": 950,
+      "end": 970,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 4,
+      "role": "polesTransfer",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 970,
+      "start": 970,
+      "end": 980,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 5,
+      "role": "equipMain",
+      "label": "Equipamiento",
+      "skill": "equip",
+      "baseStart": 980,
+      "start": 980,
+      "end": 1000,
+      "assigned": 4,
+      "order": 3
+    },
+    {
+      "moduleId": 5,
+      "role": "brakeMain",
+      "label": "Freno",
+      "skill": "brake",
+      "baseStart": 1000,
+      "start": 1000,
+      "end": 1020,
+      "assigned": 0,
+      "order": 1
+    },
+    {
+      "moduleId": 5,
+      "role": "launchMain",
+      "label": "Lanzamiento",
+      "skill": "launch",
+      "baseStart": 1000,
+      "start": 1000,
+      "end": 1020,
+      "assigned": 3,
+      "order": 2
+    },
+    {
+      "moduleId": 5,
+      "role": "polesSupport",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 1000,
+      "start": 1000,
+      "end": 1020,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 5,
+      "role": "polesTransfer",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 1020,
+      "start": 1020,
+      "end": 1030,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 6,
+      "role": "equipMain",
+      "label": "Equipamiento",
+      "skill": "equip",
+      "baseStart": 1010,
+      "start": 1010,
+      "end": 1030,
+      "assigned": 4,
+      "order": 3
+    },
+    {
+      "moduleId": 6,
+      "role": "brakeMain",
+      "label": "Freno",
+      "skill": "brake",
+      "baseStart": 1030,
+      "start": 1030,
+      "end": 1050,
+      "assigned": 0,
+      "order": 1
+    },
+    {
+      "moduleId": 6,
+      "role": "launchMain",
+      "label": "Lanzamiento",
+      "skill": "launch",
+      "baseStart": 1030,
+      "start": 1030,
+      "end": 1050,
+      "assigned": 3,
+      "order": 2
+    },
+    {
+      "moduleId": 6,
+      "role": "polesSupport",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 1030,
+      "start": 1030,
+      "end": 1050,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 6,
+      "role": "polesTransfer",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 1050,
+      "start": 1050,
+      "end": 1060,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 7,
+      "role": "equipMain",
+      "label": "Equipamiento",
+      "skill": "equip",
+      "baseStart": 1040,
+      "start": 1040,
+      "end": 1060,
+      "assigned": 4,
+      "order": 3
+    },
+    {
+      "moduleId": 7,
+      "role": "brakeMain",
+      "label": "Freno",
+      "skill": "brake",
+      "baseStart": 1060,
+      "start": 1060,
+      "end": 1080,
+      "assigned": 0,
+      "order": 1
+    },
+    {
+      "moduleId": 7,
+      "role": "launchMain",
+      "label": "Lanzamiento",
+      "skill": "launch",
+      "baseStart": 1060,
+      "start": 1060,
+      "end": 1080,
+      "assigned": 3,
+      "order": 2
+    },
+    {
+      "moduleId": 7,
+      "role": "polesSupport",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 1060,
+      "start": 1060,
+      "end": 1080,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 7,
+      "role": "polesTransfer",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 1080,
+      "start": 1080,
+      "end": 1090,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 8,
+      "role": "equipMain",
+      "label": "Equipamiento",
+      "skill": "equip",
+      "baseStart": 1070,
+      "start": 1070,
+      "end": 1090,
+      "assigned": 4,
+      "order": 3
+    },
+    {
+      "moduleId": 8,
+      "role": "brakeMain",
+      "label": "Freno",
+      "skill": "brake",
+      "baseStart": 1090,
+      "start": 1090,
+      "end": 1110,
+      "assigned": 0,
+      "order": 1
+    },
+    {
+      "moduleId": 8,
+      "role": "launchMain",
+      "label": "Lanzamiento",
+      "skill": "launch",
+      "baseStart": 1090,
+      "start": 1090,
+      "end": 1110,
+      "assigned": 3,
+      "order": 2
+    },
+    {
+      "moduleId": 8,
+      "role": "polesSupport",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 1090,
+      "start": 1090,
+      "end": 1110,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 8,
+      "role": "polesTransfer",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 1110,
+      "start": 1110,
+      "end": 1120,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 9,
+      "role": "equipMain",
+      "label": "Equipamiento",
+      "skill": "equip",
+      "baseStart": 1100,
+      "start": 1100,
+      "end": 1120,
+      "assigned": 4,
+      "order": 3
+    },
+    {
+      "moduleId": 9,
+      "role": "brakeMain",
+      "label": "Freno",
+      "skill": "brake",
+      "baseStart": 1120,
+      "start": 1120,
+      "end": 1140,
+      "assigned": 0,
+      "order": 1
+    },
+    {
+      "moduleId": 9,
+      "role": "launchMain",
+      "label": "Lanzamiento",
+      "skill": "launch",
+      "baseStart": 1120,
+      "start": 1120,
+      "end": 1140,
+      "assigned": 3,
+      "order": 2
+    },
+    {
+      "moduleId": 9,
+      "role": "polesSupport",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 1120,
+      "start": 1120,
+      "end": 1140,
+      "assigned": 2,
+      "order": 6
+    },
+    {
+      "moduleId": 9,
+      "role": "polesTransfer",
+      "label": "Poleas",
+      "skill": "poles",
+      "baseStart": 1140,
+      "start": 1140,
+      "end": 1150,
+      "assigned": 2,
+      "order": 6
+    }
+  ],
+  "timeline": [
+    {
+      "start": 600,
+      "end": 610,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 610,
+      "end": 620,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 620,
+      "end": 630,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 630,
+      "end": 640,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 640,
+      "end": 650,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 650,
+      "end": 660,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 660,
+      "end": 670,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 670,
+      "end": 680,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 680,
+      "end": 690,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 690,
+      "end": 700,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 700,
+      "end": 710,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 710,
+      "end": 720,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 720,
+      "end": 730,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 730,
+      "end": 740,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 740,
+      "end": 750,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 750,
+      "end": 760,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 760,
+      "end": 770,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 770,
+      "end": 780,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 780,
+      "end": 790,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 790,
+      "end": 800,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 800,
+      "end": 810,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 810,
+      "end": 820,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 820,
+      "end": 830,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 830,
+      "end": 840,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 840,
+      "end": 850,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": {
+          "moduleId": 1,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 840,
+          "start": 840,
+          "end": 860,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 850,
+      "end": 860,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": {
+          "moduleId": 1,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 840,
+          "start": 840,
+          "end": 860,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 860,
+      "end": 870,
+      "cells": {
+        "0": {
+          "moduleId": 1,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 860,
+          "start": 860,
+          "end": 880,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 1,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 860,
+          "start": 860,
+          "end": 880,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 1,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 860,
+          "start": 860,
+          "end": 880,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 870,
+      "end": 880,
+      "cells": {
+        "0": {
+          "moduleId": 1,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 860,
+          "start": 860,
+          "end": 880,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 1,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 860,
+          "start": 860,
+          "end": 880,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 1,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 860,
+          "start": 860,
+          "end": 880,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": {
+          "moduleId": 2,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 870,
+          "start": 870,
+          "end": 890,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 880,
+      "end": 890,
+      "cells": {
+        "0": null,
+        "2": {
+          "moduleId": 1,
+          "role": "polesTransfer",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 880,
+          "start": 880,
+          "end": 890,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": null,
+        "4": {
+          "moduleId": 2,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 870,
+          "start": 870,
+          "end": 890,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 890,
+      "end": 900,
+      "cells": {
+        "0": {
+          "moduleId": 2,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 890,
+          "start": 890,
+          "end": 910,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 2,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 890,
+          "start": 890,
+          "end": 910,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 2,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 890,
+          "start": 890,
+          "end": 910,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 900,
+      "end": 910,
+      "cells": {
+        "0": {
+          "moduleId": 2,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 890,
+          "start": 890,
+          "end": 910,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 2,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 890,
+          "start": 890,
+          "end": 910,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 2,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 890,
+          "start": 890,
+          "end": 910,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": {
+          "moduleId": 3,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 900,
+          "start": 900,
+          "end": 920,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 910,
+      "end": 920,
+      "cells": {
+        "0": null,
+        "2": {
+          "moduleId": 2,
+          "role": "polesTransfer",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 910,
+          "start": 910,
+          "end": 920,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": null,
+        "4": {
+          "moduleId": 3,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 900,
+          "start": 900,
+          "end": 920,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 920,
+      "end": 930,
+      "cells": {
+        "0": {
+          "moduleId": 3,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 920,
+          "start": 920,
+          "end": 940,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 3,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 920,
+          "start": 920,
+          "end": 940,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 3,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 920,
+          "start": 920,
+          "end": 940,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 930,
+      "end": 940,
+      "cells": {
+        "0": {
+          "moduleId": 3,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 920,
+          "start": 920,
+          "end": 940,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 3,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 920,
+          "start": 920,
+          "end": 940,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 3,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 920,
+          "start": 920,
+          "end": 940,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": {
+          "moduleId": 4,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 930,
+          "start": 930,
+          "end": 950,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 940,
+      "end": 950,
+      "cells": {
+        "0": null,
+        "2": {
+          "moduleId": 3,
+          "role": "polesTransfer",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 940,
+          "start": 940,
+          "end": 950,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": null,
+        "4": {
+          "moduleId": 4,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 930,
+          "start": 930,
+          "end": 950,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 950,
+      "end": 960,
+      "cells": {
+        "0": {
+          "moduleId": 4,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 950,
+          "start": 950,
+          "end": 970,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 4,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 950,
+          "start": 950,
+          "end": 970,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 4,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 950,
+          "start": 950,
+          "end": 970,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 960,
+      "end": 970,
+      "cells": {
+        "0": {
+          "moduleId": 4,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 950,
+          "start": 950,
+          "end": 970,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 4,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 950,
+          "start": 950,
+          "end": 970,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 4,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 950,
+          "start": 950,
+          "end": 970,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": {
+          "role": "break",
+          "label": "Break",
+          "start": 960,
+          "end": 980,
+          "moduleId": null
+        }
+      },
+      "break": true
+    },
+    {
+      "start": 970,
+      "end": 980,
+      "cells": {
+        "0": {
+          "role": "break",
+          "label": "Break",
+          "start": 970,
+          "end": 990,
+          "moduleId": null
+        },
+        "2": {
+          "moduleId": 4,
+          "role": "polesTransfer",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 970,
+          "start": 970,
+          "end": 980,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "role": "break",
+          "label": "Break",
+          "start": 970,
+          "end": 990,
+          "moduleId": null
+        },
+        "4": {
+          "role": "break",
+          "label": "Break",
+          "start": 960,
+          "end": 980,
+          "moduleId": null
+        }
+      },
+      "break": true
+    },
+    {
+      "start": 980,
+      "end": 990,
+      "cells": {
+        "0": {
+          "role": "break",
+          "label": "Break",
+          "start": 970,
+          "end": 990,
+          "moduleId": null
+        },
+        "2": {
+          "role": "break",
+          "label": "Break",
+          "start": 980,
+          "end": 1000,
+          "moduleId": null
+        },
+        "3": {
+          "role": "break",
+          "label": "Break",
+          "start": 970,
+          "end": 990,
+          "moduleId": null
+        },
+        "4": {
+          "moduleId": 5,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 980,
+          "start": 980,
+          "end": 1000,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 990,
+      "end": 1000,
+      "cells": {
+        "0": null,
+        "2": {
+          "role": "break",
+          "label": "Break",
+          "start": 980,
+          "end": 1000,
+          "moduleId": null
+        },
+        "3": null,
+        "4": {
+          "moduleId": 5,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 980,
+          "start": 980,
+          "end": 1000,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 1000,
+      "end": 1010,
+      "cells": {
+        "0": {
+          "moduleId": 5,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 1000,
+          "start": 1000,
+          "end": 1020,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 5,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 1000,
+          "start": 1000,
+          "end": 1020,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 5,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1000,
+          "start": 1000,
+          "end": 1020,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 1010,
+      "end": 1020,
+      "cells": {
+        "0": {
+          "moduleId": 5,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 1000,
+          "start": 1000,
+          "end": 1020,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 5,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 1000,
+          "start": 1000,
+          "end": 1020,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 5,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1000,
+          "start": 1000,
+          "end": 1020,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": {
+          "moduleId": 6,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1010,
+          "start": 1010,
+          "end": 1030,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 1020,
+      "end": 1030,
+      "cells": {
+        "0": null,
+        "2": {
+          "moduleId": 5,
+          "role": "polesTransfer",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 1020,
+          "start": 1020,
+          "end": 1030,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": null,
+        "4": {
+          "moduleId": 6,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1010,
+          "start": 1010,
+          "end": 1030,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 1030,
+      "end": 1040,
+      "cells": {
+        "0": {
+          "moduleId": 6,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 1030,
+          "start": 1030,
+          "end": 1050,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 6,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 1030,
+          "start": 1030,
+          "end": 1050,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 6,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1030,
+          "start": 1030,
+          "end": 1050,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 1040,
+      "end": 1050,
+      "cells": {
+        "0": {
+          "moduleId": 6,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 1030,
+          "start": 1030,
+          "end": 1050,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 6,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 1030,
+          "start": 1030,
+          "end": 1050,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 6,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1030,
+          "start": 1030,
+          "end": 1050,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": {
+          "moduleId": 7,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1040,
+          "start": 1040,
+          "end": 1060,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 1050,
+      "end": 1060,
+      "cells": {
+        "0": null,
+        "2": {
+          "moduleId": 6,
+          "role": "polesTransfer",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 1050,
+          "start": 1050,
+          "end": 1060,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": null,
+        "4": {
+          "moduleId": 7,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1040,
+          "start": 1040,
+          "end": 1060,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 1060,
+      "end": 1070,
+      "cells": {
+        "0": {
+          "moduleId": 7,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 1060,
+          "start": 1060,
+          "end": 1080,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 7,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 1060,
+          "start": 1060,
+          "end": 1080,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 7,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1060,
+          "start": 1060,
+          "end": 1080,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 1070,
+      "end": 1080,
+      "cells": {
+        "0": {
+          "moduleId": 7,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 1060,
+          "start": 1060,
+          "end": 1080,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 7,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 1060,
+          "start": 1060,
+          "end": 1080,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 7,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1060,
+          "start": 1060,
+          "end": 1080,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": {
+          "moduleId": 8,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1070,
+          "start": 1070,
+          "end": 1090,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 1080,
+      "end": 1090,
+      "cells": {
+        "0": null,
+        "2": {
+          "moduleId": 7,
+          "role": "polesTransfer",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 1080,
+          "start": 1080,
+          "end": 1090,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": null,
+        "4": {
+          "moduleId": 8,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1070,
+          "start": 1070,
+          "end": 1090,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 1090,
+      "end": 1100,
+      "cells": {
+        "0": {
+          "moduleId": 8,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 1090,
+          "start": 1090,
+          "end": 1110,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 8,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 1090,
+          "start": 1090,
+          "end": 1110,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 8,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1090,
+          "start": 1090,
+          "end": 1110,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 1100,
+      "end": 1110,
+      "cells": {
+        "0": {
+          "moduleId": 8,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 1090,
+          "start": 1090,
+          "end": 1110,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 8,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 1090,
+          "start": 1090,
+          "end": 1110,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 8,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1090,
+          "start": 1090,
+          "end": 1110,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": {
+          "moduleId": 9,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1100,
+          "start": 1100,
+          "end": 1120,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 1110,
+      "end": 1120,
+      "cells": {
+        "0": null,
+        "2": {
+          "moduleId": 8,
+          "role": "polesTransfer",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 1110,
+          "start": 1110,
+          "end": 1120,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": null,
+        "4": {
+          "moduleId": 9,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1100,
+          "start": 1100,
+          "end": 1120,
+          "assigned": 4,
+          "order": 3
+        }
+      },
+      "break": false
+    },
+    {
+      "start": 1120,
+      "end": 1130,
+      "cells": {
+        "0": {
+          "moduleId": 9,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 1120,
+          "start": 1120,
+          "end": 1140,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 9,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 1120,
+          "start": 1120,
+          "end": 1140,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 9,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1120,
+          "start": 1120,
+          "end": 1140,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 1130,
+      "end": 1140,
+      "cells": {
+        "0": {
+          "moduleId": 9,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 1120,
+          "start": 1120,
+          "end": 1140,
+          "assigned": 0,
+          "order": 1
+        },
+        "2": {
+          "moduleId": 9,
+          "role": "polesSupport",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 1120,
+          "start": 1120,
+          "end": 1140,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": {
+          "moduleId": 9,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1120,
+          "start": 1120,
+          "end": 1140,
+          "assigned": 3,
+          "order": 2
+        },
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 1140,
+      "end": 1150,
+      "cells": {
+        "0": null,
+        "2": {
+          "moduleId": 9,
+          "role": "polesTransfer",
+          "label": "Poleas",
+          "skill": "poles",
+          "baseStart": 1140,
+          "start": 1140,
+          "end": 1150,
+          "assigned": 2,
+          "order": 6
+        },
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 1150,
+      "end": 1160,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 1160,
+      "end": 1170,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 1170,
+      "end": 1180,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 1180,
+      "end": 1190,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 1190,
+      "end": 1200,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 1200,
+      "end": 1210,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 1210,
+      "end": 1220,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    },
+    {
+      "start": 1220,
+      "end": 1230,
+      "cells": {
+        "0": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "break": false
+    }
+  ],
+  "warnings": [
+    "Inicio 10:00 omitido: no se puede completar Equipamiento + Freno + Lanzamiento respetando horarios, breaks y competencias.",
+    "Inicio 11:00 omitido: no se puede completar Equipamiento + Freno + Lanzamiento respetando horarios, breaks y competencias.",
+    "Inicio 12:00 omitido: no se puede completar Equipamiento + Freno + Lanzamiento respetando horarios, breaks y competencias.",
+    "Inicio 13:00 omitido: no se puede completar Equipamiento + Freno + Lanzamiento respetando horarios, breaks y competencias.",
+    "Inicio 18:50 omitido: no se puede completar Equipamiento + Freno + Lanzamiento respetando horarios, breaks y competencias.",
+    "Inicio 19:20 omitido: no se puede completar Equipamiento + Freno + Lanzamiento respetando horarios, breaks y competencias.",
+    "Inicio 19:50 omitido: no se puede completar Equipamiento + Freno + Lanzamiento respetando horarios, breaks y competencias."
+  ],
+  "missingRequired": 0,
+  "missingOptional": 9,
+  "skippedModules": 7,
+  "breakAudit": [
+    {
+      "idx": 0,
+      "nick": "Enoc",
+      "arrival": "14:00",
+      "departure": "20:00",
+      "preferred": "brake",
+      "breaks": [
+        {
+          "start": "16:10",
+          "end": "16:30",
+          "duration": 20
+        }
+      ]
+    },
+    {
+      "idx": 2,
+      "nick": "Benjita",
+      "arrival": "14:00",
+      "departure": "20:30",
+      "preferred": "",
+      "breaks": [
+        {
+          "start": "16:20",
+          "end": "16:40",
+          "duration": 20
+        }
+      ]
+    },
+    {
+      "idx": 3,
+      "nick": "Seba",
+      "arrival": "14:00",
+      "departure": "19:00",
+      "preferred": "",
+      "breaks": [
+        {
+          "start": "16:10",
+          "end": "16:30",
+          "duration": 20
+        }
+      ]
+    },
+    {
+      "idx": 4,
+      "nick": "Teresita",
+      "arrival": "10:00",
+      "departure": "20:00",
+      "preferred": "",
+      "breaks": [
+        {
+          "start": "16:00",
+          "end": "16:20",
+          "duration": 20
+        }
+      ]
+    }
+  ],
+  "groupInfo": {
+    "equip": [
+      4
+    ],
+    "tower": [
+      0,
+      3
+    ],
+    "poles": 2,
+    "polesAll": [
+      2
+    ],
+    "homeGroup": {
+      "0": "tower",
+      "2": "poles",
+      "3": "tower",
+      "4": "equip"
+    }
+  },
+  "publication": {
+    "type": "airtrail",
+    "date": "2026-11-24",
+    "publishedAt": "2026-11-24T12:58:28.715Z"
+  }
+}
