@@ -44,6 +44,18 @@
     {
       "source": "/declaracion-registro",
       "destination": "/declaracion-registro.html"
+    },
+    {
+      "source": "/configuracion",
+      "destination": "/configuracion.html"
+    },
+    {
+      "source": "/datos",
+      "destination": "/datos.html"
+    },
+    {
+      "source": "/venta",
+      "destination": "/declaracion.html"
     }
   ],
   "headers": [
@@ -162,6 +174,29 @@
           "value": "no-store"
         }
       ]
+    },
+    {
+      "source": "/configuracion(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/datos(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
     }
-  ]
+  ],
+  "functions": {
+    "api/*.js": {
+      "maxDuration": 60
+    }
+  }
 }

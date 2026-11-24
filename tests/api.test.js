@@ -1,4 +1,5 @@
-import test from 'node:test';import assert from 'node:assert/strict';import {randomUUID} from 'node:crypto';
+mock.timers.enable({apis:['Date'],now:new Date('2026-11-24T12:00:00Z').getTime()});
+import test,{mock} from 'node:test';import assert from 'node:assert/strict';import {randomUUID} from 'node:crypto';
 import {fixtures,setupEnvironment,demoPlans} from './fixtures.js';import {chileClock} from '../lib/http.js';
 setupEnvironment();
 const {default:auth}=await import('../api/auth.js');const {default:bookings}=await import('../api/inscripciones.js');const {default:publico}=await import('../api/publico.js');const {default:jornadas}=await import('../api/jornadas.js');const {default:personal}=await import('../api/personal.js');

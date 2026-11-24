@@ -9,6 +9,9 @@ Ampliación del proyecto existente para GitHub y Vercel. Mantiene los dos planif
 | `/declaracion` | Formulario móvil, datos familiares y firma |
 | `/elegir-modulos` | Selección de actividades y módulos de hoy |
 | `/declaracion-registro?id=...` | Lectura autorizada e impresión de una declaración |
+| `/configuracion` | Reglas, cuentas de ventas/recepción y colores |
+| `/datos` | Excel y archivo recuperable de pruebas |
+| `/venta` | Alias del formulario de clientes, color azul |
 | `/login` | Inicio de sesión del personal |
 | `/planificador` | Menú de administración |
 | `/planificador-muro` | Planificador Muro existente con sesión |
@@ -54,12 +57,12 @@ Puedes generar AUTH_SECRET en tu equipo, sin compartirlo en el chat:
 node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"
 ```
 
-Para cuentas individuales adicionales, configura `USERS_JSON` como un arreglo de objetos con `username`, `password` y `role`. Los roles admitidos son `admin`, `vendedor` y `recepcionista`. No repitas usuarios ya definidos mediante variables individuales. No se requieren variables de correo para v12. Las cuentas individuales permiten identificar a cada persona en el check-in. No hay pantalla de creación de usuarios en esta versión.
+Para cuentas individuales adicionales, configura `USERS_JSON` como un arreglo de objetos con `username`, `password` y `role`. Los roles admitidos son `admin`, `vendedor` y `recepcionista`. No repitas usuarios ya definidos mediante variables individuales. No se requieren variables de correo. Las cuentas individuales permiten identificar a cada persona en el check-in. En v13, el administrador puede crear y modificar vendedores y recepcionistas en `/configuracion`; esas cuentas se guardan con hash scrypt en Redis. La cuenta administradora se mantiene en Vercel. Una cuenta guardada en configuración reemplaza a la del mismo nombre de las variables de entorno.
 
 ## 3. Subir el código
 
 1. Conserva un respaldo del repositorio actual.
-2. Descomprime el ZIP y abre la carpeta `modulosmuro_v12`.
+2. Descomprime el ZIP y abre la carpeta `modulosmuro_v13`.
 3. Sube su contenido a la raíz del mismo repositorio. Reemplaza los archivos coincidentes e incorpora `assets`, `lib`, las API nuevas y las páginas nuevas.
 4. **No borres las carpetas existentes `data/muro` y `data/airtrail`. No reemplaces tu `data/personal.json` actual.** El paquete excluye datos de producción para conservarlos.
 5. Usa el mismo proyecto Vercel, con Node.js 20 o superior y Framework Preset “Other”. No requiere compilación; conserva el despliegue de HTML y funciones de `/api`.
@@ -89,7 +92,7 @@ El cambio de autenticación requiere desplegar juntas las páginas y las API del
 - Las pantallas conservan los módulos recién iniciados durante 10 minutos y muestran los dos siguientes. Listas largas rotan automáticamente. Si por intervalos muy cortos hay más de tres módulos vigentes, también rotan las tarjetas.
 - La página familiar muestra todos los módulos de hoy, incluidos los finalizados. No admite consulta pública de participantes de otras fechas. La API aplica este límite, no solo la interfaz.
 - Hora y fecha: `America/Santiago`, con reloj del servidor para check-in y sincronización de pantallas. Actualización pública cada 20 segundos. Si no se logra actualizar durante 90 segundos, la pantalla retira la lista para no presentarla como vigente.
-- Las nuevas inscripciones pendientes de pago retienen cupo indefinidamente hasta cancelación del personal; no aparecen en pantallas ni consulta familiar hasta marcarse pagadas. Recepción puede cancelar pendientes, pero solo vendedor/administrador confirman pagos.
+- Las nuevas inscripciones pendientes de pago retienen cupo hasta cancelación del personal o anulación automática por la regla configurable de actividad llena y plazo de pago vencido; no aparecen en pantallas ni consulta familiar hasta marcarse pagadas. Recepción puede cancelar pendientes, pero solo vendedor/administrador confirman pagos.
 - El formulario ofrece recuperación solo con RUT desde cualquier dispositivo únicamente por consentimiento explícito y desmarcado por defecto. Es una modalidad sin verificación de identidad: cualquier conocedor del RUT puede consultar y reutilizar el perfil consentido. No entrega firmas históricas; cada sesión de este tipo solo puede leer las declaraciones que firma. La alternativa exige clave de al menos 8 caracteres. No se envían correos.
 - Las sesiones de clientes duran hasta 4 horas y usan una cookie distinta de la del personal. Los datos del cliente no se guardan en localStorage; sessionStorage contiene solamente referencias de declaración/reserva.
 - Público: primer nombre e inicial del último apellido; actividad y horario. No expone edad, declaración, observaciones, identidad del vendedor ni datos de check-in.
@@ -98,11 +101,11 @@ El cambio de autenticación requiere desplegar juntas las páginas y las API del
 
 ## Verificación realizada
 
-24 pruebas automatizadas con Node: cupos combinados, excepciones, movimientos, cancelación, check-in, historial, roles, privacidad, medianoche en Chile, protección al republicar, cookies, cierre de sesión, cambios de contraseña y simulación concurrente del último cupo.
+36 pruebas automatizadas con Node: cupos combinados, excepciones, movimientos, cancelación, check-in, historial, roles, privacidad, medianoche en Chile, protección al republicar, cookies, cierre de sesión, cambios de contraseña y simulación concurrente del último cupo.
 
 Los servicios externos se simularon en las pruebas: no equivalen a una prueba de la base real o del despliegue Vercel. En navegador se comprobó el alta de un participante ficticio en ambas actividades, la actualización de ambos contadores, su búsqueda y check-in con hora y usuario, y el acceso al planificador con sesión. La lógica de ventanas de pantalla se probó automáticamente.
 
-Consulta `ACTUALIZAR_V12.md` para los detalles de compatibilidad y los límites de la declaración.
+Consulta `ACTUALIZAR_V13.md` para las reglas, la migración, la limpieza y la ejecución programada en Hobby. `ACTUALIZAR_V12.md` es el documento histórico de la incorporación de declaraciones; sus reglas de reserva quedan sustituidas por v13.
 
 Antes del uso real, completa una inscripción de prueba en tu dominio, comprueba recepción y ambas vistas públicas, y cancélala al terminar.
 
@@ -116,3 +119,7 @@ npm run dev
 ```
 
 Abre `http://localhost:3000/login`. La demostración muestra una franja amarilla y accesos para probar cada rol. Sus datos son ficticios y se borran al reiniciar. El servidor demo reemplaza las conexiones por simulaciones locales y no se usa en producción. No existen cuentas demo en las API desplegadas: las cuentas reales son únicamente las variables configuradas en Vercel.
+
+## Reglas de v13
+
+Después del despliegue, el administrador debe revisar `/configuracion`: alta tardía permitida hasta antes de inicio +20 minutos o del final del módulo; alerta para menores de 5; visibilidad de check-in por 30 minutos; anulación impaga desde 15 minutos antes del inicio cuando la actividad está llena. Estas reglas también se aplican a inscripciones ya existentes al consultarlas. Detalles y ejemplo en `ACTUALIZAR_V13.md`.

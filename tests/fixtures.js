@@ -5,6 +5,7 @@ export function fixtures(){
  const put=(k,value,expiry=null)=>store.set(k,{value,expiry});
  const redisCommand=args=>{
   const [cmd,...v]=args;
+  if(cmd==='SCAN'){const pattern=v[v.indexOf('MATCH')+1],stem=pattern.slice(0,-1),keys=[...store.keys()].filter(k=>k.startsWith(stem)&&get(k)!==null).sort();const offset=Number(v[0]),size=Number(v[v.indexOf('COUNT')+1])||30;return [offset+size>=keys.length?'0':String(offset+size),keys.slice(offset,offset+size)];}
   if(cmd==='GET')return get(v[0]);
   if(cmd==='DEL'){const had=get(v[0])!==null;store.delete(v[0]);return Number(had)}
   if(cmd==='SET'){if(v.includes('NX')&&get(v[0])!==null)return null;const px=v.indexOf('PX'),ex=v.indexOf('EX');put(v[0],v[1],px>=0?Date.now()+Number(v[px+1]):ex>=0?Date.now()+Number(v[ex+1])*1000:null);return 'OK'}

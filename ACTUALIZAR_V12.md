@@ -1,3 +1,5 @@
+> Documento histórico de v12. Para esta entrega usa primero ACTUALIZAR_V13.md; v13 sustituye la retención indefinida de cupos y agrega configuración, archivo y exportación.
+
 # Actualización v12 — declaración, familias y pago
 
 ## Instalar sobre la versión actual

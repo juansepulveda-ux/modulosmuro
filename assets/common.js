@@ -10,3 +10,5 @@ export async function api(path,body){const r=await fetch(path,{method:body?'POST
 export function notice(text,error=false,id='notice'){const el=$(id);if(el){el.textContent=text;el.className='notice'+(error?' error':'')}}
 export const capacityChips=m=>Object.keys(m.capacity).map(a=>`<span class="chip ${m.used[a]>=m.capacity[a]?'warn':''}">${labels[a]} · ${m.used[a]}/${m.capacity[a]}</span>`).join('');
 export function publicSelection(modules,minute,type){const list=modules.filter(m=>m.type===type).sort((a,b)=>a.start-b.start);return [...list.filter(m=>m.start<=minute&&minute<m.start+10),...list.filter(m=>m.start>minute).slice(0,2)]}
+
+export function visibleForCheckin(m,date,clock,minutes){return date>clock.date||(date===clock.date&&Math.floor(clock.minute)-m.start<=minutes);}

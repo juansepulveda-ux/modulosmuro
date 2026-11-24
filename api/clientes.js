@@ -1,6 +1,8 @@
 import {send,errorResponse,mutation,fail,chileClock} from '../lib/http.js';
 import {customerSession,customerLogout,accessCustomer,safeProfile,canReadDeclaration,rateLimit,readCustomer,withCustomer,readDeclaration} from '../lib/customers.js';
 import {validateFamily,makeDeclaration,declarationText,DECLARATION_VERSION,TERMS_URL,PRIVACY_URL,uuid} from '../lib/declarations.js';
+import {operationalDay,expireReservations} from '../lib/operations.js';
+import {settings} from '../lib/settings.js';
 import {readDay,withDay} from '../lib/redis.js';
 import {plansFor} from '../lib/github.js';
 import {modulesFrom} from '../lib/bookings.js';
@@ -16,8 +18,8 @@ export default async function handler(req,res){try{
    if(!uuid(req.query.declarationId))fail(400,'Primero completa tu declaración.');
    const doc=await readDeclaration(req.query.declarationId);if(!canReadDeclaration(doc,session))fail(404,'Declaración no encontrada.');
    const clock=chileClock();if(doc.date!==clock.date)fail(409,'Completa una nueva declaración para hoy.');
-   const [day,plans]=await Promise.all([readDay(clock.date),plansFor(clock.date)]);
-   return send(res,200,{...publicCatalog(day,modulesFrom(plans),clock),people:declarationPeople(doc)});
+   const {day,modules,config}=await operationalDay(clock.date);
+   return send(res,200,{...publicCatalog(day,modules,clock,config),people:declarationPeople(doc)});
   }
   fail(400,'Consulta inválida.');
  }
@@ -45,8 +47,8 @@ export default async function handler(req,res){try{
   await rateLimit(req,'bookings',session.id,120,86400);
   if(!uuid(b.declarationId))fail(400,'Primero firma tu declaración.');
   const doc=await readDeclaration(b.declarationId);if(!canReadDeclaration(doc,session))fail(404,'Declaración no encontrada.');
-  const clock=chileClock();
-  const result=await withDay(clock.date,async(day,save)=>{const modules=modulesFrom(await plansFor(clock.date));if(chileClock().date!==clock.date)fail(409,'Cambió el día. Vuelve a la declaración.');const result=createPublicBooking(day,modules,b,doc,session.id,chileClock());await save();return result;});
+  const clock=chileClock(),config=await settings();
+  const result=await withDay(clock.date,async(day,save)=>{const modules=modulesFrom(await plansFor(clock.date));if(chileClock().date!==clock.date)fail(409,'Cambió el día. Vuelve a la declaración.');if(expireReservations(day,modules,clock.date,config))await save();const result=createPublicBooking(day,modules,b,doc,session.id,chileClock(),config);expireReservations(day,modules,clock.date,config);await save();return {...result,registrations:result.registrations.map(r=>({...r,active:day.registrations.find(x=>x.id===r.id)?.status!=='cancelled'}))};});
   return send(res,200,result);
  }
  fail(400,'Acción inválida.');

@@ -1,4 +1,5 @@
-import test from 'node:test';import assert from 'node:assert/strict';import {randomUUID} from 'node:crypto';
+mock.timers.enable({apis:['Date'],now:new Date('2026-11-24T12:00:00Z').getTime()});
+import test,{mock} from 'node:test';import assert from 'node:assert/strict';import {randomUUID} from 'node:crypto';
 import {emptyDay} from '../lib/redis.js';import {modulesFrom,changeDay,protectPublished,publicView} from '../lib/bookings.js';import {chileClock} from '../lib/http.js';import {demoPlans} from './fixtures.js';import {publicSelection} from '../assets/common.js';
 const seller={username:'ventas',role:'vendedor'},reception={username:'recepcion',role:'recepcionista'};
 const modules=modulesFrom(demoPlans());

@@ -1,25 +1,34 @@
-# Módulos educativos Mallsport v12
+# Módulos educativos Mallsport v13
 
-Actualización sobre v11: declaración pública, familias, firma y pago presencial.
+Configuración de horarios, cuentas de personal y colores; bloqueo de módulos; reservas impagas con anulación condicional; exportación Excel y archivo recuperable de pruebas. Mantiene planificadores, declaraciones firmadas, pago presencial y check-in.
 
-**Para actualizar una instalación existente:** lee `ACTUALIZAR_V12.md`.
-Para una instalación nueva: `INSTALACION.md`.
+**Instalación existente:** lee `ACTUALIZAR_V13.md`. Para una instalación nueva: `INSTALACION.md`.
 
-No se requieren dependencias nuevas, servicio de correo ni variables adicionales sobre v11.
+## Páginas principales
 
-- `/declaracion`: adultos y menores, recuperación consentida por RUT o protegida por clave, firma y aceptaciones.
-- `/elegir-modulos`: actividades y horarios de hoy; cupos pendientes hasta cancelación del personal.
-- `/inscripciones`: declaración y pago con casillas; pagos con hora y usuario.
-- `/checkin`: llegada después del pago; cancelación de pendientes por recepción.
-- `/declaracion-registro?id=...`: documento firmado, solo para personal o cliente autorizado; imprimible.
+- `/planificador`: menú administrador y creación/publicación de jornadas.
+- `/configuracion`: reglas, vendedores, recepcionistas y colores (solo administrador).
+- `/datos`: Excel de clientes/participaciones y archivo recuperable (solo administrador).
+- `/inscripciones`: cupos, alta, correcciones, pagos, anulaciones y bloqueo de módulos.
+- `/checkin`: llegada con hora y usuario; filtro configurable de módulos pasados.
+- `/declaracion` (también `/venta`): formulario familiar y firma.
+- `/elegir-modulos`: reserva de actividades de hoy.
+- `/hoy`: todos los módulos y participantes confirmados de hoy.
+- `/pantalla?tipo=muro` o `?tipo=airtrail`: pantalla automática.
 
-Los planificadores existentes y sus datos se conservan. El ZIP no incluye `data/`.
+El ZIP excluye `data/`, claves y datos de clientes. Conserva tus datos actuales al actualizar.
 
-## Pruebas locales
+## Vercel Hobby
+
+Sin dependencias nuevas ni variables obligatorias nuevas. La revisión de reservas se hace al consultar o modificar la jornada y mediante las actualizaciones de las páginas operativas. **Con todas las páginas cerradas no hay un temporizador autónomo activado.** Para ello se incluye un endpoint protegido para un programador externo: instrucciones en `ACTUALIZAR_V13.md`. El paquete no configura ni contrata ese servicio.
+
+## Verificación local
 
 ```sh
 npm test
 npm run dev
 ```
 
-La demostración utiliza datos ficticios en memoria y conexiones simuladas. El envío real de datos se hace únicamente al desplegar las funciones en Vercel y configurar la base como indica la guía.
+36 pruebas automatizadas, con Redis/GitHub simulados. El servidor demo utiliza únicamente datos ficticios en memoria. Se comprobó además el guardado de configuración, descarga Excel, bloqueo por vendedor y check-in en navegador; el XLSX se abrió con openpyxl para verificar su estructura y que datos que empiezan por `=` sigan siendo texto.
+
+No se ha desplegado esta entrega en producción. Los manuales de administrador, vendedor y recepcionista se entregan separados, en PDF y LaTeX.
