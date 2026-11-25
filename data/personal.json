@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-24T00:00:15.336Z",
+  "updatedAt": "2026-11-25T16:56:44.275Z",
   "people": [
     {
       "id": "p_xljnmugf",
@@ -55,7 +55,7 @@
       "name": "Sebastián Castro",
       "nick": "Seba",
       "defaultStart": "14:00",
-      "defaultEnd": "19:00",
+      "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
           "equip": false,
@@ -71,7 +71,7 @@
       "name": "Teresa Fernández",
       "nick": "Teresita",
       "defaultStart": "10:00",
-      "defaultEnd": "20:00",
+      "defaultEnd": "12:00",
       "airtrail": {
         "skills": {
           "equip": false,
