@@ -14,6 +14,8 @@ Ampliación del proyecto existente para GitHub y Vercel. Mantiene los dos planif
 | `/venta` | Alias del formulario de clientes, color azul |
 | `/login` | Inicio de sesión del personal |
 | `/planificador` | Menú de administración |
+| `/monitores` | Base central de monitores y capacidades (administrador) |
+| `/dotacion` | Personal, ingreso, salida y actividades por fecha (administrador) |
 | `/planificador-muro` | Planificador Muro existente con sesión |
 | `/planificador-airtrail` | Planificador Airtrail/Tirolesa existente con sesión |
 | `/inscripciones` | Ventas, cupos e inscripciones por día |
@@ -27,7 +29,7 @@ El código está preparado y probado localmente. No se ha desplegado en tu Verce
 
 ## 1. Preparar la base compartida
 
-Las jornadas y la base de monitores siguen guardándose en GitHub. Los perfiles familiares, declaraciones firmadas, inscripciones, pagos, check-ins y sesiones usan una base Redis de Upstash independiente, accesible por HTTPS. No se escriben datos de participantes ni claves en GitHub.
+Las jornadas y la base de monitores siguen guardándose en GitHub. La dotación diaria, los perfiles familiares, declaraciones firmadas, inscripciones, pagos, check-ins y sesiones usan una base Redis de Upstash independiente, accesible por HTTPS. No se escriben datos de participantes ni claves en GitHub.
 
 Crea una base de Upstash Redis y copia su **REST URL** y su **REST Token de lectura/escritura**. No uses el token de solo lectura. Documentación oficial: https://upstash.com/docs/redis/features/restapi
 
@@ -62,7 +64,7 @@ Para cuentas individuales adicionales, configura `USERS_JSON` como un arreglo de
 ## 3. Subir el código
 
 1. Conserva un respaldo del repositorio actual.
-2. Descomprime el ZIP y abre la carpeta `modulosmuro_v13`.
+2. Descomprime el ZIP y abre la carpeta `modulosmuro_v14`.
 3. Sube su contenido a la raíz del mismo repositorio. Reemplaza los archivos coincidentes e incorpora `assets`, `lib`, las API nuevas y las páginas nuevas.
 4. **No borres las carpetas existentes `data/muro` y `data/airtrail`. No reemplaces tu `data/personal.json` actual.** El paquete excluye datos de producción para conservarlos.
 5. Usa el mismo proyecto Vercel, con Node.js 20 o superior y Framework Preset “Other”. No requiere compilación; conserva el despliegue de HTML y funciones de `/api`.
@@ -72,7 +74,7 @@ El cambio de autenticación requiere desplegar juntas las páginas y las API del
 
 ## 4. Primera jornada
 
-1. Administración publica los módulos con los planificadores habituales.
+1. Administración revisa las fichas en `/monitores`, guarda el personal y sus horarios en `/dotacion`, importa esa fecha en cada planificador y genera/revisa/publica los módulos. Consulta `GUIA_DOTACION_V14.md`.
 2. Ventas entra a `/inscripciones`, selecciona la fecha y configura los cupos del día.
 3. Los cupos iniciales son **0**: se deben configurar antes de la primera inscripción. El 0 cierra las ventas de esa actividad.
 4. “Cupos” en una tarjeta permite fijar una excepción para ese módulo. “Usar cupos del día” retira la excepción.
@@ -101,7 +103,7 @@ El cambio de autenticación requiere desplegar juntas las páginas y las API del
 
 ## Verificación realizada
 
-36 pruebas automatizadas con Node: cupos combinados, excepciones, movimientos, cancelación, check-in, historial, roles, privacidad, medianoche en Chile, protección al republicar, cookies, cierre de sesión, cambios de contraseña y simulación concurrente del último cupo.
+45 pruebas automatizadas con Node: cupos combinados, excepciones, movimientos, cancelación, check-in, historial, roles, privacidad, medianoche en Chile, protección al republicar, cookies, cierre de sesión, cambios de contraseña y simulación concurrente del último cupo.
 
 Los servicios externos se simularon en las pruebas: no equivalen a una prueba de la base real o del despliegue Vercel. En navegador se comprobó el alta de un participante ficticio en ambas actividades, la actualización de ambos contadores, su búsqueda y check-in con hora y usuario, y el acceso al planificador con sesión. La lógica de ventanas de pantalla se probó automáticamente.
 
@@ -123,3 +125,5 @@ Abre `http://localhost:3000/login`. La demostración muestra una franja amarilla
 ## Reglas de v13
 
 Después del despliegue, el administrador debe revisar `/configuracion`: alta tardía permitida hasta antes de inicio +20 minutos o del final del módulo; alerta para menores de 5; visibilidad de check-in por 30 minutos; anulación impaga desde 15 minutos antes del inicio cuando la actividad está llena. Estas reglas también se aplican a inscripciones ya existentes al consultarlas. Detalles y ejemplo en `ACTUALIZAR_V13.md`.
+
+Para actualizar desde v13, comienza por `ACTUALIZAR_V14.md`. La nueva dotación conserva las credenciales y conexiones existentes.

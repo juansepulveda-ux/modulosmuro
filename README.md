@@ -1,26 +1,36 @@
-# Módulos educativos Mallsport v13
+# Módulos educativos Mallsport v14
 
-Configuración de horarios, cuentas de personal y colores; bloqueo de módulos; reservas impagas con anulación condicional; exportación Excel y archivo recuperable de pruebas. Mantiene planificadores, declaraciones firmadas, pago presencial y check-in.
+Base central de monitores, dotación diaria e importación por actividad en ambos planificadores. Alejandra utiliza una cuenta de administrador, como el resto de responsables de planificación.
 
-**Instalación existente:** lee `ACTUALIZAR_V13.md`. Para una instalación nueva: `INSTALACION.md`.
+**Actualización desde v13:** `ACTUALIZAR_V14.md`. **Uso diario:** `GUIA_DOTACION_V14.md`. **Instalación nueva:** `INSTALACION.md`.
 
-## Páginas principales
+## Nuevo flujo de trabajo
 
-- `/planificador`: menú administrador y creación/publicación de jornadas.
-- `/configuracion`: reglas, vendedores, recepcionistas y colores (solo administrador).
-- `/datos`: Excel de clientes/participaciones y archivo recuperable (solo administrador).
-- `/inscripciones`: cupos, alta, correcciones, pagos, anulaciones y bloqueo de módulos.
-- `/checkin`: llegada con hora y usuario; filtro configurable de módulos pasados.
-- `/declaracion` (también `/venta`): formulario familiar y firma.
-- `/elegir-modulos`: reserva de actividades de hoy.
-- `/hoy`: todos los módulos y participantes confirmados de hoy.
-- `/pantalla?tipo=muro` o `?tipo=airtrail`: pantalla automática.
+1. `/monitores`: fichas, actividades habilitadas y capacitaciones de Airtrail/Tirolesa.
+2. `/dotacion`: fecha, monitores que trabajan, ingreso, salida y actividad de ese día.
+3. `/planificador-muro` o `/planificador-airtrail`: seleccionar la misma fecha e importar su dotación. Reemplaza el personal y descarta el plan sin publicar de ese editor.
+4. Ajustar módulos/descansos, generar, revisar y publicar.
 
-El ZIP excluye `data/`, claves y datos de clientes. Conserva tus datos actuales al actualizar.
+La importación trae solo el personal correspondiente a la actividad, conserva las capacitaciones y respeta las horas de ingreso y salida al minuto. Las fichas antiguas requieren una revisión explícita antes de asignarlas. Un monitor marcado para ambas actividades aparece en ambos planificadores: el administrador debe revisar que las asignaciones no se superpongan.
 
-## Vercel Hobby
+## Páginas existentes
 
-Sin dependencias nuevas ni variables obligatorias nuevas. La revisión de reservas se hace al consultar o modificar la jornada y mediante las actualizaciones de las páginas operativas. **Con todas las páginas cerradas no hay un temporizador autónomo activado.** Para ello se incluye un endpoint protegido para un programador externo: instrucciones en `ACTUALIZAR_V13.md`. El paquete no configura ni contrata ese servicio.
+- `/planificador`: menú administrador.
+- `/configuracion`: reglas, cuentas de vendedores/recepción y colores.
+- `/datos`: Excel de clientes/participaciones y archivo recuperable de inscripciones.
+- `/inscripciones`: cupos, altas, correcciones, pagos, anulaciones y bloqueo de módulos.
+- `/checkin`: llegadas y filtro de módulos pasados.
+- `/declaracion` y `/venta`: datos familiares y firma; `/elegir-modulos`: reservas de hoy.
+- `/hoy`: consulta familiar; `/pantalla?tipo=muro` y `?tipo=airtrail`: pantallas automáticas.
+- `/`: visor de horarios de monitores publicados.
+
+## Datos y despliegue
+
+El ZIP excluye datos de producción y secretos. Conserva `data/`, especialmente `data/personal.json`, todas las variables de Vercel y el mismo `DATA_NAMESPACE`. No hay dependencias ni variables obligatorias nuevas.
+
+La base central continúa en GitHub; la dotación por fecha se guarda en Redis. Guardar o importar dotación no modifica jornadas publicadas ni inscripciones. No se ha desplegado esta entrega en producción.
+
+Las reglas de reservas de v13 siguen vigentes. Con todas las páginas cerradas no hay un temporizador autónomo activado; el endpoint para un programador externo se documenta en `ACTUALIZAR_V13.md`.
 
 ## Verificación local
 
@@ -29,6 +39,4 @@ npm test
 npm run dev
 ```
 
-36 pruebas automatizadas, con Redis/GitHub simulados. El servidor demo utiliza únicamente datos ficticios en memoria. Se comprobó además el guardado de configuración, descarga Excel, bloqueo por vendedor y check-in en navegador; el XLSX se abrió con openpyxl para verificar su estructura y que datos que empiezan por `=` sigan siendo texto.
-
-No se ha desplegado esta entrega en producción. Los manuales de administrador, vendedor y recepcionista se entregan separados, en PDF y LaTeX.
+45 pruebas automatizadas con GitHub/Redis simulados: incluyen permisos, conservación de monitores, versiones concurrentes, validación de capacidades, filtrado por actividad y planificación dentro de los horarios exactos. Se comprobó en navegador el alta de una ficha, guardado de dotación, validación de horarios e importación en ambos planificadores con datos ficticios. Esto no sustituye una comprobación en el despliegue real.

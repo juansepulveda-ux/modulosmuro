@@ -18,7 +18,7 @@
  document.addEventListener('DOMContentLoaded',async()=>{
   let user;try{user=await Session.ready}catch{return}if(!user)return;
   let nav=document.getElementById('sessionNav');if(!nav){nav=document.createElement('div');nav.className='topbar';nav.innerHTML='<a class="brand" href="/planificador">MALLSPORT <span>MÓDULOS EDUCATIVOS</span></a><div id="sessionNav" class="session-links"></div>';document.body.prepend(nav);nav=document.getElementById('sessionNav')}
-  const links=user.role==='admin'?[['Planificar','/planificador'],['Inscripciones','/inscripciones'],['Check-in','/checkin'],['Configuración','/configuracion'],['Datos / Excel','/datos']]:user.role==='vendedor'?[['Inscripciones','/inscripciones']]:[['Check-in','/checkin']];
+  const links=user.role==='admin'?[['Planificar','/planificador'],['Monitores','/monitores'],['Dotación','/dotacion'],['Inscripciones','/inscripciones'],['Check-in','/checkin'],['Configuración','/configuracion'],['Datos / Excel','/datos']]:user.role==='vendedor'?[['Inscripciones','/inscripciones']]:[['Check-in','/checkin']];
   nav.replaceChildren();for(const [text,url] of links){const a=document.createElement('a');a.href=url;a.textContent=text;nav.append(a)}const who=document.createElement('span');who.className='username';who.textContent=user.username;nav.append(who);const button=document.createElement('button');button.textContent='Cerrar sesión';button.onclick=async()=>{button.disabled=true;try{const r=await nativeFetch('/api/auth',{method:'DELETE',headers:{'Content-Type':'application/json'},body:'{}'});if(!r.ok)throw Error();location.replace('/login')}catch{button.disabled=false;alert('No se pudo cerrar sesión. Intenta nuevamente.')}};nav.append(button);
  });
 })();

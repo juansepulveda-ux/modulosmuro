@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Planificador Airtrail + Tirolesa</title>
 <style>
+[hidden]{display:none!important}
 :root{
   --ink:#172033;--muted:#6b7280;--line:#dfe4ea;--bg:#f4f7fb;--card:#fff;
   --nav:#17304f;--nav2:#244868;--active:#e7f0ff;--free:#f4f5f7;--move:#fff2cf;
@@ -18,17 +19,17 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
 
 .adminbar{display:flex;gap:10px;flex-wrap:wrap;align-items:end}.adminbar input{min-width:150px}.adminstatus{margin-top:10px}.pubhead{display:flex;justify-content:space-between;gap:12px;align-items:end;flex-wrap:wrap}.pubgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin-top:12px}.pubitem{border:1px solid #dce3eb;border-radius:10px;padding:11px;background:#fbfcfe}.pubitem b{font-size:14px}.pubmeta{font-size:11px;color:#718096;margin:4px 0 9px}.pubactions{display:flex;gap:7px;flex-wrap:wrap}.navbtn{display:inline-flex;align-items:center;text-decoration:none;border-radius:8px;background:#e8eef4;color:#23415b;padding:10px 14px;font-weight:650;font-size:13px}.status-bad{background:#fff0ed;color:#a13a2b;padding:10px 12px;border-radius:8px;font-size:12px}.status-good{background:#e8f7f0;color:#126440;padding:10px 12px;border-radius:8px;font-size:12px}
 </style>
-<link rel="stylesheet" href="/assets/app.css"><script src="/assets/session.js" data-role="admin"></script><script src="/assets/theme.js" defer></script></head>
+<link rel="stylesheet" href="/assets/app.css"><script src="/assets/session.js" data-role="admin"></script><script src="/assets/theme.js" defer></script><script src="/assets/roster-import.js"></script></head>
 <body>
 <header>
   <div class="eyebrow">Mallsport · Operaciones</div>
-  <h1>Planificador Airtrail + Tirolesa <span style="font-size:12px;opacity:.72;font-weight:600">v8</span></h1>
+  <h1>Planificador Airtrail + Tirolesa </h1>
   <p>Jornadas individuales · competencias · breaks desfasados · publicación por fecha</p>
 </header>
 <main>
   <div class="card">
     <div class="pubhead">
-      <div><h2>Administración</h2><div class="sub" style="margin:0">Tu sesión permite guardar la base compartida, publicar y eliminar jornadas.</div></div>
+      <div><h2>Administración</h2><div class="sub" style="margin:0">Importa la dotación diaria, genera y revisa la planificación antes de publicar.</div></div>
       <div><a class="navbtn" href="/planificador-muro">← Ir a Muro</a></div>
     </div>
     <div class="row" style="margin-top:12px">
@@ -37,11 +38,11 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
       <button class="primary" id="publishCurrent">Publicar jornada actual</button>
       <button class="secondary" id="openViewer">Abrir visor público</button>
     </div>
-    <div id="adminStatus" class="adminstatus"></div>
+    <div class="actions" style="margin-top:14px"><button type="button" id="importRoster">Importar dotación del día</button><a class="navbtn" href="/dotacion">Dotación diaria</a><a class="navbtn" href="/monitores">Base de monitores</a></div><p id="rosterStatus" class="hint">Selecciona la fecha y luego importa su dotación. La lista actual será reemplazada.</p><div id="adminStatus" class="adminstatus"></div>
   </div>
   <div class="card">
-    <h2>1 · Base de monitores y competencias</h2>
-    <div class="sub">Edita nombres, apodos, hora de llegada, hora de salida, habilitaciones y una competencia preferente. La preferencia orienta la asignación, pero nunca reemplaza una habilitación obligatoria. La base se comparte con el planificador de Muro y con cualquier persona que abra esta web. Los horarios guardados quedan como valores predeterminados y pueden modificarse para cada jornada.</div>
+    <h2>1 · Personal de esta planificación y competencias</h2>
+    <div class="sub">Importa los monitores de la dotación diaria con sus horarios y capacitaciones. Los cambios aquí afectan solo este borrador, no la base central ni la dotación guardada. La preferencia orienta la asignación sin reemplazar las capacitaciones necesarias.</div>
     <div class="scroll" style="max-height:420px">
       <table class="monitor-table" id="monitorTable">
         <thead><tr><th class="left">Nombre</th><th>Apodo</th><th>Llegada</th><th>Salida</th><th>Todo</th><th>Equipamiento</th><th>Lanzamiento</th><th>Poleas y arneses</th><th>Torre freno</th><th>Competencia preferente</th><th></th></tr></thead>
@@ -49,11 +50,11 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
       </table>
     </div>
     <div class="toolbar">
-      <button class="primary" id="addMonitor">+ Agregar monitor</button>
-      <button class="secondary" id="saveBase">Guardar base compartida</button>
-      <button class="secondary" id="exportBase">Exportar base</button>
-      <label class="btn secondary" for="importBase">Importar base</label><input id="importBase" type="file" accept="application/json,.json" class="hide" />
-      <button class="dangerBtn" id="resetBase">Restaurar ejemplo</button>
+      <button class="primary" id="addMonitor">Agregar solo a este borrador</button>
+      <button class="secondary" id="saveBase" hidden>Guardar base compartida</button>
+      <button class="secondary" id="exportBase" hidden>Exportar base</button>
+      <label class="btn secondary" for="importBase" hidden>Importar base</label><input id="importBase" type="file" accept="application/json,.json" class="hide" />
+      <button class="dangerBtn" id="resetBase" hidden>Restaurar ejemplo</button>
     </div>
   </div>
 
@@ -75,7 +76,7 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
 
     <div class="card">
       <h2>3 · Configuración de módulos</h2>
-      <div class="sub">Cada monitor tiene su propia jornada individual. El primer módulo es global, pero cada función solo puede asignarse a una persona si cabe completamente entre su hora de llegada y su hora de salida. La tabla se extiende desde la llegada más temprana hasta la salida más tardía. Todos los tiempos trabajan en una grilla de 10 minutos.</div>
+      <div class="sub">Cada monitor tiene su propia jornada individual. El primer módulo es global, pero cada función solo puede asignarse a una persona si cabe completamente entre su hora de llegada y su hora de salida. La tabla se extiende desde la llegada más temprana hasta la salida más tardía. Los módulos y su visualización usan una grilla de 10 minutos; el ingreso y la salida de cada monitor se respetan al minuto.</div>
       <div class="row">
         <div class="field"><label>Fecha</label><input type="date" id="date"></div>
         <div class="field"><label>Duración equipamiento</label><select id="equipDuration"><option value="20" selected>20 min</option></select></div>
@@ -138,19 +139,21 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
     {name:'Constanza Gaete',nick:'Coni',arrival:'12:00',departure:'21:00',preferred:'equip',skills:{brake:false,launch:false,equip:true,poles:true}},
     {name:'Susan Espinoza',nick:'Susan',arrival:'12:00',departure:'21:00',preferred:'poles',skills:{brake:false,launch:false,equip:true,poles:true}},
   ];
-  let monitors=loadBase(); let selected=new Set(); let currentPlan=null; let sharedRaw=[];
+  let rosterSource=null;
+  let monitors=[]; let selected=new Set(); let currentPlan=null; let sharedRaw=[];
   const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(s)];
   function uid(){return 'p_'+Math.random().toString(36).slice(2,10)}
   function normalizeMonitor(m){
     const skills={brake:false,launch:false,equip:false,poles:false,...(m&&m.skills||{})};
     let preferred=m&&m.preferred||'';if(preferred&&!skills[preferred])preferred='';
-    return {id:m&&m.id||uid(),name:m&&m.name||'Monitor',nick:m&&m.nick||'',arrival:isTime10(m&&m.arrival)?m.arrival:'12:00',departure:isTime10(m&&m.departure)?m.departure:'21:00',preferred,skills};
+    return {id:m&&m.id||uid(),name:m&&m.name||'Monitor',nick:m&&m.nick||'',arrival:isShiftTime(m&&m.arrival)?m.arrival:'12:00',departure:isShiftTime(m&&m.departure)?m.departure:'21:00',preferred,skills};
   }
   function loadBase(){try{const v=JSON.parse(localStorage.getItem(STORAGE_KEY)||localStorage.getItem('airtrail_tirolesa_monitores_v1')||'null');return Array.isArray(v)&&v.length?v.map(normalizeMonitor):structuredClone(defaults)}catch{return structuredClone(defaults)}}
   function saveBase(){localStorage.setItem(STORAGE_KEY,JSON.stringify(monitors));}
   function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
   function mins(t){const [h,m]=String(t||'00:00').split(':').map(Number);return h*60+m}
   function hhmm(m){m=(m+1440)%1440;return String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0')}
+  function isShiftTime(t){return /^([01]\d|2[0-3]):[0-5]\d$/.test(String(t||''))}
   function isTime10(t){return /^\d{2}:\d{2}$/.test(String(t||''))&&mins(t)>=0&&mins(t)<1440&&mins(t)%10===0}
   function timeOptions(value='00:00'){let out='';for(let m=0;m<1440;m+=10){const v=hhmm(m);out+=`<option value="${v}" ${v===value?'selected':''}>${v}</option>`}return out}
   function durationOptions(value=60){let out='';for(let d=10;d<=180;d+=10)out+=`<option value="${d}" ${d===+value?'selected':''}>${d} min</option>`;return out}
@@ -169,8 +172,8 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
     monitors=monitors.map(normalizeMonitor);
     monitors.forEach((m,i)=>{const tr=document.createElement('tr'); const all=SKILLS.every(k=>m.skills[k]);
       tr.innerHTML=`<td><input type="text" data-f="name" data-i="${i}" value="${esc(m.name)}"></td><td><input type="text" data-f="nick" data-i="${i}" value="${esc(m.nick)}"></td>
-      <td><select class="arrival" data-f="arrival" data-i="${i}">${timeOptions(m.arrival)}</select></td>
-      <td><select class="arrival" data-f="departure" data-i="${i}">${timeOptions(m.departure)}</select></td>
+      <td><input class="arrival" type="time" step="60" data-f="arrival" data-i="${i}" value="${esc(m.arrival)}"></td>
+      <td><input class="arrival" type="time" step="60" data-f="departure" data-i="${i}" value="${esc(m.departure)}"></td>
       <td><input class="chk skill-all" type="checkbox" data-i="${i}" ${all?'checked':''}></td>
       ${['equip','launch','poles','brake'].map(k=>`<td><input class="chk skill" type="checkbox" data-k="${k}" data-i="${i}" ${m.skills[k]?'checked':''}></td>`).join('')}
       <td><select class="pref" data-f="preferred" data-i="${i}">${prefOptions(m)}</select></td>
@@ -197,7 +200,7 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
     if(selected.size<3)throw new Error('Selecciona al menos 3 monitores para el turno.');
     const staff=[...selected].map(i=>{const m=normalizeMonitor(monitors[i]);return {...m,idx:i,arrivalMin:mins(m.arrival),departureMin:mins(m.departure)}});
     staff.forEach(p=>{if(p.departureMin<=p.arrivalMin)throw new Error(`${p.nick||p.name}: la hora de salida debe ser posterior a la llegada.`)});
-    const dayStart=Math.min(...staff.map(p=>p.arrivalMin)), dayEnd=Math.max(...staff.map(p=>p.departureMin));
+    const dayStart=Math.floor(Math.min(...staff.map(p=>p.arrivalMin))/10)*10, dayEnd=Math.ceil(Math.max(...staff.map(p=>p.departureMin))/10)*10;
     const segments=getIntervals(), equipDur=+$('#equipDuration').value, launchDur=+$('#launchDuration').value, breaks=getBreaks();
     if(segments[0].start<dayStart)throw new Error('El primer tramo no puede comenzar antes de la llegada más temprana del personal seleccionado.');
     if(segments[0].start+equipDur+launchDur>dayEnd)throw new Error('El primer módulo no cabe dentro del rango total de jornadas seleccionadas.');
@@ -487,7 +490,7 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
     }
     const breakAudit=staff.map(p=>({idx:p.idx,nick:p.nick||p.name,arrival:p.arrival,departure:p.departure,preferred:p.preferred,breaks:(personalBreaks[p.idx]||[]).map(b=>({start:hhmm(b.start),end:hhmm(b.end),duration:b.duration}))}));
     const groupInfo={equip:equipIds,tower:towerIds,poles:polesIds[0]??null,polesAll:polesIds,homeGroup};
-    return {version:12,type:'airtrail-tirolesa',createdAt:new Date().toISOString(),date:$('#date').value,config:{dayStart:hhmm(dayStart),dayEnd:hhmm(dayEnd),firstStart:hhmm(modules[0].start),interval:segments[0].interval,intervals:segments.map(x=>({start:hhmm(x.start),end:hhmm(x.end),interval:x.interval})),equipDuration:equipDur,launchDuration:launchDur,gridMinutes:10,poleTransferMinutes:TRANSFER,breaks:breaks.map(b=>({start:hhmm(b.start),duration:b.duration,end:hhmm(b.end)}))},staff,modules,tasks,timeline,warnings,missingRequired,missingOptional,skippedModules,breakAudit,groupInfo};
+    return {sourceRoster:rosterSource,version:12,type:'airtrail-tirolesa',createdAt:new Date().toISOString(),date:$('#date').value,config:{dayStart:hhmm(dayStart),dayEnd:hhmm(dayEnd),firstStart:hhmm(modules[0].start),interval:segments[0].interval,intervals:segments.map(x=>({start:hhmm(x.start),end:hhmm(x.end),interval:x.interval})),equipDuration:equipDur,launchDuration:launchDur,gridMinutes:10,poleTransferMinutes:TRANSFER,breaks:breaks.map(b=>({start:hhmm(b.start),duration:b.duration,end:hhmm(b.end)}))},staff,modules,tasks,timeline,warnings,missingRequired,missingOptional,skippedModules,breakAudit,groupInfo};
   }
   function personName(plan,pid){const p=plan.staff.find(x=>x.idx===pid);return p?(p.nick||p.name):'—'}
   function moduleBg(id){return Number(id)%2===1?'#dfeeff':'#e7f6e3'}function moduleFg(id){return Number(id)%2===1?'#234a73':'#315c35'}function categoryForTask(t){if(!t)return '';if(t.role==='break')return 'Break';if(t.role==='equipMain'||t.role==='equipSupport')return 'Equipamiento';if(t.role==='launchMain'||t.role==='launchSupport')return 'Lanzamiento';if(t.role==='polesSupport'||t.role==='polesTransfer')return 'Poleas';if(t.role==='brakeMain')return 'Freno';return t.label||''}
@@ -523,8 +526,8 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
   function adminCreds(){return {}}
   function adminMsg(text,bad=false){$('#adminStatus').innerHTML=`<div class="${bad?'status-bad':'status-good'}">${esc(text)}</div>`}
   function sharedToAir(p){return normalizeMonitor({id:p.id,name:p.name,nick:p.nick,arrival:p.defaultStart||'12:00',departure:p.defaultEnd||'21:00',preferred:p.airtrail&&p.airtrail.preferred||'',skills:p.airtrail&&p.airtrail.skills||{}})}
-  async function loadSharedBase(){try{const r=await fetch('/api/personal',{cache:'no-store'});const d=await r.json();if(!r.ok)throw Error(d.error||'No se pudo cargar la base compartida.');if(Array.isArray(d.people)&&d.people.length){sharedRaw=d.people;monitors=d.people.map(sharedToAir);selected=new Set();saveBase();renderBase();adminMsg(`Base compartida cargada: ${monitors.length} personas.`)}}catch(e){adminMsg('No se pudo cargar la base compartida; se mantiene la copia local. '+e.message,true)}}
-  async function saveSharedBase(){syncBaseFromDom();saveBase();const c=adminCreds();const payload=monitors.map(m=>({id:m.id,name:m.name,nick:m.nick,defaultStart:m.arrival,defaultEnd:m.departure,airtrail:{skills:m.skills,preferred:m.preferred}}));const r=await fetch('/api/personal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...c,source:'airtrail',people:payload})});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||`Error ${r.status}`);sharedRaw=d.people||[];adminMsg('Base compartida guardada correctamente.');}
+  
+  
   async function publishCurrent(){if(!currentPlan)throw Error('Primero genera una planificación.');if(!/^\d{4}-\d{2}-\d{2}$/.test(currentPlan.date||''))throw Error('Selecciona una fecha válida.');if($('#date').value!==currentPlan.date)throw Error('Cambiaste la fecha después de generar. Vuelve a generar la planificación antes de publicar.');const c=adminCreds();const btn=$('#publishCurrent');btn.disabled=true;btn.textContent='Publicando…';try{const r=await fetch('/api/jornadas',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...c,type:'airtrail',date:currentPlan.date,plan:currentPlan})});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||`Error ${r.status}`);adminMsg(`Airtrail + Tirolesa · ${currentPlan.date} publicado correctamente.`);await refreshPublished()}finally{btn.disabled=false;btn.textContent='Publicar jornada actual'}}
   async function refreshPublished(){const box=$('#publishedList');box.innerHTML='<span class="sub">Cargando…</span>';try{const r=await fetch('/api/jornadas?type=airtrail&action=list',{cache:'no-store'});const d=await r.json();if(!r.ok)throw Error(d.error||'No se pudo cargar la lista.');const month=$('#publishedMonth').value;const items=(d.items||[]).filter(x=>!month||x.date.startsWith(month)).sort((a,b)=>b.date.localeCompare(a.date));box.innerHTML=items.length?items.map(x=>`<div class="pubitem"><b>${esc(x.date)}</b><div class="pubmeta">Airtrail + Tirolesa</div><div class="pubactions"><button class="secondary tiny" data-view="${esc(x.date)}">Ver</button><button class="dangerBtn tiny" data-del="${esc(x.date)}">Eliminar</button></div></div>`).join(''):'<span class="sub">No hay jornadas publicadas para este mes.</span>'}catch(e){box.innerHTML=`<div class="status-bad">${esc(e.message)}</div>`}}
   async function deletePublished(date,button){const c=adminCreds();if(!confirm(`¿Eliminar Airtrail + Tirolesa del ${date}?`))return;button.disabled=true;try{const r=await fetch('/api/jornadas',{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({...c,type:'airtrail',date})});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||`Error ${r.status}`);adminMsg(`${date} eliminado.`);await refreshPublished()}finally{button.disabled=false}}
@@ -534,7 +537,7 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
   $('#monitorTable').addEventListener('input',e=>{syncBaseFromDom();renderStaff()});
   $('#monitorTable').addEventListener('click',e=>{if(e.target.classList.contains('remove')){const i=+e.target.dataset.i;monitors.splice(i,1);selected=new Set();renderBase()}});
   $('#addMonitor').onclick=()=>{syncBaseFromDom();monitors.push({id:uid(),name:'Nuevo monitor',nick:'',arrival:'12:00',departure:'21:00',preferred:'',skills:{brake:false,launch:false,equip:false,poles:false}});renderBase()};
-  $('#saveBase').onclick=async()=>{try{await saveSharedBase();renderBase()}catch(e){adminMsg(e.message,true)}};
+  
   $('#exportBase').onclick=()=>{syncBaseFromDom();download('base_monitores_airtrail.json',JSON.stringify(monitors,null,2),'application/json')};
   $('#importBase').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!Array.isArray(data))throw Error();monitors=data;selected=new Set();saveBase();renderBase()}catch{alert('El archivo no parece ser una base válida.')}e.target.value=''};
   $('#resetBase').onclick=()=>{if(confirm('¿Restaurar la base de ejemplo?')){monitors=structuredClone(defaults);selected=new Set();saveBase();renderBase()}};
@@ -542,7 +545,12 @@ main{max-width:1500px;margin:0 auto;padding:22px}.grid{display:grid;grid-templat
   $('#addInterval').onclick=()=>addIntervalRow('14:00','20:00',30);$('#intervalRows').addEventListener('click',e=>{if(e.target.classList.contains('delInterval')){const rows=$$('#intervalRows .interval-row');if(rows.length<=1){alert('Debe existir al menos un tramo.');return}e.target.closest('.interval-row').remove()}});$('#addBreak').onclick=()=>addBreakRow();$('#breaks').addEventListener('click',e=>{if(e.target.classList.contains('delBreak'))e.target.closest('.break-row').remove()});
   $('#generate').onclick=()=>{try{renderPlan(schedule())}catch(err){$('#globalStatus').innerHTML=`<div class="status err">${esc(err.message)}</div>`}};
   $('#exportPlan').onclick=exportPlan;$('#exportCsv').onclick=exportCsv;
-  initTimeSelectors();$('#date').value=new Date().toLocaleDateString('en-CA');$('#publishedMonth').value=$('#date').value.slice(0,7);renderBase();addIntervalRow('10:00','14:00',60);addIntervalRow('14:00','20:00',30);addBreakRow('16:00',20);$('#publishCurrent').onclick=async()=>{try{await publishCurrent()}catch(e){adminMsg(e.message,true)}};$('#openViewer').onclick=()=>window.open('/?type=airtrail','_blank','noopener');$('#refreshPublished').onclick=refreshPublished;$('#publishedMonth').onchange=refreshPublished;$('#publishedList').onclick=async e=>{if(e.target.dataset.view)window.open(`/?type=airtrail&date=${encodeURIComponent(e.target.dataset.view)}`,'_blank','noopener');if(e.target.dataset.del){try{await deletePublished(e.target.dataset.del,e.target)}catch(err){adminMsg(err.message,true)}}};loadSharedBase();refreshPublished();
+  initTimeSelectors();$('#date').value=DailyRoster.today();$('#publishedMonth').value=$('#date').value.slice(0,7);renderBase();addIntervalRow('10:00','14:00',60);addIntervalRow('14:00','20:00',30);addBreakRow('16:00',20);$('#publishCurrent').onclick=async()=>{try{await publishCurrent()}catch(e){adminMsg(e.message,true)}};$('#openViewer').onclick=()=>window.open('/?type=airtrail','_blank','noopener');$('#refreshPublished').onclick=refreshPublished;$('#publishedMonth').onchange=refreshPublished;$('#publishedList').onclick=async e=>{if(e.target.dataset.view)window.open(`/?type=airtrail&date=${encodeURIComponent(e.target.dataset.view)}`,'_blank','noopener');if(e.target.dataset.del){try{await deletePublished(e.target.dataset.del,e.target)}catch(err){adminMsg(err.message,true)}}};adminMsg('Selecciona la fecha e importa la dotación diaria para comenzar.');refreshPublished();
+
+function invalidateRosterPlan(){currentPlan=null;window.planDirty=true;$('#planCard').style.display='none';$('#modulesCard').style.display='none';$('#kpis').classList.add('hide');$('#globalStatus').textContent='';$('#exportPlan').disabled=$('#exportCsv').disabled=true;}
+$('#importRoster').onclick=async()=>{const date=$('#date').value,button=$('#importRoster');button.disabled=true;$('#date').disabled=true;try{const d=await DailyRoster.read('airtrail',date);if(!d)return;monitors=d.people.map(sharedToAir);selected=new Set(monitors.map((_,i)=>i));rosterSource=DailyRoster.metadata(d);invalidateRosterPlan();$('#monitorTable tbody').innerHTML='';saveBase();renderBase();$('#rosterStatus').textContent=DailyRoster.message(d);adminMsg('Dotación importada. Genera la planificación antes de publicar.');}catch(e){adminMsg(e.message,true)}finally{button.disabled=false;$('#date').disabled=false}};
+$('#date').addEventListener('change',()=>{if(rosterSource&&rosterSource.date!==$('#date').value){rosterSource=null;monitors=[];selected=new Set();invalidateRosterPlan();$('#monitorTable tbody').innerHTML='';renderBase();$('#rosterStatus').textContent='Cambiaste de fecha. Importa la dotación del nuevo día.';}});
+
 })();
 </script>
 </body>

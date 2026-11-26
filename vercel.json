@@ -56,6 +56,14 @@
     {
       "source": "/venta",
       "destination": "/declaracion.html"
+    },
+    {
+      "source": "/monitores",
+      "destination": "/monitores.html"
+    },
+    {
+      "source": "/dotacion",
+      "destination": "/dotacion.html"
     }
   ],
   "headers": [
@@ -186,6 +194,24 @@
     },
     {
       "source": "/datos(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/monitores(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/dotacion(.*)",
       "headers": [
         {
           "key": "Cache-Control",
