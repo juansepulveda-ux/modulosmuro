@@ -1,19 +1,24 @@
 {
-  "version": 1,
-  "updatedAt": "2026-11-25T17:24:26.242Z",
+  "version": 2,
   "people": [
     {
       "id": "p_xiagwrd",
       "name": "James Almuna",
       "nick": "James",
+      "active": true,
+      "areas": {
+        "muro": true,
+        "airtrail": true
+      },
+      "needsReview": false,
       "defaultStart": "10:00",
       "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
           "equip": false,
           "launch": true,
-          "poles": false,
-          "brake": false
+          "brake": true,
+          "poles": false
         },
         "preferred": ""
       }
@@ -22,14 +27,20 @@
       "id": "p_gm82kgv",
       "name": "Benjamín Delgado",
       "nick": "Benjita",
+      "active": true,
+      "areas": {
+        "muro": true,
+        "airtrail": true
+      },
+      "needsReview": true,
       "defaultStart": "10:00",
       "defaultEnd": "14:00",
       "airtrail": {
         "skills": {
           "equip": false,
           "launch": false,
-          "poles": false,
-          "brake": true
+          "brake": true,
+          "poles": false
         },
         "preferred": ""
       }
@@ -38,14 +49,20 @@
       "id": "p_pa0ohfx",
       "name": "Daniela Gutiérrez",
       "nick": "Dani",
+      "active": true,
+      "areas": {
+        "muro": true,
+        "airtrail": true
+      },
+      "needsReview": true,
       "defaultStart": "11:00",
       "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
           "equip": true,
           "launch": false,
-          "poles": false,
-          "brake": false
+          "brake": false,
+          "poles": false
         },
         "preferred": ""
       }
@@ -54,14 +71,20 @@
       "id": "p_vlipsph",
       "name": "Emanuel Illanes",
       "nick": "Ema",
+      "active": true,
+      "areas": {
+        "muro": true,
+        "airtrail": true
+      },
+      "needsReview": true,
       "defaultStart": "14:00",
       "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
           "equip": false,
           "launch": false,
-          "poles": false,
-          "brake": true
+          "brake": true,
+          "poles": false
         },
         "preferred": ""
       }
@@ -70,14 +93,20 @@
       "id": "p_7z8p7g1d",
       "name": "Teresa Fernández",
       "nick": "Teresita",
+      "active": true,
+      "areas": {
+        "muro": true,
+        "airtrail": true
+      },
+      "needsReview": true,
       "defaultStart": "14:00",
       "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
           "equip": false,
           "launch": true,
-          "poles": false,
-          "brake": false
+          "brake": false,
+          "poles": false
         },
         "preferred": ""
       }
@@ -86,17 +115,25 @@
       "id": "p_163urc7x",
       "name": "Susan Espinoza",
       "nick": "Susan",
+      "active": true,
+      "areas": {
+        "muro": true,
+        "airtrail": true
+      },
+      "needsReview": true,
       "defaultStart": "10:00",
       "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
           "equip": true,
           "launch": false,
-          "poles": false,
-          "brake": false
+          "brake": false,
+          "poles": false
         },
         "preferred": ""
       }
     }
-  ]
+  ],
+  "updatedAt": "2026-11-26T23:59:17.611Z",
+  "updatedBy": "admin"
 }
