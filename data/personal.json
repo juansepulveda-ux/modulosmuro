@@ -115,7 +115,7 @@
       "id": "p_163urc7x",
       "name": "Susan Espinoza",
       "nick": "Susan",
-      "active": true,
+      "active": false,
       "areas": {
         "muro": true,
         "airtrail": true
@@ -200,6 +200,6 @@
       }
     }
   ],
-  "updatedAt": "2026-11-27T00:13:20.789Z",
+  "updatedAt": "2026-11-27T00:13:55.251Z",
   "updatedBy": "admin"
 }
