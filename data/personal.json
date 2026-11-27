@@ -308,8 +308,30 @@
         },
         "preferred": ""
       }
+    },
+    {
+      "id": "p_042384cc-7bf8-49a2-a899-ff73f4c10c75",
+      "name": "Daniela Gutiérrez",
+      "nick": "Dani",
+      "active": true,
+      "areas": {
+        "muro": false,
+        "airtrail": true
+      },
+      "needsReview": false,
+      "defaultStart": "12:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": true,
+          "launch": false,
+          "brake": false,
+          "poles": false
+        },
+        "preferred": ""
+      }
     }
   ],
-  "updatedAt": "2026-11-27T00:19:37.925Z",
+  "updatedAt": "2026-11-27T00:23:40.027Z",
   "updatedBy": "admin"
 }
