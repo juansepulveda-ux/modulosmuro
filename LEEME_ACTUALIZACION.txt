@@ -1,0 +1,34 @@
+RESUMEN VISUAL DE DOTACIÓN — ACTUALIZACIÓN PUNTUAL
+
+Este paquete agrega una tabla a /dotacion. No es una instalación completa.
+
+QUÉ SUBIR A GITHUB
+1. Descomprime este ZIP.
+2. Sube dotacion.html a la raíz del mismo repositorio, reemplazando ese archivo.
+3. Dentro de la carpeta assets existente, agrega:
+   - dotacion-resumen.js
+   - dotacion-resumen.css
+   También puedes arrastrar dotacion.html y la carpeta assets del ZIP juntos a la raíz de GitHub. Se agregan sus archivos; conserva los demás archivos de assets.
+4. Confirma los cambios y espera el despliegue habitual de Vercel.
+5. Abre /dotacion. Si no aparece «Resumen visual del día», recarga con Ctrl+F5.
+
+NO BORRES CARPETAS NI REEMPLACES EL REPOSITORIO COMPLETO.
+Conserva data, api, lib, las variables de Vercel, la base Redis y todos los archivos existentes que no coincidan con los tres de esta actualización. No subas el ZIP comprimido como único archivo.
+
+DATOS CONSERVADOS
+Esta actualización no incluye archivos de datos ni migraciones y no modifica ninguna API. La tabla lee los valores que ya están en el formulario, sin solicitudes propias al servidor ni guardado automático. Conserva el flujo habitual del botón «Guardar dotación del día». No cambia la configuración de Vercel ni agrega funciones Serverless.
+
+CÓMO USAR EL RESUMEN
+- Elige el día como siempre.
+- Las horas van en las filas y cada monitor tiene una columna.
+- Verde: Muro. Azul: Airtrail/Tirolesa. Morado: ambas actividades.
+- Los bloques muestran el ingreso y la salida exactos en formato 24 horas.
+- La columna «En turno» cuenta personas disponibles por tramo y por actividad. Una persona para ambas se cuenta una vez en el total y una vez en cada actividad; las cantidades de las actividades no deben sumarse para obtener el total.
+- El resumen incluye a todos los monitores seleccionados, aunque el buscador oculte algunas fichas.
+- Puedes plegarlo pulsando su título. La tabla se desplaza hacia abajo y horizontalmente si hay muchos monitores.
+- Se actualiza al editar. Si hay cambios pendientes, se indica «Vista previa con cambios sin guardar».
+- Un horario incompleto o una salida anterior al ingreso se señala para corregirlo y no se dibuja hasta estar completo.
+- Representa la disponibilidad de la dotación, no las asignaciones a módulos ni los descansos del planificador.
+
+VERIFICACIÓN
+Tres pruebas específicas cubren minutos exactos, conteo de ambas actividades, jornadas vacías/incompletas y texto seguro. El recorrido se verificó en navegador con datos ficticios: carga de jornada, actualización al editar, buscador y recarga sin guardar. No se accedió ni se modificó la base real.
