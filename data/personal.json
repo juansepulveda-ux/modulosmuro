@@ -264,8 +264,30 @@
         },
         "preferred": ""
       }
+    },
+    {
+      "id": "p_9d3f966b-1705-4cb8-b9b5-6917053400e0",
+      "name": "Domínica Reyes",
+      "nick": "Domi",
+      "active": true,
+      "areas": {
+        "muro": true,
+        "airtrail": false
+      },
+      "needsReview": false,
+      "defaultStart": "12:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": false,
+          "launch": false,
+          "brake": false,
+          "poles": false
+        },
+        "preferred": ""
+      }
     }
   ],
-  "updatedAt": "2026-11-27T00:18:59.367Z",
+  "updatedAt": "2026-11-27T00:19:17.133Z",
   "updatedBy": "admin"
 }
