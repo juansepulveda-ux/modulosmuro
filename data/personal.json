@@ -20,7 +20,7 @@
           "brake": true,
           "poles": false
         },
-        "preferred": ""
+        "preferred": "launch"
       }
     },
     {
@@ -134,6 +134,6 @@
       }
     }
   ],
-  "updatedAt": "2026-11-26T23:59:17.611Z",
+  "updatedAt": "2026-11-27T00:08:40.820Z",
   "updatedBy": "admin"
 }
