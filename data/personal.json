@@ -286,8 +286,30 @@
         },
         "preferred": ""
       }
+    },
+    {
+      "id": "p_2cef7828-99a5-471f-b8b6-0f0bd711992c",
+      "name": "Susan Espinoza",
+      "nick": "Susan",
+      "active": true,
+      "areas": {
+        "muro": false,
+        "airtrail": true
+      },
+      "needsReview": false,
+      "defaultStart": "12:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": true,
+          "launch": false,
+          "brake": false,
+          "poles": true
+        },
+        "preferred": ""
+      }
     }
   ],
-  "updatedAt": "2026-11-27T00:19:17.133Z",
+  "updatedAt": "2026-11-27T00:19:37.925Z",
   "updatedBy": "admin"
 }
