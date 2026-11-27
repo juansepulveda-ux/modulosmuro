@@ -220,8 +220,30 @@
         },
         "preferred": ""
       }
+    },
+    {
+      "id": "p_dae49218-849b-4536-8395-803f65eeae4e",
+      "name": "Enoc Jiménez",
+      "nick": "Enoc",
+      "active": true,
+      "areas": {
+        "muro": true,
+        "airtrail": true
+      },
+      "needsReview": false,
+      "defaultStart": "12:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": false,
+          "launch": true,
+          "brake": true,
+          "poles": false
+        },
+        "preferred": ""
+      }
     }
   ],
-  "updatedAt": "2026-11-27T00:14:17.135Z",
+  "updatedAt": "2026-11-27T00:14:46.964Z",
   "updatedBy": "admin"
 }
