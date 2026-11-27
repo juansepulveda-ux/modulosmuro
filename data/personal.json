@@ -242,8 +242,30 @@
         },
         "preferred": ""
       }
+    },
+    {
+      "id": "p_c38eb0da-8c5c-4f91-b5df-d64f10714b5c",
+      "name": "Sebastián Castro",
+      "nick": "Seba",
+      "active": true,
+      "areas": {
+        "muro": true,
+        "airtrail": false
+      },
+      "needsReview": false,
+      "defaultStart": "12:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": false,
+          "launch": false,
+          "brake": false,
+          "poles": false
+        },
+        "preferred": ""
+      }
     }
   ],
-  "updatedAt": "2026-11-27T00:14:46.964Z",
+  "updatedAt": "2026-11-27T00:18:59.367Z",
   "updatedBy": "admin"
 }
