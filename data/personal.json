@@ -32,7 +32,7 @@
         "muro": true,
         "airtrail": true
       },
-      "needsReview": true,
+      "needsReview": false,
       "defaultStart": "10:00",
       "defaultEnd": "14:00",
       "airtrail": {
@@ -42,7 +42,7 @@
           "brake": true,
           "poles": false
         },
-        "preferred": ""
+        "preferred": "brake"
       }
     },
     {
@@ -134,6 +134,6 @@
       }
     }
   ],
-  "updatedAt": "2026-11-27T00:08:40.820Z",
+  "updatedAt": "2026-11-27T00:09:00.724Z",
   "updatedBy": "admin"
 }
