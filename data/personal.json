@@ -176,8 +176,30 @@
         },
         "preferred": "launch"
       }
+    },
+    {
+      "id": "p_c68e57cc-fa66-4da1-8d01-11dc0688b896",
+      "name": "Paloma Acevedo",
+      "nick": "Palito",
+      "active": true,
+      "areas": {
+        "muro": true,
+        "airtrail": false
+      },
+      "needsReview": false,
+      "defaultStart": "12:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": false,
+          "launch": false,
+          "brake": false,
+          "poles": false
+        },
+        "preferred": ""
+      }
     }
   ],
-  "updatedAt": "2026-11-27T00:12:19.537Z",
+  "updatedAt": "2026-11-27T00:13:20.789Z",
   "updatedBy": "admin"
 }
