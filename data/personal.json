@@ -154,8 +154,30 @@
         },
         "preferred": "equip"
       }
+    },
+    {
+      "id": "p_a63657bd-7d16-4d90-9b58-227038b11631",
+      "name": "Bryan Gutierrez",
+      "nick": "Bryan",
+      "active": true,
+      "areas": {
+        "muro": false,
+        "airtrail": true
+      },
+      "needsReview": false,
+      "defaultStart": "12:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": true,
+          "launch": true,
+          "brake": true,
+          "poles": false
+        },
+        "preferred": "launch"
+      }
     }
   ],
-  "updatedAt": "2026-11-27T00:11:38.437Z",
+  "updatedAt": "2026-11-27T00:12:19.537Z",
   "updatedBy": "admin"
 }
