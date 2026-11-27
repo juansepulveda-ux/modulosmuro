@@ -76,17 +76,17 @@
         "muro": true,
         "airtrail": true
       },
-      "needsReview": true,
+      "needsReview": false,
       "defaultStart": "14:00",
       "defaultEnd": "20:00",
       "airtrail": {
         "skills": {
-          "equip": false,
-          "launch": false,
+          "equip": true,
+          "launch": true,
           "brake": true,
           "poles": false
         },
-        "preferred": ""
+        "preferred": "launch"
       }
     },
     {
@@ -134,6 +134,6 @@
       }
     }
   ],
-  "updatedAt": "2026-11-27T00:10:04.474Z",
+  "updatedAt": "2026-11-27T00:11:12.086Z",
   "updatedBy": "admin"
 }
