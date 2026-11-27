@@ -198,8 +198,30 @@
         },
         "preferred": ""
       }
+    },
+    {
+      "id": "p_ecfb7b4f-be7f-4181-b034-fcaab01ac5c5",
+      "name": "Lucía Tripodi",
+      "nick": "Luci",
+      "active": true,
+      "areas": {
+        "muro": true,
+        "airtrail": false
+      },
+      "needsReview": false,
+      "defaultStart": "12:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": false,
+          "launch": false,
+          "brake": false,
+          "poles": false
+        },
+        "preferred": ""
+      }
     }
   ],
-  "updatedAt": "2026-11-27T00:13:55.251Z",
+  "updatedAt": "2026-11-27T00:14:17.135Z",
   "updatedBy": "admin"
 }
