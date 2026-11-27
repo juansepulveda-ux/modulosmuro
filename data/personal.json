@@ -132,8 +132,30 @@
         },
         "preferred": "equip"
       }
+    },
+    {
+      "id": "p_a1af4672-d6c1-48f8-a643-d1ece3965712",
+      "name": "Constanza Gaete",
+      "nick": "Coni",
+      "active": true,
+      "areas": {
+        "muro": true,
+        "airtrail": true
+      },
+      "needsReview": false,
+      "defaultStart": "12:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": true,
+          "launch": false,
+          "brake": false,
+          "poles": false
+        },
+        "preferred": "equip"
+      }
     }
   ],
-  "updatedAt": "2026-11-27T00:11:12.086Z",
+  "updatedAt": "2026-11-27T00:11:38.437Z",
   "updatedBy": "admin"
 }
