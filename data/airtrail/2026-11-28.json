@@ -7,7 +7,7 @@
   },
   "version": 12,
   "type": "airtrail-tirolesa",
-  "createdAt": "2026-11-28T01:57:17.748Z",
+  "createdAt": "2026-11-28T01:59:19.750Z",
   "date": "2026-11-28",
   "config": {
     "dayStart": "10:00",
@@ -94,7 +94,7 @@
       "id": "p_7z8p7g1d",
       "name": "Teresa Fernández",
       "nick": "Teresita",
-      "arrival": "10:00",
+      "arrival": "14:00",
       "departure": "20:00",
       "preferred": "",
       "skills": {
@@ -104,7 +104,7 @@
         "poles": false
       },
       "idx": 3,
-      "arrivalMin": 600,
+      "arrivalMin": 840,
       "departureMin": 1200
     },
     {
@@ -189,19 +189,6 @@
             "assigned": 0,
             "order": 2
           }
-        ],
-        "launchSupport": [
-          {
-            "moduleId": 1,
-            "role": "launchSupport",
-            "label": "Lanzamiento",
-            "skill": "launch",
-            "baseStart": 620,
-            "start": 620,
-            "end": 640,
-            "assigned": 3,
-            "order": 5
-          }
         ]
       },
       "intervalSegment": {
@@ -209,7 +196,7 @@
         "end": 780,
         "interval": 30
       },
-      "activeStaff": 4
+      "activeStaff": 3
     },
     {
       "id": 2,
@@ -257,19 +244,6 @@
             "assigned": 0,
             "order": 2
           }
-        ],
-        "launchSupport": [
-          {
-            "moduleId": 2,
-            "role": "launchSupport",
-            "label": "Lanzamiento",
-            "skill": "launch",
-            "baseStart": 650,
-            "start": 650,
-            "end": 670,
-            "assigned": 3,
-            "order": 5
-          }
         ]
       },
       "intervalSegment": {
@@ -277,7 +251,7 @@
         "end": 780,
         "interval": 30
       },
-      "activeStaff": 5
+      "activeStaff": 4
     },
     {
       "id": 3,
@@ -338,19 +312,6 @@
             "assigned": 4,
             "order": 4
           }
-        ],
-        "launchSupport": [
-          {
-            "moduleId": 3,
-            "role": "launchSupport",
-            "label": "Lanzamiento",
-            "skill": "launch",
-            "baseStart": 680,
-            "start": 680,
-            "end": 700,
-            "assigned": 3,
-            "order": 5
-          }
         ]
       },
       "intervalSegment": {
@@ -358,7 +319,7 @@
         "end": 780,
         "interval": 30
       },
-      "activeStaff": 5
+      "activeStaff": 4
     },
     {
       "id": 4,
@@ -419,19 +380,6 @@
             "assigned": 4,
             "order": 4
           }
-        ],
-        "launchSupport": [
-          {
-            "moduleId": 4,
-            "role": "launchSupport",
-            "label": "Lanzamiento",
-            "skill": "launch",
-            "baseStart": 710,
-            "start": 710,
-            "end": 730,
-            "assigned": 3,
-            "order": 5
-          }
         ]
       },
       "intervalSegment": {
@@ -439,7 +387,7 @@
         "end": 780,
         "interval": 30
       },
-      "activeStaff": 5
+      "activeStaff": 4
     },
     {
       "id": 5,
@@ -500,19 +448,6 @@
             "assigned": 4,
             "order": 4
           }
-        ],
-        "launchSupport": [
-          {
-            "moduleId": 5,
-            "role": "launchSupport",
-            "label": "Lanzamiento",
-            "skill": "launch",
-            "baseStart": 740,
-            "start": 740,
-            "end": 760,
-            "assigned": 3,
-            "order": 5
-          }
         ]
       },
       "intervalSegment": {
@@ -520,7 +455,7 @@
         "end": 780,
         "interval": 30
       },
-      "activeStaff": 5
+      "activeStaff": 4
     },
     {
       "id": 6,
@@ -1449,17 +1384,6 @@
       "order": 2
     },
     {
-      "moduleId": 1,
-      "role": "launchSupport",
-      "label": "Lanzamiento",
-      "skill": "launch",
-      "baseStart": 620,
-      "start": 620,
-      "end": 640,
-      "assigned": 3,
-      "order": 5
-    },
-    {
       "moduleId": 2,
       "role": "equipMain",
       "label": "Equipamiento",
@@ -1493,17 +1417,6 @@
       "order": 2
     },
     {
-      "moduleId": 2,
-      "role": "launchSupport",
-      "label": "Lanzamiento",
-      "skill": "launch",
-      "baseStart": 650,
-      "start": 650,
-      "end": 670,
-      "assigned": 3,
-      "order": 5
-    },
-    {
       "moduleId": 3,
       "role": "equipMain",
       "label": "Equipamiento",
@@ -1546,17 +1459,6 @@
       "end": 680,
       "assigned": 4,
       "order": 4
-    },
-    {
-      "moduleId": 3,
-      "role": "launchSupport",
-      "label": "Lanzamiento",
-      "skill": "launch",
-      "baseStart": 680,
-      "start": 680,
-      "end": 700,
-      "assigned": 3,
-      "order": 5
     },
     {
       "moduleId": 4,
@@ -1603,17 +1505,6 @@
       "order": 4
     },
     {
-      "moduleId": 4,
-      "role": "launchSupport",
-      "label": "Lanzamiento",
-      "skill": "launch",
-      "baseStart": 710,
-      "start": 710,
-      "end": 730,
-      "assigned": 3,
-      "order": 5
-    },
-    {
       "moduleId": 5,
       "role": "equipMain",
       "label": "Equipamiento",
@@ -1656,17 +1547,6 @@
       "end": 740,
       "assigned": 4,
       "order": 4
-    },
-    {
-      "moduleId": 5,
-      "role": "launchSupport",
-      "label": "Lanzamiento",
-      "skill": "launch",
-      "baseStart": 740,
-      "start": 740,
-      "end": 760,
-      "assigned": 3,
-      "order": 5
     },
     {
       "moduleId": 6,
@@ -2348,17 +2228,7 @@
           "order": 1
         },
         "2": null,
-        "3": {
-          "moduleId": 1,
-          "role": "launchSupport",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 620,
-          "start": 620,
-          "end": 640,
-          "assigned": 3,
-          "order": 5
-        },
+        "3": null,
         "4": null,
         "5": null
       },
@@ -2391,17 +2261,7 @@
           "order": 1
         },
         "2": null,
-        "3": {
-          "moduleId": 1,
-          "role": "launchSupport",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 620,
-          "start": 620,
-          "end": 640,
-          "assigned": 3,
-          "order": 5
-        },
+        "3": null,
         "4": {
           "moduleId": 2,
           "role": "equipMain",
@@ -2467,17 +2327,7 @@
           "order": 1
         },
         "2": null,
-        "3": {
-          "moduleId": 2,
-          "role": "launchSupport",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 650,
-          "start": 650,
-          "end": 670,
-          "assigned": 3,
-          "order": 5
-        },
+        "3": null,
         "4": null,
         "5": null
       },
@@ -2510,17 +2360,7 @@
           "order": 1
         },
         "2": null,
-        "3": {
-          "moduleId": 2,
-          "role": "launchSupport",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 650,
-          "start": 650,
-          "end": 670,
-          "assigned": 3,
-          "order": 5
-        },
+        "3": null,
         "4": {
           "moduleId": 3,
           "role": "equipSupport",
@@ -2606,17 +2446,7 @@
           "order": 1
         },
         "2": null,
-        "3": {
-          "moduleId": 3,
-          "role": "launchSupport",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 680,
-          "start": 680,
-          "end": 700,
-          "assigned": 3,
-          "order": 5
-        },
+        "3": null,
         "4": null,
         "5": null
       },
@@ -2649,17 +2479,7 @@
           "order": 1
         },
         "2": null,
-        "3": {
-          "moduleId": 3,
-          "role": "launchSupport",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 680,
-          "start": 680,
-          "end": 700,
-          "assigned": 3,
-          "order": 5
-        },
+        "3": null,
         "4": {
           "moduleId": 4,
           "role": "equipSupport",
@@ -2745,17 +2565,7 @@
           "order": 1
         },
         "2": null,
-        "3": {
-          "moduleId": 4,
-          "role": "launchSupport",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 710,
-          "start": 710,
-          "end": 730,
-          "assigned": 3,
-          "order": 5
-        },
+        "3": null,
         "4": null,
         "5": null
       },
@@ -2788,17 +2598,7 @@
           "order": 1
         },
         "2": null,
-        "3": {
-          "moduleId": 4,
-          "role": "launchSupport",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 710,
-          "start": 710,
-          "end": 730,
-          "assigned": 3,
-          "order": 5
-        },
+        "3": null,
         "4": {
           "moduleId": 5,
           "role": "equipSupport",
@@ -2884,17 +2684,7 @@
           "order": 1
         },
         "2": null,
-        "3": {
-          "moduleId": 5,
-          "role": "launchSupport",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 740,
-          "start": 740,
-          "end": 760,
-          "assigned": 3,
-          "order": 5
-        },
+        "3": null,
         "4": null,
         "5": null
       },
@@ -2927,17 +2717,7 @@
           "order": 1
         },
         "2": null,
-        "3": {
-          "moduleId": 5,
-          "role": "launchSupport",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 740,
-          "start": 740,
-          "end": 760,
-          "assigned": 3,
-          "order": 5
-        },
+        "3": null,
         "4": null,
         "5": null
       },
@@ -4680,7 +4460,7 @@
     "Inicio 12:30 omitido: no se puede completar Equipamiento + Freno + Lanzamiento respetando horarios, breaks y competencias."
   ],
   "missingRequired": 0,
-  "missingOptional": 2,
+  "missingOptional": 1,
   "skippedModules": 1,
   "breakAudit": [
     {
@@ -4722,7 +4502,7 @@
     {
       "idx": 3,
       "nick": "Teresita",
-      "arrival": "10:00",
+      "arrival": "14:00",
       "departure": "20:00",
       "preferred": "",
       "breaks": [
@@ -4787,6 +4567,6 @@
   "publication": {
     "type": "airtrail",
     "date": "2026-11-28",
-    "publishedAt": "2026-11-28T01:58:30.519Z"
+    "publishedAt": "2026-11-28T02:00:23.542Z"
   }
 }
