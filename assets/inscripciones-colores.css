@@ -1,0 +1,8 @@
+/* Only enrollment cards: keep status chips and action buttons readable. */
+#moduleGrid .module-card{background:var(--module-bg,#ffffff);color:var(--module-ink,#193044)}
+#moduleGrid .module-card .module-type{color:inherit;font-size:16px;font-weight:800}
+#moduleGrid .module-card .hint,#moduleGrid .module-card .muted{color:inherit}
+#moduleGrid .module-card .chip{color:#193044}
+#moduleGrid .module-card .chip.good{color:#196b4c}
+#moduleGrid .module-card .chip.warn{color:#865907}
+#moduleGrid .module-card .chip.bad{color:#9a3027}

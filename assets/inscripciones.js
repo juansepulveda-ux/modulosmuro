@@ -2,6 +2,13 @@ import {$,api,escape as esc,time,typeLabel,labels,today,notice,capacityChips,loc
 const user=await Session.ready;if(!user||!['admin','vendedor'].includes(user.role)){if(user)location.replace(Session.home[user.role]);throw Error('Acceso restringido')}
 let data=null,filter='all',busy=false,epoch=0,currentList=null;
 $('date').value=today();
+function moduleCardStyle(type){
+ const key=type==='muro'?'moduloMuro':'moduloAirtrail',fallback=type==='muro'?'#EDE5FA':'#DDF3F8';
+ const raw=data.config?.colors?.[key],color=/^#[0-9a-f]{6}$/i.test(raw||'')?raw:fallback;
+ const linear=[1,3,5].map(i=>{const v=parseInt(color.slice(i,i+2),16)/255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;});
+ const luminance=linear[0]*.2126+linear[1]*.7152+linear[2]*.0722;
+ return `--module-bg:${color};--module-ink:${luminance>.179?'#000000':'#ffffff'}`;
+}
 async function load(quiet=false){const seq=++epoch,date=$('date').value;try{const d=await api('/api/inscripciones?date='+encodeURIComponent(date));if(seq!==epoch)return;data=d;render();if(!quiet)notice('');return d}catch(e){if(seq===epoch){data=null;$('moduleGrid').innerHTML='<div class="empty">No se pudo cargar la jornada. Usa «Actualizar».</div>';notice(e.message,true)}throw e}}
 function render(){
  for(const [id,key] of [['capMuro','muro'],['capAirtrail','airtrail'],['capTirolesa','tirolesa']])$(id).value=data.defaults[key];
@@ -10,7 +17,7 @@ function render(){
  $('moduleGrid').innerHTML=modules.length?modules.map(m=>{
   const count=data.registrations.filter(r=>r.moduleKey===m.key).length;
   const hasRoom=m.open&&!m.blocked&&m.operational&&Object.keys(m.capacity).some(a=>m.used[a]<m.capacity[a]);
-  return `<article class="module-card ${m.blocked?'blocked-card':''}"><div class="row between"><span class="module-type">${typeLabel(m.type)}</span><span class="hint">Módulo ${m.number}</span></div><div class="module-time">${time(m.start)} <span class="muted" style="font-size:16px;font-weight:500">a ${time(m.end)}</span></div><div class="chips">${capacityChips(m)}<span class="chip ${m.open?'':'warn'}">${esc(m.reason)}</span>${m.blocked?`<span class="chip bad">Bloqueado: ${esc(m.blockReason||'por el personal')}</span>`:''}</div>${!m.operational?'<span class="chip bad">Sin cobertura de monitores</span>':''}<p class="hint">${Object.keys(m.override).length?'Cupos propios de este módulo':'Usa los cupos del día'} · ${count} inscritos</p><div class="card-actions"><button data-register="${m.key}" ${hasRoom?'':'disabled'}>Inscribir</button><button class="secondary" data-list="${m.key}">Ver lista</button><button class="secondary" data-capacity="${m.key}">Cupos</button><button class="${m.blocked?'secondary':'danger'}" data-block="${m.key}">${m.blocked?'Desbloquear':'Bloquear módulo'}</button></div></article>`;
+  return `<article style="${moduleCardStyle(m.type)}" class="module-card ${m.blocked?'blocked-card':''}"><div class="row between"><span class="module-type">${typeLabel(m.type)}</span><span class="hint">Módulo ${m.number}</span></div><div class="module-time">${time(m.start)} <span class="muted" style="font-size:16px;font-weight:500">a ${time(m.end)}</span></div><div class="chips">${capacityChips(m)}<span class="chip ${m.open?'':'warn'}">${esc(m.reason)}</span>${m.blocked?`<span class="chip bad">Bloqueado: ${esc(m.blockReason||'por el personal')}</span>`:''}</div>${!m.operational?'<span class="chip bad">Sin cobertura de monitores</span>':''}<p class="hint">${Object.keys(m.override).length?'Cupos propios de este módulo':'Usa los cupos del día'} · ${count} inscritos</p><div class="card-actions"><button data-register="${m.key}" ${hasRoom?'':'disabled'}>Inscribir</button><button class="secondary" data-list="${m.key}">Ver lista</button><button class="secondary" data-capacity="${m.key}">Cupos</button><button class="${m.blocked?'secondary':'danger'}" data-block="${m.key}">${m.blocked?'Desbloquear':'Bloquear módulo'}</button></div></article>`;
  }).join(''):'<div class="empty"><h2>No hay módulos publicados</h2><p>El administrador debe publicar una planificación para este día.</p></div>';
 }
 function openDialog(title,content){$('dialogTitle').textContent=title;$('dialogContent').innerHTML=content;notice('',false,'dialogNotice');if(!$('editor').open)$('editor').showModal()}

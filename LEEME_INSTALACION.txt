@@ -1,30 +1,24 @@
-ACTUALIZACIÓN: AVISO AL CLIENTE Y PROTECCIÓN DE RESERVAS
+COLORES DE MÓDULOS EN INSCRIPCIONES
 
-INSTALACIÓN
-1. Descomprime este ZIP en tu computador.
-2. En GitHub, abre el repositorio modulosmuro en su raíz.
-3. Usa Add file / Upload files. Arrastra configuracion.html y las carpetas api, assets y lib del ZIP conservando sus rutas. Reemplaza únicamente los archivos incluidos; no elimines las carpetas existentes ni otros archivos del repositorio.
-4. Confirma los cambios (Commit changes) y espera que Vercel termine el despliegue.
-5. Recarga la página de configuración y la inscripción del cliente. Si tenías abiertas pestañas de recepción o ventas, recárgalas también.
+Instala este paquete DESPUÉS de actualizacion_aviso_pago_clientes.zip, si todavía no has subido aquella actualización. Este ZIP solo incluye los seis archivos del cambio de colores, no reemplaza el repositorio completo.
 
-Este paquete incluye la protección de reservas nuevas de la actualización anterior. Puedes instalarlo directamente aunque todavía no hayas instalado aquel ZIP. Son 9 archivos de aplicación; no es una copia completa del repositorio.
+1. Descomprime el ZIP.
+2. En la raíz del repositorio modulosmuro, usa Add file / Upload files.
+3. Sube configuracion.html, inscripciones.html y las carpetas assets y lib conservando las rutas. Reemplaza solo los archivos incluidos; no borres las carpetas existentes ni los demás archivos.
+4. Confirma los cambios y espera que Vercel termine el despliegue.
+5. Recarga Configuración e Inscripciones. Si sigues viendo la versión anterior, usa Ctrl+F5.
 
-QUÉ VERÁ EL CLIENTE
-Al confirmar, cada reserva pendiente muestra un aviso destacado con la hora límite de pago en recepción (hora de Santiago de Chile) y el tiempo disponible al consultar. Si la actividad está llena, lo indica. La hora se calcula en el servidor.
-Ejemplo: módulo 16:00, reserva creada 15:57 y protección de 5 minutos: pagar antes de las 16:02. La inscripción no se anula inmediatamente por llenar el módulo.
-El plazo considera el mayor entre la hora de creación más la protección configurada y el límite anterior al inicio del módulo. Una reserva hecha con anticipación puede, por tanto, tener más de 5 minutos.
-Después del plazo solo se anula automáticamente si sigue impaga, sin check-in y ocupa una actividad llena, conforme a la configuración. Si todavía hay espacio, se conserva. No es una caducidad incondicional.
-La confirmación consulta el estado cada 20 segundos mientras está visible, y también tiene un botón Actualizar estado. No es un contador segundo a segundo. Cuando recepción marca el pago, se muestra Pagado y desaparece el aviso. Si se cancela, aparece Cancelada.
-El aviso aparece dentro de la página del cliente; no envía correos ni mensajes de WhatsApp.
+USO
+Entra como administrador a Configuración y busca “Colores de módulos en Inscripciones”.
+Elige el color de Muro y el de Airtrail + Tirolesa y pulsa Guardar configuración.
+En Inscripciones, pulsa Actualizar para aplicar los colores nuevos. También se aplican durante la actualización automática habitual.
+Los valores iniciales son lila para Muro y celeste para Airtrail + Tirolesa.
+El fondo completo de cada caja cambia de color y el texto principal pasa automáticamente a blanco o negro para mantener contraste. El tipo de módulo también aparece con un título más grande. Los avisos y botones conservan sus estilos propios.
+Airtrail y Tirolesa siguen compartiendo módulo. Estos colores solo se aplican a las cajas de Inscripciones.
 
-CONFIGURACIÓN
-En reservas pendientes de pago se puede ajustar la protección mínima desde que se crea una inscripción. Por defecto son 5 minutos. Los valores ya guardados se conservan. Editar o mover una inscripción no reinicia el plazo.
-Si la anulación automática está desactivada, no aparece el aviso de vencimiento.
-Con todas las páginas cerradas este paquete no añade un servicio programado: se mantiene el mecanismo de comprobación existente.
+DATOS
+No incluye data/, no elimina módulos, dotación, clientes, inscripciones ni declaraciones y no requiere migración. Conserva la protección de reservas y los ajustes existentes. No cambia credenciales, variables de entorno ni funciones de Vercel.
+Guardar colores modifica únicamente la configuración mediante el mecanismo existente.
 
-DATOS Y COMPATIBILIDAD
-No incluye ni reemplaza data/, no borra la base de datos ni ejecuta migraciones o reinicios. Mantiene clientes, declaraciones, módulos, dotación y registros existentes. No cambia variables de entorno ni requiere nuevas dependencias. Modifica la función existente api/clientes.js; no agrega otra función de Vercel.
-Las anulaciones automáticas que correspondan siguen aplicando según las reglas configuradas. Los registros antiguos sin una fecha válida de creación no se anulan automáticamente por esta regla. No se reactivan reservas que ya estuvieran anuladas.
-
-VERIFICACIÓN REALIZADA
-57 pruebas automatizadas aprobadas en un entorno de prueba, incluyendo plazos, cambio horario de Chile, protección al reintentar, consulta de reservas propias y actualización del pago. Se revisó visualmente el aviso con datos ficticios. No se accedió ni se modificó tu base de producción. El cambio queda activo al subir estos archivos y completarse el despliegue.
+VALIDACIÓN
+57 pruebas existentes aprobadas. Comprobación adicional de compatibilidad con ajustes anteriores y rechazo de colores inválidos. Revisión visual con datos ficticios: colores por defecto, guardado de color oscuro y texto blanco legible. No se accedió a producción.
