@@ -374,8 +374,30 @@
         },
         "preferred": ""
       }
+    },
+    {
+      "id": "p_d61e0ad9-92a3-45eb-8ad6-d449420cddd6",
+      "name": "Benjamín Norero",
+      "nick": "Benjita (T)",
+      "active": true,
+      "areas": {
+        "muro": true,
+        "airtrail": false
+      },
+      "needsReview": false,
+      "defaultStart": "12:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": false,
+          "launch": false,
+          "brake": false,
+          "poles": false
+        },
+        "preferred": ""
+      }
     }
   ],
-  "updatedAt": "2026-11-28T00:06:51.083Z",
+  "updatedAt": "2026-11-28T00:07:23.210Z",
   "updatedBy": "admin"
 }
