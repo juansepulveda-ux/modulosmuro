@@ -1,0 +1,32 @@
+ACTUALIZACIÓN PUNTUAL — PROTECCIÓN DE RESERVAS RECIENTES
+
+INSTALACIÓN SOBRE TU SISTEMA ACTUAL
+1. Como respaldo, descarga el ZIP del repositorio actual en GitHub (Code > Download ZIP).
+2. Descomprime este parche. Sube configuracion.html y las carpetas assets y lib a la raíz del mismo repositorio, reemplazando únicamente los seis archivos coincidentes. Hazlo en una misma confirmación de cambios.
+3. NO borres carpetas. Las carpetas assets y lib del parche solo contienen los archivos modificados: conserva los demás archivos existentes.
+4. Conserva data, api, los planificadores, dotacion.html, todas las variables de Vercel y el mismo DATA_NAMESPACE. No cambies la base Redis.
+5. Espera el despliegue y recarga las páginas abiertas. En Configuración > Reservas pendientes de pago aparece «Protección mínima desde la inscripción (minutos)».
+
+QUÉ CAMBIA
+La protección predeterminada es de 5 minutos. Puedes ajustarla entre 0 y 240; 0 elimina la protección por antigüedad.
+Para anular automáticamente una reserva deben coincidir:
+- Anulación automática activada.
+- Reserva activa, sin pago y sin check-in.
+- La actividad que ocupa está llena.
+- Ya se alcanzó el límite configurado de minutos antes del inicio.
+- Pasó la protección mínima desde la fecha/hora original de creación de la inscripción.
+
+Ejemplo: módulo a las 16:00; límite previo de 5 minutos; protección de 5 minutos. Quien se inscribe a las 15:57 conserva su reserva hasta las 16:02. Después, solo puede anularse si sigue impaga y la actividad está llena. Si paga durante la protección, se conserva. La protección puede extenderse después del inicio y no cambia los límites de inscripción o de check-in.
+
+No hay un vencimiento independiente por cliente: se comprueba durante las consultas/actualizaciones y mediante el mantenimiento ya existente. No se agrega una tarea programada. Si no hay actividad en las páginas ni mantenimiento externo, se comprobará al volver a consultar.
+
+CONSERVACIÓN DE DATOS Y CONFIGURACIÓN
+El parche no contiene datos, migraciones destructivas ni órdenes de limpieza. No borra ni reinicia la base. Conserva módulos, monitores, dotaciones, clientes, declaraciones, pagos, check-ins e historiales.
+Los seis archivos solo actualizan la regla, su configuración y los mensajes del formulario. No se modifica la pantalla de dotación ni su resumen visual. No agrega funciones Serverless ni requiere variables de Vercel nuevas.
+La configuración guardada conserva todos sus valores actuales, incluido tu límite previo de 5 minutos. Al faltar el nuevo campo se usa una protección de 5 minutos sin reescribir toda la base. Si habías desactivado la anulación automática, sigue desactivada hasta que tú la actives.
+La regla se aplica a las reservas activas existentes usando su fecha original de creación. No les concede cinco minutos nuevos desde el despliegue. Las pendientes antiguas que cumplan las condiciones siguen pudiendo anularse normalmente, con registro en el historial. Las ya anuladas no se reactivan.
+Por precaución, una reserva heredada sin fecha de creación válida no se anula automáticamente; el personal puede cancelarla manualmente.
+Editar nombre, observaciones, actividades, mover a otro módulo o desmarcar un pago no reinicia la protección. No se modifica la fecha original de creación.
+
+COMPROBACIÓN
+Pasaron 52 pruebas automatizadas, incluidas siete específicas del margen: frontera exacta de cinco minutos, reserva del último cupo, pago dos segundos después, reservas públicas, ambas actividades, datos heredados y conservación de configuración e inscripciones anteriores. GitHub y Redis se simularon; no se accedió ni modificó tu base real. No se ha desplegado este parche desde aquí.
