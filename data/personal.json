@@ -418,8 +418,30 @@
         },
         "preferred": ""
       }
+    },
+    {
+      "id": "p_104cac4e-8e50-49dd-882f-ff21a16f4250",
+      "name": "Felipe Jara",
+      "nick": "Feli",
+      "active": true,
+      "areas": {
+        "muro": true,
+        "airtrail": true
+      },
+      "needsReview": false,
+      "defaultStart": "12:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": true,
+          "launch": true,
+          "brake": true,
+          "poles": true
+        },
+        "preferred": "brake"
+      }
     }
   ],
-  "updatedAt": "2026-11-28T00:10:19.324Z",
+  "updatedAt": "2026-11-28T01:27:38.847Z",
   "updatedBy": "admin"
 }
