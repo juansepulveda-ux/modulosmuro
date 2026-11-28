@@ -2,12 +2,12 @@
   "sourceRoster": {
     "date": "2026-11-28",
     "revision": 4,
-    "baseRevision": "9dbf0a28d770b64e97c23ac303bf65d48a591658",
-    "importedAt": "2026-11-28T00:42:28.171Z"
+    "baseRevision": "2f41e4a3bb396a58aacb0231d86c50e5ceb8cd3a",
+    "importedAt": "2026-11-28T01:34:22.884Z"
   },
   "version": 12,
   "type": "airtrail-tirolesa",
-  "createdAt": "2026-11-28T00:55:09.324Z",
+  "createdAt": "2026-11-28T01:37:42.453Z",
   "date": "2026-11-28",
   "config": {
     "dayStart": "10:00",
@@ -47,7 +47,7 @@
       "departure": "20:00",
       "preferred": "launch",
       "skills": {
-        "brake": true,
+        "brake": false,
         "launch": true,
         "equip": false,
         "poles": false
@@ -77,17 +77,17 @@
       "id": "p_vlipsph",
       "name": "Emanuel Illanes",
       "nick": "Ema",
-      "arrival": "13:00",
+      "arrival": "14:00",
       "departure": "20:00",
-      "preferred": "launch",
+      "preferred": "",
       "skills": {
         "brake": true,
-        "launch": true,
-        "equip": true,
+        "launch": false,
+        "equip": false,
         "poles": false
       },
       "idx": 2,
-      "arrivalMin": 780,
+      "arrivalMin": 840,
       "departureMin": 1200
     },
     {
@@ -108,23 +108,6 @@
       "departureMin": 1200
     },
     {
-      "id": "p_dae49218-849b-4536-8395-803f65eeae4e",
-      "name": "Enoc Jiménez",
-      "nick": "Enoc",
-      "arrival": "13:00",
-      "departure": "20:00",
-      "preferred": "",
-      "skills": {
-        "brake": true,
-        "launch": true,
-        "equip": false,
-        "poles": false
-      },
-      "idx": 4,
-      "arrivalMin": 780,
-      "departureMin": 1200
-    },
-    {
       "id": "p_2cef7828-99a5-471f-b8b6-0f0bd711992c",
       "name": "Susan Espinoza",
       "nick": "Susan",
@@ -137,7 +120,7 @@
         "equip": true,
         "poles": true
       },
-      "idx": 5,
+      "idx": 4,
       "arrivalMin": 600,
       "departureMin": 1200
     },
@@ -154,7 +137,7 @@
         "equip": true,
         "poles": false
       },
-      "idx": 6,
+      "idx": 5,
       "arrivalMin": 660,
       "departureMin": 1200
     }
@@ -177,7 +160,7 @@
             "baseStart": 600,
             "start": 600,
             "end": 620,
-            "assigned": 5,
+            "assigned": 4,
             "order": 3
           }
         ],
@@ -232,7 +215,7 @@
             "baseStart": 660,
             "start": 660,
             "end": 680,
-            "assigned": 6,
+            "assigned": 5,
             "order": 3
           }
         ],
@@ -271,7 +254,7 @@
             "baseStart": 660,
             "start": 660,
             "end": 680,
-            "assigned": 5,
+            "assigned": 4,
             "order": 4
           }
         ]
@@ -300,7 +283,7 @@
             "baseStart": 720,
             "start": 720,
             "end": 740,
-            "assigned": 6,
+            "assigned": 5,
             "order": 3
           }
         ],
@@ -339,7 +322,7 @@
             "baseStart": 720,
             "start": 720,
             "end": 740,
-            "assigned": 5,
+            "assigned": 4,
             "order": 4
           }
         ]
@@ -368,7 +351,7 @@
             "baseStart": 840,
             "start": 840,
             "end": 860,
-            "assigned": 2,
+            "assigned": 5,
             "order": 3
           }
         ],
@@ -381,7 +364,7 @@
             "baseStart": 860,
             "start": 860,
             "end": 880,
-            "assigned": 0,
+            "assigned": 2,
             "order": 1
           }
         ],
@@ -394,7 +377,7 @@
             "baseStart": 860,
             "start": 860,
             "end": 880,
-            "assigned": 3,
+            "assigned": 0,
             "order": 2
           }
         ],
@@ -407,7 +390,7 @@
             "baseStart": 840,
             "start": 840,
             "end": 860,
-            "assigned": 6,
+            "assigned": 4,
             "order": 4
           }
         ],
@@ -420,34 +403,8 @@
             "baseStart": 860,
             "start": 860,
             "end": 880,
-            "assigned": 4,
+            "assigned": 3,
             "order": 5
-          }
-        ],
-        "polesSupport": [
-          {
-            "moduleId": 4,
-            "role": "polesSupport",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 860,
-            "start": 860,
-            "end": 880,
-            "assigned": 5,
-            "order": 6
-          }
-        ],
-        "polesTransfer": [
-          {
-            "moduleId": 4,
-            "role": "polesTransfer",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 880,
-            "start": 880,
-            "end": 890,
-            "assigned": 5,
-            "order": 6
           }
         ]
       },
@@ -456,7 +413,7 @@
         "end": 1200,
         "interval": 30
       },
-      "activeStaff": 6
+      "activeStaff": 5
     },
     {
       "id": 5,
@@ -475,7 +432,7 @@
             "baseStart": 870,
             "start": 870,
             "end": 890,
-            "assigned": 2,
+            "assigned": 5,
             "order": 3
           }
         ],
@@ -488,7 +445,7 @@
             "baseStart": 890,
             "start": 890,
             "end": 910,
-            "assigned": 4,
+            "assigned": 2,
             "order": 1
           }
         ],
@@ -514,7 +471,7 @@
             "baseStart": 870,
             "start": 870,
             "end": 890,
-            "assigned": 6,
+            "assigned": 4,
             "order": 4
           }
         ],
@@ -530,32 +487,6 @@
             "assigned": 3,
             "order": 5
           }
-        ],
-        "polesSupport": [
-          {
-            "moduleId": 5,
-            "role": "polesSupport",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 890,
-            "start": 890,
-            "end": 910,
-            "assigned": 5,
-            "order": 6
-          }
-        ],
-        "polesTransfer": [
-          {
-            "moduleId": 5,
-            "role": "polesTransfer",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 910,
-            "start": 910,
-            "end": 920,
-            "assigned": 5,
-            "order": 6
-          }
         ]
       },
       "intervalSegment": {
@@ -563,7 +494,7 @@
         "end": 1200,
         "interval": 30
       },
-      "activeStaff": 6
+      "activeStaff": 5
     },
     {
       "id": 6,
@@ -582,7 +513,7 @@
             "baseStart": 900,
             "start": 900,
             "end": 920,
-            "assigned": 2,
+            "assigned": 5,
             "order": 3
           }
         ],
@@ -595,7 +526,7 @@
             "baseStart": 920,
             "start": 920,
             "end": 940,
-            "assigned": 0,
+            "assigned": 2,
             "order": 1
           }
         ],
@@ -608,7 +539,7 @@
             "baseStart": 920,
             "start": 920,
             "end": 940,
-            "assigned": 4,
+            "assigned": 0,
             "order": 2
           }
         ],
@@ -621,7 +552,7 @@
             "baseStart": 900,
             "start": 900,
             "end": 920,
-            "assigned": 6,
+            "assigned": 4,
             "order": 4
           }
         ],
@@ -637,32 +568,6 @@
             "assigned": 3,
             "order": 5
           }
-        ],
-        "polesSupport": [
-          {
-            "moduleId": 6,
-            "role": "polesSupport",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 920,
-            "start": 920,
-            "end": 940,
-            "assigned": 5,
-            "order": 6
-          }
-        ],
-        "polesTransfer": [
-          {
-            "moduleId": 6,
-            "role": "polesTransfer",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 940,
-            "start": 940,
-            "end": 950,
-            "assigned": 5,
-            "order": 6
-          }
         ]
       },
       "intervalSegment": {
@@ -670,7 +575,7 @@
         "end": 1200,
         "interval": 30
       },
-      "activeStaff": 6
+      "activeStaff": 5
     },
     {
       "id": 7,
@@ -689,7 +594,7 @@
             "baseStart": 930,
             "start": 930,
             "end": 950,
-            "assigned": 2,
+            "assigned": 5,
             "order": 3
           }
         ],
@@ -702,7 +607,7 @@
             "baseStart": 950,
             "start": 950,
             "end": 970,
-            "assigned": 4,
+            "assigned": 2,
             "order": 1
           }
         ],
@@ -728,7 +633,7 @@
             "baseStart": 930,
             "start": 930,
             "end": 950,
-            "assigned": 6,
+            "assigned": 4,
             "order": 4
           }
         ],
@@ -744,32 +649,6 @@
             "assigned": 3,
             "order": 5
           }
-        ],
-        "polesSupport": [
-          {
-            "moduleId": 7,
-            "role": "polesSupport",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 950,
-            "start": 950,
-            "end": 970,
-            "assigned": 5,
-            "order": 6
-          }
-        ],
-        "polesTransfer": [
-          {
-            "moduleId": 7,
-            "role": "polesTransfer",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 970,
-            "start": 970,
-            "end": 980,
-            "assigned": 5,
-            "order": 6
-          }
         ]
       },
       "intervalSegment": {
@@ -777,7 +656,7 @@
         "end": 1200,
         "interval": 30
       },
-      "activeStaff": 6
+      "activeStaff": 5
     },
     {
       "id": 8,
@@ -796,7 +675,7 @@
             "baseStart": 980,
             "start": 980,
             "end": 1000,
-            "assigned": 2,
+            "assigned": 5,
             "order": 3
           }
         ],
@@ -809,7 +688,7 @@
             "baseStart": 1000,
             "start": 1000,
             "end": 1020,
-            "assigned": 0,
+            "assigned": 2,
             "order": 1
           }
         ],
@@ -822,7 +701,7 @@
             "baseStart": 1000,
             "start": 1000,
             "end": 1020,
-            "assigned": 4,
+            "assigned": 0,
             "order": 2
           }
         ],
@@ -835,7 +714,7 @@
             "baseStart": 980,
             "start": 980,
             "end": 1000,
-            "assigned": 6,
+            "assigned": 4,
             "order": 4
           }
         ],
@@ -851,32 +730,6 @@
             "assigned": 3,
             "order": 5
           }
-        ],
-        "polesSupport": [
-          {
-            "moduleId": 8,
-            "role": "polesSupport",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 1000,
-            "start": 1000,
-            "end": 1020,
-            "assigned": 5,
-            "order": 6
-          }
-        ],
-        "polesTransfer": [
-          {
-            "moduleId": 8,
-            "role": "polesTransfer",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 1020,
-            "start": 1020,
-            "end": 1030,
-            "assigned": 5,
-            "order": 6
-          }
         ]
       },
       "intervalSegment": {
@@ -884,7 +737,7 @@
         "end": 1200,
         "interval": 30
       },
-      "activeStaff": 6
+      "activeStaff": 5
     },
     {
       "id": 9,
@@ -903,7 +756,7 @@
             "baseStart": 1010,
             "start": 1010,
             "end": 1030,
-            "assigned": 2,
+            "assigned": 5,
             "order": 3
           }
         ],
@@ -916,7 +769,7 @@
             "baseStart": 1030,
             "start": 1030,
             "end": 1050,
-            "assigned": 4,
+            "assigned": 2,
             "order": 1
           }
         ],
@@ -942,7 +795,7 @@
             "baseStart": 1010,
             "start": 1010,
             "end": 1030,
-            "assigned": 6,
+            "assigned": 4,
             "order": 4
           }
         ],
@@ -958,32 +811,6 @@
             "assigned": 3,
             "order": 5
           }
-        ],
-        "polesSupport": [
-          {
-            "moduleId": 9,
-            "role": "polesSupport",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 1030,
-            "start": 1030,
-            "end": 1050,
-            "assigned": 5,
-            "order": 6
-          }
-        ],
-        "polesTransfer": [
-          {
-            "moduleId": 9,
-            "role": "polesTransfer",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 1050,
-            "start": 1050,
-            "end": 1060,
-            "assigned": 5,
-            "order": 6
-          }
         ]
       },
       "intervalSegment": {
@@ -991,7 +818,7 @@
         "end": 1200,
         "interval": 30
       },
-      "activeStaff": 6
+      "activeStaff": 5
     },
     {
       "id": 10,
@@ -1010,7 +837,7 @@
             "baseStart": 1040,
             "start": 1040,
             "end": 1060,
-            "assigned": 2,
+            "assigned": 5,
             "order": 3
           }
         ],
@@ -1023,7 +850,7 @@
             "baseStart": 1060,
             "start": 1060,
             "end": 1080,
-            "assigned": 0,
+            "assigned": 2,
             "order": 1
           }
         ],
@@ -1036,7 +863,7 @@
             "baseStart": 1060,
             "start": 1060,
             "end": 1080,
-            "assigned": 4,
+            "assigned": 0,
             "order": 2
           }
         ],
@@ -1049,7 +876,7 @@
             "baseStart": 1040,
             "start": 1040,
             "end": 1060,
-            "assigned": 6,
+            "assigned": 4,
             "order": 4
           }
         ],
@@ -1065,32 +892,6 @@
             "assigned": 3,
             "order": 5
           }
-        ],
-        "polesSupport": [
-          {
-            "moduleId": 10,
-            "role": "polesSupport",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 1060,
-            "start": 1060,
-            "end": 1080,
-            "assigned": 5,
-            "order": 6
-          }
-        ],
-        "polesTransfer": [
-          {
-            "moduleId": 10,
-            "role": "polesTransfer",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 1080,
-            "start": 1080,
-            "end": 1090,
-            "assigned": 5,
-            "order": 6
-          }
         ]
       },
       "intervalSegment": {
@@ -1098,7 +899,7 @@
         "end": 1200,
         "interval": 30
       },
-      "activeStaff": 6
+      "activeStaff": 5
     },
     {
       "id": 11,
@@ -1117,7 +918,7 @@
             "baseStart": 1070,
             "start": 1070,
             "end": 1090,
-            "assigned": 2,
+            "assigned": 5,
             "order": 3
           }
         ],
@@ -1130,7 +931,7 @@
             "baseStart": 1090,
             "start": 1090,
             "end": 1110,
-            "assigned": 4,
+            "assigned": 2,
             "order": 1
           }
         ],
@@ -1156,7 +957,7 @@
             "baseStart": 1070,
             "start": 1070,
             "end": 1090,
-            "assigned": 6,
+            "assigned": 4,
             "order": 4
           }
         ],
@@ -1172,32 +973,6 @@
             "assigned": 3,
             "order": 5
           }
-        ],
-        "polesSupport": [
-          {
-            "moduleId": 11,
-            "role": "polesSupport",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 1090,
-            "start": 1090,
-            "end": 1110,
-            "assigned": 5,
-            "order": 6
-          }
-        ],
-        "polesTransfer": [
-          {
-            "moduleId": 11,
-            "role": "polesTransfer",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 1110,
-            "start": 1110,
-            "end": 1120,
-            "assigned": 5,
-            "order": 6
-          }
         ]
       },
       "intervalSegment": {
@@ -1205,7 +980,7 @@
         "end": 1200,
         "interval": 30
       },
-      "activeStaff": 6
+      "activeStaff": 5
     },
     {
       "id": 12,
@@ -1224,7 +999,7 @@
             "baseStart": 1100,
             "start": 1100,
             "end": 1120,
-            "assigned": 2,
+            "assigned": 5,
             "order": 3
           }
         ],
@@ -1237,7 +1012,7 @@
             "baseStart": 1120,
             "start": 1120,
             "end": 1140,
-            "assigned": 0,
+            "assigned": 2,
             "order": 1
           }
         ],
@@ -1250,7 +1025,7 @@
             "baseStart": 1120,
             "start": 1120,
             "end": 1140,
-            "assigned": 4,
+            "assigned": 0,
             "order": 2
           }
         ],
@@ -1263,7 +1038,7 @@
             "baseStart": 1100,
             "start": 1100,
             "end": 1120,
-            "assigned": 6,
+            "assigned": 4,
             "order": 4
           }
         ],
@@ -1279,32 +1054,6 @@
             "assigned": 3,
             "order": 5
           }
-        ],
-        "polesSupport": [
-          {
-            "moduleId": 12,
-            "role": "polesSupport",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 1120,
-            "start": 1120,
-            "end": 1140,
-            "assigned": 5,
-            "order": 6
-          }
-        ],
-        "polesTransfer": [
-          {
-            "moduleId": 12,
-            "role": "polesTransfer",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 1140,
-            "start": 1140,
-            "end": 1150,
-            "assigned": 5,
-            "order": 6
-          }
         ]
       },
       "intervalSegment": {
@@ -1312,7 +1061,7 @@
         "end": 1200,
         "interval": 30
       },
-      "activeStaff": 6
+      "activeStaff": 5
     },
     {
       "id": 13,
@@ -1331,7 +1080,7 @@
             "baseStart": 1130,
             "start": 1130,
             "end": 1150,
-            "assigned": 2,
+            "assigned": 5,
             "order": 3
           }
         ],
@@ -1344,7 +1093,7 @@
             "baseStart": 1150,
             "start": 1150,
             "end": 1170,
-            "assigned": 4,
+            "assigned": 2,
             "order": 1
           }
         ],
@@ -1370,7 +1119,7 @@
             "baseStart": 1130,
             "start": 1130,
             "end": 1150,
-            "assigned": 6,
+            "assigned": 4,
             "order": 4
           }
         ],
@@ -1386,32 +1135,6 @@
             "assigned": 3,
             "order": 5
           }
-        ],
-        "polesSupport": [
-          {
-            "moduleId": 13,
-            "role": "polesSupport",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 1150,
-            "start": 1150,
-            "end": 1170,
-            "assigned": 5,
-            "order": 6
-          }
-        ],
-        "polesTransfer": [
-          {
-            "moduleId": 13,
-            "role": "polesTransfer",
-            "label": "Poleas",
-            "skill": "poles",
-            "baseStart": 1170,
-            "start": 1170,
-            "end": 1180,
-            "assigned": 5,
-            "order": 6
-          }
         ]
       },
       "intervalSegment": {
@@ -1419,7 +1142,7 @@
         "end": 1200,
         "interval": 30
       },
-      "activeStaff": 6
+      "activeStaff": 5
     },
     {
       "id": 14,
@@ -1438,7 +1161,7 @@
             "baseStart": 1160,
             "start": 1160,
             "end": 1180,
-            "assigned": 2,
+            "assigned": 5,
             "order": 3
           }
         ],
@@ -1451,7 +1174,7 @@
             "baseStart": 1180,
             "start": 1180,
             "end": 1200,
-            "assigned": 0,
+            "assigned": 2,
             "order": 1
           }
         ],
@@ -1464,7 +1187,7 @@
             "baseStart": 1180,
             "start": 1180,
             "end": 1200,
-            "assigned": 4,
+            "assigned": 0,
             "order": 2
           }
         ],
@@ -1477,7 +1200,7 @@
             "baseStart": 1160,
             "start": 1160,
             "end": 1180,
-            "assigned": 6,
+            "assigned": 4,
             "order": 4
           }
         ],
@@ -1500,7 +1223,7 @@
         "end": 1200,
         "interval": 30
       },
-      "activeStaff": 6
+      "activeStaff": 5
     }
   ],
   "tasks": [
@@ -1512,7 +1235,7 @@
       "baseStart": 600,
       "start": 600,
       "end": 620,
-      "assigned": 5,
+      "assigned": 4,
       "order": 3
     },
     {
@@ -1545,7 +1268,7 @@
       "baseStart": 660,
       "start": 660,
       "end": 680,
-      "assigned": 6,
+      "assigned": 5,
       "order": 3
     },
     {
@@ -1578,7 +1301,7 @@
       "baseStart": 660,
       "start": 660,
       "end": 680,
-      "assigned": 5,
+      "assigned": 4,
       "order": 4
     },
     {
@@ -1589,7 +1312,7 @@
       "baseStart": 720,
       "start": 720,
       "end": 740,
-      "assigned": 6,
+      "assigned": 5,
       "order": 3
     },
     {
@@ -1622,7 +1345,7 @@
       "baseStart": 720,
       "start": 720,
       "end": 740,
-      "assigned": 5,
+      "assigned": 4,
       "order": 4
     },
     {
@@ -1633,7 +1356,7 @@
       "baseStart": 840,
       "start": 840,
       "end": 860,
-      "assigned": 2,
+      "assigned": 5,
       "order": 3
     },
     {
@@ -1644,7 +1367,7 @@
       "baseStart": 860,
       "start": 860,
       "end": 880,
-      "assigned": 0,
+      "assigned": 2,
       "order": 1
     },
     {
@@ -1655,7 +1378,7 @@
       "baseStart": 860,
       "start": 860,
       "end": 880,
-      "assigned": 3,
+      "assigned": 0,
       "order": 2
     },
     {
@@ -1666,7 +1389,7 @@
       "baseStart": 840,
       "start": 840,
       "end": 860,
-      "assigned": 6,
+      "assigned": 4,
       "order": 4
     },
     {
@@ -1677,30 +1400,8 @@
       "baseStart": 860,
       "start": 860,
       "end": 880,
-      "assigned": 4,
+      "assigned": 3,
       "order": 5
-    },
-    {
-      "moduleId": 4,
-      "role": "polesSupport",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 860,
-      "start": 860,
-      "end": 880,
-      "assigned": 5,
-      "order": 6
-    },
-    {
-      "moduleId": 4,
-      "role": "polesTransfer",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 880,
-      "start": 880,
-      "end": 890,
-      "assigned": 5,
-      "order": 6
     },
     {
       "moduleId": 5,
@@ -1710,7 +1411,7 @@
       "baseStart": 870,
       "start": 870,
       "end": 890,
-      "assigned": 2,
+      "assigned": 5,
       "order": 3
     },
     {
@@ -1721,7 +1422,7 @@
       "baseStart": 890,
       "start": 890,
       "end": 910,
-      "assigned": 4,
+      "assigned": 2,
       "order": 1
     },
     {
@@ -1743,7 +1444,7 @@
       "baseStart": 870,
       "start": 870,
       "end": 890,
-      "assigned": 6,
+      "assigned": 4,
       "order": 4
     },
     {
@@ -1758,28 +1459,6 @@
       "order": 5
     },
     {
-      "moduleId": 5,
-      "role": "polesSupport",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 890,
-      "start": 890,
-      "end": 910,
-      "assigned": 5,
-      "order": 6
-    },
-    {
-      "moduleId": 5,
-      "role": "polesTransfer",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 910,
-      "start": 910,
-      "end": 920,
-      "assigned": 5,
-      "order": 6
-    },
-    {
       "moduleId": 6,
       "role": "equipMain",
       "label": "Equipamiento",
@@ -1787,7 +1466,7 @@
       "baseStart": 900,
       "start": 900,
       "end": 920,
-      "assigned": 2,
+      "assigned": 5,
       "order": 3
     },
     {
@@ -1798,7 +1477,7 @@
       "baseStart": 920,
       "start": 920,
       "end": 940,
-      "assigned": 0,
+      "assigned": 2,
       "order": 1
     },
     {
@@ -1809,7 +1488,7 @@
       "baseStart": 920,
       "start": 920,
       "end": 940,
-      "assigned": 4,
+      "assigned": 0,
       "order": 2
     },
     {
@@ -1820,7 +1499,7 @@
       "baseStart": 900,
       "start": 900,
       "end": 920,
-      "assigned": 6,
+      "assigned": 4,
       "order": 4
     },
     {
@@ -1835,28 +1514,6 @@
       "order": 5
     },
     {
-      "moduleId": 6,
-      "role": "polesSupport",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 920,
-      "start": 920,
-      "end": 940,
-      "assigned": 5,
-      "order": 6
-    },
-    {
-      "moduleId": 6,
-      "role": "polesTransfer",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 940,
-      "start": 940,
-      "end": 950,
-      "assigned": 5,
-      "order": 6
-    },
-    {
       "moduleId": 7,
       "role": "equipMain",
       "label": "Equipamiento",
@@ -1864,7 +1521,7 @@
       "baseStart": 930,
       "start": 930,
       "end": 950,
-      "assigned": 2,
+      "assigned": 5,
       "order": 3
     },
     {
@@ -1875,7 +1532,7 @@
       "baseStart": 950,
       "start": 950,
       "end": 970,
-      "assigned": 4,
+      "assigned": 2,
       "order": 1
     },
     {
@@ -1897,7 +1554,7 @@
       "baseStart": 930,
       "start": 930,
       "end": 950,
-      "assigned": 6,
+      "assigned": 4,
       "order": 4
     },
     {
@@ -1912,28 +1569,6 @@
       "order": 5
     },
     {
-      "moduleId": 7,
-      "role": "polesSupport",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 950,
-      "start": 950,
-      "end": 970,
-      "assigned": 5,
-      "order": 6
-    },
-    {
-      "moduleId": 7,
-      "role": "polesTransfer",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 970,
-      "start": 970,
-      "end": 980,
-      "assigned": 5,
-      "order": 6
-    },
-    {
       "moduleId": 8,
       "role": "equipMain",
       "label": "Equipamiento",
@@ -1941,7 +1576,7 @@
       "baseStart": 980,
       "start": 980,
       "end": 1000,
-      "assigned": 2,
+      "assigned": 5,
       "order": 3
     },
     {
@@ -1952,7 +1587,7 @@
       "baseStart": 1000,
       "start": 1000,
       "end": 1020,
-      "assigned": 0,
+      "assigned": 2,
       "order": 1
     },
     {
@@ -1963,7 +1598,7 @@
       "baseStart": 1000,
       "start": 1000,
       "end": 1020,
-      "assigned": 4,
+      "assigned": 0,
       "order": 2
     },
     {
@@ -1974,7 +1609,7 @@
       "baseStart": 980,
       "start": 980,
       "end": 1000,
-      "assigned": 6,
+      "assigned": 4,
       "order": 4
     },
     {
@@ -1989,28 +1624,6 @@
       "order": 5
     },
     {
-      "moduleId": 8,
-      "role": "polesSupport",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 1000,
-      "start": 1000,
-      "end": 1020,
-      "assigned": 5,
-      "order": 6
-    },
-    {
-      "moduleId": 8,
-      "role": "polesTransfer",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 1020,
-      "start": 1020,
-      "end": 1030,
-      "assigned": 5,
-      "order": 6
-    },
-    {
       "moduleId": 9,
       "role": "equipMain",
       "label": "Equipamiento",
@@ -2018,7 +1631,7 @@
       "baseStart": 1010,
       "start": 1010,
       "end": 1030,
-      "assigned": 2,
+      "assigned": 5,
       "order": 3
     },
     {
@@ -2029,7 +1642,7 @@
       "baseStart": 1030,
       "start": 1030,
       "end": 1050,
-      "assigned": 4,
+      "assigned": 2,
       "order": 1
     },
     {
@@ -2051,7 +1664,7 @@
       "baseStart": 1010,
       "start": 1010,
       "end": 1030,
-      "assigned": 6,
+      "assigned": 4,
       "order": 4
     },
     {
@@ -2066,28 +1679,6 @@
       "order": 5
     },
     {
-      "moduleId": 9,
-      "role": "polesSupport",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 1030,
-      "start": 1030,
-      "end": 1050,
-      "assigned": 5,
-      "order": 6
-    },
-    {
-      "moduleId": 9,
-      "role": "polesTransfer",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 1050,
-      "start": 1050,
-      "end": 1060,
-      "assigned": 5,
-      "order": 6
-    },
-    {
       "moduleId": 10,
       "role": "equipMain",
       "label": "Equipamiento",
@@ -2095,7 +1686,7 @@
       "baseStart": 1040,
       "start": 1040,
       "end": 1060,
-      "assigned": 2,
+      "assigned": 5,
       "order": 3
     },
     {
@@ -2106,7 +1697,7 @@
       "baseStart": 1060,
       "start": 1060,
       "end": 1080,
-      "assigned": 0,
+      "assigned": 2,
       "order": 1
     },
     {
@@ -2117,7 +1708,7 @@
       "baseStart": 1060,
       "start": 1060,
       "end": 1080,
-      "assigned": 4,
+      "assigned": 0,
       "order": 2
     },
     {
@@ -2128,7 +1719,7 @@
       "baseStart": 1040,
       "start": 1040,
       "end": 1060,
-      "assigned": 6,
+      "assigned": 4,
       "order": 4
     },
     {
@@ -2143,28 +1734,6 @@
       "order": 5
     },
     {
-      "moduleId": 10,
-      "role": "polesSupport",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 1060,
-      "start": 1060,
-      "end": 1080,
-      "assigned": 5,
-      "order": 6
-    },
-    {
-      "moduleId": 10,
-      "role": "polesTransfer",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 1080,
-      "start": 1080,
-      "end": 1090,
-      "assigned": 5,
-      "order": 6
-    },
-    {
       "moduleId": 11,
       "role": "equipMain",
       "label": "Equipamiento",
@@ -2172,7 +1741,7 @@
       "baseStart": 1070,
       "start": 1070,
       "end": 1090,
-      "assigned": 2,
+      "assigned": 5,
       "order": 3
     },
     {
@@ -2183,7 +1752,7 @@
       "baseStart": 1090,
       "start": 1090,
       "end": 1110,
-      "assigned": 4,
+      "assigned": 2,
       "order": 1
     },
     {
@@ -2205,7 +1774,7 @@
       "baseStart": 1070,
       "start": 1070,
       "end": 1090,
-      "assigned": 6,
+      "assigned": 4,
       "order": 4
     },
     {
@@ -2220,28 +1789,6 @@
       "order": 5
     },
     {
-      "moduleId": 11,
-      "role": "polesSupport",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 1090,
-      "start": 1090,
-      "end": 1110,
-      "assigned": 5,
-      "order": 6
-    },
-    {
-      "moduleId": 11,
-      "role": "polesTransfer",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 1110,
-      "start": 1110,
-      "end": 1120,
-      "assigned": 5,
-      "order": 6
-    },
-    {
       "moduleId": 12,
       "role": "equipMain",
       "label": "Equipamiento",
@@ -2249,7 +1796,7 @@
       "baseStart": 1100,
       "start": 1100,
       "end": 1120,
-      "assigned": 2,
+      "assigned": 5,
       "order": 3
     },
     {
@@ -2260,7 +1807,7 @@
       "baseStart": 1120,
       "start": 1120,
       "end": 1140,
-      "assigned": 0,
+      "assigned": 2,
       "order": 1
     },
     {
@@ -2271,7 +1818,7 @@
       "baseStart": 1120,
       "start": 1120,
       "end": 1140,
-      "assigned": 4,
+      "assigned": 0,
       "order": 2
     },
     {
@@ -2282,7 +1829,7 @@
       "baseStart": 1100,
       "start": 1100,
       "end": 1120,
-      "assigned": 6,
+      "assigned": 4,
       "order": 4
     },
     {
@@ -2297,28 +1844,6 @@
       "order": 5
     },
     {
-      "moduleId": 12,
-      "role": "polesSupport",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 1120,
-      "start": 1120,
-      "end": 1140,
-      "assigned": 5,
-      "order": 6
-    },
-    {
-      "moduleId": 12,
-      "role": "polesTransfer",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 1140,
-      "start": 1140,
-      "end": 1150,
-      "assigned": 5,
-      "order": 6
-    },
-    {
       "moduleId": 13,
       "role": "equipMain",
       "label": "Equipamiento",
@@ -2326,7 +1851,7 @@
       "baseStart": 1130,
       "start": 1130,
       "end": 1150,
-      "assigned": 2,
+      "assigned": 5,
       "order": 3
     },
     {
@@ -2337,7 +1862,7 @@
       "baseStart": 1150,
       "start": 1150,
       "end": 1170,
-      "assigned": 4,
+      "assigned": 2,
       "order": 1
     },
     {
@@ -2359,7 +1884,7 @@
       "baseStart": 1130,
       "start": 1130,
       "end": 1150,
-      "assigned": 6,
+      "assigned": 4,
       "order": 4
     },
     {
@@ -2374,28 +1899,6 @@
       "order": 5
     },
     {
-      "moduleId": 13,
-      "role": "polesSupport",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 1150,
-      "start": 1150,
-      "end": 1170,
-      "assigned": 5,
-      "order": 6
-    },
-    {
-      "moduleId": 13,
-      "role": "polesTransfer",
-      "label": "Poleas",
-      "skill": "poles",
-      "baseStart": 1170,
-      "start": 1170,
-      "end": 1180,
-      "assigned": 5,
-      "order": 6
-    },
-    {
       "moduleId": 14,
       "role": "equipMain",
       "label": "Equipamiento",
@@ -2403,7 +1906,7 @@
       "baseStart": 1160,
       "start": 1160,
       "end": 1180,
-      "assigned": 2,
+      "assigned": 5,
       "order": 3
     },
     {
@@ -2414,7 +1917,7 @@
       "baseStart": 1180,
       "start": 1180,
       "end": 1200,
-      "assigned": 0,
+      "assigned": 2,
       "order": 1
     },
     {
@@ -2425,7 +1928,7 @@
       "baseStart": 1180,
       "start": 1180,
       "end": 1200,
-      "assigned": 4,
+      "assigned": 0,
       "order": 2
     },
     {
@@ -2436,7 +1939,7 @@
       "baseStart": 1160,
       "start": 1160,
       "end": 1180,
-      "assigned": 6,
+      "assigned": 4,
       "order": 4
     },
     {
@@ -2460,8 +1963,7 @@
         "1": null,
         "2": null,
         "3": null,
-        "4": null,
-        "5": {
+        "4": {
           "moduleId": 1,
           "role": "equipMain",
           "label": "Equipamiento",
@@ -2469,10 +1971,10 @@
           "baseStart": 600,
           "start": 600,
           "end": 620,
-          "assigned": 5,
+          "assigned": 4,
           "order": 3
         },
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2484,8 +1986,7 @@
         "1": null,
         "2": null,
         "3": null,
-        "4": null,
-        "5": {
+        "4": {
           "moduleId": 1,
           "role": "equipMain",
           "label": "Equipamiento",
@@ -2493,10 +1994,10 @@
           "baseStart": 600,
           "start": 600,
           "end": 620,
-          "assigned": 5,
+          "assigned": 4,
           "order": 3
         },
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2529,8 +2030,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2563,8 +2063,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2577,8 +2076,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2591,8 +2089,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2604,8 +2101,7 @@
         "1": null,
         "2": null,
         "3": null,
-        "4": null,
-        "5": {
+        "4": {
           "moduleId": 2,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -2613,10 +2109,10 @@
           "baseStart": 660,
           "start": 660,
           "end": 680,
-          "assigned": 5,
+          "assigned": 4,
           "order": 4
         },
-        "6": {
+        "5": {
           "moduleId": 2,
           "role": "equipMain",
           "label": "Equipamiento",
@@ -2624,7 +2120,7 @@
           "baseStart": 660,
           "start": 660,
           "end": 680,
-          "assigned": 6,
+          "assigned": 5,
           "order": 3
         }
       },
@@ -2638,8 +2134,7 @@
         "1": null,
         "2": null,
         "3": null,
-        "4": null,
-        "5": {
+        "4": {
           "moduleId": 2,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -2647,10 +2142,10 @@
           "baseStart": 660,
           "start": 660,
           "end": 680,
-          "assigned": 5,
+          "assigned": 4,
           "order": 4
         },
-        "6": {
+        "5": {
           "moduleId": 2,
           "role": "equipMain",
           "label": "Equipamiento",
@@ -2658,7 +2153,7 @@
           "baseStart": 660,
           "start": 660,
           "end": 680,
-          "assigned": 6,
+          "assigned": 5,
           "order": 3
         }
       },
@@ -2693,8 +2188,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2727,8 +2221,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2741,8 +2234,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2755,8 +2247,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2768,8 +2259,7 @@
         "1": null,
         "2": null,
         "3": null,
-        "4": null,
-        "5": {
+        "4": {
           "moduleId": 3,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -2777,10 +2267,10 @@
           "baseStart": 720,
           "start": 720,
           "end": 740,
-          "assigned": 5,
+          "assigned": 4,
           "order": 4
         },
-        "6": {
+        "5": {
           "moduleId": 3,
           "role": "equipMain",
           "label": "Equipamiento",
@@ -2788,7 +2278,7 @@
           "baseStart": 720,
           "start": 720,
           "end": 740,
-          "assigned": 6,
+          "assigned": 5,
           "order": 3
         }
       },
@@ -2802,8 +2292,7 @@
         "1": null,
         "2": null,
         "3": null,
-        "4": null,
-        "5": {
+        "4": {
           "moduleId": 3,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -2811,10 +2300,10 @@
           "baseStart": 720,
           "start": 720,
           "end": 740,
-          "assigned": 5,
+          "assigned": 4,
           "order": 4
         },
-        "6": {
+        "5": {
           "moduleId": 3,
           "role": "equipMain",
           "label": "Equipamiento",
@@ -2822,7 +2311,7 @@
           "baseStart": 720,
           "start": 720,
           "end": 740,
-          "assigned": 6,
+          "assigned": 5,
           "order": 3
         }
       },
@@ -2857,8 +2346,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2891,8 +2379,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2905,8 +2392,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2919,8 +2405,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2933,8 +2418,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2947,8 +2431,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2961,8 +2444,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2975,8 +2457,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -2989,8 +2470,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -3003,8 +2483,7 @@
         "2": null,
         "3": null,
         "4": null,
-        "5": null,
-        "6": null
+        "5": null
       },
       "break": false
     },
@@ -3014,21 +2493,9 @@
       "cells": {
         "0": null,
         "1": null,
-        "2": {
-          "moduleId": 4,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 840,
-          "start": 840,
-          "end": 860,
-          "assigned": 2,
-          "order": 3
-        },
+        "2": null,
         "3": null,
-        "4": null,
-        "5": null,
-        "6": {
+        "4": {
           "moduleId": 4,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -3036,8 +2503,19 @@
           "baseStart": 840,
           "start": 840,
           "end": 860,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 4,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 840,
+          "start": 840,
+          "end": 860,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -3048,21 +2526,9 @@
       "cells": {
         "0": null,
         "1": null,
-        "2": {
-          "moduleId": 4,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 840,
-          "start": 840,
-          "end": 860,
-          "assigned": 2,
-          "order": 3
-        },
+        "2": null,
         "3": null,
-        "4": null,
-        "5": null,
-        "6": {
+        "4": {
           "moduleId": 4,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -3070,8 +2536,19 @@
           "baseStart": 840,
           "start": 840,
           "end": 860,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 4,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 840,
+          "start": 840,
+          "end": 860,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -3082,29 +2559,28 @@
       "cells": {
         "0": {
           "moduleId": 4,
-          "role": "brakeMain",
-          "label": "Freno",
-          "skill": "brake",
-          "baseStart": 860,
-          "start": 860,
-          "end": 880,
-          "assigned": 0,
-          "order": 1
-        },
-        "1": null,
-        "2": null,
-        "3": {
-          "moduleId": 4,
           "role": "launchMain",
           "label": "Lanzamiento",
           "skill": "launch",
           "baseStart": 860,
           "start": 860,
           "end": 880,
-          "assigned": 3,
+          "assigned": 0,
           "order": 2
         },
-        "4": {
+        "1": null,
+        "2": {
+          "moduleId": 4,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 860,
+          "start": 860,
+          "end": 880,
+          "assigned": 2,
+          "order": 1
+        },
+        "3": {
           "moduleId": 4,
           "role": "launchSupport",
           "label": "Lanzamiento",
@@ -3112,21 +2588,11 @@
           "baseStart": 860,
           "start": 860,
           "end": 880,
-          "assigned": 4,
+          "assigned": 3,
           "order": 5
         },
-        "5": {
-          "moduleId": 4,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 860,
-          "start": 860,
-          "end": 880,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": null
+        "4": null,
+        "5": null
       },
       "break": false
     },
@@ -3136,39 +2602,28 @@
       "cells": {
         "0": {
           "moduleId": 4,
-          "role": "brakeMain",
-          "label": "Freno",
-          "skill": "brake",
-          "baseStart": 860,
-          "start": 860,
-          "end": 880,
-          "assigned": 0,
-          "order": 1
-        },
-        "1": null,
-        "2": {
-          "moduleId": 5,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 870,
-          "start": 870,
-          "end": 890,
-          "assigned": 2,
-          "order": 3
-        },
-        "3": {
-          "moduleId": 4,
           "role": "launchMain",
           "label": "Lanzamiento",
           "skill": "launch",
           "baseStart": 860,
           "start": 860,
           "end": 880,
-          "assigned": 3,
+          "assigned": 0,
           "order": 2
         },
-        "4": {
+        "1": null,
+        "2": {
+          "moduleId": 4,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 860,
+          "start": 860,
+          "end": 880,
+          "assigned": 2,
+          "order": 1
+        },
+        "3": {
           "moduleId": 4,
           "role": "launchSupport",
           "label": "Lanzamiento",
@@ -3176,21 +2631,10 @@
           "baseStart": 860,
           "start": 860,
           "end": 880,
-          "assigned": 4,
+          "assigned": 3,
           "order": 5
         },
-        "5": {
-          "moduleId": 4,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 860,
-          "start": 860,
-          "end": 880,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
+        "4": {
           "moduleId": 5,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -3198,8 +2642,19 @@
           "baseStart": 870,
           "start": 870,
           "end": 890,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 5,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 870,
+          "start": 870,
+          "end": 890,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -3210,31 +2665,9 @@
       "cells": {
         "0": null,
         "1": null,
-        "2": {
-          "moduleId": 5,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 870,
-          "start": 870,
-          "end": 890,
-          "assigned": 2,
-          "order": 3
-        },
+        "2": null,
         "3": null,
-        "4": null,
-        "5": {
-          "moduleId": 4,
-          "role": "polesTransfer",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 880,
-          "start": 880,
-          "end": 890,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
+        "4": {
           "moduleId": 5,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -3242,8 +2675,19 @@
           "baseStart": 870,
           "start": 870,
           "end": 890,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 5,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 870,
+          "start": 870,
+          "end": 890,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -3264,7 +2708,17 @@
           "order": 2
         },
         "1": null,
-        "2": null,
+        "2": {
+          "moduleId": 5,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 890,
+          "start": 890,
+          "end": 910,
+          "assigned": 2,
+          "order": 1
+        },
         "3": {
           "moduleId": 5,
           "role": "launchSupport",
@@ -3276,29 +2730,8 @@
           "assigned": 3,
           "order": 5
         },
-        "4": {
-          "moduleId": 5,
-          "role": "brakeMain",
-          "label": "Freno",
-          "skill": "brake",
-          "baseStart": 890,
-          "start": 890,
-          "end": 910,
-          "assigned": 4,
-          "order": 1
-        },
-        "5": {
-          "moduleId": 5,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 890,
-          "start": 890,
-          "end": 910,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": null
+        "4": null,
+        "5": null
       },
       "break": false
     },
@@ -3319,15 +2752,15 @@
         },
         "1": null,
         "2": {
-          "moduleId": 6,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 900,
-          "start": 900,
-          "end": 920,
+          "moduleId": 5,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 890,
+          "start": 890,
+          "end": 910,
           "assigned": 2,
-          "order": 3
+          "order": 1
         },
         "3": {
           "moduleId": 5,
@@ -3341,28 +2774,6 @@
           "order": 5
         },
         "4": {
-          "moduleId": 5,
-          "role": "brakeMain",
-          "label": "Freno",
-          "skill": "brake",
-          "baseStart": 890,
-          "start": 890,
-          "end": 910,
-          "assigned": 4,
-          "order": 1
-        },
-        "5": {
-          "moduleId": 5,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 890,
-          "start": 890,
-          "end": 910,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
           "moduleId": 6,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -3370,8 +2781,19 @@
           "baseStart": 900,
           "start": 900,
           "end": 920,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 6,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 900,
+          "start": 900,
+          "end": 920,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -3382,31 +2804,9 @@
       "cells": {
         "0": null,
         "1": null,
-        "2": {
-          "moduleId": 6,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 900,
-          "start": 900,
-          "end": 920,
-          "assigned": 2,
-          "order": 3
-        },
+        "2": null,
         "3": null,
-        "4": null,
-        "5": {
-          "moduleId": 5,
-          "role": "polesTransfer",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 910,
-          "start": 910,
-          "end": 920,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
+        "4": {
           "moduleId": 6,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -3414,8 +2814,19 @@
           "baseStart": 900,
           "start": 900,
           "end": 920,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 6,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 900,
+          "start": 900,
+          "end": 920,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -3426,17 +2837,27 @@
       "cells": {
         "0": {
           "moduleId": 6,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 920,
+          "start": 920,
+          "end": 940,
+          "assigned": 0,
+          "order": 2
+        },
+        "1": null,
+        "2": {
+          "moduleId": 6,
           "role": "brakeMain",
           "label": "Freno",
           "skill": "brake",
           "baseStart": 920,
           "start": 920,
           "end": 940,
-          "assigned": 0,
+          "assigned": 2,
           "order": 1
         },
-        "1": null,
-        "2": null,
         "3": {
           "moduleId": 6,
           "role": "launchSupport",
@@ -3448,29 +2869,8 @@
           "assigned": 3,
           "order": 5
         },
-        "4": {
-          "moduleId": 6,
-          "role": "launchMain",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 920,
-          "start": 920,
-          "end": 940,
-          "assigned": 4,
-          "order": 2
-        },
-        "5": {
-          "moduleId": 6,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 920,
-          "start": 920,
-          "end": 940,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": null
+        "4": null,
+        "5": null
       },
       "break": false
     },
@@ -3480,26 +2880,26 @@
       "cells": {
         "0": {
           "moduleId": 6,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 920,
+          "start": 920,
+          "end": 940,
+          "assigned": 0,
+          "order": 2
+        },
+        "1": null,
+        "2": {
+          "moduleId": 6,
           "role": "brakeMain",
           "label": "Freno",
           "skill": "brake",
           "baseStart": 920,
           "start": 920,
           "end": 940,
-          "assigned": 0,
-          "order": 1
-        },
-        "1": null,
-        "2": {
-          "moduleId": 7,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 930,
-          "start": 930,
-          "end": 950,
           "assigned": 2,
-          "order": 3
+          "order": 1
         },
         "3": {
           "moduleId": 6,
@@ -3513,28 +2913,6 @@
           "order": 5
         },
         "4": {
-          "moduleId": 6,
-          "role": "launchMain",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 920,
-          "start": 920,
-          "end": 940,
-          "assigned": 4,
-          "order": 2
-        },
-        "5": {
-          "moduleId": 6,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 920,
-          "start": 920,
-          "end": 940,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
           "moduleId": 7,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -3542,8 +2920,19 @@
           "baseStart": 930,
           "start": 930,
           "end": 950,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 7,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 930,
+          "start": 930,
+          "end": 950,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -3554,31 +2943,9 @@
       "cells": {
         "0": null,
         "1": null,
-        "2": {
-          "moduleId": 7,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 930,
-          "start": 930,
-          "end": 950,
-          "assigned": 2,
-          "order": 3
-        },
+        "2": null,
         "3": null,
-        "4": null,
-        "5": {
-          "moduleId": 6,
-          "role": "polesTransfer",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 940,
-          "start": 940,
-          "end": 950,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
+        "4": {
           "moduleId": 7,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -3586,8 +2953,19 @@
           "baseStart": 930,
           "start": 930,
           "end": 950,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 7,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 930,
+          "start": 930,
+          "end": 950,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -3608,7 +2986,17 @@
           "order": 2
         },
         "1": null,
-        "2": null,
+        "2": {
+          "moduleId": 7,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 950,
+          "start": 950,
+          "end": 970,
+          "assigned": 2,
+          "order": 1
+        },
         "3": {
           "moduleId": 7,
           "role": "launchSupport",
@@ -3620,29 +3008,8 @@
           "assigned": 3,
           "order": 5
         },
-        "4": {
-          "moduleId": 7,
-          "role": "brakeMain",
-          "label": "Freno",
-          "skill": "brake",
-          "baseStart": 950,
-          "start": 950,
-          "end": 970,
-          "assigned": 4,
-          "order": 1
-        },
-        "5": {
-          "moduleId": 7,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 950,
-          "start": 950,
-          "end": 970,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": null
+        "4": null,
+        "5": null
       },
       "break": false
     },
@@ -3663,11 +3030,15 @@
         },
         "1": null,
         "2": {
-          "role": "break",
-          "label": "Break",
-          "start": 960,
-          "end": 980,
-          "moduleId": null
+          "moduleId": 7,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 950,
+          "start": 950,
+          "end": 970,
+          "assigned": 2,
+          "order": 1
         },
         "3": {
           "moduleId": 7,
@@ -3681,28 +3052,13 @@
           "order": 5
         },
         "4": {
-          "moduleId": 7,
-          "role": "brakeMain",
-          "label": "Freno",
-          "skill": "brake",
-          "baseStart": 950,
-          "start": 950,
-          "end": 970,
-          "assigned": 4,
-          "order": 1
+          "role": "break",
+          "label": "Break",
+          "start": 960,
+          "end": 980,
+          "moduleId": null
         },
         "5": {
-          "moduleId": 7,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 950,
-          "start": 950,
-          "end": 970,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
           "role": "break",
           "label": "Break",
           "start": 960,
@@ -3727,8 +3083,8 @@
         "2": {
           "role": "break",
           "label": "Break",
-          "start": 960,
-          "end": 980,
+          "start": 970,
+          "end": 990,
           "moduleId": null
         },
         "3": {
@@ -3741,22 +3097,11 @@
         "4": {
           "role": "break",
           "label": "Break",
-          "start": 970,
-          "end": 990,
+          "start": 960,
+          "end": 980,
           "moduleId": null
         },
         "5": {
-          "moduleId": 7,
-          "role": "polesTransfer",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 970,
-          "start": 970,
-          "end": 980,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
           "role": "break",
           "label": "Break",
           "start": 960,
@@ -3779,15 +3124,11 @@
         },
         "1": null,
         "2": {
-          "moduleId": 8,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 980,
-          "start": 980,
-          "end": 1000,
-          "assigned": 2,
-          "order": 3
+          "role": "break",
+          "label": "Break",
+          "start": 970,
+          "end": 990,
+          "moduleId": null
         },
         "3": {
           "role": "break",
@@ -3797,20 +3138,6 @@
           "moduleId": null
         },
         "4": {
-          "role": "break",
-          "label": "Break",
-          "start": 970,
-          "end": 990,
-          "moduleId": null
-        },
-        "5": {
-          "role": "break",
-          "label": "Break",
-          "start": 980,
-          "end": 1000,
-          "moduleId": null
-        },
-        "6": {
           "moduleId": 8,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -3818,8 +3145,19 @@
           "baseStart": 980,
           "start": 980,
           "end": 1000,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 8,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 980,
+          "start": 980,
+          "end": 1000,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -3830,27 +3168,9 @@
       "cells": {
         "0": null,
         "1": null,
-        "2": {
-          "moduleId": 8,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 980,
-          "start": 980,
-          "end": 1000,
-          "assigned": 2,
-          "order": 3
-        },
+        "2": null,
         "3": null,
-        "4": null,
-        "5": {
-          "role": "break",
-          "label": "Break",
-          "start": 980,
-          "end": 1000,
-          "moduleId": null
-        },
-        "6": {
+        "4": {
           "moduleId": 8,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -3858,8 +3178,19 @@
           "baseStart": 980,
           "start": 980,
           "end": 1000,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 8,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 980,
+          "start": 980,
+          "end": 1000,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -3870,17 +3201,27 @@
       "cells": {
         "0": {
           "moduleId": 8,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1000,
+          "start": 1000,
+          "end": 1020,
+          "assigned": 0,
+          "order": 2
+        },
+        "1": null,
+        "2": {
+          "moduleId": 8,
           "role": "brakeMain",
           "label": "Freno",
           "skill": "brake",
           "baseStart": 1000,
           "start": 1000,
           "end": 1020,
-          "assigned": 0,
+          "assigned": 2,
           "order": 1
         },
-        "1": null,
-        "2": null,
         "3": {
           "moduleId": 8,
           "role": "launchSupport",
@@ -3892,29 +3233,8 @@
           "assigned": 3,
           "order": 5
         },
-        "4": {
-          "moduleId": 8,
-          "role": "launchMain",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 1000,
-          "start": 1000,
-          "end": 1020,
-          "assigned": 4,
-          "order": 2
-        },
-        "5": {
-          "moduleId": 8,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1000,
-          "start": 1000,
-          "end": 1020,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": null
+        "4": null,
+        "5": null
       },
       "break": false
     },
@@ -3924,26 +3244,26 @@
       "cells": {
         "0": {
           "moduleId": 8,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1000,
+          "start": 1000,
+          "end": 1020,
+          "assigned": 0,
+          "order": 2
+        },
+        "1": null,
+        "2": {
+          "moduleId": 8,
           "role": "brakeMain",
           "label": "Freno",
           "skill": "brake",
           "baseStart": 1000,
           "start": 1000,
           "end": 1020,
-          "assigned": 0,
-          "order": 1
-        },
-        "1": null,
-        "2": {
-          "moduleId": 9,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 1010,
-          "start": 1010,
-          "end": 1030,
           "assigned": 2,
-          "order": 3
+          "order": 1
         },
         "3": {
           "moduleId": 8,
@@ -3957,28 +3277,6 @@
           "order": 5
         },
         "4": {
-          "moduleId": 8,
-          "role": "launchMain",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 1000,
-          "start": 1000,
-          "end": 1020,
-          "assigned": 4,
-          "order": 2
-        },
-        "5": {
-          "moduleId": 8,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1000,
-          "start": 1000,
-          "end": 1020,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
           "moduleId": 9,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -3986,8 +3284,19 @@
           "baseStart": 1010,
           "start": 1010,
           "end": 1030,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 9,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1010,
+          "start": 1010,
+          "end": 1030,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -3998,31 +3307,9 @@
       "cells": {
         "0": null,
         "1": null,
-        "2": {
-          "moduleId": 9,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 1010,
-          "start": 1010,
-          "end": 1030,
-          "assigned": 2,
-          "order": 3
-        },
+        "2": null,
         "3": null,
-        "4": null,
-        "5": {
-          "moduleId": 8,
-          "role": "polesTransfer",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1020,
-          "start": 1020,
-          "end": 1030,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
+        "4": {
           "moduleId": 9,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -4030,8 +3317,19 @@
           "baseStart": 1010,
           "start": 1010,
           "end": 1030,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 9,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1010,
+          "start": 1010,
+          "end": 1030,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -4052,7 +3350,17 @@
           "order": 2
         },
         "1": null,
-        "2": null,
+        "2": {
+          "moduleId": 9,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 1030,
+          "start": 1030,
+          "end": 1050,
+          "assigned": 2,
+          "order": 1
+        },
         "3": {
           "moduleId": 9,
           "role": "launchSupport",
@@ -4064,29 +3372,8 @@
           "assigned": 3,
           "order": 5
         },
-        "4": {
-          "moduleId": 9,
-          "role": "brakeMain",
-          "label": "Freno",
-          "skill": "brake",
-          "baseStart": 1030,
-          "start": 1030,
-          "end": 1050,
-          "assigned": 4,
-          "order": 1
-        },
-        "5": {
-          "moduleId": 9,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1030,
-          "start": 1030,
-          "end": 1050,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": null
+        "4": null,
+        "5": null
       },
       "break": false
     },
@@ -4107,15 +3394,15 @@
         },
         "1": null,
         "2": {
-          "moduleId": 10,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 1040,
-          "start": 1040,
-          "end": 1060,
+          "moduleId": 9,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 1030,
+          "start": 1030,
+          "end": 1050,
           "assigned": 2,
-          "order": 3
+          "order": 1
         },
         "3": {
           "moduleId": 9,
@@ -4129,28 +3416,6 @@
           "order": 5
         },
         "4": {
-          "moduleId": 9,
-          "role": "brakeMain",
-          "label": "Freno",
-          "skill": "brake",
-          "baseStart": 1030,
-          "start": 1030,
-          "end": 1050,
-          "assigned": 4,
-          "order": 1
-        },
-        "5": {
-          "moduleId": 9,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1030,
-          "start": 1030,
-          "end": 1050,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
           "moduleId": 10,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -4158,8 +3423,19 @@
           "baseStart": 1040,
           "start": 1040,
           "end": 1060,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 10,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1040,
+          "start": 1040,
+          "end": 1060,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -4170,31 +3446,9 @@
       "cells": {
         "0": null,
         "1": null,
-        "2": {
-          "moduleId": 10,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 1040,
-          "start": 1040,
-          "end": 1060,
-          "assigned": 2,
-          "order": 3
-        },
+        "2": null,
         "3": null,
-        "4": null,
-        "5": {
-          "moduleId": 9,
-          "role": "polesTransfer",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1050,
-          "start": 1050,
-          "end": 1060,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
+        "4": {
           "moduleId": 10,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -4202,8 +3456,19 @@
           "baseStart": 1040,
           "start": 1040,
           "end": 1060,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 10,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1040,
+          "start": 1040,
+          "end": 1060,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -4214,17 +3479,27 @@
       "cells": {
         "0": {
           "moduleId": 10,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1060,
+          "start": 1060,
+          "end": 1080,
+          "assigned": 0,
+          "order": 2
+        },
+        "1": null,
+        "2": {
+          "moduleId": 10,
           "role": "brakeMain",
           "label": "Freno",
           "skill": "brake",
           "baseStart": 1060,
           "start": 1060,
           "end": 1080,
-          "assigned": 0,
+          "assigned": 2,
           "order": 1
         },
-        "1": null,
-        "2": null,
         "3": {
           "moduleId": 10,
           "role": "launchSupport",
@@ -4236,29 +3511,8 @@
           "assigned": 3,
           "order": 5
         },
-        "4": {
-          "moduleId": 10,
-          "role": "launchMain",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 1060,
-          "start": 1060,
-          "end": 1080,
-          "assigned": 4,
-          "order": 2
-        },
-        "5": {
-          "moduleId": 10,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1060,
-          "start": 1060,
-          "end": 1080,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": null
+        "4": null,
+        "5": null
       },
       "break": false
     },
@@ -4268,26 +3522,26 @@
       "cells": {
         "0": {
           "moduleId": 10,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1060,
+          "start": 1060,
+          "end": 1080,
+          "assigned": 0,
+          "order": 2
+        },
+        "1": null,
+        "2": {
+          "moduleId": 10,
           "role": "brakeMain",
           "label": "Freno",
           "skill": "brake",
           "baseStart": 1060,
           "start": 1060,
           "end": 1080,
-          "assigned": 0,
-          "order": 1
-        },
-        "1": null,
-        "2": {
-          "moduleId": 11,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 1070,
-          "start": 1070,
-          "end": 1090,
           "assigned": 2,
-          "order": 3
+          "order": 1
         },
         "3": {
           "moduleId": 10,
@@ -4301,28 +3555,6 @@
           "order": 5
         },
         "4": {
-          "moduleId": 10,
-          "role": "launchMain",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 1060,
-          "start": 1060,
-          "end": 1080,
-          "assigned": 4,
-          "order": 2
-        },
-        "5": {
-          "moduleId": 10,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1060,
-          "start": 1060,
-          "end": 1080,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
           "moduleId": 11,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -4330,8 +3562,19 @@
           "baseStart": 1070,
           "start": 1070,
           "end": 1090,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 11,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1070,
+          "start": 1070,
+          "end": 1090,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -4342,31 +3585,9 @@
       "cells": {
         "0": null,
         "1": null,
-        "2": {
-          "moduleId": 11,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 1070,
-          "start": 1070,
-          "end": 1090,
-          "assigned": 2,
-          "order": 3
-        },
+        "2": null,
         "3": null,
-        "4": null,
-        "5": {
-          "moduleId": 10,
-          "role": "polesTransfer",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1080,
-          "start": 1080,
-          "end": 1090,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
+        "4": {
           "moduleId": 11,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -4374,8 +3595,19 @@
           "baseStart": 1070,
           "start": 1070,
           "end": 1090,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 11,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1070,
+          "start": 1070,
+          "end": 1090,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -4396,7 +3628,17 @@
           "order": 2
         },
         "1": null,
-        "2": null,
+        "2": {
+          "moduleId": 11,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 1090,
+          "start": 1090,
+          "end": 1110,
+          "assigned": 2,
+          "order": 1
+        },
         "3": {
           "moduleId": 11,
           "role": "launchSupport",
@@ -4408,29 +3650,8 @@
           "assigned": 3,
           "order": 5
         },
-        "4": {
-          "moduleId": 11,
-          "role": "brakeMain",
-          "label": "Freno",
-          "skill": "brake",
-          "baseStart": 1090,
-          "start": 1090,
-          "end": 1110,
-          "assigned": 4,
-          "order": 1
-        },
-        "5": {
-          "moduleId": 11,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1090,
-          "start": 1090,
-          "end": 1110,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": null
+        "4": null,
+        "5": null
       },
       "break": false
     },
@@ -4451,15 +3672,15 @@
         },
         "1": null,
         "2": {
-          "moduleId": 12,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 1100,
-          "start": 1100,
-          "end": 1120,
+          "moduleId": 11,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 1090,
+          "start": 1090,
+          "end": 1110,
           "assigned": 2,
-          "order": 3
+          "order": 1
         },
         "3": {
           "moduleId": 11,
@@ -4473,28 +3694,6 @@
           "order": 5
         },
         "4": {
-          "moduleId": 11,
-          "role": "brakeMain",
-          "label": "Freno",
-          "skill": "brake",
-          "baseStart": 1090,
-          "start": 1090,
-          "end": 1110,
-          "assigned": 4,
-          "order": 1
-        },
-        "5": {
-          "moduleId": 11,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1090,
-          "start": 1090,
-          "end": 1110,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
           "moduleId": 12,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -4502,8 +3701,19 @@
           "baseStart": 1100,
           "start": 1100,
           "end": 1120,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 12,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1100,
+          "start": 1100,
+          "end": 1120,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -4514,31 +3724,9 @@
       "cells": {
         "0": null,
         "1": null,
-        "2": {
-          "moduleId": 12,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 1100,
-          "start": 1100,
-          "end": 1120,
-          "assigned": 2,
-          "order": 3
-        },
+        "2": null,
         "3": null,
-        "4": null,
-        "5": {
-          "moduleId": 11,
-          "role": "polesTransfer",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1110,
-          "start": 1110,
-          "end": 1120,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
+        "4": {
           "moduleId": 12,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -4546,8 +3734,19 @@
           "baseStart": 1100,
           "start": 1100,
           "end": 1120,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 12,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1100,
+          "start": 1100,
+          "end": 1120,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -4558,17 +3757,27 @@
       "cells": {
         "0": {
           "moduleId": 12,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1120,
+          "start": 1120,
+          "end": 1140,
+          "assigned": 0,
+          "order": 2
+        },
+        "1": null,
+        "2": {
+          "moduleId": 12,
           "role": "brakeMain",
           "label": "Freno",
           "skill": "brake",
           "baseStart": 1120,
           "start": 1120,
           "end": 1140,
-          "assigned": 0,
+          "assigned": 2,
           "order": 1
         },
-        "1": null,
-        "2": null,
         "3": {
           "moduleId": 12,
           "role": "launchSupport",
@@ -4580,29 +3789,8 @@
           "assigned": 3,
           "order": 5
         },
-        "4": {
-          "moduleId": 12,
-          "role": "launchMain",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 1120,
-          "start": 1120,
-          "end": 1140,
-          "assigned": 4,
-          "order": 2
-        },
-        "5": {
-          "moduleId": 12,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1120,
-          "start": 1120,
-          "end": 1140,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": null
+        "4": null,
+        "5": null
       },
       "break": false
     },
@@ -4612,26 +3800,26 @@
       "cells": {
         "0": {
           "moduleId": 12,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1120,
+          "start": 1120,
+          "end": 1140,
+          "assigned": 0,
+          "order": 2
+        },
+        "1": null,
+        "2": {
+          "moduleId": 12,
           "role": "brakeMain",
           "label": "Freno",
           "skill": "brake",
           "baseStart": 1120,
           "start": 1120,
           "end": 1140,
-          "assigned": 0,
-          "order": 1
-        },
-        "1": null,
-        "2": {
-          "moduleId": 13,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 1130,
-          "start": 1130,
-          "end": 1150,
           "assigned": 2,
-          "order": 3
+          "order": 1
         },
         "3": {
           "moduleId": 12,
@@ -4645,28 +3833,6 @@
           "order": 5
         },
         "4": {
-          "moduleId": 12,
-          "role": "launchMain",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 1120,
-          "start": 1120,
-          "end": 1140,
-          "assigned": 4,
-          "order": 2
-        },
-        "5": {
-          "moduleId": 12,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1120,
-          "start": 1120,
-          "end": 1140,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
           "moduleId": 13,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -4674,8 +3840,19 @@
           "baseStart": 1130,
           "start": 1130,
           "end": 1150,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 13,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1130,
+          "start": 1130,
+          "end": 1150,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -4686,31 +3863,9 @@
       "cells": {
         "0": null,
         "1": null,
-        "2": {
-          "moduleId": 13,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 1130,
-          "start": 1130,
-          "end": 1150,
-          "assigned": 2,
-          "order": 3
-        },
+        "2": null,
         "3": null,
-        "4": null,
-        "5": {
-          "moduleId": 12,
-          "role": "polesTransfer",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1140,
-          "start": 1140,
-          "end": 1150,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
+        "4": {
           "moduleId": 13,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -4718,8 +3873,19 @@
           "baseStart": 1130,
           "start": 1130,
           "end": 1150,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 13,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1130,
+          "start": 1130,
+          "end": 1150,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -4740,7 +3906,17 @@
           "order": 2
         },
         "1": null,
-        "2": null,
+        "2": {
+          "moduleId": 13,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 1150,
+          "start": 1150,
+          "end": 1170,
+          "assigned": 2,
+          "order": 1
+        },
         "3": {
           "moduleId": 13,
           "role": "launchSupport",
@@ -4752,29 +3928,8 @@
           "assigned": 3,
           "order": 5
         },
-        "4": {
-          "moduleId": 13,
-          "role": "brakeMain",
-          "label": "Freno",
-          "skill": "brake",
-          "baseStart": 1150,
-          "start": 1150,
-          "end": 1170,
-          "assigned": 4,
-          "order": 1
-        },
-        "5": {
-          "moduleId": 13,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1150,
-          "start": 1150,
-          "end": 1170,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": null
+        "4": null,
+        "5": null
       },
       "break": false
     },
@@ -4795,15 +3950,15 @@
         },
         "1": null,
         "2": {
-          "moduleId": 14,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 1160,
-          "start": 1160,
-          "end": 1180,
+          "moduleId": 13,
+          "role": "brakeMain",
+          "label": "Freno",
+          "skill": "brake",
+          "baseStart": 1150,
+          "start": 1150,
+          "end": 1170,
           "assigned": 2,
-          "order": 3
+          "order": 1
         },
         "3": {
           "moduleId": 13,
@@ -4817,28 +3972,6 @@
           "order": 5
         },
         "4": {
-          "moduleId": 13,
-          "role": "brakeMain",
-          "label": "Freno",
-          "skill": "brake",
-          "baseStart": 1150,
-          "start": 1150,
-          "end": 1170,
-          "assigned": 4,
-          "order": 1
-        },
-        "5": {
-          "moduleId": 13,
-          "role": "polesSupport",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1150,
-          "start": 1150,
-          "end": 1170,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
           "moduleId": 14,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -4846,8 +3979,19 @@
           "baseStart": 1160,
           "start": 1160,
           "end": 1180,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 14,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1160,
+          "start": 1160,
+          "end": 1180,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -4858,31 +4002,9 @@
       "cells": {
         "0": null,
         "1": null,
-        "2": {
-          "moduleId": 14,
-          "role": "equipMain",
-          "label": "Equipamiento",
-          "skill": "equip",
-          "baseStart": 1160,
-          "start": 1160,
-          "end": 1180,
-          "assigned": 2,
-          "order": 3
-        },
+        "2": null,
         "3": null,
-        "4": null,
-        "5": {
-          "moduleId": 13,
-          "role": "polesTransfer",
-          "label": "Poleas",
-          "skill": "poles",
-          "baseStart": 1170,
-          "start": 1170,
-          "end": 1180,
-          "assigned": 5,
-          "order": 6
-        },
-        "6": {
+        "4": {
           "moduleId": 14,
           "role": "equipSupport",
           "label": "Equipamiento",
@@ -4890,8 +4012,19 @@
           "baseStart": 1160,
           "start": 1160,
           "end": 1180,
-          "assigned": 6,
+          "assigned": 4,
           "order": 4
+        },
+        "5": {
+          "moduleId": 14,
+          "role": "equipMain",
+          "label": "Equipamiento",
+          "skill": "equip",
+          "baseStart": 1160,
+          "start": 1160,
+          "end": 1180,
+          "assigned": 5,
+          "order": 3
         }
       },
       "break": false
@@ -4902,17 +4035,27 @@
       "cells": {
         "0": {
           "moduleId": 14,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1180,
+          "start": 1180,
+          "end": 1200,
+          "assigned": 0,
+          "order": 2
+        },
+        "1": null,
+        "2": {
+          "moduleId": 14,
           "role": "brakeMain",
           "label": "Freno",
           "skill": "brake",
           "baseStart": 1180,
           "start": 1180,
           "end": 1200,
-          "assigned": 0,
+          "assigned": 2,
           "order": 1
         },
-        "1": null,
-        "2": null,
         "3": {
           "moduleId": 14,
           "role": "launchSupport",
@@ -4924,19 +4067,8 @@
           "assigned": 3,
           "order": 5
         },
-        "4": {
-          "moduleId": 14,
-          "role": "launchMain",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 1180,
-          "start": 1180,
-          "end": 1200,
-          "assigned": 4,
-          "order": 2
-        },
-        "5": null,
-        "6": null
+        "4": null,
+        "5": null
       },
       "break": false
     },
@@ -4946,17 +4078,27 @@
       "cells": {
         "0": {
           "moduleId": 14,
+          "role": "launchMain",
+          "label": "Lanzamiento",
+          "skill": "launch",
+          "baseStart": 1180,
+          "start": 1180,
+          "end": 1200,
+          "assigned": 0,
+          "order": 2
+        },
+        "1": null,
+        "2": {
+          "moduleId": 14,
           "role": "brakeMain",
           "label": "Freno",
           "skill": "brake",
           "baseStart": 1180,
           "start": 1180,
           "end": 1200,
-          "assigned": 0,
+          "assigned": 2,
           "order": 1
         },
-        "1": null,
-        "2": null,
         "3": {
           "moduleId": 14,
           "role": "launchSupport",
@@ -4968,28 +4110,15 @@
           "assigned": 3,
           "order": 5
         },
-        "4": {
-          "moduleId": 14,
-          "role": "launchMain",
-          "label": "Lanzamiento",
-          "skill": "launch",
-          "baseStart": 1180,
-          "start": 1180,
-          "end": 1200,
-          "assigned": 4,
-          "order": 2
-        },
-        "5": null,
-        "6": null
+        "4": null,
+        "5": null
       },
       "break": false
     }
   ],
-  "warnings": [
-    "Modulo 14: apoyo de Poleas no disponible."
-  ],
+  "warnings": [],
   "missingRequired": 0,
-  "missingOptional": 1,
+  "missingOptional": 0,
   "skippedModules": 0,
   "breakAudit": [
     {
@@ -5017,13 +4146,13 @@
     {
       "idx": 2,
       "nick": "Ema",
-      "arrival": "13:00",
+      "arrival": "14:00",
       "departure": "20:00",
-      "preferred": "launch",
+      "preferred": "",
       "breaks": [
         {
-          "start": "16:00",
-          "end": "16:20",
+          "start": "16:10",
+          "end": "16:30",
           "duration": 20
         }
       ]
@@ -5044,34 +4173,20 @@
     },
     {
       "idx": 4,
-      "nick": "Enoc",
-      "arrival": "13:00",
-      "departure": "20:00",
-      "preferred": "",
-      "breaks": [
-        {
-          "start": "16:10",
-          "end": "16:30",
-          "duration": 20
-        }
-      ]
-    },
-    {
-      "idx": 5,
       "nick": "Susan",
       "arrival": "10:00",
       "departure": "20:00",
       "preferred": "",
       "breaks": [
         {
-          "start": "16:20",
-          "end": "16:40",
+          "start": "16:00",
+          "end": "16:20",
           "duration": 20
         }
       ]
     },
     {
-      "idx": 6,
+      "idx": 5,
       "nick": "Dani",
       "arrival": "11:00",
       "departure": "20:00",
@@ -5087,32 +4202,29 @@
   ],
   "groupInfo": {
     "equip": [
-      2,
-      6
+      4,
+      5
     ],
     "tower": [
       0,
       1,
-      3,
-      4
+      2,
+      3
     ],
-    "poles": 5,
-    "polesAll": [
-      5
-    ],
+    "poles": null,
+    "polesAll": [],
     "homeGroup": {
       "0": "tower",
       "1": "tower",
-      "2": "equip",
+      "2": "tower",
       "3": "tower",
-      "4": "tower",
-      "5": "poles",
-      "6": "equip"
+      "4": "equip",
+      "5": "equip"
     }
   },
   "publication": {
     "type": "airtrail",
     "date": "2026-11-28",
-    "publishedAt": "2026-11-28T00:55:35.711Z"
+    "publishedAt": "2026-11-28T01:38:07.667Z"
   }
 }
