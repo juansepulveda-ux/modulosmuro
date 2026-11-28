@@ -352,8 +352,30 @@
         },
         "preferred": "launch"
       }
+    },
+    {
+      "id": "p_44bf0f75-bb26-4016-a705-c9e4c505b165",
+      "name": "Christián Del Campo",
+      "nick": "Chris",
+      "active": true,
+      "areas": {
+        "muro": true,
+        "airtrail": true
+      },
+      "needsReview": false,
+      "defaultStart": "12:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": true,
+          "launch": true,
+          "brake": true,
+          "poles": true
+        },
+        "preferred": ""
+      }
     }
   ],
-  "updatedAt": "2026-11-28T00:06:21.541Z",
+  "updatedAt": "2026-11-28T00:06:51.083Z",
   "updatedBy": "admin"
 }
