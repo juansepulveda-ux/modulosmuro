@@ -6,7 +6,7 @@ import {settings} from '../lib/settings.js';
 import {readDay,withDay} from '../lib/redis.js';
 import {plansFor} from '../lib/github.js';
 import {modulesFrom} from '../lib/bookings.js';
-import {publicCatalog,createPublicBooking,declarationPeople} from '../lib/public-booking.js';
+import {publicCatalog,createPublicBooking,declarationPeople,receiptWithPaymentNotice} from '../lib/public-booking.js';
 
 export default async function handler(req,res){try{
  if(req.method==='GET'){
@@ -14,6 +14,17 @@ export default async function handler(req,res){try{
   if(action==='text')return send(res,200,{version:DECLARATION_VERSION,paragraphs:declarationText(req.query.mode||'self'),termsUrl:TERMS_URL,privacyUrl:PRIVACY_URL});
   const session=await customerSession(req);
   if(action==='me')return send(res,200,{profile:safeProfile(await readCustomer(session.id)),clock:chileClock()});
+  if(action==='receipt'){
+   if(!uuid(req.query.declarationId)||!uuid(req.query.orderId))fail(400,'Referencia de reserva inválida.');
+   const doc=await readDeclaration(req.query.declarationId);if(!canReadDeclaration(doc,session))fail(404,'Declaración no encontrada.');
+   // Check ownership before consulting a day (which may expire eligible holds).
+   const previous=await readDay(doc.date);
+   const owned=r=>r.orderId===req.query.orderId&&r.customerId===session.id&&r.declarationId===doc.id;
+   if(!previous.registrations.some(owned))fail(404,'Reserva no encontrada.');
+   const {day,modules,config,clock}=await operationalDay(doc.date),registrations=day.registrations.filter(owned);
+   if(!registrations.length)fail(404,'Reserva no encontrada.');
+   return send(res,200,receiptWithPaymentNotice(registrations,day,modules,doc.date,config,clock));
+  }
   if(action==='catalog'){
    if(!uuid(req.query.declarationId))fail(400,'Primero completa tu declaración.');
    const doc=await readDeclaration(req.query.declarationId);if(!canReadDeclaration(doc,session))fail(404,'Declaración no encontrada.');
@@ -48,7 +59,7 @@ export default async function handler(req,res){try{
   if(!uuid(b.declarationId))fail(400,'Primero firma tu declaración.');
   const doc=await readDeclaration(b.declarationId);if(!canReadDeclaration(doc,session))fail(404,'Declaración no encontrada.');
   const clock=chileClock(),config=await settings();
-  const result=await withDay(clock.date,async(day,save)=>{const modules=modulesFrom(await plansFor(clock.date));if(chileClock().date!==clock.date)fail(409,'Cambió el día. Vuelve a la declaración.');if(expireReservations(day,modules,clock.date,config))await save();const result=createPublicBooking(day,modules,b,doc,session.id,chileClock(),config);expireReservations(day,modules,clock.date,config);await save();return {...result,registrations:result.registrations.map(r=>({...r,active:day.registrations.find(x=>x.id===r.id)?.status!=='cancelled'}))};});
+  const result=await withDay(clock.date,async(day,save)=>{const modules=modulesFrom(await plansFor(clock.date));if(chileClock().date!==clock.date)fail(409,'Cambió el día. Vuelve a la declaración.');if(expireReservations(day,modules,clock.date,config))await save();const result=createPublicBooking(day,modules,b,doc,session.id,chileClock(),config);expireReservations(day,modules,clock.date,config);await save();return receiptWithPaymentNotice(result.registrations.map(r=>day.registrations.find(x=>x.id===r.id)),day,modules,clock.date,config,chileClock());});
   return send(res,200,result);
  }
  fail(400,'Acción inválida.');
