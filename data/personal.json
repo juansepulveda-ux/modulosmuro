@@ -330,8 +330,30 @@
         },
         "preferred": ""
       }
+    },
+    {
+      "id": "p_122a72a9-2934-457a-9527-5ab668bd24c8",
+      "name": "Alexis Galaz",
+      "nick": "Alexis",
+      "active": true,
+      "areas": {
+        "muro": true,
+        "airtrail": true
+      },
+      "needsReview": false,
+      "defaultStart": "12:00",
+      "defaultEnd": "20:00",
+      "airtrail": {
+        "skills": {
+          "equip": true,
+          "launch": true,
+          "brake": true,
+          "poles": true
+        },
+        "preferred": "launch"
+      }
     }
   ],
-  "updatedAt": "2026-11-27T00:23:40.027Z",
+  "updatedAt": "2026-11-28T00:06:21.541Z",
   "updatedBy": "admin"
 }
