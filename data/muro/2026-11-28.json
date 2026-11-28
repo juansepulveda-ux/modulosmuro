@@ -3,11 +3,11 @@
     "date": "2026-11-28",
     "revision": 4,
     "baseRevision": "2f41e4a3bb396a58aacb0231d86c50e5ceb8cd3a",
-    "importedAt": "2026-11-28T01:31:59.501Z"
+    "importedAt": "2026-11-28T01:50:05.257Z"
   },
   "version": 5,
   "type": "muro",
-  "createdAt": "2026-11-28T01:32:58.937Z",
+  "createdAt": "2026-11-28T01:53:01.492Z",
   "date": "2026-11-28",
   "settings": {
     "first": "10:00",
@@ -20,7 +20,7 @@
       },
       {
         "start": "14:00",
-        "end": "20:00",
+        "end": "20:30",
         "interval": 30
       }
     ],
@@ -2212,6 +2212,6 @@
   "publication": {
     "type": "muro",
     "date": "2026-11-28",
-    "publishedAt": "2026-11-28T01:33:42.046Z"
+    "publishedAt": "2026-11-28T01:54:39.830Z"
   }
 }
