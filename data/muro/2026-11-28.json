@@ -1,44 +1,51 @@
 {
   "sourceRoster": {
     "date": "2026-11-28",
-    "revision": 2,
-    "baseRevision": "763d1c30c62315ad24fa4d5a455b6ce384379732",
-    "importedAt": "2026-11-27T08:20:08.158Z"
+    "revision": 4,
+    "baseRevision": "9dbf0a28d770b64e97c23ac303bf65d48a591658",
+    "importedAt": "2026-11-28T00:16:28.341Z"
   },
   "version": 5,
   "type": "muro",
-  "createdAt": "2026-11-27T08:25:13.044Z",
+  "createdAt": "2026-11-28T00:26:54.613Z",
   "date": "2026-11-28",
   "settings": {
     "first": "10:00",
-    "interval": 30,
+    "interval": 60,
     "intervals": [
       {
         "start": "10:00",
         "end": "13:00",
-        "interval": 30
+        "interval": 60
       },
       {
         "start": "14:00",
-        "end": "20:30",
+        "end": "20:00",
         "interval": 30
       }
     ],
     "grid": 5,
     "shuffleRound": 0,
-    "forcedPrimaries": {
-      "840": "p_gm82kgv"
-    }
+    "forcedPrimaries": {}
   },
   "staff": [
     {
       "id": "p_gm82kgv",
       "full": "Benjamín Delgado",
       "nick": "Benjita",
-      "start": "10:00",
+      "start": "13:00",
       "end": "20:30",
-      "startMin": 600,
+      "startMin": 780,
       "endMin": 1230
+    },
+    {
+      "id": "p_7z8p7g1d",
+      "full": "Teresa Fernández",
+      "nick": "Teresita",
+      "start": "10:00",
+      "end": "20:00",
+      "startMin": 600,
+      "endMin": 1200
     },
     {
       "id": "p_c68e57cc-fa66-4da1-8d01-11dc0688b896",
@@ -53,9 +60,9 @@
       "id": "p_dae49218-849b-4536-8395-803f65eeae4e",
       "full": "Enoc Jiménez",
       "nick": "Enoc",
-      "start": "14:00",
+      "start": "13:00",
       "end": "20:00",
-      "startMin": 840,
+      "startMin": 780,
       "endMin": 1200
     }
   ],
@@ -64,68 +71,44 @@
       "id": 1,
       "start": 600,
       "end": 650,
-      "primary": "p_gm82kgv",
+      "primary": "p_7z8p7g1d",
       "support": "p_c68e57cc-fa66-4da1-8d01-11dc0688b896",
       "forced": false
     },
     {
       "id": 2,
-      "start": 630,
-      "end": 680,
-      "primary": null,
-      "support": null,
+      "start": 660,
+      "end": 710,
+      "primary": "p_c68e57cc-fa66-4da1-8d01-11dc0688b896",
+      "support": "p_7z8p7g1d",
       "forced": false
     },
     {
       "id": 3,
-      "start": 660,
-      "end": 710,
+      "start": 720,
+      "end": 770,
       "primary": "p_c68e57cc-fa66-4da1-8d01-11dc0688b896",
-      "support": "p_gm82kgv",
+      "support": "p_7z8p7g1d",
       "forced": false
     },
     {
       "id": 4,
-      "start": 690,
-      "end": 740,
-      "primary": null,
-      "support": null,
-      "forced": false
-    },
-    {
-      "id": 5,
-      "start": 720,
-      "end": 770,
-      "primary": "p_gm82kgv",
-      "support": "p_c68e57cc-fa66-4da1-8d01-11dc0688b896",
-      "forced": false
-    },
-    {
-      "id": 6,
-      "start": 750,
-      "end": 800,
-      "primary": null,
-      "support": null,
-      "forced": false
-    },
-    {
-      "id": 7,
       "start": 840,
       "end": 890,
       "primary": "p_gm82kgv",
       "support": "p_dae49218-849b-4536-8395-803f65eeae4e",
-      "forced": true
+      "forced": false
     },
     {
-      "id": 8,
+      "id": 5,
       "start": 870,
       "end": 920,
-      "primary": "p_c68e57cc-fa66-4da1-8d01-11dc0688b896",
+      "primary": "p_7z8p7g1d",
       "support": "p_gm82kgv",
       "forced": false
     },
     {
-      "id": 9,
+      "id": 6,
       "start": 900,
       "end": 950,
       "primary": "p_dae49218-849b-4536-8395-803f65eeae4e",
@@ -133,7 +116,7 @@
       "forced": false
     },
     {
-      "id": 10,
+      "id": 7,
       "start": 930,
       "end": 980,
       "primary": "p_gm82kgv",
@@ -141,15 +124,15 @@
       "forced": false
     },
     {
-      "id": 11,
+      "id": 8,
       "start": 960,
       "end": 1010,
-      "primary": "p_c68e57cc-fa66-4da1-8d01-11dc0688b896",
+      "primary": "p_7z8p7g1d",
       "support": "p_gm82kgv",
       "forced": false
     },
     {
-      "id": 12,
+      "id": 9,
       "start": 990,
       "end": 1040,
       "primary": "p_dae49218-849b-4536-8395-803f65eeae4e",
@@ -157,7 +140,7 @@
       "forced": false
     },
     {
-      "id": 13,
+      "id": 10,
       "start": 1020,
       "end": 1070,
       "primary": "p_gm82kgv",
@@ -165,43 +148,43 @@
       "forced": false
     },
     {
-      "id": 14,
+      "id": 11,
       "start": 1050,
       "end": 1100,
       "primary": "p_c68e57cc-fa66-4da1-8d01-11dc0688b896",
+      "support": "p_7z8p7g1d",
+      "forced": false
+    },
+    {
+      "id": 12,
+      "start": 1080,
+      "end": 1130,
+      "primary": "p_dae49218-849b-4536-8395-803f65eeae4e",
+      "support": "p_gm82kgv",
+      "forced": false
+    },
+    {
+      "id": 13,
+      "start": 1110,
+      "end": 1160,
+      "primary": "p_c68e57cc-fa66-4da1-8d01-11dc0688b896",
+      "support": "p_dae49218-849b-4536-8395-803f65eeae4e",
+      "forced": false
+    },
+    {
+      "id": 14,
+      "start": 1140,
+      "end": 1190,
+      "primary": "p_7z8p7g1d",
       "support": "p_gm82kgv",
       "forced": false
     },
     {
       "id": 15,
-      "start": 1080,
-      "end": 1130,
-      "primary": "p_dae49218-849b-4536-8395-803f65eeae4e",
-      "support": "p_c68e57cc-fa66-4da1-8d01-11dc0688b896",
-      "forced": false
-    },
-    {
-      "id": 16,
-      "start": 1110,
-      "end": 1160,
-      "primary": "p_gm82kgv",
-      "support": "p_dae49218-849b-4536-8395-803f65eeae4e",
-      "forced": false
-    },
-    {
-      "id": 17,
-      "start": 1140,
-      "end": 1190,
-      "primary": "p_c68e57cc-fa66-4da1-8d01-11dc0688b896",
-      "support": "p_gm82kgv",
-      "forced": false
-    },
-    {
-      "id": 18,
       "start": 1170,
       "end": 1220,
-      "primary": null,
-      "support": null,
+      "primary": "p_c68e57cc-fa66-4da1-8d01-11dc0688b896",
+      "support": "p_gm82kgv",
       "forced": false
     }
   ],
@@ -211,7 +194,8 @@
       "start": "10:00",
       "end": "10:05",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "REC",
           "module": 1
         },
@@ -224,7 +208,8 @@
       "start": "10:05",
       "end": "10:10",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "B",
           "module": 1
         },
@@ -237,7 +222,8 @@
       "start": "10:10",
       "end": "10:15",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "B",
           "module": 1
         },
@@ -250,7 +236,8 @@
       "start": "10:15",
       "end": "10:20",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "B",
           "module": 1
         },
@@ -263,7 +250,8 @@
       "start": "10:20",
       "end": "10:25",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "B",
           "module": 1
         },
@@ -276,7 +264,8 @@
       "start": "10:25",
       "end": "10:30",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "R",
           "module": 1
         },
@@ -292,7 +281,8 @@
       "start": "10:30",
       "end": "10:35",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "R",
           "module": 1
         },
@@ -308,7 +298,8 @@
       "start": "10:35",
       "end": "10:40",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "R",
           "module": 1
         },
@@ -324,7 +315,8 @@
       "start": "10:40",
       "end": "10:45",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "R",
           "module": 1
         },
@@ -340,7 +332,8 @@
       "start": "10:45",
       "end": "10:50",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "D",
           "module": 1
         },
@@ -357,6 +350,7 @@
       "end": "10:55",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -367,6 +361,7 @@
       "end": "11:00",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -377,9 +372,10 @@
       "end": "11:05",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "REC",
-          "module": 3
+          "module": 2
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -390,9 +386,10 @@
       "end": "11:10",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "B",
-          "module": 3
+          "module": 2
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -403,9 +400,10 @@
       "end": "11:15",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "B",
-          "module": 3
+          "module": 2
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -416,9 +414,10 @@
       "end": "11:20",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "B",
-          "module": 3
+          "module": 2
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -429,9 +428,10 @@
       "end": "11:25",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "B",
-          "module": 3
+          "module": 2
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -441,13 +441,14 @@
       "start": "11:25",
       "end": "11:30",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "AP",
-          "module": 3
+          "module": 2
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "R",
-          "module": 3
+          "module": 2
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -457,13 +458,14 @@
       "start": "11:30",
       "end": "11:35",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "AP",
-          "module": 3
+          "module": 2
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "R",
-          "module": 3
+          "module": 2
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -473,13 +475,14 @@
       "start": "11:35",
       "end": "11:40",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "AP",
-          "module": 3
+          "module": 2
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "R",
-          "module": 3
+          "module": 2
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -489,13 +492,14 @@
       "start": "11:40",
       "end": "11:45",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "AP",
-          "module": 3
+          "module": 2
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "R",
-          "module": 3
+          "module": 2
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -505,13 +509,14 @@
       "start": "11:45",
       "end": "11:50",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "AP",
-          "module": 3
+          "module": 2
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "D",
-          "module": 3
+          "module": 2
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -522,6 +527,7 @@
       "end": "11:55",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -532,6 +538,7 @@
       "end": "12:00",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -541,11 +548,12 @@
       "start": "12:00",
       "end": "12:05",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "REC",
-          "module": 5
+          "module": 3
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -554,11 +562,12 @@
       "start": "12:05",
       "end": "12:10",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "B",
-          "module": 5
+          "module": 3
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -567,11 +576,12 @@
       "start": "12:10",
       "end": "12:15",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "B",
-          "module": 5
+          "module": 3
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -580,11 +590,12 @@
       "start": "12:15",
       "end": "12:20",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "B",
-          "module": 5
+          "module": 3
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -593,11 +604,12 @@
       "start": "12:20",
       "end": "12:25",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "B",
-          "module": 5
+          "module": 3
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -606,13 +618,14 @@
       "start": "12:25",
       "end": "12:30",
       "assignments": {
-        "p_gm82kgv": {
-          "code": "R",
-          "module": 5
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
+          "code": "AP",
+          "module": 3
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
-          "code": "AP",
-          "module": 5
+          "code": "R",
+          "module": 3
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -622,13 +635,14 @@
       "start": "12:30",
       "end": "12:35",
       "assignments": {
-        "p_gm82kgv": {
-          "code": "R",
-          "module": 5
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
+          "code": "AP",
+          "module": 3
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
-          "code": "AP",
-          "module": 5
+          "code": "R",
+          "module": 3
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -638,13 +652,14 @@
       "start": "12:35",
       "end": "12:40",
       "assignments": {
-        "p_gm82kgv": {
-          "code": "R",
-          "module": 5
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
+          "code": "AP",
+          "module": 3
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
-          "code": "AP",
-          "module": 5
+          "code": "R",
+          "module": 3
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -654,13 +669,14 @@
       "start": "12:40",
       "end": "12:45",
       "assignments": {
-        "p_gm82kgv": {
-          "code": "R",
-          "module": 5
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
+          "code": "AP",
+          "module": 3
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
-          "code": "AP",
-          "module": 5
+          "code": "R",
+          "module": 3
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -670,13 +686,14 @@
       "start": "12:45",
       "end": "12:50",
       "assignments": {
-        "p_gm82kgv": {
-          "code": "D",
-          "module": 5
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
+          "code": "AP",
+          "module": 3
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
-          "code": "AP",
-          "module": 5
+          "code": "D",
+          "module": 3
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -687,6 +704,7 @@
       "end": "12:55",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -697,6 +715,7 @@
       "end": "13:00",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -707,6 +726,7 @@
       "end": "13:05",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -717,6 +737,7 @@
       "end": "13:10",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -727,6 +748,7 @@
       "end": "13:15",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -737,6 +759,7 @@
       "end": "13:20",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -747,6 +770,7 @@
       "end": "13:25",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -757,6 +781,7 @@
       "end": "13:30",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -767,6 +792,7 @@
       "end": "13:35",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -777,6 +803,7 @@
       "end": "13:40",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -787,6 +814,7 @@
       "end": "13:45",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -797,6 +825,7 @@
       "end": "13:50",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -807,6 +836,7 @@
       "end": "13:55",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -817,6 +847,7 @@
       "end": "14:00",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -828,8 +859,9 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "REC",
-          "module": 7
+          "module": 4
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -841,8 +873,9 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "B",
-          "module": 7
+          "module": 4
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -854,8 +887,9 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "B",
-          "module": 7
+          "module": 4
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -867,8 +901,9 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "B",
-          "module": 7
+          "module": 4
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -880,8 +915,9 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "B",
-          "module": 7
+          "module": 4
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -893,12 +929,13 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "R",
-          "module": 7
+          "module": 4
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 7
+          "module": 4
         }
       }
     },
@@ -909,15 +946,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "R",
-          "module": 7
+          "module": 4
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "REC",
-          "module": 8
+          "module": 5
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 7
+          "module": 4
         }
       }
     },
@@ -928,15 +966,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "R",
-          "module": 7
+          "module": 4
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "B",
-          "module": 8
+          "module": 5
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 7
+          "module": 4
         }
       }
     },
@@ -947,15 +986,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "R",
-          "module": 7
+          "module": 4
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "B",
-          "module": 8
+          "module": 5
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 7
+          "module": 4
         }
       }
     },
@@ -966,15 +1006,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "D",
-          "module": 7
+          "module": 4
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "B",
-          "module": 8
+          "module": 5
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 7
+          "module": 4
         }
       }
     },
@@ -984,10 +1025,11 @@
       "end": "14:55",
       "assignments": {
         "p_gm82kgv": null,
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "B",
-          "module": 8
+          "module": 5
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -998,12 +1040,13 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "AP",
-          "module": 8
+          "module": 5
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "R",
-          "module": 8
+          "module": 5
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -1014,15 +1057,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "AP",
-          "module": 8
+          "module": 5
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "R",
-          "module": 8
+          "module": 5
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "REC",
-          "module": 9
+          "module": 6
         }
       }
     },
@@ -1033,15 +1077,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "AP",
-          "module": 8
+          "module": 5
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "R",
-          "module": 8
+          "module": 5
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "B",
-          "module": 9
+          "module": 6
         }
       }
     },
@@ -1052,15 +1097,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "AP",
-          "module": 8
+          "module": 5
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "R",
-          "module": 8
+          "module": 5
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "B",
-          "module": 9
+          "module": 6
         }
       }
     },
@@ -1071,15 +1117,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "AP",
-          "module": 8
+          "module": 5
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "D",
-          "module": 8
+          "module": 5
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "B",
-          "module": 9
+          "module": 6
         }
       }
     },
@@ -1089,10 +1136,11 @@
       "end": "15:25",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "B",
-          "module": 9
+          "module": 6
         }
       }
     },
@@ -1102,13 +1150,14 @@
       "end": "15:30",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "AP",
-          "module": 9
+          "module": 6
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "R",
-          "module": 9
+          "module": 6
         }
       }
     },
@@ -1119,15 +1168,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "REC",
-          "module": 10
+          "module": 7
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "AP",
-          "module": 9
+          "module": 6
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "R",
-          "module": 9
+          "module": 6
         }
       }
     },
@@ -1138,15 +1188,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "B",
-          "module": 10
+          "module": 7
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "AP",
-          "module": 9
+          "module": 6
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "R",
-          "module": 9
+          "module": 6
         }
       }
     },
@@ -1157,15 +1208,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "B",
-          "module": 10
+          "module": 7
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "AP",
-          "module": 9
+          "module": 6
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "R",
-          "module": 9
+          "module": 6
         }
       }
     },
@@ -1176,15 +1228,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "B",
-          "module": 10
+          "module": 7
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "AP",
-          "module": 9
+          "module": 6
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "D",
-          "module": 9
+          "module": 6
         }
       }
     },
@@ -1195,8 +1248,9 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "B",
-          "module": 10
+          "module": 7
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -1208,12 +1262,13 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "R",
-          "module": 10
+          "module": 7
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 10
+          "module": 7
         }
       }
     },
@@ -1224,15 +1279,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "R",
-          "module": 10
+          "module": 7
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "REC",
-          "module": 11
+          "module": 8
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 10
+          "module": 7
         }
       }
     },
@@ -1243,15 +1299,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "R",
-          "module": 10
+          "module": 7
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "B",
-          "module": 11
+          "module": 8
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 10
+          "module": 7
         }
       }
     },
@@ -1262,15 +1319,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "R",
-          "module": 10
+          "module": 7
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "B",
-          "module": 11
+          "module": 8
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 10
+          "module": 7
         }
       }
     },
@@ -1281,15 +1339,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "D",
-          "module": 10
+          "module": 7
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "B",
-          "module": 11
+          "module": 8
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 10
+          "module": 7
         }
       }
     },
@@ -1299,10 +1358,11 @@
       "end": "16:25",
       "assignments": {
         "p_gm82kgv": null,
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "B",
-          "module": 11
+          "module": 8
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -1313,12 +1373,13 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "AP",
-          "module": 11
+          "module": 8
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "R",
-          "module": 11
+          "module": 8
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -1329,15 +1390,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "AP",
-          "module": 11
+          "module": 8
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "R",
-          "module": 11
+          "module": 8
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "REC",
-          "module": 12
+          "module": 9
         }
       }
     },
@@ -1348,15 +1410,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "AP",
-          "module": 11
+          "module": 8
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "R",
-          "module": 11
+          "module": 8
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "B",
-          "module": 12
+          "module": 9
         }
       }
     },
@@ -1367,15 +1430,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "AP",
-          "module": 11
+          "module": 8
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "R",
-          "module": 11
+          "module": 8
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "B",
-          "module": 12
+          "module": 9
         }
       }
     },
@@ -1386,15 +1450,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "AP",
-          "module": 11
+          "module": 8
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "D",
-          "module": 11
+          "module": 8
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "B",
-          "module": 12
+          "module": 9
         }
       }
     },
@@ -1404,10 +1469,11 @@
       "end": "16:55",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "B",
-          "module": 12
+          "module": 9
         }
       }
     },
@@ -1417,13 +1483,14 @@
       "end": "17:00",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "AP",
-          "module": 12
+          "module": 9
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "R",
-          "module": 12
+          "module": 9
         }
       }
     },
@@ -1434,15 +1501,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "REC",
-          "module": 13
+          "module": 10
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "AP",
-          "module": 12
+          "module": 9
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "R",
-          "module": 12
+          "module": 9
         }
       }
     },
@@ -1453,15 +1521,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "B",
-          "module": 13
+          "module": 10
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "AP",
-          "module": 12
+          "module": 9
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "R",
-          "module": 12
+          "module": 9
         }
       }
     },
@@ -1472,15 +1541,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "B",
-          "module": 13
+          "module": 10
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "AP",
-          "module": 12
+          "module": 9
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "R",
-          "module": 12
+          "module": 9
         }
       }
     },
@@ -1491,15 +1561,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "B",
-          "module": 13
+          "module": 10
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "AP",
-          "module": 12
+          "module": 9
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "D",
-          "module": 12
+          "module": 9
         }
       }
     },
@@ -1510,8 +1581,9 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "B",
-          "module": 13
+          "module": 10
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -1523,12 +1595,13 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "R",
-          "module": 13
+          "module": 10
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 13
+          "module": 10
         }
       }
     },
@@ -1539,15 +1612,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "R",
-          "module": 13
+          "module": 10
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "REC",
-          "module": 14
+          "module": 11
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 13
+          "module": 10
         }
       }
     },
@@ -1558,15 +1632,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "R",
-          "module": 13
+          "module": 10
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "B",
-          "module": 14
+          "module": 11
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 13
+          "module": 10
         }
       }
     },
@@ -1577,15 +1652,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "R",
-          "module": 13
+          "module": 10
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "B",
-          "module": 14
+          "module": 11
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 13
+          "module": 10
         }
       }
     },
@@ -1596,15 +1672,16 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "D",
-          "module": 13
+          "module": 10
         },
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "B",
-          "module": 14
+          "module": 11
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 13
+          "module": 10
         }
       }
     },
@@ -1614,9 +1691,10 @@
       "end": "17:55",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "B",
-          "module": 14
+          "module": 11
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -1626,13 +1704,14 @@
       "start": "17:55",
       "end": "18:00",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "AP",
-          "module": 14
+          "module": 11
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "R",
-          "module": 14
+          "module": 11
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -1642,17 +1721,18 @@
       "start": "18:00",
       "end": "18:05",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "AP",
-          "module": 14
+          "module": 11
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "R",
-          "module": 14
+          "module": 11
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "REC",
-          "module": 15
+          "module": 12
         }
       }
     },
@@ -1661,17 +1741,18 @@
       "start": "18:05",
       "end": "18:10",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "AP",
-          "module": 14
+          "module": 11
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "R",
-          "module": 14
+          "module": 11
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "B",
-          "module": 15
+          "module": 12
         }
       }
     },
@@ -1680,17 +1761,18 @@
       "start": "18:10",
       "end": "18:15",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "AP",
-          "module": 14
+          "module": 11
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "R",
-          "module": 14
+          "module": 11
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "B",
-          "module": 15
+          "module": 12
         }
       }
     },
@@ -1699,17 +1781,18 @@
       "start": "18:15",
       "end": "18:20",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
           "code": "AP",
-          "module": 14
+          "module": 11
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "D",
-          "module": 14
+          "module": 11
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "B",
-          "module": 15
+          "module": 12
         }
       }
     },
@@ -1719,10 +1802,11 @@
       "end": "18:25",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "B",
-          "module": 15
+          "module": 12
         }
       }
     },
@@ -1731,14 +1815,15 @@
       "start": "18:25",
       "end": "18:30",
       "assignments": {
-        "p_gm82kgv": null,
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_gm82kgv": {
           "code": "AP",
-          "module": 15
+          "module": 12
         },
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "R",
-          "module": 15
+          "module": 12
         }
       }
     },
@@ -1748,16 +1833,17 @@
       "end": "18:35",
       "assignments": {
         "p_gm82kgv": {
-          "code": "REC",
-          "module": 16
-        },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "AP",
-          "module": 15
+          "module": 12
+        },
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+          "code": "REC",
+          "module": 13
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "R",
-          "module": 15
+          "module": 12
         }
       }
     },
@@ -1767,16 +1853,17 @@
       "end": "18:40",
       "assignments": {
         "p_gm82kgv": {
-          "code": "B",
-          "module": 16
-        },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "AP",
-          "module": 15
+          "module": 12
+        },
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+          "code": "B",
+          "module": 13
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "R",
-          "module": 15
+          "module": 12
         }
       }
     },
@@ -1786,16 +1873,17 @@
       "end": "18:45",
       "assignments": {
         "p_gm82kgv": {
-          "code": "B",
-          "module": 16
-        },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "AP",
-          "module": 15
+          "module": 12
+        },
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+          "code": "B",
+          "module": 13
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "R",
-          "module": 15
+          "module": 12
         }
       }
     },
@@ -1805,16 +1893,17 @@
       "end": "18:50",
       "assignments": {
         "p_gm82kgv": {
-          "code": "B",
-          "module": 16
-        },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "AP",
-          "module": 15
+          "module": 12
+        },
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+          "code": "B",
+          "module": 13
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "D",
-          "module": 15
+          "module": 12
         }
       }
     },
@@ -1823,11 +1912,12 @@
       "start": "18:50",
       "end": "18:55",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "B",
-          "module": 16
+          "module": 13
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -1836,14 +1926,15 @@
       "start": "18:55",
       "end": "19:00",
       "assignments": {
-        "p_gm82kgv": {
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
           "code": "R",
-          "module": 16
+          "module": 13
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 16
+          "module": 13
         }
       }
     },
@@ -1852,17 +1943,18 @@
       "start": "19:00",
       "end": "19:05",
       "assignments": {
-        "p_gm82kgv": {
-          "code": "R",
-          "module": 16
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
+          "code": "REC",
+          "module": 14
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
-          "code": "REC",
-          "module": 17
+          "code": "R",
+          "module": 13
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 16
+          "module": 13
         }
       }
     },
@@ -1871,17 +1963,18 @@
       "start": "19:05",
       "end": "19:10",
       "assignments": {
-        "p_gm82kgv": {
-          "code": "R",
-          "module": 16
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
+          "code": "B",
+          "module": 14
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
-          "code": "B",
-          "module": 17
+          "code": "R",
+          "module": 13
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 16
+          "module": 13
         }
       }
     },
@@ -1890,17 +1983,18 @@
       "start": "19:10",
       "end": "19:15",
       "assignments": {
-        "p_gm82kgv": {
-          "code": "R",
-          "module": 16
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
+          "code": "B",
+          "module": 14
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
-          "code": "B",
-          "module": 17
+          "code": "R",
+          "module": 13
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 16
+          "module": 13
         }
       }
     },
@@ -1909,17 +2003,18 @@
       "start": "19:15",
       "end": "19:20",
       "assignments": {
-        "p_gm82kgv": {
-          "code": "D",
-          "module": 16
+        "p_gm82kgv": null,
+        "p_7z8p7g1d": {
+          "code": "B",
+          "module": 14
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
-          "code": "B",
-          "module": 17
+          "code": "D",
+          "module": 13
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": {
           "code": "AP",
-          "module": 16
+          "module": 13
         }
       }
     },
@@ -1929,10 +2024,11 @@
       "end": "19:25",
       "assignments": {
         "p_gm82kgv": null,
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "B",
-          "module": 17
+          "module": 14
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -1943,12 +2039,13 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "AP",
-          "module": 17
+          "module": 14
         },
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+        "p_7z8p7g1d": {
           "code": "R",
-          "module": 17
+          "module": 14
         },
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -1959,11 +2056,15 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "AP",
-          "module": 17
+          "module": 14
+        },
+        "p_7z8p7g1d": {
+          "code": "R",
+          "module": 14
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
-          "code": "R",
-          "module": 17
+          "code": "REC",
+          "module": 15
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -1975,11 +2076,15 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "AP",
-          "module": 17
+          "module": 14
+        },
+        "p_7z8p7g1d": {
+          "code": "R",
+          "module": 14
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
-          "code": "R",
-          "module": 17
+          "code": "B",
+          "module": 15
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -1991,11 +2096,15 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "AP",
-          "module": 17
+          "module": 14
+        },
+        "p_7z8p7g1d": {
+          "code": "R",
+          "module": 14
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
-          "code": "R",
-          "module": 17
+          "code": "B",
+          "module": 15
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -2007,11 +2116,15 @@
       "assignments": {
         "p_gm82kgv": {
           "code": "AP",
-          "module": 17
+          "module": 14
+        },
+        "p_7z8p7g1d": {
+          "code": "D",
+          "module": 14
         },
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
-          "code": "D",
-          "module": 17
+          "code": "B",
+          "module": 15
         },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -2022,7 +2135,11 @@
       "end": "19:55",
       "assignments": {
         "p_gm82kgv": null,
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+          "code": "B",
+          "module": 15
+        },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -2031,8 +2148,15 @@
       "start": "19:55",
       "end": "20:00",
       "assignments": {
-        "p_gm82kgv": null,
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
+        "p_gm82kgv": {
+          "code": "AP",
+          "module": 15
+        },
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+          "code": "R",
+          "module": 15
+        },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -2041,8 +2165,15 @@
       "start": "20:00",
       "end": "20:05",
       "assignments": {
-        "p_gm82kgv": null,
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
+        "p_gm82kgv": {
+          "code": "AP",
+          "module": 15
+        },
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+          "code": "R",
+          "module": 15
+        },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -2051,8 +2182,15 @@
       "start": "20:05",
       "end": "20:10",
       "assignments": {
-        "p_gm82kgv": null,
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
+        "p_gm82kgv": {
+          "code": "AP",
+          "module": 15
+        },
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+          "code": "R",
+          "module": 15
+        },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -2061,8 +2199,15 @@
       "start": "20:10",
       "end": "20:15",
       "assignments": {
-        "p_gm82kgv": null,
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
+        "p_gm82kgv": {
+          "code": "AP",
+          "module": 15
+        },
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+          "code": "R",
+          "module": 15
+        },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -2071,8 +2216,15 @@
       "start": "20:15",
       "end": "20:20",
       "assignments": {
-        "p_gm82kgv": null,
-        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
+        "p_gm82kgv": {
+          "code": "AP",
+          "module": 15
+        },
+        "p_7z8p7g1d": null,
+        "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": {
+          "code": "D",
+          "module": 15
+        },
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     },
@@ -2082,6 +2234,7 @@
       "end": "20:25",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
@@ -2092,20 +2245,16 @@
       "end": "20:30",
       "assignments": {
         "p_gm82kgv": null,
+        "p_7z8p7g1d": null,
         "p_c68e57cc-fa66-4da1-8d01-11dc0688b896": null,
         "p_dae49218-849b-4536-8395-803f65eeae4e": null
       }
     }
   ],
-  "issues": [
-    "Módulo 2 (10:30): falta monitor principal disponible durante los 50 min.",
-    "Módulo 4 (11:30): falta monitor principal disponible durante los 50 min.",
-    "Módulo 6 (12:30): falta monitor principal disponible durante los 50 min.",
-    "Módulo 18 (19:30): falta monitor principal disponible durante los 50 min."
-  ],
+  "issues": [],
   "publication": {
     "type": "muro",
     "date": "2026-11-28",
-    "publishedAt": "2026-11-27T08:25:49.828Z"
+    "publishedAt": "2026-11-28T00:35:57.638Z"
   }
 }
